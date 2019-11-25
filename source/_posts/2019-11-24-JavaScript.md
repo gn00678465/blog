@@ -8,6 +8,8 @@ tags:
 # JavaScript 基礎介紹
 JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。
 
+<!--more-->
+
 # 編譯式語言 & 直譯式語言
 ![編譯式語言](Compiled_language.png)
 **編譯式語言**：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。
