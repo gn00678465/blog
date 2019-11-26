@@ -1,7 +1,8 @@
 ---
 title: JavaScript
 date: 2019-11-24 22:06:17
-tags:
+tags: 
+- JavaScript
 ---
 <link href="all.css" rel="stylesheet"></link>
 
@@ -82,3 +83,36 @@ fn2();
 >JS為語法作用域，console.log的結果會是1。
 
 但如果是動態作用域的話，結果就不一樣了。在執行到console.log(value)時，他會向上一層調用的函式來查找value的值，因此找到值等於2。
+
+# 執行環境與執行堆疊
+
+## 執行環境 Execution Context
+
+當函式被執行時，會產生“執行環境 Execution Context”。
+每執行一次便會產生一個新的執行環境。
+![](./Execution_Context.png)
+
+除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。
+(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000>this是會隨著執行環境不同而改變的</font>**)。
+![](./Execution_Context_global.png)
+
+## 執行堆疊 Execution stack
+
+執行堆疊跟函式在宣告的時候的時候"沒有關聯"，而是與"呼叫的位置"有關。
+從以下程式碼來看：
+```javascript
+function sayHi(name){
+  //…
+}
+function doSomething(){
+  sayHi();
+}
+doSomething();
+```
+1. 首先，在瀏覽器開啟或是Node.js啟動時，全域執行環境就會被建立。
+2. 接著我們執行doSomething函式，所以doSomething的執行環境被生成，且堆疊在全域執行環境之上。
+3. 在doSomething函式中我們又執行了sayHi函式，因此sayHi的執行環境被生成，且堆疊在doSomething執行環境之上。
+4. 當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。
+![](./Execution_stake.png)
+
+我們可以從chrome 開發者工具中的source tab，一步一步觀察執行堆疊的運作。
