@@ -48,6 +48,7 @@
 </script>
 
   <meta name="description" content="JavaScript 基礎介紹JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;index.html">
@@ -61,7 +62,10 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Lexical_Scope.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope_2.png">
-<meta property="og:updated_time" content="2019-11-26T14:07:10.823Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context_global.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_stake.png">
+<meta property="og:updated_time" content="2019-11-26T15:03:08.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -208,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-26 22:07:10" itemprop="dateModified" datetime="2019-11-26T22:07:10+08:00">2019-11-26</time>
+                <time title="修改時間：2019-11-26 23:03:08" itemprop="dateModified" datetime="2019-11-26T23:03:08+08:00">2019-11-26</time>
               </span>
 
           
@@ -253,6 +257,17 @@
 <p>JS為語法作用域，console.log的結果會是1。</p>
 </blockquote>
 <p>但如果是動態作用域的話，結果就不一樣了。在執行到console.log(value)時，他會向上一層調用的函式來查找value的值，因此找到值等於2。</p>
+<h1 id="執行環境與執行堆疊"><a href="#執行環境與執行堆疊" class="headerlink" title="執行環境與執行堆疊"></a>執行環境與執行堆疊</h1><h2 id="執行環境-Execution-Context"><a href="#執行環境-Execution-Context" class="headerlink" title="執行環境 Execution Context"></a>執行環境 Execution Context</h2><p>當函式被執行時，會產生“執行環境 Execution Context”。<br>每執行一次便會產生一個新的執行環境。<br><img src="./Execution_Context.png" alt=""></p>
+<p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000>this是會隨著執行環境不同而改變的</font>**)。<br><img src="./Execution_Context_global.png" alt=""></p>
+<h2 id="執行堆疊-Execution-stack"><a href="#執行堆疊-Execution-stack" class="headerlink" title="執行堆疊 Execution stack"></a>執行堆疊 Execution stack</h2><p>執行堆疊跟函式在宣告的時候的時候”沒有關聯”，而是與”呼叫的位置”有關。<br>從以下程式碼來看：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line">doSomething();</span><br></pre></td></tr></table></figure>
+<ol>
+<li>首先，在瀏覽器開啟或是Node.js啟動時，全域執行環境就會被建立。</li>
+<li>接著我們執行doSomething函式，所以doSomething的執行環境被生成，且堆疊在全域執行環境之上。</li>
+<li>在doSomething函式中我們又執行了sayHi函式，因此sayHi的執行環境被生成，且堆疊在doSomething執行環境之上。</li>
+<li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。<br><img src="./Execution_stake.png" alt=""></li>
+</ol>
+<p>我們可以從chrome 開發者工具中的source tab，一步一步觀察執行堆疊的運作。</p>
 
     </div>
 
@@ -261,6 +276,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
 
         
 
@@ -309,7 +327,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-amp-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-amp-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行環境與執行堆疊"><span class="nav-number">6.</span> <span class="nav-text">執行環境與執行堆疊</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境-Execution-Context"><span class="nav-number">6.1.</span> <span class="nav-text">執行環境 Execution Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊-Execution-stack"><span class="nav-number">6.2.</span> <span class="nav-text">執行堆疊 Execution stack</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -326,6 +344,10 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
 </div>
