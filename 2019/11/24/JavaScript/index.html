@@ -58,7 +58,10 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Interpreted_language.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;JS_process.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;RHS_LHS.png">
-<meta property="og:updated_time" content="2019-11-25T16:02:34.999Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Lexical_Scope.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope_2.png">
+<meta property="og:updated_time" content="2019-11-26T14:07:10.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -205,7 +208,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-26 00:02:34" itemprop="dateModified" datetime="2019-11-26T00:02:34+08:00">2019-11-26</time>
+                <time title="修改時間：2019-11-26 22:07:10" itemprop="dateModified" datetime="2019-11-26T22:07:10+08:00">2019-11-26</time>
               </span>
 
           
@@ -224,7 +227,8 @@
 <h1 id="JavaScript-基礎介紹"><a href="#JavaScript-基礎介紹" class="headerlink" title="JavaScript 基礎介紹"></a>JavaScript 基礎介紹</h1><p>JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。</p>
 <a id="more"></a>
 
-<h1 id="編譯式語言-amp-直譯式語言"><a href="#編譯式語言-amp-直譯式語言" class="headerlink" title="編譯式語言 &amp; 直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1><p><img src="Compiled_language.png" alt="編譯式語言"><br><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br><em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
+<h1 id="編譯式語言-amp-直譯式語言"><a href="#編譯式語言-amp-直譯式語言" class="headerlink" title="編譯式語言 &amp; 直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1><p>我們寫的原始碼是無法直接被電腦或是瀏覽器閱讀的，在被電腦運行之前須經過“解譯”成電腦看得懂的代碼。<br>而其中又可分為<strong>編譯式語言</strong>&amp;<strong>直譯式語言</strong>。</p>
+<p><img src="Compiled_language.png" alt="編譯式語言"><br><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br><em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
 <p><img src="Interpreted_language.png" alt="直譯式語言"><br><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br><em>Example</em>：JavaScript、Python、Ruby等等。</p>
 <h1 id="JavaScript-是如何運行的"><a href="#JavaScript-是如何運行的" class="headerlink" title="JavaScript 是如何運行的"></a>JavaScript 是如何運行的</h1><p><img src="JS_process.png" alt="JS轉換過程"><br>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>以下是JavaScript經過直譯器轉換的過程。<br><strong>1. 語法基本單元化(Tokenizing)。</strong><br>    將一串字元拆解成(對該語言)有意義的組塊，這些組塊就叫做語法基本單元化。<br><strong>2. 組成抽象語法樹AST（Abstract Syntax Tree）。</strong><br>    將token流轉化為一個有元素層級巢狀所組成的代表程式語法結構的樹，這個樹被叫做抽象語法樹AST。<br><strong>3. 代碼生成。</strong></p>
 <p>可透過編譯網站來了解語法單元化(Tokenizing)。<br><a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">編譯網站</a></p>
@@ -234,7 +238,22 @@
 <li>LHS：將值賦予至左側的變數，如果左側不為’identifier’ or 無法被賦予時，會丟出’Invalid left-hand side’的錯誤訊息。</li>
 </ol>
 <p><strong><font color=#800000>如有出現錯誤需立即修正，否則錯誤後方的程式碼會無法運行。</font></strong></p>
-<h1 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域(Lexical scope)"></a>語法作用域(Lexical scope)</h1>
+<h1 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域(Lexical scope)"></a>語法作用域(Lexical scope)</h1><p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br><strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br><strong>動態作用域</strong> ：在函式調用時才決定作用域。<br><img src="./Lexical_Scope.png" alt=""></p>
+<blockquote>
+<p><strong>JS採用靜態作用域(又稱語法作用域)。</strong></p>
+</blockquote>
+<p>在JS的作用域中<br><img src="./Scope.png" alt=""></p>
+<blockquote>
+<p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>查找到便會調用此變數，<br>但如果查找不到此變數時就會出現錯誤 <strong><font color=#800000>ReferenceError: 變數 is not defined</font></strong>。<br><img src="Scope_2.png" alt=""></p>
+</blockquote>
+<p>EX:以下這段程式碼，會印出什麼結果呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">    fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line"><span class="comment">// 語法作用域下顯示為：1</span></span><br><span class="line"><span class="comment">// 動態作用域下顯示為：2</span></span><br></pre></td></tr></table></figure>
+<p>首先，我們宣告了一個變數value, 他是一個全域變數。接著宣告兩個函式，最後執行fn2。<br>執行fn2時，我們把變數value賦予了另外一個值2，接著執行fn1。fn1因為要印出value，因此向外查找value這個變數，在全域中找到value，值等於1。最後console.log的結果會是1。</p>
+<blockquote>
+<p>JS為語法作用域，console.log的結果會是1。</p>
+</blockquote>
+<p>但如果是動態作用域的話，結果就不一樣了。在執行到console.log(value)時，他會向上一層調用的函式來查找value的值，因此找到值等於2。</p>
+
     </div>
 
     
