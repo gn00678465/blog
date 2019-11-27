@@ -61,11 +61,11 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;RHS_LHS.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Lexical_Scope.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope_2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context_global.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_stake.png">
-<meta property="og:updated_time" content="2019-11-26T15:03:08.952Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;scope_chain.png">
+<meta property="og:updated_time" content="2019-11-27T15:15:11.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -212,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-26 23:03:08" itemprop="dateModified" datetime="2019-11-26T23:03:08+08:00">2019-11-26</time>
+                <time title="修改時間：2019-11-27 23:15:11" itemprop="dateModified" datetime="2019-11-27T23:15:11+08:00">2019-11-27</time>
               </span>
 
           
@@ -226,30 +226,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link href="all.css" rel="stylesheet"></link>
-
-<h1 id="JavaScript-基礎介紹"><a href="#JavaScript-基礎介紹" class="headerlink" title="JavaScript 基礎介紹"></a>JavaScript 基礎介紹</h1><p>JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。</p>
+        <h1 id="JavaScript-基礎介紹"><a href="#JavaScript-基礎介紹" class="headerlink" title="JavaScript 基礎介紹"></a>JavaScript 基礎介紹</h1><p>JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。</p>
 <a id="more"></a>
 
 <h1 id="編譯式語言-amp-直譯式語言"><a href="#編譯式語言-amp-直譯式語言" class="headerlink" title="編譯式語言 &amp; 直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1><p>我們寫的原始碼是無法直接被電腦或是瀏覽器閱讀的，在被電腦運行之前須經過“解譯”成電腦看得懂的代碼。<br>而其中又可分為<strong>編譯式語言</strong>&amp;<strong>直譯式語言</strong>。</p>
-<p><img src="Compiled_language.png" alt="編譯式語言"><br><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br><em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
-<p><img src="Interpreted_language.png" alt="直譯式語言"><br><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br><em>Example</em>：JavaScript、Python、Ruby等等。</p>
-<h1 id="JavaScript-是如何運行的"><a href="#JavaScript-是如何運行的" class="headerlink" title="JavaScript 是如何運行的"></a>JavaScript 是如何運行的</h1><p><img src="JS_process.png" alt="JS轉換過程"><br>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>以下是JavaScript經過直譯器轉換的過程。<br><strong>1. 語法基本單元化(Tokenizing)。</strong><br>    將一串字元拆解成(對該語言)有意義的組塊，這些組塊就叫做語法基本單元化。<br><strong>2. 組成抽象語法樹AST（Abstract Syntax Tree）。</strong><br>    將token流轉化為一個有元素層級巢狀所組成的代表程式語法結構的樹，這個樹被叫做抽象語法樹AST。<br><strong>3. 代碼生成。</strong></p>
+<img src="/2019/11/24/JavaScript/Compiled_language.png" class="" width="800" title="編譯式語言">
+<p><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br><em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
+<img src="/2019/11/24/JavaScript/Interpreted_language.png" class="" width="800" title="直譯式語言">
+<p><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br><em>Example</em>：JavaScript、Python、Ruby等等。</p>
+<h1 id="JavaScript-是如何運行的"><a href="#JavaScript-是如何運行的" class="headerlink" title="JavaScript 是如何運行的"></a>JavaScript 是如何運行的</h1><img src="/2019/11/24/JavaScript/JS_process.png" class="" width="800" title="JS轉換過程">
+<p>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>以下是JavaScript經過直譯器轉換的過程。<br><strong>1. 語法基本單元化(Tokenizing)。</strong><br>    將一串字元拆解成(對該語言)有意義的組塊，這些組塊就叫做語法基本單元化。<br><strong>2. 組成抽象語法樹AST（Abstract Syntax Tree）。</strong><br>    將token流轉化為一個有元素層級巢狀所組成的代表程式語法結構的樹，這個樹被叫做抽象語法樹AST。<br><strong>3. 代碼生成。</strong></p>
 <p>可透過編譯網站來了解語法單元化(Tokenizing)。<br><a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">編譯網站</a></p>
-<h1 id="執行的錯誤情境-LHS-RHS"><a href="#執行的錯誤情境-LHS-RHS" class="headerlink" title="執行的錯誤情境 LHS, RHS"></a>執行的錯誤情境 LHS, RHS</h1><p><img src="./RHS_LHS.png" alt=""><br>此錯誤與取值與賦予值有相當的關係。</p>
+<h1 id="執行的錯誤情境-LHS-RHS"><a href="#執行的錯誤情境-LHS-RHS" class="headerlink" title="執行的錯誤情境 LHS, RHS"></a>執行的錯誤情境 LHS, RHS</h1><img src="/2019/11/24/JavaScript/RHS_LHS.png" class="" width="800" title="LHS &amp; RHS">
+<p>此錯誤與取值與賦予值有相當的關係。</p>
 <ol>
 <li>RHS：將值從右側的變數中取出，當無法取值時，會丟出’ReferrenceError’的錯誤訊息。</li>
 <li>LHS：將值賦予至左側的變數，如果左側不為’identifier’ or 無法被賦予時，會丟出’Invalid left-hand side’的錯誤訊息。</li>
 </ol>
 <p><strong><font color=#800000>如有出現錯誤需立即修正，否則錯誤後方的程式碼會無法運行。</font></strong></p>
-<h1 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域(Lexical scope)"></a>語法作用域(Lexical scope)</h1><p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br><strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br><strong>動態作用域</strong> ：在函式調用時才決定作用域。<br><img src="./Lexical_Scope.png" alt=""></p>
+<h1 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域(Lexical scope)"></a>語法作用域(Lexical scope)</h1><p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br><strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br><strong>動態作用域</strong> ：在函式調用時才決定作用域。</p>
+<img src="/2019/11/24/JavaScript/Lexical_Scope.png" class="" width="800" title="靜態作用域">
 <blockquote>
 <p><strong>JS採用靜態作用域(又稱語法作用域)。</strong></p>
 </blockquote>
-<p>在JS的作用域中<br><img src="./Scope.png" alt=""></p>
+<p>在JS的作用域中</p>
+<img src="/2019/11/24/JavaScript/Scope.png" class="" width="800" title="作用域">
 <blockquote>
-<p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>查找到便會調用此變數，<br>但如果查找不到此變數時就會出現錯誤 <strong><font color=#800000>ReferenceError: 變數 is not defined</font></strong>。<br><img src="Scope_2.png" alt=""></p>
+<p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>查找到便會調用此變數，<br>但如果查找不到此變數時就會出現錯誤 <strong><font color=#800000>ReferenceError: 變數 is not defined</font></strong>。</p>
 </blockquote>
+
+
 <p>EX:以下這段程式碼，會印出什麼結果呢？</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">    fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line"><span class="comment">// 語法作用域下顯示為：1</span></span><br><span class="line"><span class="comment">// 動態作用域下顯示為：2</span></span><br></pre></td></tr></table></figure>
 <p>首先，我們宣告了一個變數value, 他是一個全域變數。接著宣告兩個函式，最後執行fn2。<br>執行fn2時，我們把變數value賦予了另外一個值2，接著執行fn1。fn1因為要印出value，因此向外查找value這個變數，在全域中找到value，值等於1。最後console.log的結果會是1。</p>
@@ -257,18 +263,40 @@
 <p>JS為語法作用域，console.log的結果會是1。</p>
 </blockquote>
 <p>但如果是動態作用域的話，結果就不一樣了。在執行到console.log(value)時，他會向上一層調用的函式來查找value的值，因此找到值等於2。</p>
-<h1 id="執行環境與執行堆疊"><a href="#執行環境與執行堆疊" class="headerlink" title="執行環境與執行堆疊"></a>執行環境與執行堆疊</h1><h2 id="執行環境-Execution-Context"><a href="#執行環境-Execution-Context" class="headerlink" title="執行環境 Execution Context"></a>執行環境 Execution Context</h2><p>當函式被執行時，會產生“執行環境 Execution Context”。<br>每執行一次便會產生一個新的執行環境。<br><img src="./Execution_Context.png" alt=""></p>
-<p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000>this是會隨著執行環境不同而改變的</font>**)。<br><img src="./Execution_Context_global.png" alt=""></p>
+<h1 id="執行環境與執行堆疊"><a href="#執行環境與執行堆疊" class="headerlink" title="執行環境與執行堆疊"></a>執行環境與執行堆疊</h1><h2 id="執行環境-Execution-Context"><a href="#執行環境-Execution-Context" class="headerlink" title="執行環境 Execution Context"></a>執行環境 Execution Context</h2><p>當函式被執行時，會產生“執行環境 Execution Context”。<br>每執行一次便會產生一個新的執行環境。</p>
+<img src="/2019/11/24/JavaScript/Execution_Context.png" class="" width="800" title="執行環境">
+
+<p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000><strong>this是會隨著執行環境不同而改變的</strong></font>)。</p>
+<img src="/2019/11/24/JavaScript/Execution_Context_global.png" class="" width="800" title="全域執行環境">
+
 <h2 id="執行堆疊-Execution-stack"><a href="#執行堆疊-Execution-stack" class="headerlink" title="執行堆疊 Execution stack"></a>執行堆疊 Execution stack</h2><p>執行堆疊跟函式在宣告的時候的時候”沒有關聯”，而是與”呼叫的位置”有關。<br>從以下程式碼來看：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line">doSomething();</span><br></pre></td></tr></table></figure>
 <ol>
 <li>首先，在瀏覽器開啟或是Node.js啟動時，全域執行環境就會被建立。</li>
 <li>接著我們執行doSomething函式，所以doSomething的執行環境被生成，且堆疊在全域執行環境之上。</li>
 <li>在doSomething函式中我們又執行了sayHi函式，因此sayHi的執行環境被生成，且堆疊在doSomething執行環境之上。</li>
-<li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。<br><img src="./Execution_stake.png" alt=""></li>
+<li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。<img src="/2019/11/24/JavaScript/Execution_stake.png" class="" width="800" title="執行堆疊">
+
+</li>
 </ol>
 <p>我們可以從chrome 開發者工具中的source tab，一步一步觀察執行堆疊的運作。</p>
-
+<h1 id="範圍鍊-Scope-chain"><a href="#範圍鍊-Scope-chain" class="headerlink" title="範圍鍊 Scope chain"></a>範圍鍊 Scope chain</h1><p>每個變數都有自己的作用範圍，若使用前未宣告，就會變成全域變數，若是在函式內宣告的變數，則只能在該區域內使用，也就是說 JavaScript 在查找變數時，會循著範圍鏈一層層往外尋找。</p>
+<blockquote>
+<p>範圍鍊取決於函式的作用域，與執行環境並無關聯性。</p>
+</blockquote>
+<img src="/2019/11/24/JavaScript/scope_chain.png" class="img-left" width="800" title="範圍鍊">
+<blockquote>
+<p>因JS為語法作用域，在原始碼寫好的時候，作用域就已經被訂下來了。<br>上方的程式碼中，無論是fn1或是fn2，因為fn1函式內沒有value變數，因此向外尋找，找到全域的value “1”，這就是範圍鍊的概念。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">sayHi();  <span class="comment">//hi 老媽</span></span><br></pre></td></tr></table></figure>
+<p>執行 <code>sayHi()</code> console.log顯示”hi 老媽”。<br>因為sayHi函式內沒有person變數，因此向外尋找，找到全域的person “老媽”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125;</span><br><span class="line"> sayHi();</span><br><span class="line">&#125;</span><br><span class="line">doMorningWork();  <span class="comment">//hi 老媽</span></span><br></pre></td></tr></table></figure>
+<p>執行 <code>doMorningWork()</code> console.log仍然顯示”hi 老媽”。<br>這是因為<code>sayHi()</code>函式的範圍鍊依然指向全域，雖然他在<code>doMorningWork()</code>函式內。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’ </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125; </span><br><span class="line"> meetAuntie(); </span><br><span class="line">&#125; </span><br><span class="line">doMorningWork(); <span class="comment">//哈囉～ 漂亮阿姨</span></span><br></pre></td></tr></table></figure>
+<p>執行 <code>doMorningWork()</code> console.log顯示”哈囉～ 漂亮阿姨”。<br>因為<code>meetAuntie()</code>函式內有宣告變數，因此console.log會印出”哈囉～ 漂亮阿姨”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’ </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="comment">//var person = ‘漂亮阿姨’; </span></span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125; </span><br><span class="line"> meetAuntie(); </span><br><span class="line">&#125; </span><br><span class="line">doMorningWork(); <span class="comment">//哈囉～ 老爸</span></span><br></pre></td></tr></table></figure>
+<p>執行 <code>doMorningWork()</code> console.log顯示”哈囉～ 老爸”。<br>因為<code>meetAuntie()</code>函式內變數<code>var person = ‘漂亮阿姨’</code>已經被註解掉了，這時便會向外尋找，找到上一層的變數 “老爸”，因此console.log會印出”哈囉～ 老爸”。</p>
+<h1 id="提升-Hoisting"><a href="#提升-Hoisting" class="headerlink" title="提升 Hoisting"></a>提升 Hoisting</h1>
     </div>
 
     
@@ -327,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-amp-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行環境與執行堆疊"><span class="nav-number">6.</span> <span class="nav-text">執行環境與執行堆疊</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境-Execution-Context"><span class="nav-number">6.1.</span> <span class="nav-text">執行環境 Execution Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊-Execution-stack"><span class="nav-number">6.2.</span> <span class="nav-text">執行堆疊 Execution stack</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-amp-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行環境與執行堆疊"><span class="nav-number">6.</span> <span class="nav-text">執行環境與執行堆疊</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境-Execution-Context"><span class="nav-number">6.1.</span> <span class="nav-text">執行環境 Execution Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊-Execution-stack"><span class="nav-number">6.2.</span> <span class="nav-text">執行堆疊 Execution stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#範圍鍊-Scope-chain"><span class="nav-number">7.</span> <span class="nav-text">範圍鍊 Scope chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升-Hoisting"><span class="nav-number">8.</span> <span class="nav-text">提升 Hoisting</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -341,7 +369,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
