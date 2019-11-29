@@ -197,3 +197,153 @@ doMorningWork(); //哈囉～ 老爸
 
 # 提升 Hoisting
 
+執行程式碼時先將所有變數取出，並在記憶體中分配空間給這些變數，但目前階段尚未賦予值而顯示undefined的情況下，稱為提升。
+
+<font size=6>執行環境其實可細分為兩個階段：創造環境及執行。</font>
+1. <font size=5>**創造環境**</font>：先將程式碼中的變數挑出來，在記憶體中分配空間給這些變數，但目前階段尚未賦予值，如果在此時去取用這些變數的話，會顯示undefined。
+    {% asset_img img-left Hostion_1.png 800 創造環境 %}
+2. <font size=5>**執行**</font>：此階段下才會將值賦予至變數。
+    {% asset_img img-left Hostion_2.png 800 創造環境 %}
+
+變數的拆解
+```javascript
+var Ming = '小明'; //宣告變數，可拆解成如下方所示
+
+var Ming;         //創造環境
+Ming = '小明';    //執行
+```
+
+<font size=6>**函式陳述式中在創造階段就會優先載入**</font>
+函式陳述式與一般變數不太一樣，**函式陳述式在創造環境階段會被優先載入**，記憶體在此階段就載入函式的完整內容。所以函式在創造環境階段就已經可以被運行。
+{% asset_img img-left Hosting_function.png 800 創造環境 %}
+函式的拆解
+```javascript
+//創造環境
+function callName() {
+  console.log('呼叫');
+}
+//執行
+callName();
+```
+
+函式表達式的拆解
+```javascript
+var callName = function() {
+  console.log('呼叫');
+}
+//創造環境
+var callName;
+//執行
+callName = function() {
+  console.log('呼叫');
+}
+callName();   //
+```
+- <font color='blue'>範例一：</font>
+```javascript
+function callName() { 
+ console.log('呼叫小明 1'); 
+}
+var callName = function () { 
+ console.log('呼叫小明 2'); 
+}
+callName();   //呼叫小明 2
+```
+因上面所提及在創造階段時，函式優先下，不論函式先宣告，還是後宣告，結果皆為"呼叫小明 2"，可拆解成如下
+```javascript
+//創造環境
+function callName() {         //函式優先載入
+ console.log('呼叫小明 1'); 
+}
+var callName;                 //變數不能重複宣告
+callName();   //undefined
+//執行
+function () {                 //覆蓋上面的函式
+ console.log('呼叫小明 2');
+}
+callName();   //呼叫小明 2
+```
+- <font color='blue'>範例二：</font>
+```javascript
+callName();   //undefined
+function callName() { 
+ console.log(Ming); 
+}
+var Ming = '小明';
+```
+拆解如下
+```javascript
+//創造環境
+callName();   //undefined
+function callName() { 
+ console.log(Ming); 
+}
+var Ming;
+//執行
+Ming = '小明';
+```
+- <font color='blue'>範例三：</font>
+```javascript
+function callName() { 
+ console.log('小明'); 
+}
+callName();   //第一次執行
+function callName() { 
+ console.log('肥宅'); 
+} 
+callName();   //第二次執行
+
+//console.log
+//肥宅
+//肥宅
+```
+拆解如下
+```javascript
+//創造環境
+function callName() { 
+ console.log('小明'); 
+}
+function callName() {     //覆蓋上面的函式內容
+ console.log('肥宅'); 
+} 
+//執行
+callName();   //肥宅
+callName();   //肥宅
+```
+- <font color='blue'>測驗：</font>
+```javascript
+whosName()
+function whosName() {
+  if (myName) {
+    myName = '杰倫';
+  }
+}
+var myName = '小明';
+console.log(myName);
+```
+拆解如下
+```javascript
+//創造環境
+function whosName() {
+  if (myName) {
+    myName = '杰倫';   //未宣告變數 myName is not defined
+  }
+}
+var myName;           //宣告變數 myName
+//執行
+whosName();
+myName = '小明';      //賦值'小明'
+console.log(myName);  //小明
+```
+
+# Not Defined VS undefined
+
+Is not defined：
+```javascript
+console.log(a) //a is not defined
+```
+undefined：
+```javascript
+var a
+console.log(a) //undefined
+```
