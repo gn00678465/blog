@@ -50,7 +50,7 @@
   <meta name="description" content="JavaScript 基礎介紹JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript">
+<meta property="og:title" content="JavaScript 基礎介紹">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="JavaScript 基礎介紹JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。">
@@ -68,7 +68,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hosting_function.png">
-<meta property="og:updated_time" content="2019-11-29T23:13:45.544Z">
+<meta property="og:updated_time" content="2019-12-01T07:00:47.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -86,7 +86,7 @@
   };
 </script>
 
-  <title>JavaScript | 前端學習</title>
+  <title>JavaScript 基礎介紹 | 前端學習</title>
   
 
 
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JavaScript
+          JavaScript 基礎介紹
         </h1>
 
         <div class="post-meta">
@@ -220,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-11-30 07:13:45" itemprop="dateModified" datetime="2019-11-30T07:13:45+08:00">2019-11-30</time>
+                <time title="修改時間：2019-12-01 15:00:47" itemprop="dateModified" datetime="2019-12-01T15:00:47+08:00">2019-12-01</time>
               </span>
 
           
@@ -330,7 +330,10 @@
 <li><font color='blue'>範例三：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line">callName();   <span class="comment">//第二次執行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure>
 拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;     <span class="comment">//覆蓋上面的函式內容</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure></li>
 <li><font color='blue'>測驗：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">whosName()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;</span><br><span class="line">    myName = <span class="string">'杰倫'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName = <span class="string">'小明'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(myName);</span><br></pre></td></tr></table></figure>
-拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;</span><br><span class="line">    myName = <span class="string">'杰倫'</span>;   <span class="comment">//未宣告變數 myName is not defined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName;           <span class="comment">//宣告變數 myName</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">whosName();</span><br><span class="line">myName = <span class="string">'小明'</span>;      <span class="comment">//賦值'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(myName);  <span class="comment">//小明</span></span><br></pre></td></tr></table></figure>
+拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;        <span class="comment">// 這裡是 undefined，所以以下程式碼不執行</span></span><br><span class="line">    myName = <span class="string">'杰倫'</span>;   <span class="comment">// 變數已經宣告，所以是 undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName;           <span class="comment">// 宣告變數 myName</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">whosName();</span><br><span class="line">myName = <span class="string">'小明'</span>;      <span class="comment">// 賦值'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(myName);  <span class="comment">// 小明</span></span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <font size=2><ol><li>目前來說，程式碼還是會透過 Babel 編譯而編譯後的結果依然是 var 做執行，所以這樣的觀念還是要有。<br>(可以參考各大框架實際執行的程式碼)</li><li>function 的提升依然存在，這也是部分開發者的實作技巧之一將宣告的函式放在後方，呼叫放在前方。<br>(並非建議這樣的寫法，ESLint 中就不推薦此寫法)。</li><li>let, const 雖沒有 hoisting，但還是有類似的概念(暫時性死區)，其運作與 var hoisting 非常接近，同樣會影響原始碼的運行。</li></ol></font>
+          </div>
 
 </li>
 </ul>
@@ -338,6 +341,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//a is not defined</span></span><br></pre></td></tr></table></figure>
 <p>undefined：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<p>@import “2019-11-24-JavaScript\Thread.md”</p>
 
     </div>
 
@@ -414,7 +418,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
