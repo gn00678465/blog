@@ -46,6 +46,7 @@ future: true
 highlight:
   enable: true
   line_number: true
+  first_line_number: 'inline' # | 'always1'
   auto_detect: false
   tab_replace: ''
 

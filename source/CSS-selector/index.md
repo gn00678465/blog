@@ -1,27 +1,12 @@
 ---
-title: CSS選擇器
-date: 2019-12-01 01:34:03
-tags:
+title: CSS 選擇器的不同類型
+date: 2019-12-01 12:30:59
+tag: 
 - CSS
 ---
-# CSS 選擇器
+# <font color="#00408B" size=6>基本選擇器</font>
 
-**CSS 選擇器**是 CSS 規則的一部分。它能讓你選定要調整哪個（或哪些）元素的樣式。
-
-<font size=4>Syntax：</font>
-
-{% note info no-icon %}
-```CSS
-選擇器 { 
-  屬性：設定值；
-  ... 
-}
-```
-{% endnote %}
-
-## 基本選擇器
-
-### 選擇器分組
+## 選擇器分組
 - 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。
 - 可以將任意選擇器分組在一起，沒有任何限制。
 - 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。
@@ -35,7 +20,7 @@ selector1, selector2 {
 ```
 {% endnote %}
 
-### 通用選擇器 (<font color=red size=4>**\***</font>)
+## 通用選擇器 (<font color=red size=4>**\***</font>)
 - Universal selector以星號(asterisk)<font color=red size=4>**\***</font>表示，該選擇器可以與任何元素搭配
 
 <font size=4>Syntax：</font>
@@ -47,7 +32,7 @@ selector1, selector2 {
 ```
 {% endnote %}
 
-### 元素選擇器 (<font color=red>**elementName**</font>)
+## 元素選擇器 (<font color=red>**elementName**</font>)
 - <strong>元素選擇器（型態選擇器）</strong>依照 Node 節點名稱選取匹配的 Element 元素。
 
 <font size=4>Syntax：</font>
@@ -59,7 +44,7 @@ element {
 ```
 {% endnote %}
 
-### Class 選擇器 (<font color=red size=4>**.**</font>classname)
+## Class 選擇器 (<font color=red size=4>**.**</font>classname)
 - <strong>Class 選擇器</strong>依照具有class屬性來選取匹配的 Element 元素。
 - Class 選擇器在一個 HTML 文件中可以被使用多次。
 - Class 的宣告法，是先放一個句點 (<font color=red size=4>**.**</font>)，之後再列出選擇器名稱。
@@ -81,7 +66,7 @@ element {
 ```
 {% endnote %}
 
-### ID 選擇器 (<font color=red size=4>**#**</font>idname)
+## ID 選擇器 (<font color=red size=4>**#**</font>idname)
 - <strong>ID 選擇器</strong>依照具有ID屬性來選取匹配的 Element 元素。
 - ID是<font color=red>**唯一**</font>的，當出現多組具有相同ID屬性的元素時，只會指向第一個匹配的元素。
 - ID 的宣告法，是先放一個井字號 (<font color=red size=4>**#**</font>)，之後再列出選擇器名稱。
@@ -104,7 +89,7 @@ element {
 ```
 {% endnote %}
 
-### 屬性選擇器 (<font color=red>**[attr=value]**</font>)
+## 屬性選擇器 (<font color=red>**[attr=value]**</font>)
 - <strong>屬性選擇器</strong>可以依據元素的屬性或屬性值來選取匹配的 Element 元素。
 - 需使用中括號(<font color=red>**[]**</font>)將屬性或屬性值包覆。
 
@@ -162,9 +147,9 @@ element {
     </tbody>
 </table>
 
-## 複合選擇器
+# <font color="#00408B" size=6>複合選擇器</font>
 
-### 鄰接同層選擇器 (A <font color=red>**+**</font> B)
+## 鄰接同層選擇器 (A <font color=red>**+**</font> B)
 - 鄰接同層選擇器(Adjacent sibling selector)具有同樣父類別的兩個元素以「＋」作為連結，允許選擇某一個特定元素（A）之後的第一個特定元素（B）。
 
 <font size=4>Syntax：</font>
@@ -176,7 +161,7 @@ former_element + target_element {
 ```
 {% endnote %}
 
-### 通用同層選擇器 (A <font color=red>**~**</font> B)
+## 通用同層選擇器 (A <font color=red>**~**</font> B)
 - 具有同樣父類別的兩個元素以「~」作為連結，允許選擇某一個特定元素（A）之後的全部特定元素（B）。
 
 <font size=4>Syntax：</font>
@@ -188,7 +173,7 @@ former_element ~ target_element {
 ```
 {% endnote %}
 
-### 直屬選擇器 (A <font color=red>**>**</font> B)
+## 直屬選擇器 (A <font color=red>**>**</font> B)
 - 又稱子元素選擇器（Child selectors），此選擇器只能選擇某一個特定元素（A）子元素的特定元素（B）。
 - 如果不希望選擇任意的後代元素，只選擇某一個元素的子元素，請使用直屬選擇器。
 
@@ -201,7 +186,7 @@ selector1 > selector2 {
 ```
 {% endnote %}
 
-### 後代選擇器 A B
+## 後代選擇器 A B
 - 後代選擇器（descendant selector），此選擇器可選擇某一個特定元素（A）後代的特定元素（B）。
 - 選擇器之間的組合符號（combinator）(代表空白, 或更精準地說，代表一或多個空白字元) 結合了兩種選擇器。
 -    後代選擇器中兩個元素之間的層次間隔可以是無限的，不要求披對的元素是父子關係。
@@ -215,11 +200,11 @@ selector1 selector2 {
 ```
 {% endnote %}
 
-## 虛擬元素（pseudo-element）
+# <font color="#00408B" size=6>虛擬元素（pseudo-element）</font>
 
 [偽元素選器整理](https://codepen.io/yun1988/full/MXByyo/)
 
-## 虛擬類別（pseudo-class）
+# <font color="#00408B" size=6>虛擬類別（pseudo-class）</font>
 
 <font size=4>Syntax：</font>
 {% note info no-icon %}
@@ -232,3 +217,4 @@ selector:pseudo-class {
 
 [偽類選擇器整理](https://codepen.io/yun1988/full/VdMVvg/)
 
+[回首頁](/)
