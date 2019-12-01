@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/CSS-seletor/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/CSS-Basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -186,7 +186,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/01/CSS-seletor/" class="post-title-link" itemprop="url">CSS選擇器</a>
+            <a href="/2019/12/01/CSS-Basic/" class="post-title-link" itemprop="url">CSS 基礎概念</a>
         </h1>
 
         <div class="post-meta">
@@ -197,7 +197,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2019-12-01 01:34:03 / 修改時間：02:13:38" itemprop="dateCreated datePublished" datetime="2019-12-01T01:34:03+08:00">2019-12-01</time>
+              <time title="創建時間：2019-12-01 12:28:55 / 修改時間：13:04:42" itemprop="dateCreated datePublished" datetime="2019-12-01T12:28:55+08:00">2019-12-01</time>
             </span>
 
           
@@ -211,159 +211,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="CSS-選擇器"><a href="#CSS-選擇器" class="headerlink" title="CSS 選擇器"></a>CSS 選擇器</h1><p><strong>CSS 選擇器</strong>是 CSS 規則的一部分。它能讓你選定要調整哪個（或哪些）元素的樣式。</p>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">選擇器 &#123; </span><br><span class="line">  屬性：設定值；</span><br><span class="line">  ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+          <h1 id="CSS-基礎概念"><a href="#CSS-基礎概念" class="headerlink" title="CSS 基礎概念"></a>CSS 基礎概念</h1><p> (CSS：<strong><font color="red">C</font></strong>ascading <strong><font color="red">S</font></strong>tyle <strong><font color="red">S</font></strong>heets.)串接樣式表， 可用以塑造網站的特殊風格。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/CSS-Basic/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
-<h2 id="基本選擇器"><a href="#基本選擇器" class="headerlink" title="基本選擇器"></a>基本選擇器</h2><h3 id="選擇器分組"><a href="#選擇器分組" class="headerlink" title="選擇器分組"></a>選擇器分組</h3><ul>
-<li>若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。</li>
-<li>可以將任意選擇器分組在一起，沒有任何限制。</li>
-<li>透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector1</span>, <span class="selector-tag">selector2</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<h3 id="通用選擇器"><a href="#通用選擇器" class="headerlink" title="通用選擇器 (*)"></a>通用選擇器 (<font color=red size=4><strong>*</strong></font>)</h3><ul>
-<li>Universal selector以星號(asterisk)<font color=red size=4><strong>*</strong></font>表示，該選擇器可以與任何元素搭配</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/HTML-Basic/">
 
-<h3 id="元素選擇器-elementName"><a href="#元素選擇器-elementName" class="headerlink" title="元素選擇器 (elementName)"></a>元素選擇器 (<font color=red><strong>elementName</strong></font>)</h3><ul>
-<li><strong>元素選擇器（型態選擇器）</strong>依照 Node 節點名稱選取匹配的 Element 元素。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">element</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
 
-<h3 id="Class-選擇器-classname"><a href="#Class-選擇器-classname" class="headerlink" title="Class 選擇器 (.classname)"></a>Class 選擇器 (<font color=red size=4><strong>.</strong></font>classname)</h3><ul>
-<li><strong>Class 選擇器</strong>依照具有class屬性來選取匹配的 Element 元素。</li>
-<li>Class 選擇器在一個 HTML 文件中可以被使用多次。</li>
-<li>Class 的宣告法，是先放一個句點 (<font color=red size=4><strong>.</strong></font>)，之後再列出選擇器名稱。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.className</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
-<p>相同於屬性選擇器</p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[class~=class_name]</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/01/HTML-Basic/" class="post-title-link" itemprop="url">HTML 基礎概念</a>
+        </h1>
 
-<h3 id="ID-選擇器-idname"><a href="#ID-選擇器-idname" class="headerlink" title="ID 選擇器 (#idname)"></a>ID 選擇器 (<font color=red size=4><strong>#</strong></font>idname)</h3><ul>
-<li><strong>ID 選擇器</strong>依照具有ID屬性來選取匹配的 Element 元素。</li>
-<li>ID是<font color=red><strong>唯一</strong></font>的，當出現多組具有相同ID屬性的元素時，只會指向第一個匹配的元素。</li>
-<li>ID 的宣告法，是先放一個井字號 (<font color=red size=4><strong>#</strong></font>)，之後再列出選擇器名稱。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 選擇具有#id屬性的元素。*/</span></span><br><span class="line"><span class="selector-id">#id</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
-<p>相同於屬性選擇器</p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[id=id_value]</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
 
-<h3 id="屬性選擇器-attr-value"><a href="#屬性選擇器-attr-value" class="headerlink" title="屬性選擇器 ([attr=value])"></a>屬性選擇器 (<font color=red><strong>[attr=value]</strong></font>)</h3><ul>
-<li><strong>屬性選擇器</strong>可以依據元素的屬性或屬性值來選取匹配的 Element 元素。</li>
-<li>需使用中括號(<font color=red><strong>[]</strong></font>)將屬性或屬性值包覆。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 選擇具有特定屬性的元素。*/</span></span><br><span class="line"><span class="selector-attr">[attr]</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 選擇具有特定屬性值的元素。*/</span></span><br><span class="line"><span class="selector-attr">[attr=value]</span></span><br></pre></td></tr></table></figure>
-          </div>
-<p>上述語法屬性以及屬性值需完全匹配。</p>
-<table>
-    <thead>
-        <tr>
-            <th colspan="2"><font size=4>依據部分屬性值選擇</font></th>
-        </tr>
-        <tr>
-            <th>選擇器</th>
-            <th>描述</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>[attr~=value]</code></td>
-            <td>選擇完整特定文字屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr^=value]</code></td>
-            <td>選擇具有特定文字開頭屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr$=value]</code></td>
-            <td>選擇具有特定文字結尾屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr*=value]</code></td>
-            <td>選擇包含特定字串屬性值的元素。</td>
-        </tr>
-    </tbody>
-    <thead>
-        <tr>
-            <th colspan="2"><font size=4>特定屬性選擇</font></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>[attr|=value]</code></td>
-            <td>選擇等於特定文字或者是其開頭屬性值的元素。</td>
-        </tr>
-    </tbody>
-</table>
+              <time title="創建時間：2019-12-01 12:25:54 / 修改時間：12:28:25" itemprop="dateCreated datePublished" datetime="2019-12-01T12:25:54+08:00">2019-12-01</time>
+            </span>
 
-<h2 id="複合選擇器"><a href="#複合選擇器" class="headerlink" title="複合選擇器"></a>複合選擇器</h2><h3 id="鄰接同層選擇器-A-B"><a href="#鄰接同層選擇器-A-B" class="headerlink" title="鄰接同層選擇器 (A + B)"></a>鄰接同層選擇器 (A <font color=red><strong>+</strong></font> B)</h3><ul>
-<li>鄰接同層選擇器(Adjacent sibling selector)具有同樣父類別的兩個元素以「＋」作為連結，允許選擇某一個特定元素（A）之後的第一個特定元素（B）。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">former_element</span> + <span class="selector-tag">target_element</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+          
 
-<h3 id="通用同層選擇器-A-B"><a href="#通用同層選擇器-A-B" class="headerlink" title="通用同層選擇器 (A ~ B)"></a>通用同層選擇器 (A <font color=red><strong>~</strong></font> B)</h3><ul>
-<li>具有同樣父類別的兩個元素以「~」作為連結，允許選擇某一個特定元素（A）之後的全部特定元素（B）。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">former_element</span> ~ <span class="selector-tag">target_element</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+        </div>
+      </header>
 
-<h3 id="直屬選擇器-A-gt-B"><a href="#直屬選擇器-A-gt-B" class="headerlink" title="直屬選擇器 (A &gt; B)"></a>直屬選擇器 (A <font color=red><strong>&gt;</strong></font> B)</h3><ul>
-<li>又稱子元素選擇器（Child selectors），此選擇器只能選擇某一個特定元素（A）子元素的特定元素（B）。</li>
-<li>如果不希望選擇任意的後代元素，只選擇某一個元素的子元素，請使用直屬選擇器。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector1</span> &gt; <span class="selector-tag">selector2</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-<h3 id="後代選擇器-A-B"><a href="#後代選擇器-A-B" class="headerlink" title="後代選擇器 A B"></a>後代選擇器 A B</h3><ul>
-<li>後代選擇器（descendant selector），此選擇器可選擇某一個特定元素（A）後代的特定元素（B）。</li>
-<li>選擇器之間的組合符號（combinator）(代表空白, 或更精準地說，代表一或多個空白字元) 結合了兩種選擇器。</li>
-<li>後代選擇器中兩個元素之間的層次間隔可以是無限的，不要求披對的元素是父子關係。</li>
-</ul>
-<p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector1</span> <span class="selector-tag">selector2</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
-
-<h2 id="虛擬元素（pseudo-element）"><a href="#虛擬元素（pseudo-element）" class="headerlink" title="虛擬元素（pseudo-element）"></a>虛擬元素（pseudo-element）</h2><p><a href="https://codepen.io/yun1988/full/MXByyo/" target="_blank" rel="noopener">偽元素選器整理</a></p>
-<h2 id="虛擬類別（pseudo-class）"><a href="#虛擬類別（pseudo-class）" class="headerlink" title="虛擬類別（pseudo-class）"></a>虛擬類別（pseudo-class）</h2><p><font size=4>Syntax：</font></p>
-<div class="note info no-icon">
-            <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector</span><span class="selector-pseudo">:pseudo-class</span> &#123;</span><br><span class="line">  <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          </div>
-
-<p><a href="https://codepen.io/yun1988/full/VdMVvg/" target="_blank" rel="noopener">偽類選擇器整理</a></p>
-
+      
+          <p>HTML（<strong><font color="red">H</font></strong>yper<strong><font color="red">T</font></strong>ext <strong><font color="red">M</font></strong>arkup <strong><font color="red">L</font></strong>anguage），中文全名為「超文字標示語言」，是一種用來組織架構並呈現網頁內容的程式語言。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/HTML-Basic/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -493,16 +415,16 @@
 
       
           <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
@@ -565,14 +487,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

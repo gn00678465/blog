@@ -47,17 +47,20 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="CSS 基礎概念 (CSS：Cascading Style Sheets.)串接樣式表， 可用以塑造網站的特殊風格。">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="CSS 基礎概念">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="CSS 基礎概念 (CSS：Cascading Style Sheets.)串接樣式表， 可用以塑造網站的特殊風格。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-11-23T23:14:45.062Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;css-declaration.png">
+<meta property="og:updated_time" content="2019-12-01T05:04:42.388Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;css-declaration.png">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/24/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2019/12/01/CSS-Basic/">
 
 
 <script id="page-configurations">
@@ -71,7 +74,7 @@
   };
 </script>
 
-  <title>Hello World | 前端學習</title>
+  <title>CSS 基礎概念 | 前端學習</title>
   
 
 
@@ -175,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/CSS-Basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -188,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          CSS 基礎概念
         </h1>
 
         <div class="post-meta">
@@ -197,8 +200,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2019-11-24 07:14:45" itemprop="dateCreated datePublished" datetime="2019-11-24T07:14:45+08:00">2019-11-24</time>
+              <time title="創建時間：2019-12-01 12:28:55 / 修改時間：13:04:42" itemprop="dateCreated datePublished" datetime="2019-12-01T12:28:55+08:00">2019-12-01</time>
             </span>
 
           
@@ -212,19 +216,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="CSS-基礎概念"><a href="#CSS-基礎概念" class="headerlink" title="CSS 基礎概念"></a>CSS 基礎概念</h1><p> (CSS：<strong><font color="red">C</font></strong>ascading <strong><font color="red">S</font></strong>tyle <strong><font color="red">S</font></strong>heets.)串接樣式表， 可用以塑造網站的特殊風格。</p>
+<a id="more"></a>
+<p>CSS 既非標準程式語言，也不是標記語言, 而是一種風格頁面語言（style sheet language），它能讓你在 HTML 文件中的元素（element）上套用不同的頁面樣式（style）。</p>
+<p>HTML元素套用CSS有以下3種方式：</p>
+<ul>
+<li>inline - 將CSS樣式寫在元素屬性內</li>
+<li>Internal - 於<code>&lt;head&gt;</code>的標籤內加入<code>&lt;style&gt;</code>元素。</li>
+<li>External - 額外載入CSS檔案。<font color="red"><strong>建議使用</strong></font><br>於<code>&lt;head&gt;</code>的標籤內加入</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"CSS檔案"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="解析-CSS-ruleset"><a href="#解析-CSS-ruleset" class="headerlink" title="解析 CSS ruleset"></a>解析 CSS ruleset</h3><img src="/2019/12/01/CSS-Basic/css-declaration.png" class="" title="[css-declaration]">
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123; </span><br><span class="line">  屬性：屬性值；</span><br><span class="line">  ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>整個架構我們稱為<strong>規則集 (rule set)，或是簡稱為規則 (rule)</strong>也可以。</p>
+<ul>
+<li><strong>選擇器（Selector）：</strong><br>在這個規則的最前頭為 HTML 的元素名。它將決定你 HTML 裡什麼元素將被你接下來的設定影響。若要改變欲影響的元素，只要更改選擇器就行了。</li>
+<li><strong>宣告（Declaration）：</strong><br>單一個規則，例如 <code>color: red;</code> 指定了這個元素的呈現樣貌。</li>
+<li><strong>屬性 (Properties)：</strong><br>修改屬性是改變你HTML元素的一種方法 . (ex: color) 在CSS中, 你可以選擇哪些屬性用來影響 rule。</li>
+<li><strong>屬性值 (Property value)：</strong><br><strong>屬性值</strong>就是位於屬性右邊，在冒號（<code>:</code>）之後，從眾多的可能樣式選出一個給予屬性。(ex: red)</li>
+</ul>
+<p>注意語法中其他重要的部分：</p>
+<ul>
+<li>每一個規則當中，除了選擇器名稱以外，其他都必須被大括號（<code>{}</code>）給包住。</li>
+<li>在每一個宣告裡面，屬性跟屬性值之間必須用冒號(<code>:</code>) 做區分。</li>
+<li>在每一個規則裡面可以包含有許多宣告，但不同的宣告之間必須使用分號 (<code>;</code>) 來區分。</li>
+</ul>
+<p>Ex:</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line"> <span class="attribute">color</span>: red;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="CSS-選擇器的不同類型"><a href="#CSS-選擇器的不同類型" class="headerlink" title="CSS 選擇器的不同類型"></a><a href="/CSS-selector">CSS 選擇器的不同類型</a></h3><p><strong>CSS 選擇器</strong>是 CSS 規則的一部分。它能讓你選定要調整哪個（或哪些）元素的樣式。</p>
 
     </div>
 
@@ -233,17 +256,20 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/11/24/JavaScript/" rel="next" title="JavaScript">
-      JavaScript <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/01/HTML-Basic/" rel="prev" title="HTML 基礎概念">
+      <i class="fa fa-chevron-left"></i> HTML 基礎概念
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -281,7 +307,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-基礎概念"><span class="nav-number">1.</span> <span class="nav-text">CSS 基礎概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析-CSS-ruleset"><span class="nav-number">1.0.1.</span> <span class="nav-text">解析 CSS ruleset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-選擇器的不同類型"><span class="nav-number">1.0.2.</span> <span class="nav-text">CSS 選擇器的不同類型</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
