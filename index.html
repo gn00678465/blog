@@ -195,10 +195,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2019-12-02 22:18:47 / 修改時間：23:39:17" itemprop="dateCreated datePublished" datetime="2019-12-02T22:18:47+08:00">2019-12-02</time>
+              <time title="創建時間：2019-12-02 22:18:47" itemprop="dateCreated datePublished" datetime="2019-12-02T22:18:47+08:00">2019-12-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-12-03 00:25:02" itemprop="dateModified" datetime="2019-12-03T00:25:02+08:00">2019-12-03</time>
+              </span>
 
           
 
@@ -211,33 +217,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="JavaScript-基礎介紹-運算子、型別與文法"><a href="#JavaScript-基礎介紹-運算子、型別與文法" class="headerlink" title="JavaScript 基礎介紹(運算子、型別與文法)"></a>JavaScript 基礎介紹(運算子、型別與文法)</h1><h2 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h2><ul>
-<li><strong>陳述式( Statement )</strong>：JS的語句類型，用於命令執行指定的一系列操作，最大的特徵是<span class="label primary">不會回傳結果</span>，使用如下。<ul>
-<li>流程控制：break、if…else。</li>
-<li>宣告：var、let、const。</li>
-<li>函數(function)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式陳述式、具名函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>迭代（Iteration)；for迴圈等等。</li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements" title="陳述式與宣告" target="_blank">可以參考MDN裡面對陳述式與宣告的詳細說明及舉例</a></li>
-</ul>
-</li>
-<li><strong>表達式( Expression )</strong>：又可稱為表示式、運算式，經常可透過一些符號結合上下語句運算並<span class="label primary">回傳結果</span>。<ul>
-<li>運算子：+、-、*、/、%，一般四則運算、餘數。</li>
-<li>函數(function)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式表達式、匿名函式</span></span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators" title="運算式與運算子" target="_blank">可以參考MDN裡面對運算式與運算子的詳細說明及舉例</a>
-
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>常見誤解：</strong><br><strong>Block</strong>結構可以內含Statement，或是Expression作為物件實字 (Object Literal)。</p>
-<ul>
-<li>Statement<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line"><span class="keyword">var</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果把這段block賦值給另一個變數，則會出現錯誤：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line"><span class="keyword">var</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//錯誤</span></span><br></pre></td></tr></table></figure>
-若用ES6的const或let宣告變數，則該變數的作用域僅會在他所屬的block內。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line"><span class="keyword">const</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ming);    <span class="comment">//ming is not definded</span></span><br></pre></td></tr></table></figure></li>
-<li>物件實字<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-block裡面的是expression，所以他可以被賦值給變數：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h1 id="JavaScript-基礎介紹-運算子、型別與文法"><a href="#JavaScript-基礎介紹-運算子、型別與文法" class="headerlink" title="JavaScript 基礎介紹(運算子、型別與文法)"></a>JavaScript 基礎介紹(運算子、型別與文法)</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/02/JavaScript-Basic-2/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -579,7 +567,7 @@ block裡面的是expression，所以他可以被賦值給變數：<figure class=
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
