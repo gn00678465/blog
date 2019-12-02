@@ -1,14 +1,14 @@
 ---
-title: JavaScript
+title: JavaScript 基礎介紹(執行環境、作用域)
 date: 2019-11-24 22:06:17
 tags: 
 - JavaScript
 ---
+# JavaScript 基礎介紹(執行環境、作用域)
 
-# JavaScript 基礎介紹
-
-JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。
-
+{% blockquote wikipedia https://zh.wikipedia.org/wiki/JavaScript JavaScript %}
+JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。
+{% endblockquote %}
 
 
 <!--more-->
@@ -325,16 +325,27 @@ console.log(myName);
 ```javascript
 //創造環境
 function whosName() {
-  if (myName) {
-    myName = '杰倫';   //未宣告變數 myName is not defined
+  if (myName) {        // 這裡是 undefined，所以以下程式碼不執行
+    myName = '杰倫';   // 變數已經宣告，所以是 undefined
   }
 }
-var myName;           //宣告變數 myName
+var myName;           // 宣告變數 myName
 //執行
 whosName();
-myName = '小明';      //賦值'小明'
-console.log(myName);  //小明
+myName = '小明';      // 賦值'小明'
+console.log(myName);  // 小明
 ```
+{% note info %}
+<font size=2>
+
+1. 目前來說，程式碼還是會透過 Babel 編譯而編譯後的結果依然是 var 做執行，所以這樣的觀念還是要有。
+(可以參考各大框架實際執行的程式碼)
+2. function 的提升依然存在，這也是部分開發者的實作技巧之一將宣告的函式放在後方，呼叫放在前方。
+(並非建議這樣的寫法，ESLint 中就不推薦此寫法)。
+3. let, const 雖沒有 hoisting，但還是有類似的概念(暫時性死區)，其運作與 var hoisting 非常接近，同樣會影響原始碼的運行。
+
+</font>
+{% endnote %}
 
 # Not Defined VS undefined
 
@@ -347,3 +358,45 @@ undefined：
 var a
 console.log(a) //undefined
 ```
+# 執行緒與同步/非同步
+
+學習 JS 時，必須要知道它是單執行緒（single thread）的語言，瀏覽器只分配給 JS 一個主執行緒，用來執行任務（函式），但一次只能執行一個任務，這些任務形成一個任務佇列排隊等候執行。
+
+{% note info%}
+<font size=2>
+
+名詞解釋：
+- 程式( Program )：Program 意旨軟體工程師所寫的程式碼(code)，但還尚未load入記憶體的 code，我們稱之為Program。
+- 程序(Process )：Process 意旨已經執行並且 load 到記憶體中的 Program ，程序中的每一行程式碼隨時都有可能被CPU執行。
+  + Process 是電腦中已執行 Program 的實體。
+  + Process 本身不是基本執行單位，而是 Thread (執行緒)的容器。
+  + Process 需要一些資源才能完成工作，如 CPU、記憶體、檔案以及I/O裝置。
+- 執行緒：Thread 是 Process 的一個實體,也是CPU排程和分派的基本單位,它是比 Process 更小的能獨立執行的基本單位。
+在同一個 Process 中會有很多個 Thread ，每一個 Thread 負責某一項功能。
+  + 同一個 Process 會同時存在多個 Thread。
+  + 同一個 Process 底下的 Thread 共享資源，如 記憶體、變數等，不同的Process 則否。
+  + 單執行緒：有一個特性就是順序執行，當遇到比較耗時的任務時，還未執行的任務就會處於等待狀態，一定要等到前面的任務完成了，才會往後執行。
+  + 多執行緒：能夠在同一時間執行多於一個執行緒，進而提升整體處理效能。
+
+</font>
+{% endnote %}
+
+**JS程式語言中的同步與非同步**
+JS在執行時依舊是依照同步的概念，按照順序一個一個任務執行，但遇到非同步任務時，會把他往後放，放到事件佇列(Event Queue)中。
+待所有任務執行完成後再執行事件佇列內的任務。
+
+{% asset_img img-left sync.png 800 同步與非同步 %}
+{% asset_img img-left Event_queue.png 800 事件佇列 %}
+
+在所有非同步事件如 {% label primary@addEventListener %}、{% label primary@setTimeout %}、{% label primary@ajax %}...，都不會立即執行這些任務，而是將這些任務放到 {% label danger@event queue %} 中，並將所有的事件堆疊完成後，才會開始讓 {% label danger@event queue %} 內的事件被觸發。
+
+{% note info%}
+<font size=2>
+
+名詞解釋：
+- 同步( Scynchronous )：同步處理就像是一般的程式邏輯的話，都是按照你所寫的一行一行去執行，而順序必定都是**前一個動作執行完才會去接著執行下一個動作**。
+- 非同步( Ascynchronous )：**等待前面步驟執行完之前可以先去執行後面的步驟**。
+- 事件佇列( event queue )
+
+</font>
+{% endnote %}
