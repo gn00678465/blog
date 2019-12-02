@@ -172,6 +172,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/JavaScript-Basic-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/02/JavaScript-Basic-2/" class="post-title-link" itemprop="url">JavaScript 基礎介紹(運算子、型別與文法)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2019-12-02 22:18:47 / 修改時間：23:39:17" itemprop="dateCreated datePublished" datetime="2019-12-02T22:18:47+08:00">2019-12-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="JavaScript-基礎介紹-運算子、型別與文法"><a href="#JavaScript-基礎介紹-運算子、型別與文法" class="headerlink" title="JavaScript 基礎介紹(運算子、型別與文法)"></a>JavaScript 基礎介紹(運算子、型別與文法)</h1><h2 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h2><ul>
+<li><strong>陳述式( Statement )</strong>：JS的語句類型，用於命令執行指定的一系列操作，最大的特徵是<span class="label primary">不會回傳結果</span>，使用如下。<ul>
+<li>流程控制：break、if…else。</li>
+<li>宣告：var、let、const。</li>
+<li>函數(function)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式陳述式、具名函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>迭代（Iteration)；for迴圈等等。</li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements" title="陳述式與宣告" target="_blank">可以參考MDN裡面對陳述式與宣告的詳細說明及舉例</a></li>
+</ul>
+</li>
+<li><strong>表達式( Expression )</strong>：又可稱為表示式、運算式，經常可透過一些符號結合上下語句運算並<span class="label primary">回傳結果</span>。<ul>
+<li>運算子：+、-、*、/、%，一般四則運算、餘數。</li>
+<li>函數(function)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式表達式、匿名函式</span></span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators" title="運算式與運算子" target="_blank">可以參考MDN裡面對運算式與運算子的詳細說明及舉例</a>
+
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>常見誤解：</strong><br><strong>Block</strong>結構可以內含Statement，或是Expression作為物件實字 (Object Literal)。</p>
+<ul>
+<li>Statement<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line"><span class="keyword">var</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果把這段block賦值給另一個變數，則會出現錯誤：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line"><span class="keyword">var</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//錯誤</span></span><br></pre></td></tr></table></figure>
+若用ES6的const或let宣告變數，則該變數的作用域僅會在他所屬的block內。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line"><span class="keyword">const</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ming);    <span class="comment">//ming is not definded</span></span><br></pre></td></tr></table></figure></li>
+<li>物件實字<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+block裡面的是expression，所以他可以被賦值給變數：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/CSS-Basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -318,7 +402,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/24/JavaScript/" class="post-title-link" itemprop="url">JavaScript 基礎介紹</a>
+            <a href="/2019/11/24/JavaScript/" class="post-title-link" itemprop="url">JavaScript 基礎介紹(執行環境、作用域)</a>
         </h1>
 
         <div class="post-meta">
@@ -335,7 +419,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-01 15:02:20" itemprop="dateModified" datetime="2019-12-01T15:02:20+08:00">2019-12-01</time>
+                <time title="修改時間：2019-12-02 22:17:01" itemprop="dateModified" datetime="2019-12-02T22:17:01+08:00">2019-12-02</time>
               </span>
 
           
@@ -349,7 +433,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="JavaScript-基礎介紹"><a href="#JavaScript-基礎介紹" class="headerlink" title="JavaScript 基礎介紹"></a>JavaScript 基礎介紹</h1><p>JavaScript設計是一種直譯式(Interpreted language)、物件導向(Object-based)的程式語言。</p>
+          <h1 id="JavaScript-基礎介紹-執行環境、作用域"><a href="#JavaScript-基礎介紹-執行環境、作用域" class="headerlink" title="JavaScript 基礎介紹(執行環境、作用域)"></a>JavaScript 基礎介紹(執行環境、作用域)</h1><blockquote><p>JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。</p>
+<footer><strong>wikipedia</strong><cite><a href="https://zh.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a></cite></footer></blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/11/24/JavaScript/#more" rel="contents">
@@ -428,70 +513,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/JavaScript/Thread/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="MADAO">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端學習">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/24/JavaScript/Thread/" class="post-title-link" itemprop="url">JavaScript/Thread</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-24T00:00:00+08:00">2019-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-01 14:50:05" itemprop="dateModified" datetime="2019-12-01T14:50:05+08:00">2019-12-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="執行緒與同步-非同步"><a href="#執行緒與同步-非同步" class="headerlink" title="執行緒與同步/非同步"></a>執行緒與同步/非同步</h1>
       
     </div>
 
