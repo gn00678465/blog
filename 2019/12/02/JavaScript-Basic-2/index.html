@@ -55,8 +55,11 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="JavaScript 基礎介紹(運算子、型別與文法)">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-12-02T16:26:19.075Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type-2.png">
+<meta property="og:updated_time" content="2019-12-03T15:49:38.170Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/02/JavaScript-Basic-2/">
 
@@ -206,7 +209,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-03 00:26:19" itemprop="dateModified" datetime="2019-12-03T00:26:19+08:00">2019-12-03</time>
+                <time title="修改時間：2019-12-03 23:49:38" itemprop="dateModified" datetime="2019-12-03T23:49:38+08:00">2019-12-03</time>
               </span>
 
           
@@ -224,7 +227,7 @@
 
 <h2 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h2><ul>
 <li><strong>陳述式( Statement )</strong>：JS的語句類型，用於命令執行指定的一系列操作，最大的特徵是<span class="label primary">不會回傳結果</span>，使用如下。<ul>
-<li>流程控制：break、if…else。</li>
+<li>流程控制：block、break、if…else。</li>
 <li>宣告：var、let、const。</li>
 <li>函數(function)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式陳述式、具名函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>迭代（Iteration)；for迴圈等等。</li>
@@ -246,8 +249,61 @@
 如果把這段block賦值給另一個變數，則會出現錯誤：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line"><span class="keyword">var</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//錯誤</span></span><br></pre></td></tr></table></figure>
 若用ES6的const或let宣告變數，則該變數的作用域僅會在他所屬的block內。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line"><span class="keyword">const</span> ming = <span class="string">'小明'</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(ming);    <span class="comment">//ming is not definded</span></span><br></pre></td></tr></table></figure></li>
 <li>物件實字<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-block裡面的是expression，所以他可以被賦值給變數：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+block裡面的是expression，所以他可以被賦值給變數：<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123; </span><br><span class="line">ming: <span class="string">'小明'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
+<h2 id="ASI-Automatic-Semicolon-Insertion"><a href="#ASI-Automatic-Semicolon-Insertion" class="headerlink" title="ASI (Automatic Semicolon Insertion)"></a>ASI (Automatic Semicolon Insertion)</h2><p>按照 ECMAScript 標準，一些 特定語句（statement) 必須以分號結尾。分號代表這段語句的終止。<br>但是有時候為了方便，這些分號是有可以省略的。這種情況下解釋器會自己判斷語句該在哪裡終止。這種行為被叫做 “自動插入分號”，簡稱 ASI (Automatic Semicolon Insertion) 。<br>特定語句有：</p>
+<ul>
+<li>空語句</li>
+<li>let</li>
+<li>const</li>
+<li>import</li>
+<li>export</li>
+<li>變量賦值</li>
+<li>表達式</li>
+<li>debugger</li>
+<li>continue</li>
+<li>break</li>
+<li>return</li>
+<li>throw</li>
+</ul>
+<p>ECMAScript 標準定義的 ASI 包括 三條規則 和 兩條例外。</p>
+<div class="note info">
+            <font size=3><p><span class="label primary">三條規則</span>是描述何時該自動插入分號：</p><ol><li>解析器從左往右解析代碼（讀入 token），當碰到一個不能構成合法語句的 token 時，它會在以下幾種情況中在該 token 之前插入分號，此時這個不合群的 token 被稱為 offending token ：<ul><li>如果這個 token 跟上一個 token 之間有至少一個換行。</li><li>如果這個 token 是 <span class="label danger">}</span>。</li><li>如果 前一個 token 是 <span class="label danger">)</span>，它會試圖把前面的 token 理解成 <span class="label danger">do…while</span> 語句並插入分號。</li></ul></li><li>當解析到文件末尾發現語法還是有問題，就會在文件末尾插入分號。</li><li>當解析時碰到 restricted production 的語法（比如 <span class="label danger">return</span>），並且在 restricted production 規定的 <span class="label danger">[no LineTerminator here]</span>的地方發現換行，那麼換行的地方就會被插入分號。</li></ol><div class="note danger">            <p>restricted production它是一組有嚴格限定的語法的統稱，這些語法都是在某個地方不能換行的，不能換行的地方會被標註 <font color="red">[no LineTerminator here]</font>。<br>ECMAScript 的 return 語法定義如下：</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span> [no LineTerminator here] Expression ;</span><br></pre></td></tr></table></figure>          </div><p><span class="label primary">兩條例外</span>：就算符合上述規則，如果分號會被解析成下面的樣子，它也不能被自動插入。</p><ol><li>分號不能被解析成空語句。</li><li>分號不能被解析成 <span class="label danger">for</span> 語句頭部的兩個分號之一。</li></ol></font>
+          </div>
+Ref: [JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
+
+<h2 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h2><p> JavaScript 是屬於動態型別，在執行階段才會確定型別，而型別是由賦予的值所定義的，且型別是可以變換的。<br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> name;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line">name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"> Console.log(<span class="keyword">typeof</span> num)  <span class="comment">// number</span></span><br><span class="line"> num = <span class="string">'文字'</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">typeof</span> num)  <span class="comment">// string</span></span><br></pre></td></tr></table></figure><br>型別轉換的陷阱：</p>
+<ul>
+<li>顯性的轉換( Explicit conversion )：是當原本變數的值，直接被賦予另一個型別的值</li>
+<li>隱性的轉換( Implicit conversion )：須了解運算過程中型別的變化，不然會造成難以預期的結果。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//範例</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//number</span></span><br><span class="line">num = num + <span class="string">''</span>;   </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//string</span></span><br><span class="line">num = num *<span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//number</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="原始型別及物件型別"><a href="#原始型別及物件型別" class="headerlink" title="原始型別及物件型別"></a>原始型別及物件型別</h2><p>JavaScript 是屬於動態型別，它定義了七種資料型別，分別為六種原始型別 (ES6 新增一種原始型別)及 Object 型別。</p>
+<p><strong><font size='5'>原始型別：</font></strong></p>
+<ul>
+<li><strong>Boolean</strong>：僅有 true, false 兩個值</li>
+<li><strong>Null</strong>：僅有 null 的值</li>
+<li><strong>Undefined</strong>：沒有被定義的變數</li>
+<li><strong>String</strong>：字串型別</li>
+<li><strong>Number</strong>：數字型別是一種 (浮點數)，這種數值在極大值時會有精準度的問題。<br>另外還有以下三種都屬於此 Number 型別。<ul>
+<li>+Infinity</li>
+<li>-Infinity</li>
+<li>NaN (not a number，但屬於數字型別，強制轉型有時會出現此錯誤)</li>
+</ul>
+</li>
+<li>BigInt(new) 整數數值(new)</li>
+<li>Symbol（new 於 ECMAScript 6 新定義）</li>
+</ul>
+<p><strong><font size='5'>物件型別：</font></strong><br>除了上述的六種原始型別，其餘都是物件型別，包含很常使用的 “<span class="label warning">陣列</span>”、”<span class="label warning">函式</span>” 都屬於物件型別。</p>
+<h3 id="原始型別包裹物件"><a href="#原始型別包裹物件" class="headerlink" title="原始型別包裹物件"></a>原始型別包裹物件</h3> <img src="/2019/12/02/JavaScript-Basic-2/type.png" class="" width="800" title="原始型別包裹物件">
+<p> 原始型別可以使用的方法。除了 Null 跟 Undefined ，Boolean、Number、String、BigInt(new)、Symbol(new) 皆有其包裹物件</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a = <span class="string">'ming '</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.length());       <span class="comment">//5 </span></span><br><span class="line"><span class="built_in">console</span>.log(a.toUpperCase());  <span class="comment">//MING </span></span><br><span class="line"><span class="built_in">console</span>.log(a.trim());         <span class="comment">//ming</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">String</span>(a);         <span class="comment">//不建議用這種建構式來宣告取得型別，非為原始型別，而是物件型別。</span></span><br><span class="line"><span class="built_in">console</span>.log(e)                 <span class="comment">//String&#123;"Ming"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<img src="/2019/12/02/JavaScript-Basic-2/type-2.png" class="" width="800">
+<p>可以由 <span class="label danger">_proto_</span> 內得知原始型別可以使用的方法。</p>
 
     </div>
 
@@ -307,7 +363,7 @@ block裡面的是expression，所以他可以被賦值給變數：<figure class=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹-運算子、型別與文法"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹(運算子、型別與文法)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.1.</span> <span class="nav-text">陳述式與表達式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹-運算子、型別與文法"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹(運算子、型別與文法)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.1.</span> <span class="nav-text">陳述式與表達式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASI-Automatic-Semicolon-Insertion"><span class="nav-number">1.2.</span> <span class="nav-text">ASI (Automatic Semicolon Insertion)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.3.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始型別及物件型別"><span class="nav-number">1.4.</span> <span class="nav-text">原始型別及物件型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始型別包裹物件"><span class="nav-number">1.4.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
