@@ -70,7 +70,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hosting_function.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;sync.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Event_queue.png">
-<meta property="og:updated_time" content="2019-12-02T14:17:01.901Z">
+<meta property="og:updated_time" content="2019-12-04T15:27:11.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -222,7 +222,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-02 22:17:01" itemprop="dateModified" datetime="2019-12-02T22:17:01+08:00">2019-12-02</time>
+                <time title="修改時間：2019-12-04 23:27:11" itemprop="dateModified" datetime="2019-12-04T23:27:11+08:00">2019-12-04</time>
               </span>
 
           
@@ -355,9 +355,13 @@
 <img src="/2019/11/24/JavaScript/sync.png" class="img-left" width="800" title="同步與非同步">
 <img src="/2019/11/24/JavaScript/Event_queue.png" class="img-left" width="800" title="事件佇列">
 
-<p>在所有非同步事件如 <span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>…，都不會立即執行這些任務，而是將這些任務放到 <span class="label danger">event queue</span> 中，並將所有的事件堆疊完成後，才會開始讓 <span class="label danger">event queue</span> 內的事件被觸發。</p>
+<p>在所有非同步事件如 <span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>…，都不會立即執行這些任務，而是將這些任務放到<span class="label danger">事件佇列(event queue)</span>中，並將所有的事件堆疊完成後，才會開始讓<span class="label danger">事件佇列(event queue)</span>內的事件被觸發。</p>
 <div class="note info">
             <font size=2><p>名詞解釋：</p><ul><li>同步( Scynchronous )：同步處理就像是一般的程式邏輯的話，都是按照你所寫的一行一行去執行，而順序必定都是<strong>前一個動作執行完才會去接著執行下一個動作</strong>。</li><li>非同步( Ascynchronous )：<strong>等待前面步驟執行完之前可以先去執行後面的步驟</strong>。</li><li>事件佇列( event queue )</li></ul></font>
+          </div>
+
+<div class="note success">
+            <p>從上面的描述，可以統整出兩個重點：</p><ol><li>瀏覽器內核除了 js 引擎的執行緒，還有其他同步執行的執行緒。</li><li><span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>，或其他無法預期執行時間的操作，都會以非同步處理。也就是會先被丟到<span class="label danger">事件佇列(event queue)</span>，等到同步執行的程式碼執行完，才會去處理那些被放到佇列中的任務。</li></ol>
           </div>
 
     </div>

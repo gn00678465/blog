@@ -57,7 +57,8 @@
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type-2.png">
-<meta property="og:updated_time" content="2019-12-03T15:49:38.170Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;operator.png">
+<meta property="og:updated_time" content="2019-12-05T15:56:35.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
 
@@ -209,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-03 23:49:38" itemprop="dateModified" datetime="2019-12-03T23:49:38+08:00">2019-12-03</time>
+                <time title="修改時間：2019-12-05 23:56:35" itemprop="dateModified" datetime="2019-12-05T23:56:35+08:00">2019-12-05</time>
               </span>
 
           
@@ -223,9 +224,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="JavaScript-基礎介紹-運算子、型別與文法"><a href="#JavaScript-基礎介紹-運算子、型別與文法" class="headerlink" title="JavaScript 基礎介紹(運算子、型別與文法)"></a>JavaScript 基礎介紹(運算子、型別與文法)</h1><a id="more"></a>
+        <p><strong>JavaScript 基礎介紹(運算子、型別與文法)</strong></p>
+<a id="more"></a>
 
-<h2 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h2><ul>
+<h1 id="陳述式與表達式"><a href="#陳述式與表達式" class="headerlink" title="陳述式與表達式"></a>陳述式與表達式</h1><ul>
 <li><strong>陳述式( Statement )</strong>：JS的語句類型，用於命令執行指定的一系列操作，最大的特徵是<span class="label primary">不會回傳結果</span>，使用如下。<ul>
 <li>流程控制：block、break、if…else。</li>
 <li>宣告：var、let、const。</li>
@@ -253,7 +255,7 @@ block裡面的是expression，所以他可以被賦值給變數：<figure class=
 
 </li>
 </ul>
-<h2 id="ASI-Automatic-Semicolon-Insertion"><a href="#ASI-Automatic-Semicolon-Insertion" class="headerlink" title="ASI (Automatic Semicolon Insertion)"></a>ASI (Automatic Semicolon Insertion)</h2><p>按照 ECMAScript 標準，一些 特定語句（statement) 必須以分號結尾。分號代表這段語句的終止。<br>但是有時候為了方便，這些分號是有可以省略的。這種情況下解釋器會自己判斷語句該在哪裡終止。這種行為被叫做 “自動插入分號”，簡稱 ASI (Automatic Semicolon Insertion) 。<br>特定語句有：</p>
+<h1 id="ASI-Automatic-Semicolon-Insertion"><a href="#ASI-Automatic-Semicolon-Insertion" class="headerlink" title="ASI (Automatic Semicolon Insertion)"></a>ASI (Automatic Semicolon Insertion)</h1><p>按照 ECMAScript 標準，一些 特定語句（statement) 必須以分號結尾。分號代表這段語句的終止。<br>但是有時候為了方便，這些分號是有可以省略的。這種情況下解釋器會自己判斷語句該在哪裡終止。這種行為被叫做 “自動插入分號”，簡稱 ASI (Automatic Semicolon Insertion) 。<br>特定語句有：</p>
 <ul>
 <li>空語句</li>
 <li>let</li>
@@ -274,14 +276,14 @@ block裡面的是expression，所以他可以被賦值給變數：<figure class=
           </div>
 Ref: [JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
 
-<h2 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h2><p> JavaScript 是屬於動態型別，在執行階段才會確定型別，而型別是由賦予的值所定義的，且型別是可以變換的。<br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> name;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line">name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"> Console.log(<span class="keyword">typeof</span> num)  <span class="comment">// number</span></span><br><span class="line"> num = <span class="string">'文字'</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">typeof</span> num)  <span class="comment">// string</span></span><br></pre></td></tr></table></figure><br>型別轉換的陷阱：</p>
-<ul>
+<h1 id="動態型別"><a href="#動態型別" class="headerlink" title="動態型別"></a>動態型別</h1><p> JavaScript 是屬於動態型別，在執行階段才會確定型別，而型別是由賦予的值所定義的，且型別是可以變換的。<br> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">var</span> name;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line">name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> name)  <span class="comment">// string</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"> Console.log(<span class="keyword">typeof</span> num)  <span class="comment">// number</span></span><br><span class="line"> num = <span class="string">'文字'</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="keyword">typeof</span> num)  <span class="comment">// string</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="型別轉換的陷阱"><a href="#型別轉換的陷阱" class="headerlink" title="型別轉換的陷阱"></a>型別轉換的陷阱</h2><ul>
 <li>顯性的轉換( Explicit conversion )：是當原本變數的值，直接被賦予另一個型別的值</li>
 <li>隱性的轉換( Implicit conversion )：須了解運算過程中型別的變化，不然會造成難以預期的結果。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//範例</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//number</span></span><br><span class="line">num = num + <span class="string">''</span>;   </span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//string</span></span><br><span class="line">num = num *<span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> num);    <span class="comment">//number</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h2 id="原始型別及物件型別"><a href="#原始型別及物件型別" class="headerlink" title="原始型別及物件型別"></a>原始型別及物件型別</h2><p>JavaScript 是屬於動態型別，它定義了七種資料型別，分別為六種原始型別 (ES6 新增一種原始型別)及 Object 型別。</p>
+<h2 id="原始型別及物件型別"><a href="#原始型別及物件型別" class="headerlink" title="原始型別及物件型別"></a>原始型別及物件型別</h2><p>JavaScript 是屬於動態型別，它定義了8種資料型別，分別為7種原始型別 (ES6 新增2種原始型別)及 Object 型別。</p>
 <p><strong><font size='5'>原始型別：</font></strong></p>
 <ul>
 <li><strong>Boolean</strong>：僅有 true, false 兩個值</li>
@@ -295,15 +297,61 @@ Ref: [JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
 </ul>
 </li>
 <li>BigInt(new) 整數數值(new)</li>
-<li>Symbol（new 於 ECMAScript 6 新定義）</li>
+<li>Symbol（new）</li>
 </ul>
-<p><strong><font size='5'>物件型別：</font></strong><br>除了上述的六種原始型別，其餘都是物件型別，包含很常使用的 “<span class="label warning">陣列</span>”、”<span class="label warning">函式</span>” 都屬於物件型別。</p>
+<p><strong><font size='5'>物件型別：</font></strong><br>除了上述的7種原始型別，其餘都是物件型別，包含很常使用的 “<span class="label warning">陣列</span>”、”<span class="label warning">函式</span>” 都屬於物件型別。</p>
 <h3 id="原始型別包裹物件"><a href="#原始型別包裹物件" class="headerlink" title="原始型別包裹物件"></a>原始型別包裹物件</h3> <img src="/2019/12/02/JavaScript-Basic-2/type.png" class="" width="800" title="原始型別包裹物件">
 <p> 原始型別可以使用的方法。除了 Null 跟 Undefined ，Boolean、Number、String、BigInt(new)、Symbol(new) 皆有其包裹物件</p>
  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">a = <span class="string">'ming '</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a.length());       <span class="comment">//5 </span></span><br><span class="line"><span class="built_in">console</span>.log(a.toUpperCase());  <span class="comment">//MING </span></span><br><span class="line"><span class="built_in">console</span>.log(a.trim());         <span class="comment">//ming</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> e = <span class="keyword">new</span> <span class="built_in">String</span>(a);         <span class="comment">//不建議用這種建構式來宣告取得型別，非為原始型別，而是物件型別。</span></span><br><span class="line"><span class="built_in">console</span>.log(e)                 <span class="comment">//String&#123;"Ming"&#125;</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>length、toUpperCase()、trim() 為原始型別包裹物件內的方法。</li>
+<li>雖然可以用 var e = new String(a); 但不建議用這種建構式來宣告取得型別，因為此為物件型別。</li>
+</ul>
 <img src="/2019/12/02/JavaScript-Basic-2/type-2.png" class="" width="800">
 <p>可以由 <span class="label danger">_proto_</span> 內得知原始型別可以使用的方法。</p>
+<h1 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h1><p>可透過符號或單詞來運算前後側的運算元，並且回傳一個結果。</p>
+<img src="/2019/12/02/JavaScript-Basic-2/operator.png" class="" width="800">
+
+<p>JavaScript 同時具有二元運算子及一元運算子， 以及一種特殊的 三元運算子，也就是 條件運算子。<br>運算元大部分屬於<strong>二元運算子</strong>，由左右兩邊的運算元搭配一個符號。</p>
+<div class="note primary no-icon">
+            <p><code>運算元1 運算子 運算元2</code></p>
+          </div>
+
+<p><strong>一元運算子</strong><br>是只需要一個運算元的運算，位於運算子之前或之後。</p>
+<div class="note primary no-icon">
+            <p><code>運算子 運算元</code><br>or<br><code>運算元 運算子</code></p>
+          </div>
+<p>如以下：</p>
+<ol>
+<li><code>delete</code>運算子會刪除物件，物件的性質，或是陣列中指定 index 的物件。 語法是:<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">delete 物件名稱;</span><br><span class="line">delete 物件名稱.性質;</span><br><span class="line">delete 物件名稱[索引];</span><br><span class="line">delete 性質; // 只有在 with 陳述句中可以使用</span><br></pre></td></tr></table></figure></li>
+<li><code>typeof</code>運算子會回傳代表運算元類型。 <span class="label primary">運算元能是字串，變數，關鍵字，或是會回傳型態的物件</span>。<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typeof 運算元</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>條件（三元）運算子</strong><br>三元運算子(又叫條件運算符)，僅有的使用三個操作數的運算符。</p>
+<div class="note primary no-icon">
+            <p><code>條件 ? 值1 : 值2</code></p>
+          </div>
+<p>一個條件後面會跟一個問號（?），如果條件為 truthy ，則問號後面的表達式A將會執行；表達式A後面跟著一個冒號（:），如果條件為 falsy ，則冒號後面的表達式B將會執行。<br>本運算符經常作為 if 語句的簡捷形式來使用。</p>
+<p><strong><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank" rel="noopener">MDN 運算式與運算子</a></strong></p>
+<h2 id="優先性及相依性"><a href="#優先性及相依性" class="headerlink" title="優先性及相依性"></a>優先性及相依性</h2><div class="note info">
+            <p><strong>優先性(Precedence)</strong><br>決定運算子彼此之間被語法解析的方式<br>優先序較高的運算子會成為優先序較低的運算子的運算元</p><p><strong>相依性(Associativity)</strong><br>相依性決定運算方向</p>
+          </div>
+
+<p><strong><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">MDN 運算子優先序</a></strong></p>
+<p><strong>陷阱題 1：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>)   <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>)   <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>這跟優先性及相依性有很大的關係</p>
+<ul>
+<li>因會先執行 <code>console.log( 3 &gt; 2)</code> ，結果是 true</li>
+<li>true 再跟 1 進行比較，所以會變成 console.log( true &gt;1)</li>
+<li>而 true 會進行型別的轉換，變成 <code>console.log(1 &gt; 1)</code> ，因 1 不會大於 1 ，所以結果是 false</li>
+</ul>
+<p><strong>陷阱題 2：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defindProperty(b, <span class="string">'a'</span>, &#123;</span><br><span class="line">  value: <span class="number">2</span>;</span><br><span class="line">  writeable: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">b.a = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(b.a)    <span class="comment">//2 結果不會被複寫</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">a = b.a = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a)      <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>因 <code>b.a =1</code> 為表達式，所以在 console 會回傳 1</li>
+<li>而 a 所接收的結果是後面的 <code>b.a =1</code> 回傳的結果，所以 a 的結果為 1</li>
+</ul>
 
     </div>
 
@@ -363,7 +411,7 @@ Ref: [JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹-運算子、型別與文法"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹(運算子、型別與文法)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.1.</span> <span class="nav-text">陳述式與表達式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASI-Automatic-Semicolon-Insertion"><span class="nav-number">1.2.</span> <span class="nav-text">ASI (Automatic Semicolon Insertion)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#動態型別"><span class="nav-number">1.3.</span> <span class="nav-text">動態型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始型別及物件型別"><span class="nav-number">1.4.</span> <span class="nav-text">原始型別及物件型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始型別包裹物件"><span class="nav-number">1.4.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.</span> <span class="nav-text">陳述式與表達式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASI-Automatic-Semicolon-Insertion"><span class="nav-number">2.</span> <span class="nav-text">ASI (Automatic Semicolon Insertion)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">3.</span> <span class="nav-text">動態型別</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#型別轉換的陷阱"><span class="nav-number">3.1.</span> <span class="nav-text">型別轉換的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始型別及物件型別"><span class="nav-number">3.2.</span> <span class="nav-text">原始型別及物件型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始型別包裹物件"><span class="nav-number">3.2.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運算子"><span class="nav-number">4.</span> <span class="nav-text">運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#優先性及相依性"><span class="nav-number">4.1.</span> <span class="nav-text">優先性及相依性</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
