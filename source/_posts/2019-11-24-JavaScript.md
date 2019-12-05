@@ -388,7 +388,7 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
 {% asset_img img-left sync.png 800 同步與非同步 %}
 {% asset_img img-left Event_queue.png 800 事件佇列 %}
 
-在所有非同步事件如 {% label primary@addEventListener %}、{% label primary@setTimeout %}、{% label primary@ajax %}...，都不會立即執行這些任務，而是將這些任務放到 {% label danger@event queue %} 中，並將所有的事件堆疊完成後，才會開始讓 {% label danger@event queue %} 內的事件被觸發。
+在所有非同步事件如 {% label primary@addEventListener %}、{% label primary@setTimeout %}、{% label primary@ajax %}...，都不會立即執行這些任務，而是將這些任務放到{% label danger@事件佇列(event queue) %}中，並將所有的事件堆疊完成後，才會開始讓{% label danger@事件佇列(event queue) %}內的事件被觸發。
 
 {% note info%}
 <font size=2>
@@ -399,4 +399,11 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
 - 事件佇列( event queue )
 
 </font>
+{% endnote %}
+
+{% note success %}
+
+從上面的描述，可以統整出兩個重點：
+1. 瀏覽器內核除了 js 引擎的執行緒，還有其他同步執行的執行緒。
+2. {% label primary@addEventListener %}、{% label primary@setTimeout %}、{% label primary@ajax %}，或其他無法預期執行時間的操作，都會以非同步處理。也就是會先被丟到{% label danger@事件佇列(event queue) %}，等到同步執行的程式碼執行完，才會去處理那些被放到佇列中的任務。
 {% endnote %}
