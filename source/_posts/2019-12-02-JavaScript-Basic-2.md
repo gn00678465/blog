@@ -98,7 +98,7 @@ ECMAScript 標準定義的 ASI 包括 三條規則 和 兩條例外。
 1. 當解析到文件末尾發現語法還是有問題，就會在文件末尾插入分號。
 1. 當解析時碰到 restricted production 的語法（比如 {% label danger@return %}），並且在 restricted production 規定的 {% label danger@[no LineTerminator here] %}的地方發現換行，那麼換行的地方就會被插入分號。
 
-{% note danger%}
+{% note danger no-icon %}
   restricted production它是一組有嚴格限定的語法的統稱，這些語法都是在某個地方不能換行的，不能換行的地方會被標註 <font color="red">[no LineTerminator here]</font>。
   ECMAScript 的 return 語法定義如下：
   ```javascript
@@ -130,6 +130,12 @@ console.log(typeof name)  // string
 ```
 ## 型別轉換的陷阱
 + 顯性的轉換( Explicit conversion )：是當原本變數的值，直接被賦予另一個型別的值
+```javascript
+var num = 1;
+console.log(typeof num);    //number
+num = '1';
+console.log(typeof num);    //string
+```
 + 隱性的轉換( Implicit conversion )：須了解運算過程中型別的變化，不然會造成難以預期的結果。
 ```javascript
 //範例
@@ -263,3 +269,332 @@ console.log(a)      //1
 ```
 - 因 `b.a =1` 為表達式，所以在 console 會回傳 1
 - 而 a 所接收的結果是後面的 `b.a =1` 回傳的結果，所以 a 的結果為 1
+
+# 寬鬆相等、嚴格相等以及隱含轉型
+JavaScript 提供三種不同的值比較運算操作：
+1. 寬鬆相等：<font color="red">**==**</font>
+  寬鬆相等會將比較值{% label danger@轉換成相同型別 %}後比較。
+  轉換規則：
+  + 字串(String)、布林(Boolean)比較時會{% label danger@轉型 %}為數字(Number)
+  可參照下方表格。
+  ```javascript
+  console.log( 17 == 0x11 )   //true
+  console.log( '1' == !0 )    //true
+  ```
+  + null、undefined寬鬆比對時{% label danger@不會轉型成數字 %}。
+  ```javascript
+  console.log( Number(null), Number(undefined) )   //0, NaN
+  console.log( null == 0 )         //false
+  console.log( null == undefined ) //true
+  ```
+  + 物件比對
+    + 與非物件比對：物件比對會使用 {% label info@基本型別包裹器(Primitive Wrapper) %} `valueOf()` 或 `toString()`，轉換後再與非物件比對。
+      ```javascript
+      console.log([10])                 //10
+      console.log([10].valueOf() == 10) //true
+      // [10]透過valueOf()取回該物件相對應原始型別的值再進行比對
+
+      console.log(['A'].toString())        //A
+      console.log(['A'].toString() == 'A') //true
+      // [10]透過toString()取回該物件相對應原始型別的值再進行比對
+      ```
+    + 與物件比對：物件與物件比對是使用 {% label danger@參考位置 %} 比對，故比對結果為false。
+    ```javascript
+    console.log([] == [])       //false
+    console.log({} == {})       //false
+    ```
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th colspan="6"><center>比較值 B</center></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th></th>
+        <th><center>Undefined</center></th>
+        <th><center>Null</center></th>
+        <th><center>Number</center></th>
+        <th><center>String</center></th>
+        <th><center>Boolean</center></th>
+        <th><center>Object</center></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th rowspan="6">
+        比<br>較<br>值<br>A
+        </th>
+        <td>
+          <left>Undefined</left>
+        </td>
+        <td>
+          <center>{% label success@true %}</center>
+        </td>
+        <td>
+          <center>{% label success@true %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <left>Null</left>
+        </td>
+        <td>
+          <center>{% label success@true %}</center>
+        </td>
+        <td>
+          <center>{% label success@true %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <left>Number</left>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === Number(B) %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === Number(B) %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === ToPrimitive(B) %}</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <left>String</left>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label primary@Number(A) === B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@Number(A) === <br>Number(B) %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === ToPrimitive(B) %}</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <left>Boolean</left>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label primary@Number(A) === B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@Number(A) === <br>Number(B) %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@Number(A) === <br>ToPrimitive(B) %}</center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <left>Object</left>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label danger@false %}</center>
+        </td>
+        <td>
+          <center>{% label primary@ToPrimitive(A)<br> == B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@ToPrimitive(A)<br> == B %}</center>
+        </td>
+        <td>
+          <center>{% label primary@ToPrimitive(A) == <br>ToNumber(B) %}</center>
+        </td>
+        <td>
+          <center>{% label primary@A === B %}</center>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  ToPrimitive：透過{% label info@基本型別包裹器(Primitive Wrapper) %} <code>valueOf()</code>或<code>toString()</code>方法，嘗試將物件轉換成原生值。
+2. 嚴格相等：<font color="red">**===**</font>
+  嚴格相等{% label danger@不會轉換型別 %}，如果值是不同型別，就會被視為不相等。
+  例外：
+  ```javascript
+  console.log(NaN === NaN)  //false;
+  console.log(-0 === +0)    //true;
+  ```
+3. `Object.is`
+  和嚴格相等做同樣的事，但會將 `NaN`、`-0` 和 `+0` 獨立處理，因此這三個不會相等，而 `Object.is(NaN, NaN)` 則會回傳 {%label primary@true%} 。
+
+延伸：否定
+1. !==
+2. !=
+
+參考：[MDN 相等比較](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+
+# Truthy 與 Falsy
+
+在 JavaScript 這門程式語言，我們可以分成兩種「值」
+1. 第一種就是經過 {% label danger@ToBoolean %} 轉換後會變成 {% label danger@false %}，通常稱這些叫 「**Falsy**」值(假值)。
+{% raw %}
+<table>
+  <tbody>
+    <tr>
+      <td>false</td>
+      <td>The keyword false.</td>
+    </tr>
+    <tr>
+      <td>number</td>
+      <td>The number 0, +0, -0.</td>
+    </tr>
+    <tr>
+      <td>"", '', ``</td>
+      <td>This is an empty string (the length of the string is zero).</td>
+    </tr>
+    <tr>
+      <td>null</td>
+      <td>The absence of any value</td>
+    </tr>
+    <tr>
+      <td>undefined</td>
+      <td>The primitive value</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>not a number</td>
+    </tr>
+    <tr>
+      <td>0n</td>
+      <td>BigInt, when used as a boolean, follows the same rule as a Number. 0n is falsy.</td>
+    </tr>
+  </tbody>
+</table>
+{% endraw %}
+```javascript
+if (false)
+if (null)
+if (undefined)
+if (0)
+if (0n)
+if (NaN)
+if ('')
+if ("")
+if (``)
+if (document.all)
+```
+1. 而其他的部分都會是 {% label danger@true %}，則是 「**Truthy**」值(真值)。
+```javascript
+if (true)
+if ({})
+if ([])
+if (42)
+if ("foo")
+if (new Date())
+if (-42)
+if (3.14)
+if (-3.14)
+if (Infinity)
+if (-Infinity)
+```
+
+# 邏輯運算子及函式預設值
+
+**邏輯運算子 (Logical Operator)**
+{% raw %}
+<table>
+  <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Syntax</th>
+      <th width=70%>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>邏輯 AND (&&)</td>
+      <td>expr1 && expr2</td>
+      <td>
+        <ol>
+          <li>用兩個 & 符號來表示</li>
+          <li>「(條件/運算式A) && (條件/運算式B)」</li>
+          <li>當 && 左右兩側的值同時為 true 時，則會得到 true 的結果；若其中一方是 false 的情況下，則得到 false 。</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>邏輯 OR (||)</td>
+      <td>expr1 || expr2</td>
+      <td>
+        <ol>
+          <li>用兩個 | (pipe) 符號來表示</li>
+          <li>「(條件/運算式A) || (條件/運算式B)」</li>
+          <li>當 || 左右兩側的值只要有一方為 true，則結果為 true；只有在兩側皆為 false 的情況下才會得到 false 。</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>邏輯 NOT (!)</td>
+      <td>!expr</td>
+      <td>
+        <ol>
+          <li>以一個 ! 驚嘆號來表示</li>
+          <li>「!(條件/運算式)」</li>
+          <li>原本是 true 的結果經過 ! 轉換後會得到 false，而 false 會變成 true。 </li>
+          <li>透過兩次的「NOT」操作，即可判斷某數值 Boolean 轉換後的結果。用 !!xxx 來取代 Boolean(xxx)</li>
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{% endraw %}
