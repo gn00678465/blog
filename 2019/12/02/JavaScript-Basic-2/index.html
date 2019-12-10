@@ -58,7 +58,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type-2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;operator.png">
-<meta property="og:updated_time" content="2019-12-08T15:42:49.228Z">
+<meta property="og:updated_time" content="2019-12-09T15:41:19.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;JavaScript-Basic-2&#x2F;type.png">
 
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-08 23:42:49" itemprop="dateModified" datetime="2019-12-08T23:42:49+08:00">2019-12-08</time>
+                <time title="修改時間：2019-12-09 23:41:19" itemprop="dateModified" datetime="2019-12-09T23:41:19+08:00">2019-12-09</time>
               </span>
 
           
@@ -594,23 +594,23 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
   <tbody>
     <tr>
       <td>邏輯 AND (&&)</td>
-      <td>expr1 && expr2</td>
+      <td>exprA && exprB</td>
       <td>
         <ol>
           <li>用兩個 & 符號來表示</li>
           <li>「(條件/運算式A) && (條件/運算式B)」</li>
-          <li>當 && 左右兩側的值同時為 true 時，則會得到 true 的結果；若其中一方是 false 的情況下，則得到 false 。</li>
+          <li>當 && 左右兩側的值同時為 true 時，則會得到 true 的結果；若 exprA 為 flase，會直接回傳，否則回傳 exprB 的值。</li>
         </ol>
       </td>
     </tr>
     <tr>
       <td>邏輯 OR (||)</td>
-      <td>expr1 || expr2</td>
+      <td>exprA || exprB</td>
       <td>
         <ol>
           <li>用兩個 | (pipe) 符號來表示</li>
           <li>「(條件/運算式A) || (條件/運算式B)」</li>
-          <li>當 || 左右兩側的值只要有一方為 true，則結果為 true；只有在兩側皆為 false 的情況下才會得到 false 。</li>
+          <li>當 || 左右兩側的值只要有一方為 true，則回傳結果為 true的值；若 exprA 為flase，則回傳 exprB 的值。</li>
         </ol>
       </td>
     </tr>
@@ -621,7 +621,7 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
         <ol>
           <li>以一個 ! 驚嘆號來表示</li>
           <li>「!(條件/運算式)」</li>
-          <li>原本是 true 的結果經過 ! 轉換後會得到 false，而 false 會變成 true。 </li>
+          <li>原本是 true 的結果經過 ! 轉換後會得到 false，而 false 則會變成 true。 </li>
           <li>透過兩次的「NOT」操作，即可判斷某數值 Boolean 轉換後的結果。用 !!xxx 來取代 Boolean(xxx)</li>
         </ol>
       </td>
@@ -629,6 +629,13 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
   </tbody>
 </table>
 
+
+<p>延伸：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> originCash = <span class="number">500</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateEasyCard</span>(<span class="params">cash</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> money = cash + originCash;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'我有 '</span> + money + <span class="string">' 元'</span>);</span><br><span class="line">&#125;</span><br><span class="line">updateEasyCard();     <span class="comment">//我有 NaN 元</span></span><br></pre></td></tr></table></figure>
+<p>預設值為 0 的解決方法<br>使用三元運算子</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> originCash = <span class="number">500</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateEasyCard</span>(<span class="params">cash</span>) </span>&#123;</span><br><span class="line">  cash = <span class="built_in">parseInt</span>(cash);</span><br><span class="line">  <span class="built_in">console</span>.log(cash);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 當 cash 是數值或為 0 時，使用 cash 的數值</span></span><br><span class="line">  <span class="comment">// 如果 cash 是 NaN 時，則直接套用 500</span></span><br><span class="line">  cash = (cash || cash === <span class="number">0</span>)? cash: <span class="number">500</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">var</span> money = cash + originCash;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'我有 '</span> + money + <span class="string">' 元'</span>);</span><br><span class="line">&#125;</span><br><span class="line">updateEasyCard(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log( a &amp;&amp; b &amp;&amp; c )</span><br><span class="line"><span class="built_in">console</span>.log( c || c &amp;&amp; C || a )</span><br><span class="line"><span class="built_in">console</span>.log( a &amp;&amp; b || c &amp;&amp; a )</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -649,7 +656,10 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
     <a href="/2019/12/01/CSS-Basic/" rel="prev" title="CSS 基礎概念">
       <i class="fa fa-chevron-left"></i> CSS 基礎概念
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/10/object/" rel="next" title="物件 object">
+      物件 object <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -687,7 +697,7 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.</span> <span class="nav-text">陳述式與表達式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASI-Automatic-Semicolon-Insertion"><span class="nav-number">2.</span> <span class="nav-text">ASI (Automatic Semicolon Insertion)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">3.</span> <span class="nav-text">動態型別</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#型別轉換的陷阱"><span class="nav-number">3.1.</span> <span class="nav-text">型別轉換的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始型別及物件型別"><span class="nav-number">3.2.</span> <span class="nav-text">原始型別及物件型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始型別包裹物件"><span class="nav-number">3.2.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運算子"><span class="nav-number">4.</span> <span class="nav-text">運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#優先性及相依性"><span class="nav-number">4.1.</span> <span class="nav-text">優先性及相依性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寬鬆相等、嚴格相等以及隱含轉型"><span class="nav-number">5.</span> <span class="nav-text">寬鬆相等、嚴格相等以及隱含轉型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Truthy-與-Falsy"><span class="nav-number">6.</span> <span class="nav-text">Truthy 與 Falsy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#邏輯運算子及函式預設值"><span class="nav-number">7.</span> <span class="nav-text">邏輯運算子及函式預設值</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#陳述式與表達式"><span class="nav-number">1.</span> <span class="nav-text">陳述式與表達式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ASI-Automatic-Semicolon-Insertion"><span class="nav-number">2.</span> <span class="nav-text">ASI (Automatic Semicolon Insertion)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動態型別"><span class="nav-number">3.</span> <span class="nav-text">動態型別</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#型別轉換的陷阱"><span class="nav-number">3.1.</span> <span class="nav-text">型別轉換的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原始型別及物件型別"><span class="nav-number">3.2.</span> <span class="nav-text">原始型別及物件型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始型別包裹物件"><span class="nav-number">3.2.1.</span> <span class="nav-text">原始型別包裹物件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運算子"><span class="nav-number">4.</span> <span class="nav-text">運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#優先性及相依性"><span class="nav-number">4.1.</span> <span class="nav-text">優先性及相依性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寬鬆相等、嚴格相等以及隱含轉型"><span class="nav-number">5.</span> <span class="nav-text">寬鬆相等、嚴格相等以及隱含轉型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Truthy-與-Falsy"><span class="nav-number">6.</span> <span class="nav-text">Truthy 與 Falsy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#邏輯運算子及函式預設值"><span class="nav-number">7.</span> <span class="nav-text">邏輯運算子及函式預設值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#總結"><span class="nav-number">8.</span> <span class="nav-text">總結</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -701,7 +711,7 @@ ToPrimitive：透過<span class="label info">基本型別包裹器(Primitive Wra
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
