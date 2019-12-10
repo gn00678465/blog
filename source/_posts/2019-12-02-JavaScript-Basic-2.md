@@ -563,23 +563,23 @@ if (-Infinity)
   <tbody>
     <tr>
       <td>邏輯 AND (&&)</td>
-      <td>expr1 && expr2</td>
+      <td>exprA && exprB</td>
       <td>
         <ol>
           <li>用兩個 & 符號來表示</li>
           <li>「(條件/運算式A) && (條件/運算式B)」</li>
-          <li>當 && 左右兩側的值同時為 true 時，則會得到 true 的結果；若其中一方是 false 的情況下，則得到 false 。</li>
+          <li>當 && 左右兩側的值同時為 true 時，則會得到 true 的結果；若 exprA 為 flase，會直接回傳，否則回傳 exprB 的值。</li>
         </ol>
       </td>
     </tr>
     <tr>
       <td>邏輯 OR (||)</td>
-      <td>expr1 || expr2</td>
+      <td>exprA || exprB</td>
       <td>
         <ol>
           <li>用兩個 | (pipe) 符號來表示</li>
           <li>「(條件/運算式A) || (條件/運算式B)」</li>
-          <li>當 || 左右兩側的值只要有一方為 true，則結果為 true；只有在兩側皆為 false 的情況下才會得到 false 。</li>
+          <li>當 || 左右兩側的值只要有一方為 true，則回傳結果為 true的值；若 exprA 為flase，則回傳 exprB 的值。</li>
         </ol>
       </td>
     </tr>
@@ -590,7 +590,7 @@ if (-Infinity)
         <ol>
           <li>以一個 ! 驚嘆號來表示</li>
           <li>「!(條件/運算式)」</li>
-          <li>原本是 true 的結果經過 ! 轉換後會得到 false，而 false 會變成 true。 </li>
+          <li>原本是 true 的結果經過 ! 轉換後會得到 false，而 false 則會變成 true。 </li>
           <li>透過兩次的「NOT」操作，即可判斷某數值 Boolean 轉換後的結果。用 !!xxx 來取代 Boolean(xxx)</li>
         </ol>
       </td>
@@ -598,3 +598,40 @@ if (-Infinity)
   </tbody>
 </table>
 {% endraw %}
+
+延伸：
+```javascript
+var originCash = 500;
+function updateEasyCard(cash) {
+   var money = cash + originCash;
+  console.log('我有 ' + money + ' 元');
+}
+updateEasyCard();     //我有 NaN 元
+```
+預設值為 0 的解決方法
+使用三元運算子
+```javascript
+var originCash = 500;
+function updateEasyCard(cash) {
+  cash = parseInt(cash);
+  console.log(cash);
+  
+  // 當 cash 是數值或為 0 時，使用 cash 的數值
+  // 如果 cash 是 NaN 時，則直接套用 500
+  cash = (cash || cash === 0)? cash: 500;
+ 
+  var money = cash + originCash;
+  console.log('我有 ' + money + ' 元');
+}
+updateEasyCard(0);
+```
+
+# 總結
+```javascript
+var a = 1;
+var b = 2;
+var c = 0;
+console.log( a && b && c )
+console.log( c || c && C || a )
+console.log( a && b || c && a )
+```
