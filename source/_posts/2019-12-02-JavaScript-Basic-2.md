@@ -113,7 +113,9 @@ ECMAScript 標準定義的 ASI 包括 三條規則 和 兩條例外。
 
 </font>
 {% endnote %}
-Ref: [JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
+
+參考：
+[JavaScript ASI 機制詳解](https://segmentfault.com/a/1190000004548664)
 
 # 動態型別
  JavaScript 是屬於動態型別，在執行階段才會確定型別，而型別是由賦予的值所定義的，且型別是可以變換的。
@@ -147,25 +149,25 @@ num = num *3;
 console.log(typeof num);    //number
 ```
 
-## 原始型別及物件型別
+## 原始型別[純值(Primitive Types)]及物件型別
 
-JavaScript 是屬於動態型別，它定義了8種資料型別，分別為7種原始型別 (ES6 新增2種原始型別)及 Object 型別。
+JavaScript 是屬於動態型別，它定義了六種基本型別[或者稱為純值(Primitive Types)]及 Object 型別。
 
-**<font size='5'>原始型別：</font>**
-+ **Boolean**：僅有 true, false 兩個值
-+ **Null**：僅有 null 的值
-+ **Undefined**：沒有被定義的變數
-+ **String**：字串型別
-+ **Number**：數字型別是一種 (浮點數)，這種數值在極大值時會有精準度的問題。
+**<font size='5'>原始型別[純值(Primitive Types)]：</font>**
++ **Undefined**：undefined 表示還不存在，這是 JavaScript 給所有變數的初始值。
++ **Null**：null 也表示不存在，比較適合來表示一變數沒有值。
++ **Boolean**：布林，用來判斷條件成立與否，僅有 true, false 兩個值。
++ **String**：字串型別，這是一連串的字符所組成包覆在單引號或者雙引號內，都可以來表示字串。
++ **Number**：數字型別，是一種 (浮點數)，這種數值在極大值時會有精準度的問題。
   另外還有以下三種都屬於此 Number 型別。
   - +Infinity
   - -Infinity
   - NaN (not a number，但屬於數字型別，強制轉型有時會出現此錯誤)
++ Symbol（new）：這是在 ES6 新推出的純值。
 + BigInt(new) 整數數值(new)
-+ Symbol（new）
 
 **<font size='5'>物件型別：</font>**
-除了上述的7種原始型別，其餘都是物件型別，包含很常使用的 “{% label warning@陣列 %}”、”{% label warning@函式 %}” 都屬於物件型別。
+除了上述的原始型別，其餘都是物件型別，包含很常使用的 “{% label warning@陣列 %}”、”{% label warning@函式 %}” 都屬於物件型別。
 
  ### 原始型別包裹物件
  {% asset_img type.png 800 原始型別包裹物件 %}
