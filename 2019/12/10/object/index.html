@@ -55,8 +55,19 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="物件是一批相關的數據以及&#x2F;或者功能（通常包含了幾個變數及函式 — 當它們包含在物件中時被稱做「屬性」（properties）或「函式」（methods））。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-12-10T22:31:07.865Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-10.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-11.png">
+<meta property="og:updated_time" content="2019-12-12T15:47:26.214Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-1.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/10/object/">
 
@@ -206,7 +217,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-11 06:31:07" itemprop="dateModified" datetime="2019-12-11T06:31:07+08:00">2019-12-11</time>
+                <time title="修改時間：2019-12-12 23:47:26" itemprop="dateModified" datetime="2019-12-12T23:47:26+08:00">2019-12-12</time>
               </span>
 
           
@@ -256,13 +267,47 @@
 <li><strong>括弧記法 (Bracket notation)</strong><br>括弧記法 (Bracket notation) 是另一種存取物件屬性的方法。<br>將要存取屬性名稱使用”<font color='red'><strong>[]</strong></font>“包覆起來。<br>如屬性名稱為<strong>變數值</strong>可使用括弧記法。<ul>
 <li>取值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line">物件名稱[變數名稱]</span><br><span class="line">物件名稱[方法名稱]()  <span class="comment">//函式取值</span></span><br></pre></td></tr></table></figure></li>
 <li>新增<br>透過賦值運算子將值賦予現有屬性與函式的數值，也可以建立全新的成員，與點記法相同。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>] = 值</span><br><span class="line">物件名稱[變數名稱] = 變數值</span><br><span class="line">物件名稱[<span class="string">'方法名稱'</span>]()  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure></li>
-<li>刪除<br>使用一元運算子<code>delete</code>刪除現有屬性與函式的數值，與點記法相同。</li>
-</ul>
-<strong>變數無法被刪除，屬性才能被刪除。</strong><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'方法名稱'</span>]  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure>
+<li>刪除<br>使用一元運算子<code>delete</code>刪除現有屬性與函式的數值，與點記法相同。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'方法名稱'</span>]  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure>
 <div class="note no-icon">
             <p><font size=2>此方式與陣列取值方式相似，陣列取值使用指數  (index number) 選擇項目；而括弧記法 (Bracket notation)取值是透過各成員數值相關的名稱來選擇項目。</font></p>
-          </div></li>
+          </div>
+
+</li>
+</ul>
+</li>
 </ol>
+<p>補充：<br><strong>變數無法被刪除，屬性才能被刪除。</strong><br>使用 var 宣告變數，此變數無法被刪除。<br>如直接使用賦值運算子賦予一個值，類似於全域變數下新增一個屬性<code>window.property = value</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>        <span class="comment">//宣告變數  a = 1</span></span><br><span class="line">aa = <span class="number">1</span>           <span class="comment">//類似windows.a = 1</span></span><br><span class="line"><span class="keyword">delete</span> a         <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(a)   <span class="comment">//1  </span></span><br><span class="line"><span class="keyword">delete</span> aa        <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(aa)  <span class="comment">//aa is not defined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="物件與純值"><a href="#物件與純值" class="headerlink" title="物件與純值"></a>物件與純值</h1><ul>
+<li>純值(Primitive Types)又稱為原始型別，可參考：。<ul>
+<li>使用建立的純值無法新增屬性。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br><span class="line">name.age = <span class="number">30</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br></pre></td></tr></table></figure></li>
+<li>使用建構式建立則變為物件型別，便可以新增屬性。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newName = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(newName));   <span class="comment">//String &#123;"小明"&#125;</span></span><br><span class="line">newName.age = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(newName);   <span class="comment">//String &#123;"小明", age: 30&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>未定義的物件屬性預設值<br>物件下未定義屬性的值為undefined，並於undefined下無法新增任何屬性。</li>
+</ul>
+<h1 id="物件的參考特性"><a href="#物件的參考特性" class="headerlink" title="物件的參考特性"></a>物件的參考特性</h1><img src="/2019/12/10/object/object-1.png" class="" width="800" title="[傳值 vs 傳參考]">
+<ul>
+<li><p>傳值(Call By Value)：<br>把 <span class="label primary">值</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。</p>
+<div class="note no-icon">
+            <p>當宣告一個 primitive type 的變數時（如：數字、字串、布林），假設把 preson 指定成一個 primitive type 的時候，preson 會在記憶體中存在一個自己的位置（0x01）。當指定另一個變數 <code>preson2 = preson</code> 的時候，preson2 實際上會建立另一個獨立的記憶體位置（假設叫做0x02），接著再把 preson 的值存在這個獨立的記憶體位置。<br>preson 和 preson2 其實是存在於兩個不同的記憶體位置，因此彼此並不會乎相干擾影響，當修改preson2的值時，preson仍不會變。</p>
+          </div>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-2.png" class=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-3.png" class=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-4.png" class=""></div></div></div></div>
+<div class="note info">
+            <p>在 JavaScript 中 primitive type（Boolean, String, Number, null, undefined）都屬於 Call By Value。</p>
+          </div></li>
+<li><p>傳參考<br>是把<span class="label danger">記憶體位置</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。</p>
+<div class="note no-icon">
+            <p>當建立一個 preson 為 Object(或function) 時，preson 會在記憶體中建立一個自己的位置（0x01）。當指定另一個變數 <code>preson2 = preson</code> 的時候，這時候並不會給 preson2 一個新的位置，而是一樣指定到物件 preson 的位置（即0x01）。<br>物件 preson 和 preson2 都會被指稱到相同的位置（即0x01），因此，當 preson 的值改變的時候 preson 的值也會改變。</p>
+          </div>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-5.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-6.png" class=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-7.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-8.png" class=""></div></div></div></div>
+
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-10.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-11.png" class=""></div></div></div></div>
+
+
+</li>
+</ul>
 
     </div>
 
@@ -322,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#物件結構"><span class="nav-number">1.</span> <span class="nav-text">物件結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件取值、新增、刪除"><span class="nav-number">2.</span> <span class="nav-text">物件取值、新增、刪除</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#物件結構"><span class="nav-number">1.</span> <span class="nav-text">物件結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件取值、新增、刪除"><span class="nav-number">2.</span> <span class="nav-text">物件取值、新增、刪除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件與純值"><span class="nav-number">3.</span> <span class="nav-text">物件與純值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件的參考特性"><span class="nav-number">4.</span> <span class="nav-text">物件的參考特性</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
