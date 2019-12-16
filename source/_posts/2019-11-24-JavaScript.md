@@ -1,8 +1,10 @@
 ---
 title: JavaScript 基礎介紹(執行環境、作用域)
 date: 2019-11-24 22:06:17
-tags: 
+categories:
 - JavaScript
+tags:
+- Basic
 ---
 # JavaScript 基礎介紹(執行環境、作用域)
 

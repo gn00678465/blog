@@ -1,8 +1,10 @@
 ---
 title: JavaScript 基礎介紹(運算子、型別與文法)
 date: 2019-12-02 22:18:47
-tags:
+categories:
 - JavaScript
+tags:
+- Basic
 ---
 **JavaScript 基礎介紹(運算子、型別與文法)**
 
