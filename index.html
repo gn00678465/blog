@@ -138,6 +138,11 @@
     <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
@@ -165,6 +170,116 @@
             
 
   <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/16/function/" class="post-title-link" itemprop="url">函式 function</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2019-12-16 10:52:14 / 修改時間：19:40:45" itemprop="dateCreated datePublished" datetime="2019-12-16T10:52:14+08:00">2019-12-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="什麼是函式"><a href="#什麼是函式" class="headerlink" title="什麼是函式"></a>什麼是函式</h1><img src="/2019/12/16/function/function_1.png" class="" width="800">
+<p>「函式」指的是將一或多段程式指令包裝起來，可以重複使用，也方便維護。<br><strong>函式是物件的一種</strong></p>
+<p>通常一個函式會包含三個部分：</p>
+<ul>
+<li>函式的名稱 (也可能沒有名稱)</li>
+<li>在括號 <code>( )</code> 中的部分，稱為「參數 (arguments) 」，參數與參數之間會用逗號 <code>,</code> 隔開</li>
+<li>在大括號 <code>{ }</code> 內的部分，內含需要<strong>重複執行的內容</strong>，是函式功能的主要區塊。</li>
+</ul>
+<p>宣告函式的方法</p>
+<ul>
+<li><p>具名函式<br>使用 <code>function 名稱(參數) { ... };</code> 的方式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionA</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'具名函式'</span>, <span class="string">'函式陳述式'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(functionA)</span><br><span class="line">&#125;</span><br><span class="line">functionA()</span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>ƒ functionA() {<br>  console.log(‘具名函式’, ‘函式陳述式’);<br>  console.log(functionA)<br>}</p>
+          </div></li>
+<li><p>匿名函式<br>透過 <code>變數名稱 = function(參數){ ... };</code> 的方式，將一個函式透過 <code>=</code> 指定給某個變數。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> functionB = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'匿名函式'</span>, <span class="string">'函式表達式'</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(functionB)</span><br><span class="line">&#125;</span><br><span class="line">functionB()</span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>ƒ () {<br>  console.log(‘匿名函式’, ‘函式表達式’);<br>  console.log(functionB)<br>}</p>
+          </div>
+<p>在匿名函式中，如果想要在 function 後面加上一個名字也是可以的，但是要注意的是，這個名字只在「<font color="red">自己函式的區塊內</font>」有效。<br>脫離了函式自身區塊後，變數 <code>functionD</code> 就不存在了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> functionC = <span class="function"><span class="keyword">function</span> <span class="title">functionD</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(functionC, functionD)</span><br><span class="line">  <span class="comment">//具名函式能在函式內被調用</span></span><br><span class="line">&#125;</span><br><span class="line">functionC()</span><br><span class="line"><span class="built_in">console</span>.log(functionC)</span><br><span class="line"><span class="built_in">console</span>.log(functionD)  <span class="comment">//functionD is not defined</span></span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>ƒ functionD() {<br>  console.log(functionC, functionD)<br>} ƒ functionD() {<br>  console.log(functionC, functionD)<br>}</p>
+          </div>
+
+<div class="tabs" id="其他範例"><ul class="nav-tabs"><li class="tab active"><a href="#其他範例-1">其他範例 1</a></li><li class="tab"><a href="#其他範例-2">其他範例 2</a></li></ul><div class="tab-content"><div class="tab-pane active" id="其他範例-1"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">var</span> giveMeMoney = <span class="function"><span class="keyword">function</span> <span class="title">giveMoreMoney</span>(<span class="params">coin</span>) </span>&#123;</span><br><span class="line">  num += <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'執行 giveMeMoney'</span>, num, coin);</span><br><span class="line">  <span class="keyword">return</span> coin &gt; <span class="number">100</span> ? coin : giveMoreMoney(num*coin);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(giveMeMoney(<span class="number">30</span>))</span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>執行 giveMeMoney 2 30<br>執行 giveMeMoney 3 60<br>執行 giveMeMoney 4 180<br>180</p>
+          </div></div><div class="tab-pane" id="其他範例-2"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeOne</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  fn()</span><br><span class="line">&#125;</span><br><span class="line">callSomeOne(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'執行函式'</span>)&#125;)</span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>執行函式</p>
+          </div></div></div></div>
+</li>
+<li><p>透過 <code>new Function</code> 關鍵字建立函式<br>使用 <code>new Function</code> (<font color="red">注意 F 大寫</font>) 這個關鍵字來建立函式物件。<br>使用時將參數與函式的內容依序傳入 <code>Function</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 透過 new 來建立 Function "物件"</span></span><br><span class="line"><span class="keyword">var</span> square = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'number'</span>, <span class="string">'return number * number'</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>透過 <code>new Function</code> 所建立的函式物件，每次執行時都會進行解析「字串」(如 <code>&#39;return number * number&#39;</code> ) 的動作，運作效能較差，所以通常實務上也較少會這樣做。</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="立即函式"><a href="#立即函式" class="headerlink" title="立即函式"></a>立即函式</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
   
   
@@ -200,8 +315,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-15 10:59:40" itemprop="dateModified" datetime="2019-12-15T10:59:40+08:00">2019-12-15</time>
+                <time title="修改時間：2019-12-16 11:05:24" itemprop="dateModified" datetime="2019-12-16T11:05:24+08:00">2019-12-16</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -273,8 +399,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-12 19:54:45" itemprop="dateModified" datetime="2019-12-12T19:54:45+08:00">2019-12-12</time>
+                <time title="修改時間：2019-12-16 11:04:34" itemprop="dateModified" datetime="2019-12-16T11:04:34+08:00">2019-12-16</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -337,9 +474,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2019-12-01 12:28:55 / 修改時間：13:13:09" itemprop="dateCreated datePublished" datetime="2019-12-01T12:28:55+08:00">2019-12-01</time>
+              <time title="創建時間：2019-12-01 12:28:55" itemprop="dateCreated datePublished" datetime="2019-12-01T12:28:55+08:00">2019-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-12-16 11:04:53" itemprop="dateModified" datetime="2019-12-16T11:04:53+08:00">2019-12-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -403,9 +557,26 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2019-12-01 12:25:54 / 修改時間：13:14:46" itemprop="dateCreated datePublished" datetime="2019-12-01T12:25:54+08:00">2019-12-01</time>
+              <time title="創建時間：2019-12-01 12:25:54" itemprop="dateCreated datePublished" datetime="2019-12-01T12:25:54+08:00">2019-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-12-16 11:05:01" itemprop="dateModified" datetime="2019-12-16T11:05:01+08:00">2019-12-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -477,8 +648,19 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-04 23:27:11" itemprop="dateModified" datetime="2019-12-04T23:27:11+08:00">2019-12-04</time>
+                <time title="修改時間：2019-12-16 11:02:11" itemprop="dateModified" datetime="2019-12-16T11:02:11+08:00">2019-12-16</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
 
           
 
@@ -652,14 +834,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
