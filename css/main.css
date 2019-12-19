@@ -227,7 +227,7 @@ hr {
   background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
   border: 0;
   height: 3px;
-  margin: 40px 0;
+  margin: 10px 0;
 }
 blockquote {
   border-left: 4px solid #ddd;
@@ -1190,7 +1190,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #eeffc4;
+  background: #ff7fac;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2490,4 +2490,14 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
+}
+.post-body .label {
+  border-radius: 1px;
+  padding: 0 5px;
+}
+.note.info {
+  background-color: rgba(127,204,227,0.1);
+}
+.note.danger {
+  background-color: rgba(232,107,121,0.3);
 }

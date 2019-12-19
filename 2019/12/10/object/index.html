@@ -65,7 +65,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-10.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-11.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;Shallow_Copy_VS_Deep_copy.png">
-<meta property="og:updated_time" content="2019-12-16T03:05:24.583Z">
+<meta property="og:updated_time" content="2019-12-18T02:34:01.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-1.png">
 
@@ -220,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-16 11:05:24" itemprop="dateModified" datetime="2019-12-16T11:05:24+08:00">2019-12-16</time>
+                <time title="修改時間：2019-12-18 10:34:01" itemprop="dateModified" datetime="2019-12-18T10:34:01+08:00">2019-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -356,6 +356,28 @@
 </ul>
 </li>
 </ul>
+<h1 id="陣列-Array"><a href="#陣列-Array" class="headerlink" title="陣列(Array)"></a>陣列(Array)</h1><div class="note info">
+            <p>陣列是一種有順序的複合式的資料結構，用於定義、存放複數的資料類型，陣列是用來把複數的值存進一個變數裡，可以是原始的資料類型、其他陣列、函式等等。</p>
+          </div>
+<blockquote>
+<p>註: 雖然陣列資料類型是屬於物件，但Array這個包裝物件的 <code>typeof Array</code> 也是回傳’function’。<br>定義方式</p>
+</blockquote>
+<ul>
+<li>一：<br>將複數的值以 <code>,</code> 隔開並使用方括號 <code>[]</code> 包覆存進一個變數內。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [<span class="number">1</span>, <span class="string">'string'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>)&#125;, <span class="literal">true</span>, &#123;&#125;]</span><br></pre></td></tr></table></figure></li>
+<li>建構式：<br>這種方式並不建議使用，使用此語法在分配後，會把長度值(成員個數)固定住，除非你百分之百確定陣列裡面的成員個數，不然千萬不要用。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//警告: 不要使用這種定義方式</span></span><br><span class="line"><span class="keyword">var</span> aArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>)    <span class="comment">//預先分配的定義</span></span><br><span class="line"><span class="keyword">var</span> bArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//定義三個陣列值</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>註: JavaScript的內建物件都不建議new作初始定義的。不過有一些特例是一定要的，例如Date、Error等等。<br>每一個陣列中的元素，都附有一個能讀相對應元素的數字，稱做數字索引（numeric index）。<br>是從<font color="red">0</font>開始的順序整數值，可以用方括號 <code>[]</code> 來取得成員的指定值，也可以用這個方式來改變成員包含的值。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">0</span>])    <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">1</span>])    <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">2</span>]())  <span class="comment">//hello world</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">3</span>])    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2></li>
+</ul>
+<ul>
+<li>多維陣列<br>多維陣列指的是”陣列中的陣列”結構，只是在陣列中保存其他的陣列值。<br>維數過多時在處理上會愈複雜，一般常見的只有二維。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br></pre></td></tr></table></figure></li>
+<li>儲存多種資料類型</li>
+<li>多洞的陣列(Holey Arrays)或稀疏陣列(Sparse Arrays)<br>在定義陣列時，它的陣列值和索引(index)並沒有塞滿，或是從一個完整的陣列刪除其中一個(留了個空位)。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = []</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
     </div>
 
@@ -441,7 +463,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#物件結構"><span class="nav-number">1.</span> <span class="nav-text">物件結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件取值、新增、刪除"><span class="nav-number">2.</span> <span class="nav-text">物件取值、新增、刪除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件與純值"><span class="nav-number">3.</span> <span class="nav-text">物件與純值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件的參考特性"><span class="nav-number">4.</span> <span class="nav-text">物件的參考特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Call-by-Reference-還是-Call-by-Sharing"><span class="nav-number">5.</span> <span class="nav-text">Call by Reference 還是 Call by Sharing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#淺層複製及深層複製"><span class="nav-number">6.</span> <span class="nav-text">淺層複製及深層複製</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#物件結構"><span class="nav-number">1.</span> <span class="nav-text">物件結構</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件取值、新增、刪除"><span class="nav-number">2.</span> <span class="nav-text">物件取值、新增、刪除</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件與純值"><span class="nav-number">3.</span> <span class="nav-text">物件與純值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#物件的參考特性"><span class="nav-number">4.</span> <span class="nav-text">物件的參考特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Call-by-Reference-還是-Call-by-Sharing"><span class="nav-number">5.</span> <span class="nav-text">Call by Reference 還是 Call by Sharing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#淺層複製及深層複製"><span class="nav-number">6.</span> <span class="nav-text">淺層複製及深層複製</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#陣列-Array"><span class="nav-number">7.</span> <span class="nav-text">陣列(Array)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事項"><span class="nav-number">7.1.</span> <span class="nav-text">注意事項</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
