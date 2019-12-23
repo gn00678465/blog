@@ -174,6 +174,101 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/prototype/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/22/prototype/" class="post-title-link" itemprop="url">原型 prototype</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-12-22 13:29:26" itemprop="dateCreated datePublished" datetime="2019-12-22T13:29:26+08:00">2019-12-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-12-23 20:01:25" itemprop="dateModified" datetime="2019-12-23T20:01:25+08:00">2019-12-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><p> Javascript 是 <strong>原型架構的程式語言(prototype-base-oriented)</strong> 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。<br> 各個物件均具備 1 組<strong>原型物件</strong>作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。<br>  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_2.png" class="" width="800" title="原型 (Prototype)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_3.png" class="" width="800" title="實例 (Instance)"></div></div></div></div><br> 這些屬性與函式都是透過物件的建構子函式所定義，並非物件實例本身。<br> 建立物件實例之後，JavaScript 不會複製這些屬性與函式，而是在物件實例與其建構子之間設定連結 (原型鍊中的連結)，這就是所謂的「<strong>原型鍊 (Prototype chain)</strong>」。<br> <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_1.png" class="" width="800" title="原型鍊 (Prototype chain)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_2.png" class="" width="800" title="原型鍊 (Prototype chain)"></div></div></div></div><br> 物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。</p>
+<h1 id="原型物件"><a href="#原型物件" class="headerlink" title="原型物件"></a>原型物件</h1><ul>
+<li>建構函式範例<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//建構函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">breed, color, size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.breed = breed;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">  <span class="keyword">this</span>.size = size</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>建立物件實例<blockquote>
+<p>對建構函式使用 <code>new</code> ，就會生成一個實例。<br>用建構函式生成實例對象，有一個缺點，那就是無法共享屬性和方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Lassie = <span class="keyword">new</span> Dog(<span class="string">'牧羊犬'</span>, <span class="string">'棕色'</span>, <span class="string">'中'</span>);</span><br><span class="line"><span class="keyword">var</span> Lala = <span class="keyword">new</span> Dog(<span class="string">'拉布拉多'</span>, <span class="string">'黑'</span>, <span class="string">'大'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(Lassie, Lala)</span><br><span class="line"><span class="comment">//Dog &#123;breed: "牧羊犬", color: "棕色", size: "中"&#125;</span></span><br><span class="line"><span class="comment">//Dog &#123;breed: "拉布拉多", color: "黑", size: "大"&#125;</span></span><br></pre></td></tr></table></figure>
+生成兩個實例對象，這兩個對象的species屬性是獨立的，修改其中一個，不會影響到另一個。</li>
+<li>建立原型方法<blockquote>
+<p><code>prototype</code> 屬性的引入<br>為建構函式設置一個 <code>prototype</code> 屬性，所有實例對象需要共享的屬性和方法，都放在這個對象裡面；那些不需要共享的屬性和方法，就放在建構函式裡面。<br>實例對象一旦建立，將自動引用 <code>prototype</code> 對象的屬性和方法。<br>實例對象的屬性和方法，可分成兩種，一種是本地的，另一種是引用的。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(Dog)</span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'吠叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line">Lassie.bark();  <span class="comment">//吠叫</span></span><br><span class="line">Lala.bark();    <span class="comment">//吠叫</span></span><br></pre></td></tr></table></figure>
+屬性 &amp; 方法放在 <code>prototype</code> 對象裡，是兩個實例對象共享的。只要修改了 <code>prototype</code> 對象，就會同時影響到兩個實例對象。</li>
+<li>原型鍊的運作方式<pre class="mermaid" style="text-align: center;">
+            graph LR
+            A(Lassie) -->|Inherits from<br>prototype| B(Dog)
+B ==>|Inherits from<br>prototype| C(Object)
+D(Lala) -->|Inherits from<br>prototype| B(Dog)
+style A fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style B fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style C fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+          </pre>
+
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>__proto__</code> : 它的出現是為了解決讀寫 <code>Object.prototype</code> 的麻煩，提供一個快捷讀寫 <code>Object.prototype</code> 而設的一個 API，而且它是透過連結內部屬性 [[Prototype]]完成這個功能。</li>
+<li><code>prototype</code> : 使用於原型的函式上。<br><code>console.log(Dog.prototype === Lassie.__proto__)   //true</code></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +300,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-22 10:28:05" itemprop="dateModified" datetime="2019-12-22T10:28:05+08:00">2019-12-22</time>
+                <time title="修改時間：2019-12-22 14:09:44" itemprop="dateModified" datetime="2019-12-22T14:09:44+08:00">2019-12-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -361,7 +456,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">arrFun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> arr = [];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++ ) &#123;</span><br><span class="line">    arr.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = arrFun();</span><br><span class="line"><span class="built_in">console</span>.log(fn[<span class="number">0</span>]())      <span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(fn[<span class="number">1</span>]())      <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn[<span class="number">2</span>]())      <span class="comment">//3</span></span><br></pre></td></tr></table></figure></div></div></div>
 
 <h3 id="工廠模式"><a href="#工廠模式" class="headerlink" title="工廠模式"></a>工廠模式</h3><div class="tabs" id="工廠模式"><ul class="nav-tabs"><li class="tab active"><a href="#工廠模式-1"><i class="fa fa-code"></i>工廠模式</a></li><li class="tab"><a href="#工廠模式-2"><i class="fa fa-code"></i>私有方法</a></li></ul><div class="tab-content"><div class="tab-pane active" id="工廠模式-1"><p>某些情形下函式的預設值是未知的，此時透過 <code>||</code> 來加入預設值，在沒有輸入任何值的情況下會使用預設值代替。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">storeMoney</span>(<span class="params">initValue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> money = initValue || <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">    money = money + price</span><br><span class="line">    <span class="keyword">return</span> money</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myMoney = storeMoney(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">console</span>.log(myMoney(<span class="number">500</span>))       <span class="comment">//600</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="工廠模式-2"><p>透過物件的方式對初始值做不同的操作，可大副增加函式的可用性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">storeMoney</span>(<span class="params">initValue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> money = initValue || <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">    money = money + price</span><br><span class="line">    <span class="keyword">return</span> money</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myMoney = storeMoney(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">console</span>.log(myMoney(<span class="number">500</span>))       <span class="comment">//600</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="工廠模式-2"><p>透過物件的方式對初始值做不同的操作，可大幅增加函式的可用性。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">storeMoney</span>(<span class="params">initValue</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> money = initValue || <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    increase: <span class="function"><span class="keyword">function</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">      money += price;</span><br><span class="line">    &#125;,</span><br><span class="line">    decrease: <span class="function"><span class="keyword">function</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">      money -= price;</span><br><span class="line">    &#125;,</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span>(<span class="params">price</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> money</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myMoney = storeMoney(<span class="number">2000</span>);</span><br><span class="line">myMoney.increase(<span class="number">1500</span>)</span><br><span class="line">myMoney.decrease(<span class="number">489</span>)</span><br><span class="line">myMoney.decrease(<span class="number">369</span>)</span><br><span class="line"><span class="built_in">console</span>.log(myMoney.value())    <span class="comment">//2642</span></span><br></pre></td></tr></table></figure></div></div></div>
 
 <h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><p>What’s this?</p>
@@ -386,14 +481,16 @@
 <li>DOM 事件處理器</li>
 <li>箭頭函式(Arrow functions)</li>
 </ul>
-<h2 id="Global-context-全域環境"><a href="#Global-context-全域環境" class="headerlink" title="Global context(全域環境)"></a><strong>Global context(全域環境)</strong></h2><blockquote>
+<p><strong>Global context(全域環境)</strong></p>
+<blockquote>
 <p>In the global execution context (outside of any function), this refers to the global object whether in strict mode or not.<br>在全域執行環境下， <code>this</code> 指向全域物件，瀏覽器中是 <code>Window</code>。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="keyword">this</span> === <span class="built_in">window</span> )    <span class="comment">//true</span></span><br><span class="line"><span class="keyword">this</span>.a = <span class="string">"this"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)             <span class="comment">//this</span></span><br></pre></td></tr></table></figure>
-<h2 id="Function-context"><a href="#Function-context" class="headerlink" title="Function context"></a><strong>Function context</strong></h2><blockquote>
+<p><strong>Function context</strong></p>
+<blockquote>
 <p>Inside a function, the value of this depends on how the function is called.</p>
 </blockquote>
-<h3 id="簡易呼叫-Simple-call"><a href="#簡易呼叫-Simple-call" class="headerlink" title="簡易呼叫 (Simple call)"></a>簡易呼叫 (Simple call)</h3><blockquote>
+<h2 id="簡易呼叫-Simple-call"><a href="#簡易呼叫-Simple-call" class="headerlink" title="簡易呼叫 (Simple call)"></a>簡易呼叫 (Simple call)</h2><blockquote>
 <p>直接調用函式，此函式的 <code>this</code> 會指向 <code>window</code>。範例一<br>無論在哪一層，簡易呼叫的方式 <code>this</code> 都會指向 <code>window</code>。範例二<br>簡易呼叫的本質其實是 <code>function.prototype.call()</code> 代入 <code>undefined</code>。<a href="#prototype.call-3">call()</a></p>
 </blockquote>
 <span class="label danger">盡可能不要使用 Simple call 的 this</span>
@@ -464,7 +561,12 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> number = <span class="number">100</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">para1, para2</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="keyword">typeof</span> <span class="keyword">this</span>, para1, para2)</span><br><span class="line">&#125;</span><br><span class="line">fn.call(number, <span class="number">1</span>, <span class="number">2</span>)    <span class="comment">//100 "number" 1 2</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="strict_mode-2"><p>代入 <code>undefined</code> 不會將 <code>this</code> 指向 <code>window</code> ，而是維持原來的型別。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">para1, para2</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>, <span class="keyword">typeof</span> <span class="keyword">this</span>, para1+para2)</span><br><span class="line">&#125;</span><br><span class="line">fn.call(<span class="literal">undefined</span>, <span class="number">1</span>, <span class="number">2</span>)    <span class="comment">//undefined "undefined" 3</span></span><br></pre></td></tr></table></figure></div></div></div>
 
-<h2 id="Arrow-functions"><a href="#Arrow-functions" class="headerlink" title="Arrow functions"></a>Arrow functions</h2>
+<h2 id="DOM-Document-Object-Model"><a href="#DOM-Document-Object-Model" class="headerlink" title="DOM (Document Object Model)"></a>DOM (Document Object Model)</h2><p>於空頁面下建立一個清單。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> ul = <span class="built_in">document</span>.createElement(<span class="string">'ul'</span>);</span><br><span class="line">  ul.setAttribute(<span class="string">'id'</span>,<span class="string">'newList'</span>);</span><br><span class="line"></span><br><span class="line">  productList = [<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>,<span class="string">'4'</span>];</span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(ul);</span><br><span class="line">  productList.forEach(renderProductList);</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">renderProductList</span>(<span class="params">element, index, arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">    li.setAttribute(<span class="string">'class'</span>,<span class="string">'item'</span>);</span><br><span class="line"></span><br><span class="line">    ul.appendChild(li);</span><br><span class="line"></span><br><span class="line">    li.innerHTML=li.innerHTML + element;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<span class="label danger">於 DOM 下使用 this 會指向目前所觸發的DOM元素。</span>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.dir(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.style.backgroundColor = <span class="string">'orange'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> els = <span class="built_in">document</span>.querySelectorAll(<span class="string">'li'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i &lt; els.length; i++ )&#123;</span><br><span class="line">  els[i].addEventListener(<span class="string">'click'</span>, fn)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Arrow-functions"><a href="#Arrow-functions" class="headerlink" title="Arrow functions"></a>Arrow functions</h2><p>待更新。</p>
+
       
     </div>
 
@@ -1033,7 +1135,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

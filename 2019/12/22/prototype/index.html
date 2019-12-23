@@ -46,17 +46,22 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="原型 Javascript 是 原型架構的程式語言(prototype-base-oriented) 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。 各個物件均具備 1 組原型物件作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。   這些屬性與函式都是透過物件的建構子函式所定義，並非物件實例本身。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="原型 prototype">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="原型 Javascript 是 原型架構的程式語言(prototype-base-oriented) 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。 各個物件均具備 1 組原型物件作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。   這些屬性與函式都是透過物件的建構子函式所定義，並非物件實例本身。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2019-11-23T23:14:45.062Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_chain_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_chain_2.png">
+<meta property="og:updated_time" content="2019-12-23T12:01:25.871Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_2.png">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/24/hello-world/">
+<link rel="canonical" href="http://yoursite.com/2019/12/22/prototype/">
 
 
 <script id="page-configurations">
@@ -68,7 +73,7 @@
   };
 </script>
 
-  <title>Hello World | 前端學習</title>
+  <title>原型 prototype | 前端學習</title>
   
 
 
@@ -177,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/prototype/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          原型 prototype
         </h1>
 
         <div class="post-meta">
@@ -200,8 +205,15 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2019-11-24 07:14:45" itemprop="dateCreated datePublished" datetime="2019-11-24T07:14:45+08:00">2019-11-24</time>
+              <time title="創建時間：2019-12-22 13:29:26" itemprop="dateCreated datePublished" datetime="2019-12-22T13:29:26+08:00">2019-12-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2019-12-23 20:01:25" itemprop="dateModified" datetime="2019-12-23T20:01:25+08:00">2019-12-23</time>
+              </span>
 
           
 
@@ -214,19 +226,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><p> Javascript 是 <strong>原型架構的程式語言(prototype-base-oriented)</strong> 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。<br> 各個物件均具備 1 組<strong>原型物件</strong>作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。<br>  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_2.png" class="" width="800" title="原型 (Prototype)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_3.png" class="" width="800" title="實例 (Instance)"></div></div></div></div><br> 這些屬性與函式都是透過物件的建構子函式所定義，並非物件實例本身。<br> 建立物件實例之後，JavaScript 不會複製這些屬性與函式，而是在物件實例與其建構子之間設定連結 (原型鍊中的連結)，這就是所謂的「<strong>原型鍊 (Prototype chain)</strong>」。<br> <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_1.png" class="" width="800" title="原型鍊 (Prototype chain)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_2.png" class="" width="800" title="原型鍊 (Prototype chain)"></div></div></div></div><br> 物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。</p>
+<h1 id="原型物件"><a href="#原型物件" class="headerlink" title="原型物件"></a>原型物件</h1><ul>
+<li>建構函式範例<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//建構函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">breed, color, size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.breed = breed;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">  <span class="keyword">this</span>.size = size</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>建立物件實例<blockquote>
+<p>對建構函式使用 <code>new</code> ，就會生成一個實例。<br>用建構函式生成實例對象，有一個缺點，那就是無法共享屬性和方法。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Lassie = <span class="keyword">new</span> Dog(<span class="string">'牧羊犬'</span>, <span class="string">'棕色'</span>, <span class="string">'中'</span>);</span><br><span class="line"><span class="keyword">var</span> Lala = <span class="keyword">new</span> Dog(<span class="string">'拉布拉多'</span>, <span class="string">'黑'</span>, <span class="string">'大'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(Lassie, Lala)</span><br><span class="line"><span class="comment">//Dog &#123;breed: "牧羊犬", color: "棕色", size: "中"&#125;</span></span><br><span class="line"><span class="comment">//Dog &#123;breed: "拉布拉多", color: "黑", size: "大"&#125;</span></span><br></pre></td></tr></table></figure>
+生成兩個實例對象，這兩個對象的species屬性是獨立的，修改其中一個，不會影響到另一個。</li>
+<li>建立原型方法<blockquote>
+<p><code>prototype</code> 屬性的引入<br>為建構函式設置一個 <code>prototype</code> 屬性，所有實例對象需要共享的屬性和方法，都放在這個對象裡面；那些不需要共享的屬性和方法，就放在建構函式裡面。<br>實例對象一旦建立，將自動引用 <code>prototype</code> 對象的屬性和方法。<br>實例對象的屬性和方法，可分成兩種，一種是本地的，另一種是引用的。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(Dog)</span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'吠叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line">Lassie.bark();  <span class="comment">//吠叫</span></span><br><span class="line">Lala.bark();    <span class="comment">//吠叫</span></span><br></pre></td></tr></table></figure>
+屬性 &amp; 方法放在 <code>prototype</code> 對象裡，是兩個實例對象共享的。只要修改了 <code>prototype</code> 對象，就會同時影響到兩個實例對象。</li>
+<li>原型鍊的運作方式<pre class="mermaid" style="text-align: center;">
+            graph LR
+            A(Lassie) -->|Inherits from<br>prototype| B(Dog)
+B ==>|Inherits from<br>prototype| C(Object)
+D(Lala) -->|Inherits from<br>prototype| B(Dog)
+style A fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style B fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style C fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
+          </pre>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>__proto__</code> : 它的出現是為了解決讀寫 <code>Object.prototype</code> 的麻煩，提供一個快捷讀寫 <code>Object.prototype</code> 而設的一個 API，而且它是透過連結內部屬性 [[Prototype]]完成這個功能。</li>
+<li><code>prototype</code> : 使用於原型的函式上。<br><code>console.log(Dog.prototype === Lassie.__proto__)   //true</code></li>
+</ul>
 
     </div>
 
@@ -241,11 +271,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/11/24/JavaScript/" rel="next" title="JavaScript 基礎介紹(執行環境、作用域)">
-      JavaScript 基礎介紹(執行環境、作用域) <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/16/function/" rel="prev" title="函式 function">
+      <i class="fa fa-chevron-left"></i> 函式 function
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -305,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型物件"><span class="nav-number">2.</span> <span class="nav-text">原型物件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
