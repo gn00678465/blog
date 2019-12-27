@@ -174,6 +174,64 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/27/object-extra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/27/object-extra/" class="post-title-link" itemprop="url">object_extra</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2019-12-27 22:29:31 / 修改時間：22:30:03" itemprop="dateCreated datePublished" datetime="2019-12-27T22:29:31+08:00">2019-12-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="物件屬性延伸章節：屬性的特徵"><a href="#物件屬性延伸章節：屬性的特徵" class="headerlink" title="物件屬性延伸章節：屬性的特徵"></a>物件屬性延伸章節：屬性的特徵</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/22/prototype/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +263,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-12-23 20:01:25" itemprop="dateModified" datetime="2019-12-23T20:01:25+08:00">2019-12-23</time>
+                <time title="修改時間：2019-12-27 22:28:01" itemprop="dateModified" datetime="2019-12-27T22:28:01+08:00">2019-12-27</time>
               </span>
 
           
@@ -250,7 +308,38 @@ style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
 <li><code>__proto__</code> : 它的出現是為了解決讀寫 <code>Object.prototype</code> 的麻煩，提供一個快捷讀寫 <code>Object.prototype</code> 而設的一個 API，而且它是透過連結內部屬性 [[Prototype]]完成這個功能。</li>
 <li><code>prototype</code> : 使用於原型的函式上。<br><code>console.log(Dog.prototype === Lassie.__proto__)   //true</code></li>
 </ul>
+<h1 id="原始型別的包裹物件與原型的關聯"><a href="#原始型別的包裹物件與原型的關聯" class="headerlink" title="原始型別的包裹物件與原型的關聯"></a>原始型別的包裹物件與原型的關聯</h1><span class="label primary">原始型別 與 原始型別的建構式(包裹物件) 也指向相同的原型。</span>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">typeof</span>(a) <span class="comment">// "number"</span></span><br><span class="line">a.__proto__ === <span class="built_in">Number</span>.prototype <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>如果於原始型別的建構式(包裹物件)新增一個原型方法，原始型別也可同時使用此方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//String</span></span><br><span class="line"><span class="built_in">String</span>.prototype.lastText = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>[<span class="keyword">this</span>.length<span class="number">-1</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">"ABCDE"</span></span><br><span class="line"><span class="built_in">console</span>.log(a.lastText())   <span class="comment">//"E"</span></span><br><span class="line"><span class="comment">//Number</span></span><br><span class="line"><span class="built_in">Number</span>.prototype.sqare = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span> * <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(b.sqare())    <span class="comment">//25</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript有許多的建構式，也可使用此方式建立自定的原型方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//取得日期</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">Date</span>.prototype.getFullDate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> yyyy = <span class="keyword">this</span>.getFullYear();</span><br><span class="line">  <span class="keyword">let</span> mm = ((<span class="keyword">this</span>.getMonth() + <span class="number">1</span>) &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + (<span class="keyword">this</span>.getMonth() + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> dd = (<span class="keyword">this</span>.getDate() &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + <span class="keyword">this</span>.getDate();</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;yyyy&#125;</span>-<span class="subst">$&#123;mm&#125;</span>-<span class="subst">$&#123;dd&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.getFullDate())     <span class="comment">//印出今天日期</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h1><p>使用 <code>new</code> 一個建構式來產生一個實例，此時實例是繼承在 <code>Object</code> 之下的。</p>
+<span class="label info">Object > 建構式 > 實例</span>
+
+<p>但如想 <code>Object</code> 以及 <code>建構式</code> 當中新增一個 <code>建構式</code> 以達到多層繼承的目的時，可使用 <code>Object.create()</code> 此方法。</p>
+<span class="label info">Object > 建構式1 > 建構式2 > 實例</span>
+<div class="note info">
+            <p>透過 <code>Object.create()</code> 可以建立一個空物件，同時可以將你帶入 <code>Object.create()</code> 的參數內容變成該物件的原型。</p>
+          </div>
+<ul>
+<li>建立建構式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Object &gt; Animal &gt; Dog &gt; lassie(實例)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">family</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.kingdom = <span class="string">'動物界'</span>;</span><br><span class="line">  <span class="keyword">this</span>.family = family || <span class="string">'人科'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Animal.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> 移動`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, color, size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.color = color || <span class="string">'白'</span>;</span><br><span class="line">  <span class="keyword">this</span>.size = size || <span class="string">'大'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Dog.prototype = <span class="built_in">Object</span>.create(Animal.prototype)   <span class="comment">//將 Dog.prototype 繼承於 Animal.prototype 之下</span></span><br><span class="line">Dog.prototype.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> 吠叫`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> lassie = <span class="keyword">new</span> Dog(<span class="string">'萊西'</span>, <span class="string">'棕'</span>, <span class="string">'中'</span>)</span><br><span class="line"><span class="built_in">console</span>.dir(lassie)</span><br></pre></td></tr></table></figure>
+<img src="/2019/12/22/prototype/object_create_1.png" class="" title="Object.create()">
+對新增的實例(lassie)使用Dog的原型方法以及Animal的原型方法。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(lassie.bark());    <span class="comment">//"萊西 吠叫"</span></span><br><span class="line"><span class="built_in">console</span>.log(lassie.move());    <span class="comment">//"萊西 移動"</span></span><br></pre></td></tr></table></figure></li>
+<li>此時目前實例(lassie)只繼承了Animal的原型，未繼承Animal的建構式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">lassie.family     <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+要繼承Animal的建構式，需再Dog的建構式中修改為<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params">name, color, size</span>) </span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>, <span class="string">'犬科'</span>)</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.color = color || <span class="string">'白'</span>;</span><br><span class="line">  <span class="keyword">this</span>.size = size || <span class="string">'大'</span>;</span><br><span class="line">&#125;</span><br><span class="line">lassie.family     <span class="comment">//犬科</span></span><br></pre></td></tr></table></figure>
+<img src="/2019/12/22/prototype/object_create_2.png" class="" title="Object.create()"></li>
+<li>補回constructor(建構器)<br>目前實例(lassie)是透過 <code>Object.create()</code> 繼承於Animal的原型之下，所以實例(lassie) 的 constructor(建構器)會被Animal的所取代。<br>須將實例(lassie) 的建構器補回，於 <code>Object.create()</code> 程式碼的下方加入一段程式碼。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Dog.prototype.constructor = Dog</span><br></pre></td></tr></table></figure>
+<img src="/2019/12/22/prototype/object_create_3.png" class="" title="Object.create()"></li>
+<li>建立其他物種<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name, color, size</span>) </span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>, <span class="string">'貓科'</span>)</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.color = color || <span class="string">'白'</span>;</span><br><span class="line">  <span class="keyword">this</span>.size = size || <span class="string">'小'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="built_in">Object</span>.create(Animal.prototype)</span><br><span class="line">Cat.prototype.constructor = Cat</span><br><span class="line">Cat.prototype.meow = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> 喵喵叫`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ketty = <span class="keyword">new</span> Cat(<span class="string">'凱蒂'</span>, <span class="string">'白'</span>, <span class="string">'小'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(ketty)      <span class="comment">//Cat &#123;kingdom: "動物界", family: "貓科", name: "凱蒂", color: "白", size: "小"&#125;</span></span><br><span class="line">ketty.move()            <span class="comment">//"凱蒂 移動"</span></span><br><span class="line">ketty.meow()            <span class="comment">//"凱蒂 喵喵叫"</span></span><br><span class="line">ketty.bark()            <span class="comment">//ketty.bark is not a function</span></span><br></pre></td></tr></table></figure>
+此實例(ketty)可繼承Animal的原型以及其方法，且與Dog的建構式以及其方法分離。<br>使用 <code>Object.create()</code> 方法可以使自定的原型鍊更加的完整。</li>
+</ul>
+<h1 id="原型鏈、建構函式整體結構概念"><a href="#原型鏈、建構函式整體結構概念" class="headerlink" title="原型鏈、建構函式整體結構概念"></a>原型鏈、建構函式整體結構概念</h1><img src="/2019/12/22/prototype/Framework.png" class="" title="原型鏈、建構函式整體結構概念">
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">lassie.__proto__ === Dog.prototype              <span class="comment">//true</span></span><br><span class="line">lassie.__proto__.__proto__ === Animal.prototype <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">lassie.__proto__.__proto__.constructor === Animal <span class="comment">//true</span></span><br><span class="line"><span class="comment">//        Dog     Animal</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">lassie.__proto__.__proto__.__proto__.__proto__ === <span class="literal">null</span> <span class="comment">//true</span></span><br><span class="line"><span class="comment">//        Dog     Animal     Object     null</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Dog.__proto__ === <span class="built_in">Function</span>.prototype       <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Object</span>.__proto__ === <span class="built_in">Function</span>.prototype       <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Function</span>.__proto__ === <span class="built_in">Function</span>.prototype        <span class="comment">//true</span></span><br><span class="line"><span class="built_in">Function</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype   <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1135,7 +1224,7 @@ style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
