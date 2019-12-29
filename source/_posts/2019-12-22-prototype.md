@@ -1,8 +1,11 @@
 ---
 title: 原型 prototype
 date: 2019-12-22 13:29:26
+categories:
+- JavaScript
 tags:
-Categories:
+- Basic
+- JavaScript
 ---
 # 原型
  Javascript 是 **原型架構的程式語言(prototype-base-oriented)** 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。

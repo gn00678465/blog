@@ -1,8 +1,11 @@
 ---
 title: 物件屬性延伸章節 object_extra
 date: 2019-12-27 22:29:31
+categories:
+- JavaScript
 tags:
-Categories:
+- Basic
+- JavaScript
 ---
 # 物件屬性延伸章節：屬性的特徵
 
