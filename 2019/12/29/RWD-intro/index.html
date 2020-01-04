@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。">
+<meta name="keywords" content="RWD,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="響應式網頁設計(RWD) 介紹">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;29&#x2F;RWD-intro&#x2F;index.html">
+<meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2020-01-04T02:22:56.543Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/12/29/RWD-intro/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>響應式網頁設計(RWD) 介紹 | 前端學習</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端學習</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/29/RWD-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          響應式網頁設計(RWD) 介紹
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-12-29 09:51:11" itemprop="dateCreated datePublished" datetime="2019-12-29T09:51:11+08:00">2019-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-01-04 10:22:56" itemprop="dateModified" datetime="2020-01-04T10:22:56+08:00">2020-01-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。</p>
+</blockquote>
+
+<a id="more"></a>
+
+<h1 id="環境建立"><a href="#環境建立" class="headerlink" title="環境建立"></a>環境建立</h1><p>首先，你必須先在網站開始 <code>&lt;head&gt;</code> 的地方加上以下meta語法，用於規定裝置的的結構規則：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>viewport</strong></p>
+<ul>
+<li>根據裝置的顯示區域來展示文件</li>
+<li>放大或縮小文件，來符合或設定上給予裝置的可視區域</li>
+<li>允許設定或初始化縮放的級別，或是其他規則</li>
+</ul>
+<p>參數的解釋</p>
+<table>
+  <thead>
+    <tr>
+      <th>參數</th>
+      <th>解釋</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>device-width</td>
+      <td>畫面寬度</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>device-height</td>
+      <td>畫面高度</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>initial-scale</td>
+      <td>初始縮放比</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>minimum-scale</td>
+      <td>最小可縮放比</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>maximum-scale</td>
+      <td>最大可縮放比</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>user-scalable</td>
+      <td>使用者是否可縮放</td>
+    </tr>
+  </tbody>
+</table>
+<div class="note no-icon">
+            <p>註：使用 emmet 輸入 <code>meta:vp</code> 可以快速建立環境。</p>
+          </div>
+
+<h1 id="CSS-3-Media-Query-觀念"><a href="#CSS-3-Media-Query-觀念" class="headerlink" title="CSS 3 Media Query 觀念"></a>CSS 3 Media Query 觀念</h1><blockquote>
+<p>在編寫 CCS3 Media Query 前須先建立一支CCS的樣式表，並載入它。</p>
+</blockquote>
+<p><strong>min-width 與 max-width</strong></p>
+<ul>
+<li>max-width，表示這個數字(包含)以下（&lt;=） 的都適用。</li>
+<li>min-width，表示這個數字(包含)以上（&gt;=） 的都適用。</li>
+</ul>
+<p>編寫方式：</p>
+<ol>
+<li>以桌機為主，然後再往其他更小的裝置尺寸做調整。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">1200px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">992px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">768px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">480px</span>) &#123; 樣式 &#125;</span><br></pre></td></tr></table></figure></li>
+<li>以更小的裝置尺寸為主，然後再往桌機做調整。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">576px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">768px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">992px</span>) &#123; 樣式 &#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">1200px</span>) &#123; 樣式 &#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="動線設計"><a href="#動線設計" class="headerlink" title="動線設計"></a>動線設計</h1><blockquote>
+<p>並非所有內容都要全部塞到網頁內容。</p>
+</blockquote>
+<p>在小螢幕的載具，設計設計響應式網頁時，應讓使用者立即吸收到相對應的資訊，故有些較不重要的元素可以隱藏。<br>少即是多：避免資訊量爆炸。</p>
+<h1 id="點擊範圍"><a href="#點擊範圍" class="headerlink" title="點擊範圍"></a>點擊範圍</h1><blockquote>
+<p>設計讓人好點選的元素。</p>
+</blockquote>
+<p>設計響應式網頁時，須特別注意<strong>點擊的範圍</strong>，研究顯示手指在點選時高度約 <strong>44px</strong>，故於設計時須滿足44px這個法則。</p>
+<h1 id="斷點元素"><a href="#斷點元素" class="headerlink" title="斷點元素"></a>斷點元素</h1><blockquote>
+<p>只有手機才會顯示的功能與Layout切換。</p>
+</blockquote>
+<ul>
+<li>漢堡選單。<div class="note no-icon">
+            <p>桌面板</p><ul><li>選單為水平排列</li><li>隱藏漢堡選單</li></ul><p>行動版</p><ul><li>選單為垂直排列(預設隱藏)</li><li>顯示漢堡選單</li></ul>
+          </div>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*選單為水平排列*/</span></span><br><span class="line"><span class="selector-class">.navbar-menu</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*隱藏漢堡選單*/</span></span><br><span class="line"><span class="selector-class">.button-toggle</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (max-width: <span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="comment">/*選單為垂直排列(預設隱藏)*/</span></span><br><span class="line">  <span class="selector-class">.navbar-menu</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/*選單顯示為垂直排列*/</span></span><br><span class="line">  <span class="selector-class">.navbar-menu</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.navbar-menu</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/*顯示漢堡選單*/</span></span><br><span class="line">  <span class="selector-class">.button-toggle</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h1 id="斷點時機"><a href="#斷點時機" class="headerlink" title="斷點時機"></a>斷點時機</h1><blockquote>
+<p>設計多欄式佈局的必要觀念。</p>
+</blockquote>
+<h2 id="思考設計響應式斷點"><a href="#思考設計響應式斷點" class="headerlink" title="思考設計響應式斷點"></a>思考設計響應式斷點</h2><blockquote>
+<p>遵循 80/20 法則，先兼容熱門瀏覽器吧！</p>
+</blockquote>
+<ol>
+<li>有舊網站時，先套用google分析觀察數據。</li>
+<li>如無，以最熱門載具的解析度為主。</li>
+</ol>
+<h2 id="What-is-Mobile-First-amp-Desktop-First"><a href="#What-is-Mobile-First-amp-Desktop-First" class="headerlink" title="What is Mobile First &amp; Desktop First"></a>What is Mobile First &amp; Desktop First</h2><ol>
+<li>Mobile First<blockquote>
+<p>手機&gt;平板&gt;高解析螢幕PC</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: ...px) &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Desktop First<blockquote>
+<p>高解析螢幕PC&gt;平板&gt;手機</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (max-width: ...px) &#123;&#125;</span><br></pre></td></tr></table></figure>
+設計響應式網頁前須先思考，此網頁於哪種載具使用上較為多數，以此為出發點來設計。<blockquote>
+<p>手機使用者為多數，可考慮 Mobile First。<br>PC市占較為多數的話，可考慮 Desktop First</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="常見-PC-解析度斷點設計"><a href="#常見-PC-解析度斷點設計" class="headerlink" title="常見 PC 解析度斷點設計"></a>常見 PC 解析度斷點設計</h2><p>於PC上螢幕解析度多數大於1280px，但設計網頁時仍會局限一個範圍，主要原因有</p>
+<ol>
+<li>使用的者的視線範圍無法觀看到太大的範圍(如：1920px)。</li>
+<li>版形太大，圖片解析度也隨之變大，此時會影響載入時間，進而影響使用者體驗。</li>
+</ol>
+<p>常見的斷點如下：</p>
+<ol>
+<li>960px</li>
+<li>1000px</li>
+<li>1280px</li>
+</ol>
+<h2 id="六角講師斷點設計分享"><a href="#六角講師斷點設計分享" class="headerlink" title="六角講師斷點設計分享"></a>六角講師斷點設計分享</h2><ol>
+<li>iPad - 768px</li>
+<li>iPad以下 - 767px</li>
+<li>iPhone 6 Plus  -  414px (視專案族群)</li>
+<li>iPhone 6 - 375px  (視專案族群)</li>
+<li>iPhone 5、SE - 320px</li>
+</ol>
+<div class="note info">
+            <p>為什麼 還會有一個 767px 的斷點，<br>因為通常 iPad 直式 是 Android、IOS 平版很常見的大小，<br>再接著 767px ~ 320px 會視為都是手機 size，<br>所以在 767 px 以下時就會直接把他變成手機版型，<br>畢竟 767px ~ 6xx size 相當少見，一開始可以先確保一些熱門斷點上優化即可，<br>至少可以滿足 80% 以上的客戶。</p><p>再來 320px 是你最小需要注意的 SIZE，<br>現在仍然有許多手機是 320px，尤其是小 size 的 iPhone，<br>以前甚至有 240px 的手機，但現在已經相當稀有了。</p>
+          </div>
+
+<h1 id="響應式表格與表單設計"><a href="#響應式表格與表單設計" class="headerlink" title="響應式表格與表單設計"></a>響應式表格與表單設計</h1><h2 id="響應式表格設計"><a href="#響應式表格設計" class="headerlink" title="響應式表格設計"></a>響應式表格設計</h2><ul>
+<li>於響應式網頁設計表格時，在較小解析度的載具顯示表格，可以將一些較不重要的資訊隱藏起來。<br>使用 <code>display: none</code><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">569px</span>) &#123;</span><br><span class="line">  <span class="comment">/*要隱藏的欄位class*/</span></span><br><span class="line">  <span class="selector-class">.m-none</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>如果資訊都很重要無法隱藏的情況下：<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">media</span> (max-width: <span class="number">569px</span>) &#123;</span><br><span class="line">  <span class="comment">/*表格外層的class*/</span></span><br><span class="line">  <span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/*表格本身的class*/</span></span><br><span class="line">  <span class="selector-class">.order</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">768px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="使用第3方插件"><a href="#使用第3方插件" class="headerlink" title="使用第3方插件"></a>使用第3方插件</h2><blockquote>
+<p>使用第3方插件 <a href="https://purecss.io" target="_blank" rel="noopener"><strong>pure.css</strong></a>，加強對網頁元素的了解。</p>
+</blockquote>
+<h3 id="按鈕設計原理"><a href="#按鈕設計原理" class="headerlink" title="按鈕設計原理"></a>按鈕設計原理</h3><blockquote>
+<p>可以從原始碼上看到關於設計上的細節。</p>
+</blockquote>
+<ul>
+<li>針對不同的瀏覽器有不同的前綴詞<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.pure-button</span> &#123;</span><br><span class="line">    <span class="comment">/* Structure */</span></span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">zoom</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: normal;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">    <span class="attribute">-webkit-user-drag</span>: none; <span class="comment">/* for chrome */</span></span><br><span class="line">    <span class="attribute">-webkit-user-select</span>: none;</span><br><span class="line">       <span class="attribute">-moz-user-select</span>: none; <span class="comment">/* for firefox */</span></span><br><span class="line">        <span class="attribute">-ms-user-select</span>: none; <span class="comment">/* for IE */</span></span><br><span class="line">            <span class="attribute">user-select</span>: none;</span><br><span class="line">    <span class="attribute">-webkit-box-sizing</span>: border-box;</span><br><span class="line">            <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>針對不同版本的瀏覽器樣式的寫法<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.pure-button</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: inherit;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0.5em</span> <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#444</span>; <span class="comment">/* rgba not supported (IE 8) */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0.80); <span class="comment">/* rgba supported */</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;  <span class="comment">/*IE 6/7/8*/</span></span><br><span class="line">    <span class="attribute">border</span>: none <span class="built_in">rgba</span>(0, 0, 0, 0);  <span class="comment">/*IE9 + everything else*/</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#E6E6E6</span>;</span><br><span class="line">    <span class="attribute">text-decoration</span>: none;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="響應式圖片設計"><a href="#響應式圖片設計" class="headerlink" title="響應式圖片設計"></a>響應式圖片設計</h1><h2 id="基礎篇"><a href="#基礎篇" class="headerlink" title="基礎篇"></a>基礎篇</h2><p>設計響應式網頁的圖片內容時，如要讓圖片可以隨瀏覽器自適應延伸的話。<br>有以下兩種CSS寫法：</p>
+<ul>
+<li><code>width: 100%</code><blockquote>
+<p>此作法圖片會隨者父元素做自適應延伸，如父元素寬度大於圖片自身的寬度，會導致圖片出現模糊的區域。</p>
+</blockquote>
+</li>
+<li><code>max-width: 100%</code><blockquote>
+<p>此作法圖片最大只會保持自身的圖片大小，再隨者父元素寬度縮小而自適應延伸。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="響應式圖片-reset-教學"><a href="#響應式圖片-reset-教學" class="headerlink" title="響應式圖片 reset 教學"></a>響應式圖片 reset 教學</h3><blockquote>
+<p>未避免圖片太大會有破版的問題，可以設定reset語法。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="心法篇"><a href="#心法篇" class="headerlink" title="心法篇"></a>心法篇</h2><ul>
+<li>響應式圖片 SIZE 規劃，會刻意設計較大張一點，以便於不同載具呈現圖片時，不會出現圖片模糊的情況。</li>
+<li>將 LOGO 由 PNG 格式取代為 SVG 格式。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(/PATH/xxx.svg);</span><br><span class="line">  <span class="comment">/*文字縮排*/</span></span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">101%</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="comment">/*不換行*/</span></span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="技巧篇"><a href="#技巧篇" class="headerlink" title="技巧篇"></a>技巧篇</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RWD/" rel="tag"># RWD</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/12/28/ES6/" rel="prev" title="ES6 章節">
+      <i class="fa fa-chevron-left"></i> ES6 章節
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/02/CSS-flex/" rel="next" title="CSS_flex">
+      CSS_flex <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#環境建立"><span class="nav-number">1.</span> <span class="nav-text">環境建立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-3-Media-Query-觀念"><span class="nav-number">2.</span> <span class="nav-text">CSS 3 Media Query 觀念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動線設計"><span class="nav-number">3.</span> <span class="nav-text">動線設計</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#點擊範圍"><span class="nav-number">4.</span> <span class="nav-text">點擊範圍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點元素"><span class="nav-number">5.</span> <span class="nav-text">斷點元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點時機"><span class="nav-number">6.</span> <span class="nav-text">斷點時機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考設計響應式斷點"><span class="nav-number">6.1.</span> <span class="nav-text">思考設計響應式斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Mobile-First-amp-Desktop-First"><span class="nav-number">6.2.</span> <span class="nav-text">What is Mobile First &amp; Desktop First</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見-PC-解析度斷點設計"><span class="nav-number">6.3.</span> <span class="nav-text">常見 PC 解析度斷點設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六角講師斷點設計分享"><span class="nav-number">6.4.</span> <span class="nav-text">六角講師斷點設計分享</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式表格與表單設計"><span class="nav-number">7.</span> <span class="nav-text">響應式表格與表單設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#響應式表格設計"><span class="nav-number">7.1.</span> <span class="nav-text">響應式表格設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第3方插件"><span class="nav-number">7.2.</span> <span class="nav-text">使用第3方插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按鈕設計原理"><span class="nav-number">7.2.1.</span> <span class="nav-text">按鈕設計原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式圖片設計"><span class="nav-number">8.</span> <span class="nav-text">響應式圖片設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基礎篇"><span class="nav-number">8.1.</span> <span class="nav-text">基礎篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#響應式圖片-reset-教學"><span class="nav-number">8.1.1.</span> <span class="nav-text">響應式圖片 reset 教學</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#心法篇"><span class="nav-number">8.2.</span> <span class="nav-text">心法篇</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧篇"><span class="nav-number">9.</span> <span class="nav-text">技巧篇</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
