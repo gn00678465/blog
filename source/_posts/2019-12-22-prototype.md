@@ -7,7 +7,7 @@ tags:
 - Basic
 - JavaScript
 ---
-原型
+{% asset_img prototype_logo.png %}
 <!--more-->
 # 原型
  Javascript 是 **原型架構的程式語言(prototype-base-oriented)** 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。
@@ -113,7 +113,7 @@ Date.prototype.getFullDate = function() {
 console.log(date.getFullDate())     //印出今天日期
 ```
 
-# Object.create()
+# 建立自己的原型練吧! Object.create()
 
 使用 `new` 一個建構式來產生一個實例，此時實例是繼承在 `Object` 之下的。
 {% label info@Object > 建構式 > 實例 %}
