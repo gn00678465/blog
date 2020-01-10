@@ -8,7 +8,7 @@ tags:
 - JavaScript
 ---
 # 物件屬性延伸章節：屬性的特徵
-
+<!--more-->
 ## Object.defineProperty()
 what is Object.defineProperty
 >可以通過 `Object.defineProperty()` 這個方法，直接在一個物件上定義一個新的屬性，或者是修改已存在的屬性。執行後會回傳定義完的物件。

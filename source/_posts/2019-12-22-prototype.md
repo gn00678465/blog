@@ -7,6 +7,8 @@ tags:
 - Basic
 - JavaScript
 ---
+原型
+<!--more-->
 # 原型
  Javascript 是 **原型架構的程式語言(prototype-base-oriented)** 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。
  各個物件均具備 1 組**原型物件**作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。
