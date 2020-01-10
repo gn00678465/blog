@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-code.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -46,14 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="原型">
-<meta name="keywords" content="Basic,JavaScript">
+  <meta name="keywords" content="Basic,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原型 prototype">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="原型">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_logo.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_chain_1.png">
@@ -62,9 +61,9 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;object_create_2.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;object_create_3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;Framework.png">
-<meta property="og:updated_time" content="2020-01-10T02:50:59.007Z">
+<meta property="og:updated_time" content="2020-01-10T08:57:17.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_2.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;22&#x2F;prototype&#x2F;prototype_logo.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/22/prototype/">
 
@@ -217,7 +216,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-10 10:50:59" itemprop="dateModified" datetime="2020-01-10T10:50:59+08:00">2020-01-10</time>
+                <time title="修改時間：2020-01-10 16:57:17" itemprop="dateModified" datetime="2020-01-10T16:57:17+08:00">2020-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,7 +241,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>原型</p>
+        <img src="/2019/12/22/prototype/prototype_logo.png" class="">
 <a id="more"></a>
 <h1 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h1><p> Javascript 是 <strong>原型架構的程式語言(prototype-base-oriented)</strong> 的語言，class 並不存在。在它的世界裏只有 物件(Object) 和 實例(Instance)。<br> 各個物件均具備 1 組<strong>原型物件</strong>作為範本物件，用以繼承函式與屬性。物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。<br>  <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_2.png" class="" width="800" title="原型 (Prototype)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_3.png" class="" width="800" title="實例 (Instance)"></div></div></div></div><br> 這些屬性與函式都是透過物件的建構子函式所定義，並非物件實例本身。<br> 建立物件實例之後，JavaScript 不會複製這些屬性與函式，而是在物件實例與其建構子之間設定連結 (原型鍊中的連結)，這就是所謂的「<strong>原型鍊 (Prototype chain)</strong>」。<br> <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_1.png" class="" width="800" title="原型鍊 (Prototype chain)"></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/22/prototype/prototype_chain_2.png" class="" width="800" title="原型鍊 (Prototype chain)"></div></div></div></div><br> 物件的原型物件可能也具備原型物件，並繼承了其上的函式與屬性。</p>
 <h1 id="原型物件"><a href="#原型物件" class="headerlink" title="原型物件"></a>原型物件</h1><ul>
@@ -282,7 +281,7 @@ style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
 <p>JavaScript有許多的建構式，也可使用此方式建立自定的原型方法。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//取得日期</span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="built_in">Date</span>.prototype.getFullDate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> yyyy = <span class="keyword">this</span>.getFullYear();</span><br><span class="line">  <span class="keyword">let</span> mm = ((<span class="keyword">this</span>.getMonth() + <span class="number">1</span>) &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + (<span class="keyword">this</span>.getMonth() + <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">let</span> dd = (<span class="keyword">this</span>.getDate() &lt; <span class="number">10</span> ? <span class="string">'0'</span> : <span class="string">''</span>) + <span class="keyword">this</span>.getDate();</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;yyyy&#125;</span>-<span class="subst">$&#123;mm&#125;</span>-<span class="subst">$&#123;dd&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.getFullDate())     <span class="comment">//印出今天日期</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h1><p>使用 <code>new</code> 一個建構式來產生一個實例，此時實例是繼承在 <code>Object</code> 之下的。</p>
+<h1 id="建立自己的原型練吧-Object-create"><a href="#建立自己的原型練吧-Object-create" class="headerlink" title="建立自己的原型練吧! Object.create()"></a>建立自己的原型練吧! Object.create()</h1><p>使用 <code>new</code> 一個建構式來產生一個實例，此時實例是繼承在 <code>Object</code> 之下的。</p>
 <span class="label info">Object > 建構式 > 實例</span>
 
 <p>但如想 <code>Object</code> 以及 <code>建構式</code> 當中新增一個 <code>建構式</code> 以達到多層繼承的目的時，可使用 <code>Object.create()</code> 此方法。</p>
@@ -391,7 +390,7 @@ style D fill:#d0e3f0,stroke:#1587c0,stroke-width:4px;
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型物件"><span class="nav-number">2.</span> <span class="nav-text">原型物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原始型別的包裹物件與原型的關聯"><span class="nav-number">3.</span> <span class="nav-text">原始型別的包裹物件與原型的關聯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Object-create"><span class="nav-number">4.</span> <span class="nav-text">Object.create()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型鏈、建構函式整體結構概念"><span class="nav-number">5.</span> <span class="nav-text">原型鏈、建構函式整體結構概念</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#原型"><span class="nav-number">1.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型物件"><span class="nav-number">2.</span> <span class="nav-text">原型物件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原始型別的包裹物件與原型的關聯"><span class="nav-number">3.</span> <span class="nav-text">原始型別的包裹物件與原型的關聯</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立自己的原型練吧-Object-create"><span class="nav-number">4.</span> <span class="nav-text">建立自己的原型練吧! Object.create()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原型鏈、建構函式整體結構概念"><span class="nav-number">5.</span> <span class="nav-text">原型鏈、建構函式整體結構概念</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

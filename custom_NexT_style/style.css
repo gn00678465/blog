@@ -32,4 +32,5 @@
 }
 pre.syntaxbox {
   white-space: pre-wrap;
+  border-radius: 3px;
 }
