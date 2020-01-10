@@ -46,16 +46,28 @@
   };
 </script>
 
-  <meta name="keywords" content="flex">
+  <meta name="description" content="過去 CSS2 時期複雜而且也麻煩的 Flost 的方式，對於那些特殊布局非常不方便，比如，垂直置中就不容易實現。2009年，W3C 提出了一種新的方案 – Flex，可以簡便、完整、響應式的實現各種布局。Flexible Box Layout Module">
+<meta name="keywords" content="CSS,flex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS_flex">
+<meta property="og:title" content="CSS Flex 佈局">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="過去 CSS2 時期複雜而且也麻煩的 Flost 的方式，對於那些特殊布局非常不方便，比如，垂直置中就不容易實現。2009年，W3C 提出了一種新的方案 – Flex，可以簡便、完整、響應式的實現各種布局。Flexible Box Layout Module">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;CSS3_flexbox.jpg">
-<meta property="og:updated_time" content="2020-01-03T07:04:14.787Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;CSS3_flexbox.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;flexBox.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;direction.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;flex-wrap.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;justify-content.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;align-items.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;align-content.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;order.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;flex-grow.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;flex-shrink.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;align-self.png">
+<meta property="og:updated_time" content="2020-01-10T02:47:26.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;CSS3_flexbox.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;02&#x2F;CSS-flex&#x2F;CSS3_flexbox.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/02/CSS-flex/">
 
@@ -69,7 +81,7 @@
   };
 </script>
 
-  <title>CSS_flex | 前端學習</title>
+  <title>CSS Flex 佈局 | 前端學習</title>
   
 
 
@@ -191,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CSS_flex
+          CSS Flex 佈局
         </h1>
 
         <div class="post-meta">
@@ -208,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-03 15:04:14" itemprop="dateModified" datetime="2020-01-03T15:04:14+08:00">2020-01-03</time>
+                <time title="修改時間：2020-01-10 10:47:26" itemprop="dateModified" datetime="2020-01-10T10:47:26+08:00">2020-01-10</time>
               </span>
 
           
@@ -222,8 +234,154 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <img src="/2020/01/02/CSS-flex/CSS3_flexbox.jpg" class="">
+        <img src="/2020/01/02/CSS-flex/CSS3_flexbox.png" class="">
+<blockquote class="blockquote-center"><p>過去 CSS2 時期複雜而且也麻煩的 <code>Flost</code> 的方式，對於那些特殊布局非常不方便，比如，垂直置中就不容易實現。<br>2009年，W3C 提出了一種新的方案 – Flex，可以簡便、完整、響應式的實現各種布局。<br><a href="_https://www.w3.org/TR/2009/WD-css3-flexbox-20090723/_">Flexible Box Layout Module</a></p>
+</blockquote>
 
+<a id="more"></a>
+
+<h2 id="What-is-flex"><a href="#What-is-flex" class="headerlink" title="What is flex"></a>What is flex</h2><blockquote>
+<p>Flex 是Flex Box 的縮寫，意為 <span class="label info">彈性盒子</span> ，用來為盒模型提供最大的靈活性。</p>
+</blockquote>
+<h2 id="使用-flex-的布局"><a href="#使用-flex-的布局" class="headerlink" title="使用 flex 的布局"></a>使用 flex 的布局</h2><p>要使用 flex 布局，請把 display 屬性設為：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex | inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>這樣一來，元素就會變成外容器，而它的子元素們就會變成內元件。<br><code>flex</code> 值會讓彈性容器變成塊級元素（block-level element）。<br><code>inline-flex</code> 則會讓彈性容器成為單一的行內元素（atomic inline-level element）。</p>
+          </div>
+
+<h2 id="基本觀念"><a href="#基本觀念" class="headerlink" title="基本觀念"></a>基本觀念</h2><img src="/2020/01/02/CSS-flex/flexBox.png" class="800">
+<dl>
+  <dt>外容器（Flex container）</dt>
+ <dd>包住內元件（Flex item）的父元素。在 display 屬性用上 <code>flex</code> 或 <code>inline-flex</code> 值的，就是外容器。</dd>
+  <dt>內元件（Flex item）</dt>
+ <dd>所有內元件的子元素都會變成彈性項目。而直接包含在外容器的文字，則會被包裝成匿名的 Flex 項目。</dd>
+  <dt>軸（Axes）</dt>
+  <dd>所有彈性盒子布局都有兩個軸。
+  不會稱之為水平（inline）或垂直（block），而是稱為<span class="label primary">主軸（main axis）</span>與<span class="label primary">交錯軸(cross axis)</span>。
+  <span class="label primary">主軸（main axis）</span>是跟隨著彈性項目順序的軸、而<span class="label primary">交錯軸(cross axis)</span>是垂直於主軸的軸。
+  </dd>
+  <dt>方向（Directions）</dt>
+  <dd>外容器的 <span class="label primary">主軸線起點(main start) / 主軸線終點(main end)</span> 與 <span class="label primary">交錯軸起點(cross start) / 交錯軸終點(cross end)</span> 描述了<span class="label danger">內元件資料的流向的起點與終點</span>。</dd>
+</dl>
+
+<div class="note primary">
+            <p>學習 flex 前可先將 flex 分為外容器屬性與內元件屬性兩個分類。</p>
+          </div>
+
+<h2 id="外容器的屬性"><a href="#外容器的屬性" class="headerlink" title="外容器的屬性"></a>外容器的屬性</h2><blockquote>
+<p>以下6個屬性設置在容器上。</p>
+</blockquote>
+<ol>
+<li><a href="#flex-direction"><strong>flex-direction</strong></a></li>
+<li><a href="#flex-wrap"><strong>flex-wrap</strong></a></li>
+<li><a href="#flex-flow"><strong>flex-flow</strong></a></li>
+<li><a href="#justify-content"><strong>justify-content</strong></a></li>
+<li><a href="#align-items"><strong>align-items</strong></a></li>
+<li><a href="#align-content"><strong>align-content</strong></a></li>
+</ol>
+<h3 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h3><blockquote>
+<p>flex-direction 屬性決定主軸的方向。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/direction.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p><strong>row</strong>（預設值）：主軸為水平方向，起點在左側。<br><strong>row-reverse</strong>：主軸為水平方向，起點在右側(水平反轉)。<br><strong>column</strong>：主軸為垂直方向，起點在上側。<br><strong>column-reverse</strong>：主軸為垂直方向，起點在下側(垂直反轉)。</p>
+          </div>
+
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><blockquote>
+<p>如果主軸上元素太多可能導至溢出外容器，決定是否換行的屬性，分為換行、不換行、換行時反轉。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/flex-wrap.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p><strong>nowrap</strong>（預設值）：不換行。<br><strong>wrap</strong>：換行，第一行在上側。<br><strong>wrap-reverse</strong>：換行，第一行在下側。</p>
+          </div>
+
+<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><blockquote>
+<p>僅僅是 <code>flex-direction</code> 與 <code>flex-wrap</code> 的縮寫，所以只要在這前後帶上相對應的值即可。<br>預設為 <font color="#EB6EA5">row nowrap</font>。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: &lt;<span class="string">'flex-direction'</span>&gt; || &lt;<span class="string">'flex-wrap'</span>&gt; ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><blockquote>
+<p>此屬性定義主軸的對齊方式。<br>註：主軸的設定是由 <code>flex-direction</code> 決定的；所以實際是水平或垂直，要依主軸設定的方向而定。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/justify-content.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p><strong>flex-start</strong>（預設值）：由起點開始對齊，第一個元素與起點對齊，此後的元素與前一個對齊。<br><strong>flex-end</strong>：由終點開始對齊，最後元素與終點對齊，此前的元素與後一個對齊。<br><strong>center</strong>：所有元素置中對齊，每行第一個元素到起點的距離與最後元素到終點的距離相同。<br><strong>space-between</strong>：每行上均匀分配元素，相鄰元素間距相同，而第一個元素與起點對齊，且最後元素與終點對齊。<br><strong>space-around</strong>：每行上元素兩側間距相同，故，第一個元素&amp;最後元素與邊框的距離會是相鄰元素間距的一半。</p>
+          </div>
+
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><blockquote>
+<p>此屬性定義交錯軸的對齊方式。<br>註：與 <code>justify-content</code> 相同，主軸的設定是由 <code>flex-direction</code> 決定的。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/align-items.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p><strong>flex-start</strong>：元素向交錯軸起點對齊。<br><strong>flex-end</strong>：元素向交錯軸終點對齊。<br><strong>center</strong>：元素向交錯軸的中點對齊。<br><strong>baseline</strong>：元素的第一行文字的基準線對齊。<br><strong>stretch</strong>（預設值）：元素未設定高度或設為auto，則研交錯軸方向拉伸到與容器相同的高度。</p>
+          </div>
+
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><blockquote>
+<p>此屬性定義多行情況下，交錯軸的對齊方式。<span class="label info">如只有一行，則該屬性無作用。</span></p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/align-content.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p><strong>flex-start</strong>：元素向交錯軸起點對齊。<br><strong>flex-end</strong>：元素向交錯軸終點對齊。<br><strong>center</strong>：元素向交錯軸的中點對齊。<br><strong>space-between</strong>：所有行在容器中的間隔平均分布，相鄰兩行間隔相等，第一行與最後一行與交錯軸兩側對齊。<br><strong>space-around</strong>：所有行兩側的間隔都相等。所以，行之間的間隔比行與邊框的間隔大一倍。<br><strong>stretch</strong>（預設值）：拉伸所有行來填滿剩餘空間。剩餘空間平均的分配给每一行。</p>
+          </div>
+
+<h2 id="內元件的屬性"><a href="#內元件的屬性" class="headerlink" title="內元件的屬性"></a>內元件的屬性</h2><ol>
+<li><a href="#order"><strong>order</strong></a></li>
+<li><a href="#flex-grow"><strong>flex-grow</strong></a></li>
+<li><a href="#flex-shrink"><strong>flex-shrink</strong></a></li>
+<li><a href="#flex-basis"><strong>flex-basis</strong></a></li>
+<li><a href="#flex"><strong>flex</strong></a></li>
+<li><a href="#align-self"><strong>align-self</strong></a></li>
+</ol>
+<h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><blockquote>
+<p>此屬性定義內元件的排列順序。數值越小，排列越靠前。預設值為：<font color="EB6EA5">0</font>。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/order.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: &lt;integer&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><blockquote>
+<p>此屬性定義內元件放大比例，是一個數值，當空間分配還有剩餘時的當前元件的伸展性。<br>預設值為：<font color="EB6EA5">0</font>，如果設置為 0 則不會縮放。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/flex-grow.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>如果所有元件的 <code>flex-grow</code> 皆設為 1，則均等分配剩餘空間。<br>如果其中1個 <code>flex-grow</code> 設為2，其他元件皆為 1，則設定為2的元件占據的剩餘空間比其他多1倍。</p>
+          </div>
+
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><blockquote>
+<p>此屬性定義內元件縮小比例，預設值為：<font color="EB6EA5">1</font>，當空間不足時，該元件縮小。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/flex-shrink.png" class="" width="750">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>如果所有元件的 <code>flex-shrink</code> 皆設為 1，當空間不足時，都將等比例縮小。<br>如果其中1個 <code>flex-shrink</code> 設為0，其他元件皆為 1，當空間不足時，則設定為 0 的元件不縮小。<br>負值對此屬性無效。</p>
+          </div>
+
+<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><blockquote>
+<p>此屬性定義內元件在主軸方向上的初始大小。<br>預設值為：<font color="EB6EA5">auto</font>，即元件的本來大小。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><blockquote>
+<p>flex 是 <code>flex-grow</code> 、 <code>flex-shrink</code> 和 <code>flex-basis</code> 三個屬性的縮寫，預設值為：<font color="EB6EA5">0 1 auto</font>。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: none | [ &lt;<span class="string">'flex-grow'</span>&gt; &lt;<span class="string">'flex-shrink'</span>&gt;? || &lt;<span class="string">'flex-basis'</span>&gt; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>flex 属性可以指定1個，2個或3個值。</p><ul><li>單值語法：值必須為以下其中之一。<ul><li>一個無單位的值(<number>)，則會被當成 <code>flex-grow</code> 的值。</li><li>一個有效的寬度(width)，則會被當成 <code>flex-basis</code> 的值。</li><li>auto (1 1 auto) 和 none (0 0 auto) 、 initial (0 1 auto)。</li></ul></li><li>雙值語法：第一個必須為無單位的值，且會被當成 <code>flex-grow</code> 的值。第二個值為以下其中之一。<ul><li>一個無單位的值(<number>)，則會被當成 <code>flex-shrink</code> 的值。</li><li>一個有效的寬度(width)，則會被當成 <code>flex-basis</code> 的值。</li></ul></li><li>三值語法<ul><li>第一個必須為無單位的值(<number>)，且會被當成 <code>flex-grow</code> 的值。</li><li>第二個必須為無單位的值(<number>)，且會被當成 <code>flex-shrink</code> 的值。</li><li>第三個必須為有效的寬度(width)，且會被當成 <code>flex-basis</code> 的值。</li></ul></li></ul>
+          </div>
+
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><blockquote>
+<p>此屬性允許單個元件與其他元件有不同的交錯軸對齊方式。可覆蓋 <code>align-items</code> 的值。<br>預設值為：<font color="EB6EA5">auto</font>，則繼承父元素 <code>align-items</code> 的值；如果沒有父元素，則等同於 <code>stretch</code>。</p>
+</blockquote>
+<img src="/2020/01/02/CSS-flex/align-self.png" class="">
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: auto | flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note noicon">
+            <p>該屬性設定除了 <code>auto</code>，其他都與 <code>align-items</code> 屬性完全一致。</p>
+          </div>
 
     </div>
 
@@ -233,6 +391,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
               <a href="/tags/flex/" rel="tag"># flex</a>
           </div>
 
@@ -245,7 +404,10 @@
     <a href="/2019/12/29/RWD-intro/" rel="prev" title="響應式網頁設計(RWD) 介紹">
       <i class="fa fa-chevron-left"></i> 響應式網頁設計(RWD) 介紹
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/07/Sass/" rel="next" title="Sass">
+      Sass <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -305,6 +467,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-flex"><span class="nav-number">1.</span> <span class="nav-text">What is flex</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-flex-的布局"><span class="nav-number">2.</span> <span class="nav-text">使用 flex 的布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本觀念"><span class="nav-number">3.</span> <span class="nav-text">基本觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外容器的屬性"><span class="nav-number">4.</span> <span class="nav-text">外容器的屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction"><span class="nav-number">4.1.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap"><span class="nav-number">4.2.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-flow"><span class="nav-number">4.3.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content"><span class="nav-number">4.4.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-items"><span class="nav-number">4.5.</span> <span class="nav-text">align-items</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-content"><span class="nav-number">4.6.</span> <span class="nav-text">align-content</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#內元件的屬性"><span class="nav-number">5.</span> <span class="nav-text">內元件的屬性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#order"><span class="nav-number">5.1.</span> <span class="nav-text">order</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-grow"><span class="nav-number">5.2.</span> <span class="nav-text">flex-grow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-shrink"><span class="nav-number">5.3.</span> <span class="nav-text">flex-shrink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-basis"><span class="nav-number">5.4.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex"><span class="nav-number">5.5.</span> <span class="nav-text">flex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-self"><span class="nav-number">5.6.</span> <span class="nav-text">align-self</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -318,7 +481,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -331,7 +494,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

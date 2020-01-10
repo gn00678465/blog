@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Sass（Syntactically Awesome StyleSheets）是一種 CSS 的擴充，是為 CSS 的超集合（透過編譯會 compiled 成傳統 CSS，讓瀏覽器可以閱讀）。使用 Sass 的出現是為了解決在大型專案時傳統 CSS 會遇到的重複、可維護性差等問題（新增了 nested rules, variables, mixins, selector inheritance">
+<meta name="keywords" content="CSS,Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;index.html">
+<meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="Sass（Syntactically Awesome StyleSheets）是一種 CSS 的擴充，是為 CSS 的超集合（透過編譯會 compiled 成傳統 CSS，讓瀏覽器可以閱讀）。使用 Sass 的出現是為了解決在大型專案時傳統 CSS 會遇到的重複、可維護性差等問題（新增了 nested rules, variables, mixins, selector inheritance">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;sass_logo.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;Nesting_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;Nesting_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;variables_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;variables_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;each_list.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;each_map.PNG">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_2.png">
+<meta property="og:updated_time" content="2020-01-10T03:04:41.304Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;sass_logo.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/01/07/Sass/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Sass | 前端學習</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端學習</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/Sass/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Sass
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-01-07 19:10:52" itemprop="dateCreated datePublished" datetime="2020-01-07T19:10:52+08:00">2020-01-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-01-10 11:04:41" itemprop="dateModified" datetime="2020-01-10T11:04:41+08:00">2020-01-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2020/01/07/Sass/sass_logo.png" class="">
+<blockquote class="blockquote-center"><p>Sass（Syntactically Awesome StyleSheets）是一種 CSS 的擴充，是為 CSS 的超集合（透過編譯會 compiled 成傳統 CSS，讓瀏覽器可以閱讀）。使用 Sass 的出現是為了解決在大型專案時傳統 CSS 會遇到的重複、可維護性差等問題（新增了 nested rules, variables, mixins, selector inheritance 等特性）。讓開發者可以撰寫簡潔、富語意（expressive）、重複性佳（reusable）、可維護性佳和可延展性佳的 CSS 程式碼。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="Syntax-語法"><a href="#Syntax-語法" class="headerlink" title="Syntax 語法"></a>Syntax 語法</h1><p>Sass是一個將指令碼解析成CSS的手稿語言，即SassScript。<br>Sass包括兩套語法。</p>
+<ul>
+<li>SASS（具備不使用大括弧格式、使用縮排，不能直接使用 CSS 語法，檔案名稱為 *.sass）。<blockquote>
+<p>學習曲線較高。</p>
+</blockquote>
+</li>
+<li>SCSS (使用和CSS一樣的語法，即使用大括號將不同的規則分開，使用分號將具體的樣式分開，檔案名稱為 *.scss) 。<blockquote>
+<p>學習曲線相對較緩，初學者建議使用 SCSS 語法。</p>
+</blockquote>
+</li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SASS</th>
+      <th width="50%">SCSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.button</span><br><span class="line">  padding: 3px 10px</span><br><span class="line">  font-size: 12px</span><br><span class="line">  border-radius: 3px</span><br><span class="line">  border: 1px solid #e1e4e8</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.button</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e1e4e8</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Comments-註解"><a href="#Comments-註解" class="headerlink" title="Comments 註解"></a>Comments 註解</h2><blockquote>
+<p>SASS有分兩種註解，這兩種差別是在是否會被編譯出來。</p>
+</blockquote>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><code>//</code></th>
+      <th><code>/**/</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>編譯顯示</td>
+      <td>不會編譯進CSS，不會顯示出來    </td>
+      <td>會編譯進CSS，並顯示出來</td>
+    </tr>
+    <tr>
+      <td>類型</td>
+      <td>開發階段 dev</td>
+      <td>正式階段 prod</td>
+    </tr>
+    <tr>
+      <td>編譯後檔案容量</td>
+      <td>小，不含註解</td>
+      <td>大，包含註解</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Nesting-巢狀"><a href="#Nesting-巢狀" class="headerlink" title="Nesting 巢狀"></a>Nesting 巢狀</h2><p>可以更加清晰地表示元素之間的關係。</p>
+<blockquote>
+<p>優點：可以把輸出的CSS做整理，很快就看出語法含意。<br>缺點：過於多層，CSS會變得很難維護，看的時候語意不清楚。</p>
+</blockquote>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.nav</span> <span class="selector-tag">ul</span> &#123;</span><br><span class="line">  gackground: gray;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">justify-content</span>: spacer-between;</span><br><span class="line">    &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">      <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">16px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <img src="/2020/01/07/Sass/Nesting_1.png" class="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><font color='red'>巢狀符號「&amp;」：使用在「before」、「after」等偽元素 和 「hover」「active」等偽類。</font></p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">6px</span> <span class="number">12px</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  &amp;::after &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">2px</span> solid <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    gackground: aqua;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <img src="/2020/01/07/Sass/Nesting_2.png" class="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<h1 id="Variables-變數"><a href="#Variables-變數" class="headerlink" title="Variables 變數"></a>Variables 變數</h1><blockquote>
+<p>Sass支援定義變數，變數可以用來儲存值，方便重複利用。<br>變數以美元符號（<code>$</code>）作為開頭。變數用冒號（<code>:</code>）賦值。</p>
+</blockquote>
+<p>SassScript支援四種資料類型：</p>
+<ul>
+<li>數值（可包括單位）</li>
+<li>字串</li>
+<li>顏色</li>
+<li>布林類型</li>
+</ul>
+<p>變數可以用作函式的參數或返回值。</p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$blue</span>: <span class="number">#3bbfce</span>;</span><br><span class="line"><span class="variable">$margin</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content-navigation</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$blue</span>;</span><br><span class="line">  <span class="attribute">color</span>: darken(<span class="variable">$blue</span>, <span class="number">10%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="variable">$margin</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="variable">$margin</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$blue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <img src="/2020/01/07/Sass/variables_1.png" class="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><font size=5><strong>變數也支援運算</strong></font></p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$blue</span>: <span class="number">#3bbfce</span>;</span><br><span class="line"><span class="variable">$margin</span>: <span class="number">16px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content-navigation</span> &#123;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$blue</span>;</span><br><span class="line">  <span class="attribute">color</span>: darken(<span class="variable">$blue</span>, <span class="number">10%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.border</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="variable">$margin</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="variable">$margin</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$margin</span> * <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">border-color</span>: <span class="variable">$blue</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <img src="/2020/01/07/Sass/variables_2.png" class="">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+<p>須注意幾點，如下：</p>
+</blockquote>
+<ol>
+<li><p>建議加減乘除統一都用空格相鄰，避免編譯出現錯誤。</p>
+</li>
+<li><p>單位，css常見的單位類型可分為「絕對單位」和「相對單位」，如下：</p>
+<dl>
+<dt>絕對單位</dt>
+<dd>印刷輸出的單位，如px, pt, pc, in, mm, cm…</dd>
+<dt>相對單位</dt>
+<dd>顯示設備的單位，如ex, em, rem…</dd>
+</dl>
+
+<ol>
+<li>絕對和相對單位，不能放一起運算。</li>
+<li>相對單位不能互相運算。</li>
+<li>絕對單位不能相乘。</li>
+</ol>
+</li>
+</ol>
+<p><font color="red"><span class="label warning">單位最好不要混搭，只需用一個單位，這樣就減少出錯的機率。</span></font></p>
+<h2 id="變數預設值-default"><a href="#變數預設值-default" class="headerlink" title="變數預設值 !default"></a>變數預設值 !default</h2><p>可以在變數尚未賦值前，通過在值的最後處添加 <code>!default</code> 標記來為其指定。<br>也就是說，如果該變數已經被賦值，就不會再次賦值；但是，如果還沒有被賦值，就會被指定一個值。</p>
+<h1 id="Interpolation-插值"><a href="#Interpolation-插值" class="headerlink" title="Interpolation 插值"></a>Interpolation 插值</h1><h1 id="At-rule-規則"><a href="#At-rule-規則" class="headerlink" title="At-rule 規則"></a>At-rule 規則</h1><p>Sass 支持所有 CSS3 的 <code>@</code> 規則， 以及一些 Sass 專屬的規則，也被稱為“指令（directives）”。 這些規則在 Sass 中具有不同的功能。</p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>Sass 擴充了 CSS 的 <code>@import</code> 規則，讓它能夠引入 SCSS 和 Sass 文件。 所有引入的 SCSS 和 Sass 文件都會被合併並輸出一個單一的 CSS 文件。<br>另外，被導入的文件中所定義的變數或 mixins 都可以在主文件中使用。</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"foo.scss"</span>;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"foo"</span>;</span><br><span class="line"><span class="comment">//兩者都將引入 foo.scss 檔案</span></span><br></pre></td></tr></table></figure>
+
+<p>但在少數幾種情況下，它會被編譯成 CSS 的 @import 規則：</p>
+<ol>
+<li>如果檔案的副檔名是 .css。</li>
+<li>如果檔案名以 http:// 開頭。</li>
+<li>如果檔案名是 url()。</li>
+<li>如果 @import 包含了任何 media queries。</li>
+</ol>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"foo.css"</span>;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"foo"</span> screen;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"http://foo.com/bar"</span>;</span><br><span class="line">@<span class="keyword">import</span> url(foo);</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+      <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"foo.css"</span>;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"foo"</span> screen;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"http://foo.com/bar"</span>;</span><br><span class="line">@<span class="keyword">import</span> url(foo);</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="Partials"><a href="#Partials" class="headerlink" title="Partials"></a>Partials</h3><p>如果有一個 SCSS 或 Sass 檔案需要引入， 但又不希望它被編譯為一個 CSS 檔案，這時，你就可以在檔案名前面加一個下底線 <code>_</code>，就能避免被編譯。<br>這將告訴 Sass 不要把它編譯成 CSS 檔案。 然後就可以像往常一樣引入這個檔案了，並且還可以省略掉檔案名前面的下劃線。</p>
+<div class="note primary">
+            <p>有一個檔案叫做 _colors.scss。 這樣就不會生成 _colors.css 檔案了， 而且還可以使用</p><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"colors"</span>;</span><br></pre></td></tr></table></figure>來引入 _colors.scss 檔案。
+          </div>
+<p><font color='red'><span class="label danger">注意，在同一個目錄下不能同時存在帶下底線和不帶下底線的同名檔案。</span></font></p>
+<h2 id="mixin-and-include"><a href="#mixin-and-include" class="headerlink" title="@mixin and @include"></a>@mixin and @include</h2><div class="note info">
+            <ul><li>使用時機：需要大量重複使用到的屬性。</li><li>使用目的：建立專屬語法資料庫。</li><li>@minix 需對應 @include</li></ul>
+          </div>
+
+<p><font size=5>語法</font></p>
+<pre class="syntaxbox">
+@mixin 名稱 { 語法內容 };    /* 建立 */
+
+.selector {
+  @include 名稱;        /* 引入 */
+}
+</pre>
+
+<p><font size=5>進階用法</font></p>
+<ul>
+<li><strong>與變數搭配</strong><br><font size=4>語法</font></li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 變數可設多個 */</span></span><br><span class="line">@<span class="keyword">mixin</span> 名稱 (<span class="variable">$var1</span>, <span class="variable">$var2</span>,...) &#123;</span><br><span class="line">  css語法:<span class="variable">$var1</span>;</span><br><span class="line">  css語法:<span class="variable">$var2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/* 引入 */</span></span><br><span class="line"><span class="comment">/* 引入 */</span></span><br><span class="line">selector &#123;</span><br><span class="line">  @<span class="keyword">include</span> (<span class="variable">$var1</span>, <span class="variable">$var2</span>,...) 名稱</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note warning noicon">
+            <p>於 <code>@include</code> 名稱後面的小括號內設定參數數值，需依照 <code>@mixin</code> 所設定的變數順序來設定數值；<br>如無照順序的情況下，SASS編譯不會出現錯誤，但會讓網頁排版錯誤。</p>
+          </div>
+
+<ul>
+<li><strong>與響應式搭配</strong><br><font size=4>語法</font></li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 建立 */</span></span><br><span class="line">@<span class="keyword">mixin</span> + 名稱 &#123;</span><br><span class="line">  @<span class="keyword">media</span> (裝置寬度) &#123;</span><br><span class="line">    @<span class="keyword">content</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/* 引入 */</span></span><br><span class="line">selector &#123;</span><br><span class="line">  @<span class="keyword">include</span> + 名稱()&#123;</span><br><span class="line">    內容</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary">
+            <ol><li><code>@media</code> 裡面只要填 <code>@content</code>。</li><li>用 <code>@include</code> + 名稱() 引入， 裡面填上 <code>@media</code> 的css樣式。</li></ol>
+          </div>
+
+<h2 id="function"><a href="#function" class="headerlink" title="@function"></a>@function</h2><div class="note info">
+            <p>使用時機：搭配變數和mixin使用。</p>
+          </div>
+
+<p>使用流程如下:</p>
+<ol>
+<li>給予「變數」設定基礎數值。<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*設定變數基礎數值*/</span></span><br><span class="line"><span class="variable">$basePadding</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure></li>
+<li>給予function名稱，讓scss可套用。<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function padding() &#123;&#125;</span><br></pre></td></tr></table></figure></li>
+<li>function內新增參數並設定預設值。<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function padding( <span class="variable">$index</span>: 1) &#123;&#125;</span><br><span class="line"><span class="comment">/*小括弧內為參數，在此為$變數: 1 ，預設值為 1 */</span></span><br></pre></td></tr></table></figure></li>
+<li>function內設定運算公式。<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function padding( <span class="variable">$index</span>: 1) &#123;</span><br><span class="line">  @return <span class="variable">$basePadding</span> * <span class="variable">$index</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>引入function。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">selector</span> &#123;</span><br><span class="line">  css樣式: function名稱 (參數);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>funtion接多個參數<blockquote>
+<p>可把「變數」放在裡面。</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function padding( <span class="variable">$index</span>: 1, <span class="variable">$basePadding</span>: 10px) &#123;</span><br><span class="line">  @return <span class="variable">$basePadding</span> * <span class="variable">$index</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">selector &#123;</span><br><span class="line">  css樣式: function名稱 (<span class="variable">$index</span>, <span class="variable">$basePadding</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h2><h2 id="進階使用"><a href="#進階使用" class="headerlink" title="進階使用"></a>進階使用</h2><h3 id="mixin和function-運算程式模組化"><a href="#mixin和function-運算程式模組化" class="headerlink" title="mixin和function: 運算程式模組化"></a>mixin和function: 運算程式模組化</h3><div class="note no-icon">
+            <ol><li>設定變數 <code>$basePadding</code>，他的值為 10px。</li><li>建立名叫做 padding的 <code>@function</code>，為運算程式，預設值為 1 。</li><li><code>@function</code> 內容裡面分兩部分: <code>@if</code> 和 <code>@return</code>。</li><li>使用 <code>@mixin</code>，裡面的內容是 <code>@function</code>，如果有多個 <code>@function</code>，可一次全部帶入到css中。</li></ol>
+          </div>
+
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">//建立程式</span></span><br><span class="line"><span class="variable">$basePadding</span>: <span class="number">10px</span>;</span><br><span class="line">@function padding( <span class="variable">$index</span>: 1) &#123;</span><br><span class="line">  @<span class="keyword">if</span> <span class="variable">$index</span> &lt; 1 &#123;</span><br><span class="line">    <span class="variable">$index</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  @return <span class="variable">$basePadding</span> * <span class="variable">$index</span>;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">mixin</span> a ( <span class="variable">$index</span>:<span class="number">1</span> ) &#123;</span><br><span class="line">  <span class="attribute">padding-left</span>: padding(<span class="variable">$index</span>);</span><br><span class="line">  <span class="attribute">padding-right</span>: padding(<span class="variable">$index</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入</span></span><br><span class="line"><span class="selector-class">.px</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> a(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+        <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.px</span> &#123;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">30px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Flow-control-流程控制"><a href="#Flow-control-流程控制" class="headerlink" title="Flow control 流程控制"></a>Flow control 流程控制</h2><h3 id="if-and-else"><a href="#if-and-else" class="headerlink" title="@if and @else"></a>@if and @else</h3><div class="note info">
+            <p><code>@if</code> 用在判斷條件如果符合，就執行內容。<br><code>@else</code> 是如果在 <code>@if</code> 中不符合條件，則執行 <code>@else</code> 的內容。</p>
+          </div>
+
+<p><font size=5>語法：</font></p>
+<pre class="syntaxbox">
+@if (expression) { ... }
+@else { ... }
+</pre>
+
+<h3 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h3><p><font size=5>語法：</font></p>
+<pre class="syntaxbox">@each $var in ( list or map ) {}</pre>
+
+<ul>
+<li><p>With list</p>
+<blockquote>
+<p>list是一個SassScript表達式。</p>
+</blockquote>
+<table>
+<thead>
+  <tr>
+    <th width="50%">SCSS</th>
+    <th width="50%">CSS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+    <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">each</span> <span class="variable">$var</span> in ( normal, bold  ) &#123;</span><br><span class="line">  <span class="selector-class">.font-</span>#&#123;<span class="variable">$var</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>: <span class="variable">$var</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </td>
+    <td>
+      <img src="/2020/01/07/Sass/each_list.PNG" class="">
+    </td>
+  </tr>
+</tbody>
+</table>
+</li>
+<li><p>With Maps</p>
+<div class="note info">
+            <p>Maps是Sass Maps，於Sass 3.3所提供另一種變數的設定方式。<br>類似 json 內 <code>key</code> 與 <code>value</code> 的概念。<br><code>$name</code>就是map裡面，<code>key</code> 的值 (normal, …)。<br><code>$value</code>就是map裡面，<code>value</code> 的值 (flex-start, …)。</p>
+          </div>
+<table>
+<thead>
+  <tr>
+    <th width="50%">SCSS</th>
+    <th width="50%">CSS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+    <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$flex_posi</span>: ( </span><br><span class="line">  <span class="string">"normal"</span>:<span class="string">"flex-start"</span>,</span><br><span class="line">  <span class="string">"end"</span>:<span class="string">"flex-end"</span>,</span><br><span class="line">  <span class="string">"center"</span>:<span class="string">"center"</span>,</span><br><span class="line">  <span class="string">"between"</span>:<span class="string">"spacer-between"</span>,</span><br><span class="line">  <span class="string">"rounder"</span>:<span class="string">"spacer-rounder"</span></span><br><span class="line">  );</span><br><span class="line">@<span class="keyword">each</span> <span class="variable">$name</span>, <span class="variable">$value</span> in <span class="variable">$flex_posi</span> &#123;</span><br><span class="line">  <span class="selector-class">.justify-content-</span>#&#123;<span class="variable">$name</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </td>
+    <td>
+      <img src="/2020/01/07/Sass/each_map.PNG" class="">
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+<h3 id="for"><a href="#for" class="headerlink" title="@for"></a>@for</h3><blockquote>
+<p>sass for迴圈有兩種語法 :</p>
+</blockquote>
+<ul>
+<li><p>從start開始到end結束</p>
+<pre class="syntaxbox">
+@for $var from (start) through (end)
+</pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from &lt;start&gt; through &lt;end&gt;</span><br></pre></td></tr></table></figure>
+<div class="note no-icon">
+            <p>從整個循環都跑一遍。<br>透過 <code>#{ }</code> 轉為css可用的數值。</p>
+          </div>
+<table>
+<thead>
+  <tr>
+    <th width="50%">SCSS</th>
+    <th width="50%">CSS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from 1 through 5 &#123;</span><br><span class="line">  <span class="selector-class">.padding-</span>#&#123;<span class="variable">$var</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span> * <span class="variable">$var</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </td>
+    <td>
+    <img src="/2020/01/07/Sass/for_1.png" class="">
+    </td>
+  </tr>
+</tbody>
+</table>
+</li>
+<li><p>從start開始,碰到end就結束</p>
+<pre class="syntaxbox">
+@for $var from (start) to (end)
+</pre>
+<div class="note no-icon">
+            <p>從 <code>start</code> 開始碰到 <code>end</code> 就結束，所以沒有套用到 <code>end</code>。<br>因此大部分使用sass的for迴圈都是使用 <code>@for $var from through</code>。</p>
+          </div>
+<table>
+<thead>
+  <tr>
+    <th width="50%">SCSS</th>
+    <th width="50%">CSS</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>
+      <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from 1 to 5 &#123;</span><br><span class="line">  <span class="selector-class">.padding-</span>#&#123;<span class="variable">$var</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">10px</span> * <span class="variable">$var</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </td>
+    <td>
+    <img src="/2020/01/07/Sass/for_2.png" class="">
+    </td>
+  </tr>
+</tbody>
+</table>
+
+</li>
+</ul>
+<h3 id="while"><a href="#while" class="headerlink" title="@while"></a>@while</h3><blockquote>
+<p>while 只要條件符合 true ，就會一直跑下去，除非手動停止，否則很容易形成無限迴圈也因此稍有不慎會影響電腦效能。</p>
+</blockquote>
+<p><font size=5>語法：</font></p>
+<pre class="syntaxbox">
+@while (expression) { ... }
+</pre>
+
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function scale-below(<span class="variable">$value</span>, <span class="variable">$base</span>, <span class="variable">$ratio</span>: 1.618) &#123;</span><br><span class="line">  @<span class="keyword">while</span> <span class="variable">$value</span> &gt; <span class="variable">$base</span> &#123;</span><br><span class="line">    <span class="variable">$value</span>: <span class="variable">$value</span> / <span class="variable">$ratio</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  @return <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$normal-font-size</span>: <span class="number">16px</span>;</span><br><span class="line"><span class="selector-tag">sup</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: scale-below(<span class="number">20px</span>, <span class="number">16px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Operators-運算子"><a href="#Operators-運算子" class="headerlink" title="Operators 運算子"></a>Operators 運算子</h1><h2 id="Equality"><a href="#Equality" class="headerlink" title="Equality"></a>Equality</h2><h2 id="Relational"><a href="#Relational" class="headerlink" title="Relational"></a>Relational</h2><h2 id="Numeric"><a href="#Numeric" class="headerlink" title="Numeric"></a>Numeric</h2><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h2 id="Boolean"><a href="#Boolean" class="headerlink" title="Boolean"></a>Boolean</h2>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/02/CSS-flex/" rel="prev" title="CSS Flex 佈局">
+      <i class="fa fa-chevron-left"></i> CSS Flex 佈局
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax-語法"><span class="nav-number">1.</span> <span class="nav-text">Syntax 語法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-註解"><span class="nav-number">1.1.</span> <span class="nav-text">Comments 註解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesting-巢狀"><span class="nav-number">1.2.</span> <span class="nav-text">Nesting 巢狀</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables-變數"><span class="nav-number">2.</span> <span class="nav-text">Variables 變數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#變數預設值-default"><span class="nav-number">2.1.</span> <span class="nav-text">變數預設值 !default</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interpolation-插值"><span class="nav-number">3.</span> <span class="nav-text">Interpolation 插值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#At-rule-規則"><span class="nav-number">4.</span> <span class="nav-text">At-rule 規則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">4.1.</span> <span class="nav-text">@import</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partials"><span class="nav-number">4.1.1.</span> <span class="nav-text">Partials</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin-and-include"><span class="nav-number">4.2.</span> <span class="nav-text">@mixin and @include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">4.3.</span> <span class="nav-text">@function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">4.4.</span> <span class="nav-text">@extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#進階使用"><span class="nav-number">4.5.</span> <span class="nav-text">進階使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mixin和function-運算程式模組化"><span class="nav-number">4.5.1.</span> <span class="nav-text">mixin和function: 運算程式模組化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flow-control-流程控制"><span class="nav-number">4.6.</span> <span class="nav-text">Flow control 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-and-else"><span class="nav-number">4.6.1.</span> <span class="nav-text">@if and @else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">4.6.2.</span> <span class="nav-text">@each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">4.6.3.</span> <span class="nav-text">@for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">4.6.4.</span> <span class="nav-text">@while</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Operators-運算子"><span class="nav-number">5.</span> <span class="nav-text">Operators 運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Equality"><span class="nav-number">5.1.</span> <span class="nav-text">Equality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational"><span class="nav-number">5.2.</span> <span class="nav-text">Relational</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Numeric"><span class="nav-number">5.3.</span> <span class="nav-text">Numeric</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String"><span class="nav-number">5.4.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boolean"><span class="nav-number">5.5.</span> <span class="nav-text">Boolean</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

@@ -54,8 +54,10 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-01-04T02:22:56.543Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;29&#x2F;RWD-intro&#x2F;RWD.png">
+<meta property="og:updated_time" content="2020-01-10T02:54:39.181Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;29&#x2F;RWD-intro&#x2F;RWD.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/29/RWD-intro/">
 
@@ -208,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-04 10:22:56" itemprop="dateModified" datetime="2020-01-04T10:22:56+08:00">2020-01-04</time>
+                <time title="修改時間：2020-01-10 10:54:39" itemprop="dateModified" datetime="2020-01-10T10:54:39+08:00">2020-01-10</time>
               </span>
 
           
@@ -222,7 +224,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center"><p>響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。</p>
+        <img src="/2019/12/29/RWD-intro/RWD.png" class="750">
+<blockquote class="blockquote-center"><p>響應式網頁設計（英語：Responsive web design，通常縮寫為RWD），或稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在不同的裝置（從桌面電腦顯示器到行動電話或其他行動產品裝置）上瀏覽時對應不同解析度皆有適合的呈現，減少使用者進行縮放、平移和捲動等操作行為。</p>
 </blockquote>
 
 <a id="more"></a>
@@ -405,7 +408,15 @@
 
 </li>
 </ul>
-<h1 id="技巧篇"><a href="#技巧篇" class="headerlink" title="技巧篇"></a>技巧篇</h1>
+<h2 id="技巧篇"><a href="#技巧篇" class="headerlink" title="技巧篇"></a>技巧篇</h2><p>Banner 設計</p>
+<ol>
+<li>使用 <code>img</code> 標籤方式，使用此方式需設定 reset 語法，讓圖片可以自適應的延伸，但選用圖片注意不要佔據太大的版面。</li>
+<li>使用背景圖片方式，可以固定高度顯示範圍。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.banner</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">background-position</span>: center center; <span class="comment">/*圖片置中*/</span></span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(圖片網址);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="工具篇"><a href="#工具篇" class="headerlink" title="工具篇"></a>工具篇</h2><p>優化網站載入圖片的速度，壓縮圖片。<br><a href="https://tinypng.com" target="_blank" rel="noopener">tinypng 壓縮圖片服務</a></p>
+<h1 id="常見響應式設計選單"><a href="#常見響應式設計選單" class="headerlink" title="常見響應式設計選單"></a>常見響應式設計選單</h1>
     </div>
 
     
@@ -428,8 +439,8 @@
       <i class="fa fa-chevron-left"></i> ES6 章節
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/01/02/CSS-flex/" rel="next" title="CSS_flex">
-      CSS_flex <i class="fa fa-chevron-right"></i>
+    <a href="/2020/01/02/CSS-flex/" rel="next" title="CSS Flex 佈局">
+      CSS Flex 佈局 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -490,7 +501,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#環境建立"><span class="nav-number">1.</span> <span class="nav-text">環境建立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-3-Media-Query-觀念"><span class="nav-number">2.</span> <span class="nav-text">CSS 3 Media Query 觀念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動線設計"><span class="nav-number">3.</span> <span class="nav-text">動線設計</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#點擊範圍"><span class="nav-number">4.</span> <span class="nav-text">點擊範圍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點元素"><span class="nav-number">5.</span> <span class="nav-text">斷點元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點時機"><span class="nav-number">6.</span> <span class="nav-text">斷點時機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考設計響應式斷點"><span class="nav-number">6.1.</span> <span class="nav-text">思考設計響應式斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Mobile-First-amp-Desktop-First"><span class="nav-number">6.2.</span> <span class="nav-text">What is Mobile First &amp; Desktop First</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見-PC-解析度斷點設計"><span class="nav-number">6.3.</span> <span class="nav-text">常見 PC 解析度斷點設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六角講師斷點設計分享"><span class="nav-number">6.4.</span> <span class="nav-text">六角講師斷點設計分享</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式表格與表單設計"><span class="nav-number">7.</span> <span class="nav-text">響應式表格與表單設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#響應式表格設計"><span class="nav-number">7.1.</span> <span class="nav-text">響應式表格設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第3方插件"><span class="nav-number">7.2.</span> <span class="nav-text">使用第3方插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按鈕設計原理"><span class="nav-number">7.2.1.</span> <span class="nav-text">按鈕設計原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式圖片設計"><span class="nav-number">8.</span> <span class="nav-text">響應式圖片設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基礎篇"><span class="nav-number">8.1.</span> <span class="nav-text">基礎篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#響應式圖片-reset-教學"><span class="nav-number">8.1.1.</span> <span class="nav-text">響應式圖片 reset 教學</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#心法篇"><span class="nav-number">8.2.</span> <span class="nav-text">心法篇</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧篇"><span class="nav-number">9.</span> <span class="nav-text">技巧篇</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#環境建立"><span class="nav-number">1.</span> <span class="nav-text">環境建立</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-3-Media-Query-觀念"><span class="nav-number">2.</span> <span class="nav-text">CSS 3 Media Query 觀念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#動線設計"><span class="nav-number">3.</span> <span class="nav-text">動線設計</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#點擊範圍"><span class="nav-number">4.</span> <span class="nav-text">點擊範圍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點元素"><span class="nav-number">5.</span> <span class="nav-text">斷點元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#斷點時機"><span class="nav-number">6.</span> <span class="nav-text">斷點時機</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考設計響應式斷點"><span class="nav-number">6.1.</span> <span class="nav-text">思考設計響應式斷點</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-Mobile-First-amp-Desktop-First"><span class="nav-number">6.2.</span> <span class="nav-text">What is Mobile First &amp; Desktop First</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見-PC-解析度斷點設計"><span class="nav-number">6.3.</span> <span class="nav-text">常見 PC 解析度斷點設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六角講師斷點設計分享"><span class="nav-number">6.4.</span> <span class="nav-text">六角講師斷點設計分享</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式表格與表單設計"><span class="nav-number">7.</span> <span class="nav-text">響應式表格與表單設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#響應式表格設計"><span class="nav-number">7.1.</span> <span class="nav-text">響應式表格設計</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第3方插件"><span class="nav-number">7.2.</span> <span class="nav-text">使用第3方插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#按鈕設計原理"><span class="nav-number">7.2.1.</span> <span class="nav-text">按鈕設計原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#響應式圖片設計"><span class="nav-number">8.</span> <span class="nav-text">響應式圖片設計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基礎篇"><span class="nav-number">8.1.</span> <span class="nav-text">基礎篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#響應式圖片-reset-教學"><span class="nav-number">8.1.1.</span> <span class="nav-text">響應式圖片 reset 教學</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#心法篇"><span class="nav-number">8.2.</span> <span class="nav-text">心法篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技巧篇"><span class="nav-number">8.3.</span> <span class="nav-text">技巧篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具篇"><span class="nav-number">8.4.</span> <span class="nav-text">工具篇</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常見響應式設計選單"><span class="nav-number">9.</span> <span class="nav-text">常見響應式設計選單</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -504,7 +515,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -517,7 +528,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>

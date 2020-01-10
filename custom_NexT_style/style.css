@@ -9,3 +9,27 @@
   background-color: #f8f1f4;
   color: #c01d54;
 }
+.syntaxbox {
+  font-size: 1rem;
+  background: #eee;
+  border: 0 solid #3d7e9a;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 15px;
+  position: relative;
+  font-family: consolas, monaco, "Andale Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  overflow: auto;
+  direction: ltr !important;
+  text-align: left !important;
+  border-left-width: 5px !important;
+  border-right-width: 0 !important;
+  tab-size: 4;
+  hyphens: none;
+}
+pre.syntaxbox {
+  white-space: pre-wrap;
+}
