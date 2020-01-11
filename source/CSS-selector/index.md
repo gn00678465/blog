@@ -152,7 +152,7 @@ selector1 > selector2 { property: value; }
 selector1 selector2 { property: value; }
 </pre>
 
-# <font color="#00408B" size=6>虛擬元素（pseudo-element）</font>
+# <font color="#00408B" size=6>偽元素（pseudo-element）</font>
 {% note primary %}
 - 它並不是真正網頁裡的元素，但行為與表現又和真正網頁元素一樣，也可以對其使用 CSS 操控。
 - 同時偽元素也會「繼承」原本元素的屬性，如果原本文字是黑色，偽元素的文字也會是黑色。
@@ -211,7 +211,7 @@ selector1 selector2 { property: value; }
 
 [偽元素選器整理](https://codepen.io/yun1988/full/MXByyo/)
 
-# <font color="#00408B" size=6>虛擬類別（pseudo-class）</font>
+# <font color="#00408B" size=6>偽類別（pseudo-class）</font>
 
 <font size=5>Syntax：</font>
 <pre class="syntaxbox">
