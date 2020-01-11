@@ -63,7 +63,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;each_map.PNG">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_2.png">
-<meta property="og:updated_time" content="2020-01-10T09:05:02.877Z">
+<meta property="og:updated_time" content="2020-01-10T12:38:12.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;sass_logo.png">
 
@@ -218,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-10 17:05:02" itemprop="dateModified" datetime="2020-01-10T17:05:02+08:00">2020-01-10</time>
+                <time title="修改時間：2020-01-10 20:38:12" itemprop="dateModified" datetime="2020-01-10T20:38:12+08:00">2020-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -351,8 +351,6 @@
   </tbody>
 </table>
 
-
-
 <h1 id="Variables-變數"><a href="#Variables-變數" class="headerlink" title="Variables 變數"></a>Variables 變數</h1><blockquote>
 <p>Sass支援定義變數，變數可以用來儲存值，方便重複利用。<br>變數以美元符號（<code>$</code>）作為開頭。變數用冒號（<code>:</code>）賦值。</p>
 </blockquote>
@@ -426,7 +424,27 @@
 </ol>
 <p><font color="red"><span class="label warning">單位最好不要混搭，只需用一個單位，這樣就減少出錯的機率。</span></font></p>
 <h2 id="變數預設值-default"><a href="#變數預設值-default" class="headerlink" title="變數預設值 !default"></a>變數預設值 !default</h2><p>可以在變數尚未賦值前，通過在值的最後處添加 <code>!default</code> 標記來為其指定。<br>也就是說，如果該變數已經被賦值，就不會再次賦值；但是，如果還沒有被賦值，就會被指定一個值。</p>
-<h1 id="Interpolation-插值"><a href="#Interpolation-插值" class="headerlink" title="Interpolation 插值"></a>Interpolation 插值</h1><h1 id="At-rule-規則"><a href="#At-rule-規則" class="headerlink" title="At-rule 規則"></a>At-rule 規則</h1><p>Sass 支持所有 CSS3 的 <code>@</code> 規則， 以及一些 Sass 專屬的規則，也被稱為“指令（directives）”。 這些規則在 Sass 中具有不同的功能。</p>
+<h1 id="Interpolation-插值"><a href="#Interpolation-插值" class="headerlink" title="Interpolation 插值"></a>Interpolation 插值</h1><p>插值語法可以被用於幾乎所有的 Sass stylesheet 去崁入規則於CSS內。<br>只要將表達式包裹進 <code>#{}</code>。</p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$name</span>: foo;</span><br><span class="line"><span class="variable">$attr</span>: border;</span><br><span class="line"><span class="selector-tag">p</span>.#&#123;<span class="variable">$name</span>&#125; &#123;</span><br><span class="line">  #&#123;<span class="variable">$attr</span>&#125;-<span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+        <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.foo</span> &#123;</span><br><span class="line"><span class="attribute">border-color</span>: blue; &#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="At-rule-規則"><a href="#At-rule-規則" class="headerlink" title="At-rule 規則"></a>At-rule 規則</h1><p>Sass 支持所有 CSS3 的 <code>@</code> 規則， 以及一些 Sass 專屬的規則，也被稱為“指令（directives）”。 這些規則在 Sass 中具有不同的功能。</p>
 <h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p>Sass 擴充了 CSS 的 <code>@import</code> 規則，讓它能夠引入 SCSS 和 Sass 文件。 所有引入的 SCSS 和 Sass 文件都會被合併並輸出一個單一的 CSS 文件。<br>另外，被導入的文件中所定義的變數或 mixins 都可以在主文件中使用。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"foo.scss"</span>;</span><br><span class="line"><span class="comment">//or</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"foo"</span>;</span><br><span class="line"><span class="comment">//兩者都將引入 foo.scss 檔案</span></span><br></pre></td></tr></table></figure>
 
@@ -512,7 +530,36 @@
 
 </li>
 </ul>
-<h2 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h2><h2 id="進階使用"><a href="#進階使用" class="headerlink" title="進階使用"></a>進階使用</h2><h3 id="mixin和function-運算程式模組化"><a href="#mixin和function-運算程式模組化" class="headerlink" title="mixin和function: 運算程式模組化"></a>mixin和function: 運算程式模組化</h3><div class="note no-icon">
+<h2 id="extend"><a href="#extend" class="headerlink" title="@extend"></a>@extend</h2><div class="note info">
+            <p>sass中extend 是用來把css中重複的樣式作模組化，未來如要修改語法，只要改一次就能全部修改。</p>
+          </div>
+<ul>
+<li>新增extend內容<ol>
+<li>增加extend名稱，格式使用「.」+名稱，裡面放重複的樣式。</li>
+<li>在class或是id內的樣式放上 <code>@extend + extend</code> 名稱</li>
+</ol>
+</li>
+</ul>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> .error;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+        <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.error</span>, <span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> <span class="number">#f00</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="進階使用"><a href="#進階使用" class="headerlink" title="進階使用"></a>進階使用</h2><h3 id="mixin和function-運算程式模組化"><a href="#mixin和function-運算程式模組化" class="headerlink" title="mixin和function: 運算程式模組化"></a>mixin和function: 運算程式模組化</h3><div class="note no-icon">
             <ol><li>設定變數 <code>$basePadding</code>，他的值為 10px。</li><li>建立名叫做 padding的 <code>@function</code>，為運算程式，預設值為 1 。</li><li><code>@function</code> 內容裡面分兩部分: <code>@if</code> 和 <code>@return</code>。</li><li>使用 <code>@mixin</code>，裡面的內容是 <code>@function</code>，如果有多個 <code>@function</code>，可一次全部帶入到css中。</li></ol>
           </div>
 
