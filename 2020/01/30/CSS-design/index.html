@@ -46,15 +46,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;index.html">
+  <meta name="description" content="“CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
+<meta name="keywords" content="CSS,Sass">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS&#x2F;Sass 設計模式">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;30&#x2F;CSS-design&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="“CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-01-07T00:52:18.579Z">
+<meta property="og:updated_time" content="2020-01-30T03:16:52.029Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/tags/">
+<link rel="canonical" href="http://yoursite.com/2020/01/30/CSS-design/">
 
 
 <script id="page-configurations">
@@ -62,12 +65,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>tags | 前端學習
-  </title>
+  <title>CSS/Sass 設計模式 | 前端學習</title>
   
 
 
@@ -167,52 +169,150 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-TW">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/30/CSS-design/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端學習">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS/Sass 設計模式
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
 
-<div class="post-meta">
+              <time title="創建時間：2020-01-30 10:57:58 / 修改時間：11:16:52" itemprop="dateCreated datePublished" datetime="2020-01-30T10:57:58+08:00">2020-01-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote class="blockquote-center"><p>“CSS is simple…, it’s simple to understand.<br>But CSS is not simple to use or maintain.”<br>CSS易於理解，但應用和維護上並不簡單。</p>
+</blockquote>
+<a id="more"></a>
+
+<p>因此，就有人提出了CSS 模組化方法，分別為：<strong>OOCSS</strong>、<strong><a href="#SMACSS">SMACSS</a></strong>、<strong>BEM</strong>。</p>
+<p>良好的CSS架構，包含以下4個特點。</p>
+<div class="note primary">
+            <ul><li>預測 - Predictable</li><li>復用 - Reusable</li><li>維護 - Maintainable</li><li>延展 - Scalable</li></ul>
+          </div>
+
+<p>將CSS屬性分類</p>
+<div class="note primary">
+            <ul><li>結構 : margin、padding、display、vertical-align</li><li>外觀<ul><li>色彩 : color、background-color、border-color</li><li>尺寸 : font-size、height</li></ul></li><li>容器 : grid、card、form、nav、header、footer</li><li>內容 : button、input、progress-bar</li></ul>
+          </div>
+
+<h1 id="SMACSS"><a href="#SMACSS" class="headerlink" title="SMACSS"></a>SMACSS</h1><h2 id="What-is-SMACSS"><a href="#What-is-SMACSS" class="headerlink" title="What is SMACSS"></a>What is SMACSS</h2><blockquote>
+<p>Scalable and Modular Architecture for CSS</p>
+</blockquote>
+<a href="http://smacss.com" target="_blank" rel="noopener" class="btnEft">
+<span>Home page</span>
+</a>
+
+<ul>
+<li>Categorization<ul>
+<li>將結構分類</li>
+</ul>
+</li>
+<li>Naming ruled<ul>
+<li>命名規則</li>
+</ul>
+</li>
+<li>Decoupling CSS from HTML<ul>
+<li>將 CSS 從 HTML 分離</li>
+</ul>
+</li>
+</ul>
+<h2 id="Categorization"><a href="#Categorization" class="headerlink" title="Categorization"></a>Categorization</h2><ol>
+<li>Base<div class="note info">
+            <ul><li>CSS Reset</li><li>網頁的基本樣式</li><li>全程只使用Tag Selector，不用ID/Class Selector</li><li>在base中千萬不要用 <code>!important</code></li></ul>
+          </div></li>
+<li>Layout<div class="note info">
+            <ul><li>將網頁切割成不同區塊（元素），大區塊如html5新增的一些tag，如header，footer，section會被定義成Layout。</li><li>主要的 layout 再頁面中應該是唯一的存在，採用使用 ID selectors</li><li>次要的 layout &amp; 若會重複出現則採用  class selectors</li><li>命名規則以 .l-* 作為開頭</li></ul>
+          </div></li>
+<li>Module<div class="note info">
+            <ul><li>頁面上可單獨存在並可重複使用的元件</li><li>定義Module避免使用ID selectors或tag</li><li>子模組以原模組名稱加上 (-) 作為名稱。</li></ul>
+          </div></li>
+<li>State<div class="note info">
+            <ul><li>與 layout 或是 module 搭配</li><li>為了表現使用者在網頁上觸發的種種動作或特效</li><li>可搭配 JavaScript 來改變樣式</li><li>命名規則以 .is-* 作為開頭</li></ul>
+          </div></li>
+<li>Theme<div class="note info">
+            <ul><li>提供主題式的定義顏色與樣式</li><li>命名規則以 .theme-* 作為開頭</li></ul>
+          </div>
+
+</li>
+</ol>
+<h1 id="OOCSS"><a href="#OOCSS" class="headerlink" title="OOCSS"></a>OOCSS</h1><h1 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h1>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/tags/Sass/" rel="tag"># Sass</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/07/Sass/" rel="prev" title="Sass">
+      <i class="fa fa-chevron-left"></i> Sass
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共有 6 個標籤
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Basic/" style="font-size: 30px; color: #111">Basic</a> <a href="/tags/CSS/" style="font-size: 21px; color: #6f6f6f">CSS</a> <a href="/tags/JavaScript/" style="font-size: 25.5px; color: #404040">JavaScript</a> <a href="/tags/RWD/" style="font-size: 12px; color: #ccc">RWD</a> <a href="/tags/Sass/" style="font-size: 16.5px; color: #9d9d9d">Sass</a> <a href="/tags/flex/" style="font-size: 12px; color: #ccc">flex</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
   </div>
 
 
@@ -264,6 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SMACSS"><span class="nav-number">1.</span> <span class="nav-text">SMACSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-SMACSS"><span class="nav-number">1.1.</span> <span class="nav-text">What is SMACSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Categorization"><span class="nav-number">1.2.</span> <span class="nav-text">Categorization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OOCSS"><span class="nav-number">2.</span> <span class="nav-text">OOCSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BEM"><span class="nav-number">3.</span> <span class="nav-text">BEM</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
