@@ -46,16 +46,19 @@
   };
 </script>
 
-  <meta name="description" content="“CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
+  <meta name="description" content="網頁收納術！ “CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
 <meta name="keywords" content="CSS,Sass">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS&#x2F;Sass 設計模式">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;30&#x2F;CSS-design&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="“CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
+<meta property="og:description" content="網頁收納術！ “CSS is simple…, it’s simple to understand.But CSS is not simple to use or maintain.”CSS易於理解，但應用和維護上並不簡單。">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-01-30T03:16:52.029Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;30&#x2F;CSS-design&#x2F;OOCSS_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;30&#x2F;CSS-design&#x2F;OOCSS_2.png">
+<meta property="og:updated_time" content="2020-02-04T02:31:37.488Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;30&#x2F;CSS-design&#x2F;OOCSS_1.png">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/30/CSS-design/">
 
@@ -200,10 +203,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-01-30 10:57:58 / 修改時間：11:16:52" itemprop="dateCreated datePublished" datetime="2020-01-30T10:57:58+08:00">2020-01-30</time>
+              <time title="創建時間：2020-01-30 10:57:58" itemprop="dateCreated datePublished" datetime="2020-01-30T10:57:58+08:00">2020-01-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-02-04 10:31:37" itemprop="dateModified" datetime="2020-02-04T10:31:37+08:00">2020-02-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -227,11 +236,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center"><p>“CSS is simple…, it’s simple to understand.<br>But CSS is not simple to use or maintain.”<br>CSS易於理解，但應用和維護上並不簡單。</p>
+        <p>網頁收納術！</p>
+<blockquote class="blockquote-center"><p>“CSS is simple…, it’s simple to understand.<br>But CSS is not simple to use or maintain.”<br>CSS易於理解，但應用和維護上並不簡單。</p>
 </blockquote>
 <a id="more"></a>
 
-<p>因此，就有人提出了CSS 模組化方法，分別為：<strong>OOCSS</strong>、<strong><a href="#SMACSS">SMACSS</a></strong>、<strong>BEM</strong>。</p>
+<p>因此，就有人提出了CSS 模組化方法，分別為：<strong>OOCSS</strong>、<strong><a href="#SMACSS">SMACSS</a></strong>、<strong><a href="#BEM">BEM</a></strong>。</p>
 <p>良好的CSS架構，包含以下4個特點。</p>
 <div class="note primary">
             <ul><li>預測 - Predictable</li><li>復用 - Reusable</li><li>維護 - Maintainable</li><li>延展 - Scalable</li></ul>
@@ -242,6 +252,43 @@
             <ul><li>結構 : margin、padding、display、vertical-align</li><li>外觀<ul><li>色彩 : color、background-color、border-color</li><li>尺寸 : font-size、height</li></ul></li><li>容器 : grid、card、form、nav、header、footer</li><li>內容 : button、input、progress-bar</li></ul>
           </div>
 
+<p>命名規範</p>
+<ul>
+<li>駝峰式命名<blockquote>
+<p>單字之間不以空格斷開、連接號（-）、底線（_）連結，有兩種格式</p>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>小駝峰式命名法（lower camel case）<ul>
+<li>第一個單字以小寫字母開始；第二個單字的首字母大寫</li>
+</ul>
+</li>
+<li>大駝峰式命名法（upper camel case）<ul>
+<li>每一個單字的首字母都採用大寫字母，也被稱為Pascal命名法</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>命名使用 <code>-</code> or <code>_</code>？</p>
+<blockquote>
+<p>使用上無特別限制，但最好保持一致性。</p>
+</blockquote>
+</li>
+<li><p>拋棄語意命名</p>
+<ol>
+<li>使用工具、功能性質命名</li>
+<li>色彩以功能、主色性質命名<ul>
+<li><code>.btn-red</code> 改成 <code>.btn-danger</code></li>
+</ul>
+</li>
+<li>layout 以格線方式來設計<ul>
+<li>如： <code>.sidebar</code> 改成 <code>.col</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
 <h1 id="SMACSS"><a href="#SMACSS" class="headerlink" title="SMACSS"></a>SMACSS</h1><h2 id="What-is-SMACSS"><a href="#What-is-SMACSS" class="headerlink" title="What is SMACSS"></a>What is SMACSS</h2><blockquote>
 <p>Scalable and Modular Architecture for CSS</p>
 </blockquote>
@@ -264,25 +311,95 @@
 </li>
 </ul>
 <h2 id="Categorization"><a href="#Categorization" class="headerlink" title="Categorization"></a>Categorization</h2><ol>
-<li>Base<div class="note info">
+<li><p>Base</p>
+<div class="note info">
             <ul><li>CSS Reset</li><li>網頁的基本樣式</li><li>全程只使用Tag Selector，不用ID/Class Selector</li><li>在base中千萬不要用 <code>!important</code></li></ul>
+          </div>
+<table>
+<thead>
+ <tr>
+   <th>全站設定，整個網站的基本樣式。</th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+   <td>
+   EX:
+   <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">form</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#039</span>;</span><br><span class="line">  &amp;:hover &#123;</span><br><span class="line">    <span class="attribute">color</span>: darken(<span class="number">#039</span>, <span class="number">10%</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">img &#123;</span><br><span class="line">  max-width: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: auto</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+   </td>
+ </tr>
+</tbody>
+</table>
+</li>
+<li><p>Layout</p>
+<div class="note info">
+            <ul><li>將網頁切割成不同區塊（元素），大區塊如html5新增的一些tag，如header，footer，section會被定義成Layout。</li><li>主要的 layout 再頁面中應該是唯一的存在，採用使用 ID selectors</li><li>次要的 layout &amp; 若會重複出現則採用  class selectors</li><li>命名規則以 .l-* 作為前綴詞</li></ul>
+          </div>
+<table>
+<thead>
+ <tr>
+   <th>Layout分割。</th>
+ </tr>
+</thead>
+<tbody>
+ <tr>
+   <td>
+   EX:
+   <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#header</span>, <span class="selector-id">#article</span>, <span class="selector-id">#footer</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#article</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: solid <span class="number">#CCC</span>;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">1px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">  l-list &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+   </td>
+ </tr>
+</tbody>
+</table>
+</li>
+<li><p>Module</p>
+<div class="note info">
+            <ul><li>頁面上可單獨存在並可重複使用的元件</li><li>定義Module避免使用ID selectors 或 tag</li><li>子模組以主模組名稱加上 (-) 作為名稱。</li><li>子模組內的元素也可增加樣式</li></ul>
+          </div>
+<div class="note primary">
+            <p>將結構與樣式分離，以pure button為例。</p><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 主模組/結構</span></span><br><span class="line"><span class="selector-class">.pure-button</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  zoom: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: normal;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  user-<span class="selector-tag">select</span>: none;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 基本樣式</span></span><br><span class="line"><span class="selector-class">.pure-button</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: inherit;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0.5em</span> <span class="number">1em</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#444</span>; <span class="comment">/* rgba not supported (IE 8) */</span></span><br><span class="line">  <span class="attribute">color</span>: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.80</span>); <span class="comment">/* rgba supported */</span></span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#999</span>;  <span class="comment">/*IE 6/7/8*/</span></span><br><span class="line">  <span class="attribute">border</span>: none rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);  <span class="comment">/*IE9 + everything else*/</span></span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#E6E6E6</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">2px</span>;</span><br><span class="line">  &amp;-hover,</span><br><span class="line">  &amp;:hover,</span><br><span class="line">  &amp;:focus &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: linear-gradient(transparent, rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0.05</span>) <span class="number">40%</span>, rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0.10</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;:focus &#123;</span><br><span class="line">    <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-active,</span><br><span class="line">  &amp;:active &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1px</span> rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0.15</span>) inset, <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> rgba(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>, <span class="number">0.20</span>) inset;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子模組</span></span><br><span class="line"><span class="selector-class">.pure-button-primary</span>,</span><br><span class="line"><span class="selector-class">.pure-button-selected</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.pure-button-primary</span>,</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-class">.pure-button-selected</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: rgb(<span class="number">0</span>, <span class="number">120</span>, <span class="number">231</span>);</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          </div>
+</li>
+<li><p>State</p>
+<div class="note info">
+            <ul><li>與 layout 或是 module 搭配</li><li>為了表現使用者在網頁上觸發的種種動作或特效</li><li>可搭配 JavaScript 來改變樣式</li><li>命名規則以 .is-* 作為前綴詞</li></ul>
           </div></li>
-<li>Layout<div class="note info">
-            <ul><li>將網頁切割成不同區塊（元素），大區塊如html5新增的一些tag，如header，footer，section會被定義成Layout。</li><li>主要的 layout 再頁面中應該是唯一的存在，採用使用 ID selectors</li><li>次要的 layout &amp; 若會重複出現則採用  class selectors</li><li>命名規則以 .l-* 作為開頭</li></ul>
-          </div></li>
-<li>Module<div class="note info">
-            <ul><li>頁面上可單獨存在並可重複使用的元件</li><li>定義Module避免使用ID selectors或tag</li><li>子模組以原模組名稱加上 (-) 作為名稱。</li></ul>
-          </div></li>
-<li>State<div class="note info">
-            <ul><li>與 layout 或是 module 搭配</li><li>為了表現使用者在網頁上觸發的種種動作或特效</li><li>可搭配 JavaScript 來改變樣式</li><li>命名規則以 .is-* 作為開頭</li></ul>
-          </div></li>
-<li>Theme<div class="note info">
-            <ul><li>提供主題式的定義顏色與樣式</li><li>命名規則以 .theme-* 作為開頭</li></ul>
+<li><p>Theme</p>
+<div class="note info">
+            <ul><li>提供主題式的定義顏色與樣式</li><li>命名規則以 .theme-* 作為前綴詞</li></ul>
           </div>
 
 </li>
 </ol>
-<h1 id="OOCSS"><a href="#OOCSS" class="headerlink" title="OOCSS"></a>OOCSS</h1><h1 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h1>
+<h1 id="OOCSS"><a href="#OOCSS" class="headerlink" title="OOCSS"></a>OOCSS</h1><h2 id="What-is-OOCSS"><a href="#What-is-OOCSS" class="headerlink" title="What is OOCSS"></a>What is OOCSS</h2><blockquote>
+<p>Object Oriented CSS，意謂物件導向的CSS，其主要的兩個原則</p>
+</blockquote>
+<h2 id="Separate-container-and-content"><a href="#Separate-container-and-content" class="headerlink" title="Separate container and content"></a>Separate container and content</h2><ul>
+<li>容器和內容分離<img src="/2020/01/30/CSS-design/OOCSS_1.png" class="" title="Separate container and content">
+<h2 id="Separate-structure-and-skin"><a href="#Separate-structure-and-skin" class="headerlink" title="Separate structure and skin"></a>Separate structure and skin</h2></li>
+<li>結構和外觀分離<img src="/2020/01/30/CSS-design/OOCSS_2.png" class="" title="Separate container and content">
+
+</li>
+</ul>
+<h1 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h1><h2 id="What-is-BEM"><a href="#What-is-BEM" class="headerlink" title="What is BEM"></a>What is BEM</h2><blockquote>
+<p>Block Element Modifier<br>以元件觀念進行開發，具有重用性。 它擁有 OOCSS 的架構清楚的美好，也沒有 SMACSS 複雜或令人混淆的部份</p>
+</blockquote>
+<ol>
+<li>Block - 區塊<div class="note info">
+            <ul><li>頁面上可單獨存在並可重複使用的元件</li><li>如同 SMACSS 內的 Layout,Module</li><li>每一個 Block 皆為獨立存在的</li><li>命名規則<ul><li>如： <code>.button</code> 、 <code>.menu</code> 、 <code>.text-filed</code></li><li>前綴詞非必要： <code>.b-btuuon</code> 、 <code>.b-menu</code></li></ul></li></ul>
+          </div></li>
+<li>Element - 元素<div class="note info">
+            <ul><li>於 Block 中的小元件</li><li>無法獨立於 Block 外</li><li>命名規則<ul><li>Block 名稱並加上雙底線<code>__</code>作為前綴詞。</li><li><code>.button__icon</code> 、 <code>.menu__item</code></li></ul></li></ul>
+          </div></li>
+<li>Modifier - 修飾子<div class="note info">
+            <ul><li>Modifier 是定義 Block 和 Element 的外觀、狀態或類型</li><li>如同 SMACSS 內的 state</li><li>命名規則<ul><li>Block 或 Element 名稱並加上雙 dash<code>--</code>作為前綴詞。</li><li><code>.button--active</code> 、 <code>.menu--active</code></li></ul></li></ul>
+          </div>
+
+</li>
+</ol>
+<h2 id="搭配-Sass-組合技"><a href="#搭配-Sass-組合技" class="headerlink" title="搭配 Sass 組合技"></a>搭配 Sass 組合技</h2><blockquote>
+<p>使用 <code>&amp;</code>連結詞 可以快速的產生符合 BEM 設計規範的命名</p>
+</blockquote>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  &amp;__item &#123;</span><br><span class="line">    樣式</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;__img &#123;</span><br><span class="line">    樣式</span><br><span class="line">    &amp;--change &#123;</span><br><span class="line">      樣式</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.card</span> &#123;</span><br><span class="line">  &amp;__body &#123;</span><br><span class="line">    樣式</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;__img &#123;</span><br><span class="line">    樣式</span><br><span class="line">    &amp;--<span class="attribute">top</span> &#123;</span><br><span class="line">      樣式</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -364,7 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SMACSS"><span class="nav-number">1.</span> <span class="nav-text">SMACSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-SMACSS"><span class="nav-number">1.1.</span> <span class="nav-text">What is SMACSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Categorization"><span class="nav-number">1.2.</span> <span class="nav-text">Categorization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OOCSS"><span class="nav-number">2.</span> <span class="nav-text">OOCSS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BEM"><span class="nav-number">3.</span> <span class="nav-text">BEM</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SMACSS"><span class="nav-number">1.</span> <span class="nav-text">SMACSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-SMACSS"><span class="nav-number">1.1.</span> <span class="nav-text">What is SMACSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Categorization"><span class="nav-number">1.2.</span> <span class="nav-text">Categorization</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OOCSS"><span class="nav-number">2.</span> <span class="nav-text">OOCSS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-OOCSS"><span class="nav-number">2.1.</span> <span class="nav-text">What is OOCSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Separate-container-and-content"><span class="nav-number">2.2.</span> <span class="nav-text">Separate container and content</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Separate-structure-and-skin"><span class="nav-number">2.3.</span> <span class="nav-text">Separate structure and skin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BEM"><span class="nav-number">3.</span> <span class="nav-text">BEM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-BEM"><span class="nav-number">3.1.</span> <span class="nav-text">What is BEM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭配-Sass-組合技"><span class="nav-number">3.2.</span> <span class="nav-text">搭配 Sass 組合技</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,7 +502,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">

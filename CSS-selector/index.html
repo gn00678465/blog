@@ -53,7 +53,7 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：  selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示，">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-01-30T02:54:06.647Z">
+<meta property="og:updated_time" content="2020-02-03T23:06:06.751Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/">
@@ -366,23 +366,23 @@ selector1 selector2 { property: value; }
 </table>
 
 <h2 id="before"><a href="#before" class="headerlink" title="::before"></a>::before</h2><div class="note info">
-            <ul><li>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。</li><li><code>::before</code> 是在原本的元素「之前」加入內容。</li></ul>
+            <p>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。<br><code>::before</code> 是在原本的元素「之前」加入內容。</p>
           </div>
 
 <h2 id="after"><a href="#after" class="headerlink" title="::after"></a>::after</h2><div class="note info">
-            <ul><li>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。</li><li><code>::after</code> 是在原本的元素「之後」加入內容。</li></ul>
+            <p>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。<br><code>::after</code> 是在原本的元素「之後」加入內容。</p>
           </div>
 
 <h2 id="first-line"><a href="#first-line" class="headerlink" title="::first-line"></a>::first-line</h2><div class="note info">
-            <ul><li><code>::first-line</code> 顧名思義就是「第一行」，透過這個偽元素可以輕鬆指定文字的第一行。</li><li>需要注意的是 <code>::first-line</code> 「不能」作用於 <code>display:inline</code> 的元素。</li></ul>
+            <p><code>::first-line</code> 顧名思義就是「第一行」，透過這個偽元素可以輕鬆指定文字的第一行。<br>需要注意的是 <code>::first-line</code> 「不能」作用於 <code>display:inline</code> 的元素。</p>
           </div>
 
 <h2 id="first-letter"><a href="#first-letter" class="headerlink" title="::first-letter"></a>::first-letter</h2><div class="note info">
-            <ul><li><code>::first-letter</code> 顧名思義就是「第一個字」。</li><li>透過這個偽元素，可以做出許多文章第一個字放大或變色的效果。</li></ul>
+            <p><code>::first-letter</code> 顧名思義就是「第一個字」。<br>透過這個偽元素，可以做出許多文章第一個字放大或變色的效果。</p>
           </div>
 
 <h2 id="selection"><a href="#selection" class="headerlink" title="::selection"></a>::selection</h2><div class="note info">
-            <ul><li><code>::selection</code> 是個十分常見的偽元素，它就是負責一段選取文字的效果。</li></ul>
+            <p><code>::selection</code> 是個十分常見的偽元素，它就是負責一段選取文字的效果。</p>
           </div>
 
 <p><a href="https://codepen.io/yun1988/full/MXByyo/" target="_blank" rel="noopener">偽元素選器整理</a></p>
@@ -391,6 +391,79 @@ selector1 selector2 { property: value; }
 selector:pseudo-class { property: value; } 
 </pre>
 
+<h2 id="錨點-Anchor"><a href="#錨點-Anchor" class="headerlink" title="錨點(Anchor)"></a>錨點(Anchor)</h2><div class="note info">
+            <p>主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。</p>
+          </div>
+
+<table>
+    <tbody>
+        <tr>
+        <td>:link</td>
+        <td>:hover</td>
+        <td>:visited</td>
+        </tr>
+        <tr>
+        <td>:active</td>
+        <td>:focus</td>
+        <td>:target</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id="狀態-State"><a href="#狀態-State" class="headerlink" title="狀態(State)"></a>狀態(State)</h2><div class="note info">
+            <p>使用者介面元素狀態。</p>
+          </div>
+
+<table>
+    <tbody>
+        <tr>
+        <td>:checked</td>
+        <td>:unchecked</td>
+        <td>:enabled</td>
+        </tr>
+        <tr>
+        <td>:disabled</td>
+        <td></td>
+        <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><div class="note info">
+            <p>主要有<code>-child</code>和<code>of-type</code>兩類<br><code>child</code>:父元素內的子元素都是 child。<br><code>of-type</code>:如果子元素交錯混雜，可用於選取固定元素類型</p>
+          </div>
+
+<table>
+<tbody>
+    <tr>
+      <td>:first-child</td>
+      <td>:last-child</td>
+      <td>:nth-child(n)</td>
+    </tr>
+    <tr>
+      <td>:nth-last-child(n)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>:first-of-type</td>
+      <td>:last-of-type</td>
+      <td>:nth-of-type(n)</td>
+    </tr>
+    <tr>
+      <td>:nth-last-of-type(n)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>:only-child</td>
+      <td>:only-of-type</td>
+      <td>:not()</td>
+    </tr>
+  </tbody>
+</table>
 
 
 <p><a href="https://codepen.io/yun1988/full/VdMVvg/" target="_blank" rel="noopener">偽類選擇器整理</a></p>
@@ -457,7 +530,7 @@ selector:pseudo-class { property: value; }
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本選擇器"><span class="nav-number">1.</span> <span class="nav-text">基本選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇器分組"><span class="nav-number">1.1.</span> <span class="nav-text">選擇器分組</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用選擇器"><span class="nav-number">1.2.</span> <span class="nav-text">通用選擇器 (*)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素選擇器-elementName"><span class="nav-number">1.3.</span> <span class="nav-text">元素選擇器 (elementName)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-選擇器-classname"><span class="nav-number">1.4.</span> <span class="nav-text">Class 選擇器 (.classname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID-選擇器-idname"><span class="nav-number">1.5.</span> <span class="nav-text">ID 選擇器 (#idname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屬性選擇器-attr-value"><span class="nav-number">1.6.</span> <span class="nav-text">屬性選擇器 ([attr=value])</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#複合選擇器"><span class="nav-number">2.</span> <span class="nav-text">複合選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鄰接同層選擇器-A-B"><span class="nav-number">2.1.</span> <span class="nav-text">鄰接同層選擇器 (A + B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用同層選擇器-A-B"><span class="nav-number">2.2.</span> <span class="nav-text">通用同層選擇器 (A ~ B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直屬選擇器-A-gt-B"><span class="nav-number">2.3.</span> <span class="nav-text">直屬選擇器 (A &gt; B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後代選擇器-A-B"><span class="nav-number">2.4.</span> <span class="nav-text">後代選擇器 A B</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽元素（pseudo-element）"><span class="nav-number">3.</span> <span class="nav-text">偽元素（pseudo-element）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#before"><span class="nav-number">3.1.</span> <span class="nav-text">::before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#after"><span class="nav-number">3.2.</span> <span class="nav-text">::after</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-line"><span class="nav-number">3.3.</span> <span class="nav-text">::first-line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-letter"><span class="nav-number">3.4.</span> <span class="nav-text">::first-letter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selection"><span class="nav-number">3.5.</span> <span class="nav-text">::selection</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽類別（pseudo-class）"><span class="nav-number">4.</span> <span class="nav-text">偽類別（pseudo-class）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本選擇器"><span class="nav-number">1.</span> <span class="nav-text">基本選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇器分組"><span class="nav-number">1.1.</span> <span class="nav-text">選擇器分組</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用選擇器"><span class="nav-number">1.2.</span> <span class="nav-text">通用選擇器 (*)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素選擇器-elementName"><span class="nav-number">1.3.</span> <span class="nav-text">元素選擇器 (elementName)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-選擇器-classname"><span class="nav-number">1.4.</span> <span class="nav-text">Class 選擇器 (.classname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID-選擇器-idname"><span class="nav-number">1.5.</span> <span class="nav-text">ID 選擇器 (#idname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屬性選擇器-attr-value"><span class="nav-number">1.6.</span> <span class="nav-text">屬性選擇器 ([attr=value])</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#複合選擇器"><span class="nav-number">2.</span> <span class="nav-text">複合選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鄰接同層選擇器-A-B"><span class="nav-number">2.1.</span> <span class="nav-text">鄰接同層選擇器 (A + B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用同層選擇器-A-B"><span class="nav-number">2.2.</span> <span class="nav-text">通用同層選擇器 (A ~ B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直屬選擇器-A-gt-B"><span class="nav-number">2.3.</span> <span class="nav-text">直屬選擇器 (A &gt; B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後代選擇器-A-B"><span class="nav-number">2.4.</span> <span class="nav-text">後代選擇器 A B</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽元素（pseudo-element）"><span class="nav-number">3.</span> <span class="nav-text">偽元素（pseudo-element）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#before"><span class="nav-number">3.1.</span> <span class="nav-text">::before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#after"><span class="nav-number">3.2.</span> <span class="nav-text">::after</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-line"><span class="nav-number">3.3.</span> <span class="nav-text">::first-line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-letter"><span class="nav-number">3.4.</span> <span class="nav-text">::first-letter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selection"><span class="nav-number">3.5.</span> <span class="nav-text">::selection</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽類別（pseudo-class）"><span class="nav-number">4.</span> <span class="nav-text">偽類別（pseudo-class）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#錨點-Anchor"><span class="nav-number">4.1.</span> <span class="nav-text">錨點(Anchor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#狀態-State"><span class="nav-number">4.2.</span> <span class="nav-text">狀態(State)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結構"><span class="nav-number">4.3.</span> <span class="nav-text">結構</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -478,7 +551,7 @@ selector:pseudo-class { property: value; }
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">

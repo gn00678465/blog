@@ -1190,7 +1190,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff5ed1;
+  background: #38f095;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2511,7 +2511,6 @@ ul.breadcrumb li + li:last-child {
   margin-bottom: 20px;
   padding: 15px;
   position: relative;
-  font-family: consolas, monaco, "Andale Mono", monospace;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -2572,4 +2571,22 @@ a.btnEft:hover::before {
 }
 a.btnEft:hover::after {
   transform: scaleX(0);
+}
+.result {
+  width: 80%;
+  border: 1px solid #000;
+  margin: 0 auto;
+  position: relative;
+  padding: 20px 20px;
+}
+.result::before {
+  content: 'result';
+  padding: 0 20px;
+  position: absolute;
+  font-size: 16px;
+  top: -15px;
+  left: -1px;
+  color: #fff;
+  background: #bdc3c7;
+  border-radius: 10%;
 }
