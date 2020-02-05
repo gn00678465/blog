@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：  selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示，">
+  <meta name="description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：   selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CSS 選擇器的不同類型">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：  selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示，">
+<meta property="og:description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：   selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-03T23:06:06.751Z">
+<meta property="og:updated_time" content="2020-02-05T12:14:48.202Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/">
@@ -203,6 +203,7 @@
 </ul>
 <p><font size=5>Syntax：</font></p>
 <pre class="syntaxbox">
+<div class="ribbon"></div>
 selector1, selector2 { property: value; }
 </pre>
 
@@ -302,6 +303,46 @@ element { property: value; }
         </tr>
     </tbody>
 </table>
+
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.attr</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">2px</span>;</span><br><span class="line">  &amp;<span class="selector-attr">[title~='a1']</span> &#123;</span><br><span class="line">    <span class="comment">// 完整特定文字 a1</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#16a085</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title^='b']</span> &#123;</span><br><span class="line">    <span class="comment">// 特定文字開頭 b</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#3498db</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title$='2']</span> &#123;</span><br><span class="line">    <span class="comment">// 特定文字結尾 2</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#c0392b</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title*='abc']</span> &#123;</span><br><span class="line">    <span class="comment">// 包含特定字串 abc</span></span><br><span class="line">    &amp;::before &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'o'</span>;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#d35400</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<style>
+.attr li {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.attr li[title~='a1'] {
+  color: #16a085;
+}
+.attr li[title^='b'] {
+  background: #3498db;
+}
+.attr li[title$='2'] {
+  border: 2px solid #c0392b;
+}
+.attr li[title*='abc']::before {
+  content: 'o';
+  color: #d35400;
+}
+</style>
+<div class="result">
+<ol class="attr">
+  <li title="a1">屬性：title=a1</li>
+  <li title="a2">屬性：title=a2</li>
+  <li title="aa3">屬性：title=aa3</li>
+  <li title="abc1">屬性：title=abc1</li>
+  <li title="b1">屬性：title=b1</li>
+  <li title="b2">屬性：title=b2</li>
+  <li title="bb3">屬性：title=bb3</li>
+  <li title="abc2">屬性：title=abc2</li>
+  <li title="c1">屬性：title=c1</li>
+  <li title="c2">屬性：title=c2</li>
+  <li title="cc3">屬性：title=cc3</li>
+  <li title="abc3">屬性：title=abc3</li>
+</ol>
+</div>
+
 
 <h1 id="複合選擇器"><a href="#複合選擇器" class="headerlink" title="複合選擇器"></a><font color="#00408B" size=6>複合選擇器</font></h1><h2 id="鄰接同層選擇器-A-B"><a href="#鄰接同層選擇器-A-B" class="headerlink" title="鄰接同層選擇器 (A + B)"></a>鄰接同層選擇器 (A <font color=red><strong>+</strong></font> B)</h2><ul>
 <li>鄰接同層選擇器(Adjacent sibling selector)具有同樣父類別的兩個元素以「＋」作為連結，允許選擇某一個特定元素（A）之後的第一個特定元素（B）。</li>
