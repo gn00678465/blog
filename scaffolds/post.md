@@ -1,8 +1,11 @@
 ---
 title: {{ title }}
 date: {{ date }}
+categories:
+- 
 tags:
-Categories:
+- 
+- 
 ---
 
 <!--more-->

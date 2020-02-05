@@ -11,6 +11,7 @@
     background-color: #f8f1f4;
     color: #c01d54;
 }
+//syntaxbox
 .syntaxbox {
     font-size: 1rem;
     background: #eee;
@@ -20,7 +21,6 @@
     margin-bottom: 20px;
     padding: 15px;
     position: relative;
-    font-family: consolas,monaco,"Andale Mono",monospace;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
@@ -32,6 +32,7 @@
     tab-size: 4;
     hyphens: none;
 }
+
 pre.syntaxbox {
     white-space: pre-wrap;
     border-radius: 3px;
@@ -85,4 +86,39 @@ a.btnEft:hover {
   &::after {
     transform: scaleX(0);
   }
+}
+// result
+.result {
+  width: 95%;
+  margin: 45px auto 20px;
+  background: radial-gradient(#f3e7e9, #e3eeff);
+  position: relative;
+  padding: 5px 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.result::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 35px;
+  left: 0;
+  top: -35px;
+  background: linear-gradient(#0c0c0c, #272728);
+  box-shadow: inset 0px -2px 0px 0px rgba(255, 255, 255, 0.19);
+}
+.result::after {
+  content: "Result";
+  position: absolute;
+  width: 90px;
+  height: 35px;
+  left: 0;
+  top: -35px;
+  box-shadow: inset 0px -2px 0px 0px rgba(255, 255, 255, 0.19);
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  line-height: 35px;
+  background: linear-gradient(#416613, #547d1b);
 }

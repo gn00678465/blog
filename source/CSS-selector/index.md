@@ -11,6 +11,7 @@ date: 2019-12-01 12:30:59
 
 <font size=5>Syntax：</font>
 <pre class="syntaxbox">
+<div class="ribbon"></div>
 selector1, selector2 { property: value; }
 </pre>
 
@@ -112,6 +113,70 @@ element { property: value; }
     </tbody>
 </table>
 
+```scss
+.attr li {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  &[title~='a1'] {
+    // 完整特定文字 a1
+    color: #16a085;
+  }
+  &[title^='b'] {
+    // 特定文字開頭 b
+    background: #3498db;
+  }
+  &[title$='2'] {
+    // 特定文字結尾 2
+    border: 2px solid #c0392b;
+  }
+  &[title*='abc'] {
+    // 包含特定字串 abc
+    &::before {
+      content: 'o';
+      color: #d35400;
+    }
+  }
+}
+```
+
+{% raw %}
+<style>
+.attr li {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.attr li[title~='a1'] {
+  color: #16a085;
+}
+.attr li[title^='b'] {
+  background: #3498db;
+}
+.attr li[title$='2'] {
+  border: 2px solid #c0392b;
+}
+.attr li[title*='abc']::before {
+  content: 'o';
+  color: #d35400;
+}
+</style>
+<div class="result">
+<ol class="attr">
+  <li title="a1">屬性：title=a1</li>
+  <li title="a2">屬性：title=a2</li>
+  <li title="aa3">屬性：title=aa3</li>
+  <li title="abc1">屬性：title=abc1</li>
+  <li title="b1">屬性：title=b1</li>
+  <li title="b2">屬性：title=b2</li>
+  <li title="bb3">屬性：title=bb3</li>
+  <li title="abc2">屬性：title=abc2</li>
+  <li title="c1">屬性：title=c1</li>
+  <li title="c2">屬性：title=c2</li>
+  <li title="cc3">屬性：title=cc3</li>
+  <li title="abc3">屬性：title=abc3</li>
+</ol>
+</div>
+{% endraw %}
+
 # <font color="#00408B" size=6>複合選擇器</font>
 
 ## 鄰接同層選擇器 (A <font color=red>**+**</font> B)
@@ -182,31 +247,31 @@ selector1 selector2 { property: value; }
 
 ## ::before
 {% note info %}
-- 最常使用的偽元素之一，以 `display:inline-block` 的屬性存在。
-- `::before` 是在原本的元素「之前」加入內容。
+最常使用的偽元素之一，以 `display:inline-block` 的屬性存在。
+`::before` 是在原本的元素「之前」加入內容。
 {% endnote %}
 
 ## ::after
 {% note info %}
-- 最常使用的偽元素之一，以 `display:inline-block` 的屬性存在。
-- `::after` 是在原本的元素「之後」加入內容。
+最常使用的偽元素之一，以 `display:inline-block` 的屬性存在。
+`::after` 是在原本的元素「之後」加入內容。
 {% endnote %}
 
 ## ::first-line
 {% note info %}
-- `::first-line` 顧名思義就是「第一行」，透過這個偽元素可以輕鬆指定文字的第一行。
-- 需要注意的是 `::first-line` 「不能」作用於 `display:inline` 的元素。
+`::first-line` 顧名思義就是「第一行」，透過這個偽元素可以輕鬆指定文字的第一行。
+需要注意的是 `::first-line` 「不能」作用於 `display:inline` 的元素。
 {% endnote %}
 
 ## ::first-letter
 {% note info %}
-- `::first-letter` 顧名思義就是「第一個字」。
-- 透過這個偽元素，可以做出許多文章第一個字放大或變色的效果。
+`::first-letter` 顧名思義就是「第一個字」。
+透過這個偽元素，可以做出許多文章第一個字放大或變色的效果。
 {% endnote %}
 
 ## ::selection
 {% note info %}
-- `::selection` 是個十分常見的偽元素，它就是負責一段選取文字的效果。
+`::selection` 是個十分常見的偽元素，它就是負責一段選取文字的效果。
 {% endnote %}
 
 [偽元素選器整理](https://codepen.io/yun1988/full/MXByyo/)
@@ -218,7 +283,85 @@ selector1 selector2 { property: value; }
 selector:pseudo-class { property: value; } 
 </pre>
 
+## 錨點(Anchor)
+{% note info %}
+主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。
+{% endnote %}
+{% raw %}
+<table>
+    <tbody>
+        <tr>
+        <td>:link</td>
+        <td>:hover</td>
+        <td>:visited</td>
+        </tr>
+        <tr>
+        <td>:active</td>
+        <td>:focus</td>
+        <td>:target</td>
+        </tr>
+    </tbody>
+</table>
+{% endraw %}
 
+## 狀態(State)
+{% note info %}
+使用者介面元素狀態。
+{% endnote %}
+{% raw %}
+<table>
+    <tbody>
+        <tr>
+        <td>:checked</td>
+        <td>:unchecked</td>
+        <td>:enabled</td>
+        </tr>
+        <tr>
+        <td>:disabled</td>
+        <td></td>
+        <td></td>
+        </tr>
+    </tbody>
+</table>
+{% endraw %}
+
+## 結構
+{% note info %}
+主要有`-child`和`of-type`兩類
+`child`:父元素內的子元素都是 child。
+`of-type`:如果子元素交錯混雜，可用於選取固定元素類型
+{% endnote %}
+{% raw %}
+<table>
+<tbody>
+    <tr>
+      <td>:first-child</td>
+      <td>:last-child</td>
+      <td>:nth-child(n)</td>
+    </tr>
+    <tr>
+      <td>:nth-last-child(n)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>:first-of-type</td>
+      <td>:last-of-type</td>
+      <td>:nth-of-type(n)</td>
+    </tr>
+    <tr>
+      <td>:nth-last-of-type(n)</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>:only-child</td>
+      <td>:only-of-type</td>
+      <td>:not()</td>
+    </tr>
+  </tbody>
+</table>
+{% endraw %}
 
 [偽類選擇器整理](https://codepen.io/yun1988/full/VdMVvg/)
 
