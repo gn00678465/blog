@@ -1190,7 +1190,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ddc1c8;
+  background: #ff9a88;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2574,35 +2574,39 @@ a.btnEft:hover::after {
 }
 .result {
   width: 95%;
-  margin: 45px auto 20px;
-  background: radial-gradient(#f3e7e9, #e3eeff);
+  margin: 20px auto 0;
+  background: radial-gradient(#fdfbfb, #ebedee);
   position: relative;
-  padding: 5px 10px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  padding: 60px 10px 10px 30px;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
-.result::before {
+.result .ribbon {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  left: -10px;
+  top: 20px;
+  line-height: 40px;
+  text-align: center;
+  background: #2ecc71;
+  font-size: 24px;
+  color: #fff;
+}
+.result .ribbon::before {
   content: "";
   position: absolute;
-  width: 100%;
-  height: 35px;
+  height: nill;
+  top: -10px;
   left: 0;
-  top: -35px;
-  background: linear-gradient(#0c0c0c, #272728);
-  box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.19);
+  border: 5px solid;
+  border-color: transparent #1b7943 #1b7943 transparent;
 }
-.result::after {
-  content: "Result";
+.result .ribbon::after {
+  content: "";
   position: absolute;
-  width: 90px;
-  height: 35px;
-  left: 0;
-  top: -35px;
-  box-shadow: inset 0px -2px 0px 0px rgba(255,255,255,0.19);
-  cursor: pointer;
-  font-size: 1rem;
-  color: #fff;
-  text-align: center;
-  line-height: 35px;
-  background: linear-gradient(#416613, #547d1b);
+  height: nill;
+  border: 20px solid;
+  border-color: #2ecc71 transparent #2ecc71 #2ecc71;
+  right: -40px;
 }
