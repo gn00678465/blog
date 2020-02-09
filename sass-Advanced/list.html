@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="Syntax：  selector:pseudo-class { property: value; }    錨點(Anchor)             主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。                                    :link         :hover         :visited">
+  <meta name="description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。             $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可">
 <meta property="og:type" content="website">
-<meta property="og:title" content="偽類別（pseudo-class）">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;4.pseudo-class.html">
+<meta property="og:title" content="資料型別 List">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;list.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Syntax：  selector:pseudo-class { property: value; }    錨點(Anchor)             主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。                                    :link         :hover         :visited">
+<meta property="og:description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。             $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T02:16:48.106Z">
+<meta property="og:updated_time" content="2020-02-09T02:09:16.142Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/CSS-selector/4.pseudo-class">
+<link rel="canonical" href="http://yoursite.com/sass-Advanced/list">
 
 
 <script id="page-configurations">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title>偽類別（pseudo-class） | 前端學習
+  <title>資料型別 List | 前端學習
   </title>
   
 
@@ -182,7 +182,7 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">偽類別（pseudo-class）
+<h1 class="post-title" itemprop="name headline">資料型別 List
 </h1>
 
 <div class="post-meta">
@@ -196,106 +196,110 @@
       
       
       <div class="post-body">
-          <p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-selector:pseudo-class { property: value; } 
-</pre>
-
-<h2 id="錨點-Anchor"><a href="#錨點-Anchor" class="headerlink" title="錨點(Anchor)"></a>錨點(Anchor)</h2><div class="note info">
-            <p>主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。</p>
+          <div class="note info">
+            <p>Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。</p>
+          </div>
+<div class="note warning">
+            <p>要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。</p>
           </div>
 
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$lists</span>: <span class="number">#fff</span>, orange, yellow, <span class="number">#000</span>;</span><br><span class="line"><span class="comment">//逗號可加或不加都可以,如果是字串必須在外面包一個單雙引號</span></span><br></pre></td></tr></table></figure>
+
+<p>list 可以使用的函數</p>
+<ol>
+<li>nth</li>
+<li>index</li>
+<li>join</li>
+<li>append</li>
+<li>zip</li>
+<li>length</li>
+</ol>
+<h2 id="nth"><a href="#nth" class="headerlink" title="nth"></a>nth</h2><p><code>list.nth($list, $n)</code><br>透過 nth(變數, 索引) 你能夠取得 List 裡的資料。</p>
 <table>
-    <tbody>
-        <tr>
-        <td>:link</td>
-        <td>:hover</td>
-        <td>:visited</td>
-        </tr>
-        <tr>
-        <td>:active</td>
-        <td>:focus</td>
-        <td>:target</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h2 id="狀態-State"><a href="#狀態-State" class="headerlink" title="狀態(State)"></a>狀態(State)</h2><div class="note info">
-            <p>使用者介面元素狀態。</p>
-          </div>
-
-<table>
-    <tbody>
-        <tr>
-        <td>:checked</td>
-        <td>:unchecked</td>
-        <td>:enabled</td>
-        </tr>
-        <tr>
-        <td>:disabled</td>
-        <td></td>
-        <td></td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><div class="note info">
-            <p>主要有<code>-child</code>和<code>of-type</code>兩類<br><code>child</code>:父元素內的子元素都是 child。<br><code>of-type</code>:如果子元素交錯混雜，可用於選取固定元素類型</p>
-          </div>
-
-<h3 id="順向選取"><a href="#順向選取" class="headerlink" title="順向選取"></a>順向選取</h3>
-<table>
-<tbody>
+  <thead>
     <tr>
-      <td>:first-child</td>
-      <td>:first-of-type</td>
+      <th width=50% >scss</th>
+      <th width=50%>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$lists</span>: <span class="number">#fff</span>, orange, yellow, <span class="number">#000</span>;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>:nth(<span class="variable">$lists</span>, <span class="number">2</span>);  <span class="comment">//引入變數,第幾個</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: orange;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>透過這樣子，產生出來的code的顏色就會變成第二個orange橘色。<br>nth() 你可以想像成提取變數裡面第幾個樣式。</p>
+<h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2><p><code>list.index($list, $value)</code><br>index的其中一種做法可以拿來算你所選擇的變數排序。</p>
+<table>
+  <thead>
+    <tr>
+      <th width=50% >scss</th>
+      <th width=50%>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$coffee</span>: black, latte, cappuccino, mocha;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>:index(<span class="variable">$coffee</span>, latte)  //引入變數,變數名稱</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="nth-與index-結合"><a href="#nth-與index-結合" class="headerlink" title="nth()與index()結合"></a>nth()與index()結合</h2><p>透過nth()與index()結合來規劃多種版型樣式：</p>
+<table>
+  <thead>
+    <tr>
+      <th width=50% >scss</th>
+      <th width=50%>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$sites</span>: home, about, connect, blog;</span><br><span class="line"><span class="variable">$text-color</span>: <span class="number">#16a085</span>, <span class="number">#8e44ad</span>, <span class="number">#34495e</span>, <span class="number">#2ecc71</span>;</span><br><span class="line"><span class="variable">$bg</span>: <span class="number">#ecf0f1</span>, <span class="number">#ecf0f1</span>, <span class="number">#e74c3c</span>, <span class="number">#e74c3c</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.listBtn</span> &#123;</span><br><span class="line">  &amp;--home &#123;</span><br><span class="line">    <span class="variable">$style</span>: index(<span class="variable">$sites</span>, home);</span><br><span class="line">    <span class="attribute">background</span>: nth(<span class="variable">$bg</span>, <span class="variable">$style</span>);</span><br><span class="line">    <span class="attribute">color</span>: nth(<span class="variable">$text-color</span>, <span class="variable">$style</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;--connect &#123;</span><br><span class="line">    <span class="variable">$style</span>: index(<span class="variable">$sites</span>, connect);</span><br><span class="line">    <span class="attribute">background</span>: nth(<span class="variable">$bg</span>, <span class="variable">$style</span>);</span><br><span class="line">    <span class="attribute">color</span>: nth(<span class="variable">$text-color</span>, <span class="variable">$style</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.listBtn--home</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ecf0f1</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#16a085</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.listBtn--connect</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#e74c3c</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#34495e</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
     </tr>
   </tbody>
 </table>
 
 
-<h3 id="逆向選取"><a href="#逆向選取" class="headerlink" title="逆向選取"></a>逆向選取</h3>
-<table>
-<tbody>
-    <tr>
-      <td>:last-child</td>
-      <td>:last-of-type</td>
-    </tr>
-  </tbody>
-</table>
+<style>
+.listBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.listBtn--home {
+  background: #ecf0f1;
+  color: #16a085;
+}
+.listBtn--connect {
+  background: #e74c3c;
+  color: #34495e;
+}
+</style>
+<div class="result result--dark">
+  <div class="ribbon ribbon--success">List</div>
+    <div class="listBtn listBtn--home">home</div>
+    <div class="listBtn listBtn--connect">connect</div>
+</div>
 
-
-<h3 id="nth"><a href="#nth" class="headerlink" title="nth"></a>nth</h3>
-<table>
-<tbody>
-    <tr>
-      <td>:nth-child(n)</td>
-      <td>:nth-of-type(n)</td>
-    </tr>
-    <tr>
-      <td>:nth-last-child(n)</td>
-      <td>:nth-last-of-type(n)</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<h3 id="否定選取"><a href="#否定選取" class="headerlink" title="否定選取"></a>否定選取</h3><p><code>:not()</code></p>
-<h3 id="空值選取"><a href="#空值選取" class="headerlink" title="空值選取"></a>空值選取</h3><p><code>:empty</code></p>
-<h2 id="獨子選取"><a href="#獨子選取" class="headerlink" title="獨子選取"></a>獨子選取</h2>
-<table>
-<tbody>
-    <tr>
-      <td>:only-child</td>
-      <td>:only-of-type</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<p><a href="https://codepen.io/yun1988/full/VdMVvg/" target="_blank" rel="noopener">偽類選擇器整理</a></p>
 
       </div>
       
@@ -358,7 +362,7 @@ selector:pseudo-class { property: value; }
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#錨點-Anchor"><span class="nav-number">1.</span> <span class="nav-text">錨點(Anchor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#狀態-State"><span class="nav-number">2.</span> <span class="nav-text">狀態(State)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結構"><span class="nav-number">3.</span> <span class="nav-text">結構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#順向選取"><span class="nav-number">3.1.</span> <span class="nav-text">順向選取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逆向選取"><span class="nav-number">3.2.</span> <span class="nav-text">逆向選取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nth"><span class="nav-number">3.3.</span> <span class="nav-text">nth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#否定選取"><span class="nav-number">3.4.</span> <span class="nav-text">否定選取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空值選取"><span class="nav-number">3.5.</span> <span class="nav-text">空值選取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#獨子選取"><span class="nav-number">4.</span> <span class="nav-text">獨子選取</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nth"><span class="nav-number">1.</span> <span class="nav-text">nth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#index"><span class="nav-number">2.</span> <span class="nav-text">index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nth-與index-結合"><span class="nav-number">3.</span> <span class="nav-text">nth()與index()結合</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

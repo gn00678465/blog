@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content=".adjacent_sibling ul + p {   color: red; }  .general_sibling ul ~ p {   color: blue; }  .child .firstList &amp;gt; li {   color: red; }  .descendant li {   color: blue; }    複合選擇器鄰接同層選擇器 (A + B) 鄰接同層選擇器(Ad">
+  <meta name="description" content=".adjacent_sibling ul + p {   color: red; }  .general_sibling ul ~ p {   color: blue; }  .child .firstList &amp;gt; li {   color: red; }  .descendant li {   color: blue; }    鄰接同層選擇器 (A + B) 鄰接同層選擇器(Adjacen">
 <meta property="og:type" content="website">
-<meta property="og:title" content="前端學習">
+<meta property="og:title" content="複合選擇器">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;2.combinators.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content=".adjacent_sibling ul + p {   color: red; }  .general_sibling ul ~ p {   color: blue; }  .child .firstList &amp;gt; li {   color: red; }  .descendant li {   color: blue; }    複合選擇器鄰接同層選擇器 (A + B) 鄰接同層選擇器(Ad">
+<meta property="og:description" content=".adjacent_sibling ul + p {   color: red; }  .general_sibling ul ~ p {   color: blue; }  .child .firstList &amp;gt; li {   color: red; }  .descendant li {   color: blue; }    鄰接同層選擇器 (A + B) 鄰接同層選擇器(Adjacen">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-06T02:47:30.966Z">
+<meta property="og:updated_time" content="2020-02-09T04:11:41.760Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/2.combinators">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title> | 前端學習
+  <title>複合選擇器 | 前端學習
   </title>
   
 
@@ -182,7 +182,7 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
+<h1 class="post-title" itemprop="name headline">複合選擇器
 </h1>
 
 <div class="post-meta">
@@ -216,18 +216,20 @@
 </style>
 
 
-<h1 id="複合選擇器"><a href="#複合選擇器" class="headerlink" title="複合選擇器"></a><font color="#00408B" size=6>複合選擇器</font></h1><h2 id="鄰接同層選擇器-A-B"><a href="#鄰接同層選擇器-A-B" class="headerlink" title="鄰接同層選擇器 (A + B)"></a>鄰接同層選擇器 (A <font color=red><strong>+</strong></font> B)</h2><ul>
+<h2 id="鄰接同層選擇器-A-B"><a href="#鄰接同層選擇器-A-B" class="headerlink" title="鄰接同層選擇器 (A + B)"></a>鄰接同層選擇器 (A <font color=red><strong>+</strong></font> B)</h2><ul>
 <li>鄰接同層選擇器(Adjacent sibling selector)具有同樣父類別的兩個元素以「＋」作為連結，允許選擇某一個特定元素（A）之後的第一個特定元素（B）。</li>
 </ul>
-<p><font size=4>Syntax：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+    <pre class="syntax">
 former_element + target_element { property: value; } 
-</pre>
+    </pre>
+</div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.adjacent_sibling</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">鄰接同層選擇器</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">鄰接同層選擇器</div>
   <div class="adjacent_sibling">
     <ul>
       <li>list 一的內容</li>
@@ -243,15 +245,17 @@ former_element + target_element { property: value; }
 <h2 id="通用同層選擇器-A-B"><a href="#通用同層選擇器-A-B" class="headerlink" title="通用同層選擇器 (A ~ B)"></a>通用同層選擇器 (A <font color=red><strong>~</strong></font> B)</h2><ul>
 <li>具有同樣父類別的兩個元素以「~」作為連結，允許選擇某一個特定元素（A）之後的全部特定元素（B）。</li>
 </ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+    <pre class="syntax">
 former_element ~ target_element { property: value; } 
-</pre>
+    </pre>
+</div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.general_sibling</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">通用同層選擇器</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">通用同層選擇器</div>
   <div class="general_sibling">
     <ul>
       <li>list 一的內容</li>
@@ -268,15 +272,17 @@ former_element ~ target_element { property: value; }
 <li>又稱子元素選擇器（Child selectors），此選擇器只能選擇某一個特定元素（A）子元素的特定元素（B）。</li>
 <li>如果不希望選擇任意的後代元素，只選擇某一個元素的子元素，請使用直屬選擇器。</li>
 </ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+    <pre class="syntax">
 selector1 > selector2 { property: value; } 
-</pre>
+    </pre>
+</div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.child</span> <span class="selector-class">.firstList</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">直屬選擇器</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">直屬選擇器</div>
   <div class="child">
     <div class="firstList">
       <li>第一層的內容 1</li>
@@ -295,15 +301,17 @@ selector1 > selector2 { property: value; }
 <li>選擇器之間的組合符號（combinator）(代表空白, 或更精準地說，代表一或多個空白字元) 結合了兩種選擇器。</li>
 <li>後代選擇器中兩個元素之間的層次間隔可以是無限的，不要求披對的元素是父子關係。</li>
 </ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
 selector1 selector2 { property: value; }
-</pre>
+  </pre>
+</div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.descendant</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">直屬選擇器</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">直屬選擇器</div>
   <div class="descendant">
     <div class="list">
       <li>第一層的內容 1</li>
@@ -377,7 +385,7 @@ selector1 selector2 { property: value; }
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#複合選擇器"><span class="nav-number">1.</span> <span class="nav-text">複合選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#鄰接同層選擇器-A-B"><span class="nav-number">1.1.</span> <span class="nav-text">鄰接同層選擇器 (A + B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用同層選擇器-A-B"><span class="nav-number">1.2.</span> <span class="nav-text">通用同層選擇器 (A ~ B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直屬選擇器-A-gt-B"><span class="nav-number">1.3.</span> <span class="nav-text">直屬選擇器 (A &gt; B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後代選擇器-A-B"><span class="nav-number">1.4.</span> <span class="nav-text">後代選擇器 A B</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#鄰接同層選擇器-A-B"><span class="nav-number">1.</span> <span class="nav-text">鄰接同層選擇器 (A + B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用同層選擇器-A-B"><span class="nav-number">2.</span> <span class="nav-text">通用同層選擇器 (A ~ B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直屬選擇器-A-gt-B"><span class="nav-number">3.</span> <span class="nav-text">直屬選擇器 (A &gt; B)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#後代選擇器-A-B"><span class="nav-number">4.</span> <span class="nav-text">後代選擇器 A B</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +399,7 @@ selector1 selector2 { property: value; }
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

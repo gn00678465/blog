@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：   selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示">
+  <meta name="description" content="基本選擇器複合選擇器偽元素選擇器偽類選擇器回首頁">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CSS 選擇器的不同類型">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="基本選擇器選擇器分組 若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。 可以將任意選擇器分組在一起，沒有任何限制。 透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。  Syntax：   selector1, selector2 { property: value; }   通用選擇器 (*) Universal selector以星號(asterisk)*表示">
+<meta property="og:description" content="基本選擇器複合選擇器偽元素選擇器偽類選擇器回首頁">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-06T02:47:56.411Z">
+<meta property="og:updated_time" content="2020-02-07T16:20:46.414Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/">
@@ -196,240 +196,7 @@
       
       
       <div class="post-body">
-          <h1 id="基本選擇器"><a href="#基本選擇器" class="headerlink" title="基本選擇器"></a><font color="#00408B" size=6>基本選擇器</font></h1><h2 id="選擇器分組"><a href="#選擇器分組" class="headerlink" title="選擇器分組"></a>選擇器分組</h2><ul>
-<li>若希望不同的選擇器中可以套用相同的樣式，最容易的作法是使用以下語法。</li>
-<li>可以將任意選擇器分組在一起，沒有任何限制。</li>
-<li>透過分組，可以將某類型的樣式壓縮在一起，可以得到更簡潔的樣式表。</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-<div class="ribbon"></div>
-selector1, selector2 { property: value; }
-</pre>
-
-<h2 id="通用選擇器"><a href="#通用選擇器" class="headerlink" title="通用選擇器 (*)"></a>通用選擇器 (<font color=red size=4><strong>*</strong></font>)</h2><ul>
-<li>Universal selector以星號(asterisk)<font color=red size=4><strong>*</strong></font>表示，該選擇器可以與任何元素搭配</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-* { property: value; }
-</pre>
-
-<h2 id="元素選擇器-elementName"><a href="#元素選擇器-elementName" class="headerlink" title="元素選擇器 (elementName)"></a>元素選擇器 (<font color=red><strong>elementName</strong></font>)</h2><ul>
-<li><strong>元素選擇器（型態選擇器）</strong>依照 Node 節點名稱選取匹配的 Element 元素。</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-element { property: value; }
-</pre>
-
-<h2 id="Class-選擇器-classname"><a href="#Class-選擇器-classname" class="headerlink" title="Class 選擇器 (.classname)"></a>Class 選擇器 (<font color=red size=4><strong>.</strong></font>classname)</h2><ul>
-<li><strong>Class 選擇器</strong>依照具有class屬性來選取匹配的 Element 元素。</li>
-<li>Class 選擇器在一個 HTML 文件中可以被使用多次。</li>
-<li>Class 的宣告法，是先放一個句點 (<font color=red size=4><strong>.</strong></font>)，之後再列出選擇器名稱。</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-.className { property: value; }
-</pre>
-
-<p>相同於屬性選擇器</p>
-<pre class="syntaxbox">
-[class~=class_name] { property: value; }
-</pre>
-
-<h2 id="ID-選擇器-idname"><a href="#ID-選擇器-idname" class="headerlink" title="ID 選擇器 (#idname)"></a>ID 選擇器 (<font color=red size=4><strong>#</strong></font>idname)</h2><ul>
-<li><strong>ID 選擇器</strong>依照具有ID屬性來選取匹配的 Element 元素。</li>
-<li>ID是<font color=red><strong>唯一</strong></font>的，當出現多組具有相同ID屬性的元素時，只會指向第一個匹配的元素。</li>
-<li>ID 的宣告法，是先放一個井字號 (<font color=red size=4><strong>#</strong></font>)，之後再列出選擇器名稱。</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-#id { property: value; }
-</pre>
-<p>相同於屬性選擇器</p>
-<pre class="syntaxbox">
-[id=id_value] { property: value; }
-</pre>
-
-<h2 id="屬性選擇器-attr-value"><a href="#屬性選擇器-attr-value" class="headerlink" title="屬性選擇器 ([attr=value])"></a>屬性選擇器 (<font color=red><strong>[attr=value]</strong></font>)</h2><ul>
-<li><strong>屬性選擇器</strong>可以依據元素的屬性或屬性值來選取匹配的 Element 元素。</li>
-<li>需使用中括號(<font color=red><strong>[]</strong></font>)將屬性或屬性值包覆。</li>
-</ul>
-<p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-[attr] { property: value; }         /* 選擇具有特定屬性的元素。*/
-
-[attr=value] { property: value; }   /* 選擇具有特定屬性值的元素。*/
-</pre>
-<p>上述語法屬性以及屬性值需完全匹配。</p>
-<table>
-    <thead>
-        <tr>
-            <th colspan="2"><font size=4>依據部分屬性值選擇</font></th>
-        </tr>
-        <tr>
-            <th>選擇器</th>
-            <th>描述</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>[attr~=value]</code></td>
-            <td>選擇完整特定文字屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr^=value]</code></td>
-            <td>選擇具有特定文字開頭屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr$=value]</code></td>
-            <td>選擇具有特定文字結尾屬性值的元素。</td>
-        </tr>
-        <tr>
-            <td><code>[attr*=value]</code></td>
-            <td>選擇包含特定字串屬性值的元素。</td>
-        </tr>
-    </tbody>
-    <thead>
-        <tr>
-            <th colspan="2"><font size=4>特定屬性選擇</font></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>[attr|=value]</code></td>
-            <td>選擇等於特定文字或者是其開頭屬性值的元素。</td>
-        </tr>
-    </tbody>
-</table>
-
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.attr</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">2px</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: <span class="number">2px</span>;</span><br><span class="line">  &amp;<span class="selector-attr">[title~='a1']</span> &#123;</span><br><span class="line">    <span class="comment">// 完整特定文字 a1</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#16a085</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title^='b']</span> &#123;</span><br><span class="line">    <span class="comment">// 特定文字開頭 b</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#3498db</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title$='2']</span> &#123;</span><br><span class="line">    <span class="comment">// 特定文字結尾 2</span></span><br><span class="line">    <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#c0392b</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;<span class="selector-attr">[title*='abc']</span> &#123;</span><br><span class="line">    <span class="comment">// 包含特定字串 abc</span></span><br><span class="line">    &amp;::before &#123;</span><br><span class="line">      <span class="attribute">content</span>: <span class="string">'o'</span>;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#d35400</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<style>
-.attr li {
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-.attr li[title~='a1'] {
-  color: #16a085;
-}
-.attr li[title^='b'] {
-  background: #3498db;
-}
-.attr li[title$='2'] {
-  border: 2px solid #c0392b;
-}
-.attr li[title*='abc']::before {
-  content: 'o';
-  color: #d35400;
-}
-</style>
-<div class="result">
-<div class="ribbon">Result</div>
-<ol class="attr">
-  <li title="a1">屬性：title=a1</li>
-  <li title="a2">屬性：title=a2</li>
-  <li title="aa3">屬性：title=aa3</li>
-  <li title="abc1">屬性：title=abc1</li>
-  <li title="b1">屬性：title=b1</li>
-  <li title="b2">屬性：title=b2</li>
-  <li title="bb3">屬性：title=bb3</li>
-  <li title="abc2">屬性：title=abc2</li>
-  <li title="c1">屬性：title=c1</li>
-  <li title="c2">屬性：title=c2</li>
-  <li title="cc3">屬性：title=cc3</li>
-  <li title="abc3">屬性：title=abc3</li>
-</ol>
-</div>
-
-
-
-
-<h1 id="偽類別（pseudo-class）"><a href="#偽類別（pseudo-class）" class="headerlink" title="偽類別（pseudo-class）"></a><font color="#00408B" size=6>偽類別（pseudo-class）</font></h1><p><font size=5>Syntax：</font></p>
-<pre class="syntaxbox">
-selector:pseudo-class { property: value; } 
-</pre>
-
-<h2 id="錨點-Anchor"><a href="#錨點-Anchor" class="headerlink" title="錨點(Anchor)"></a>錨點(Anchor)</h2><div class="note info">
-            <p>主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。</p>
-          </div>
-
-<table>
-    <tbody>
-        <tr>
-        <td>:link</td>
-        <td>:hover</td>
-        <td>:visited</td>
-        </tr>
-        <tr>
-        <td>:active</td>
-        <td>:focus</td>
-        <td>:target</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h2 id="狀態-State"><a href="#狀態-State" class="headerlink" title="狀態(State)"></a>狀態(State)</h2><div class="note info">
-            <p>使用者介面元素狀態。</p>
-          </div>
-
-<table>
-    <tbody>
-        <tr>
-        <td>:checked</td>
-        <td>:unchecked</td>
-        <td>:enabled</td>
-        </tr>
-        <tr>
-        <td>:disabled</td>
-        <td></td>
-        <td></td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><div class="note info">
-            <p>主要有<code>-child</code>和<code>of-type</code>兩類<br><code>child</code>:父元素內的子元素都是 child。<br><code>of-type</code>:如果子元素交錯混雜，可用於選取固定元素類型</p>
-          </div>
-
-<table>
-<tbody>
-    <tr>
-      <td>:first-child</td>
-      <td>:last-child</td>
-      <td>:nth-child(n)</td>
-    </tr>
-    <tr>
-      <td>:nth-last-child(n)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>:first-of-type</td>
-      <td>:last-of-type</td>
-      <td>:nth-of-type(n)</td>
-    </tr>
-    <tr>
-      <td>:nth-last-of-type(n)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>:only-child</td>
-      <td>:only-of-type</td>
-      <td>:not()</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<p><a href="https://codepen.io/yun1988/full/VdMVvg/" target="_blank" rel="noopener">偽類選擇器整理</a></p>
-<p><a href="/">回首頁</a></p>
-
+          <h1 id="基本選擇器"><a href="#基本選擇器" class="headerlink" title="基本選擇器"></a><a href="1.basic.html">基本選擇器</a></h1><h1 id="複合選擇器"><a href="#複合選擇器" class="headerlink" title="複合選擇器"></a><a href="2.combinators.html">複合選擇器</a></h1><h1 id="偽元素選擇器"><a href="#偽元素選擇器" class="headerlink" title="偽元素選擇器"></a><a href="3.pseudo-element.html">偽元素選擇器</a></h1><h1 id="偽類選擇器"><a href="#偽類選擇器" class="headerlink" title="偽類選擇器"></a><a href="4.pseudo-class.html">偽類選擇器</a></h1><h1 id="回首頁"><a href="#回首頁" class="headerlink" title="回首頁"></a><a href="/">回首頁</a></h1>
       </div>
       
       
@@ -491,7 +258,7 @@ selector:pseudo-class { property: value; }
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本選擇器"><span class="nav-number">1.</span> <span class="nav-text">基本選擇器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇器分組"><span class="nav-number">1.1.</span> <span class="nav-text">選擇器分組</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通用選擇器"><span class="nav-number">1.2.</span> <span class="nav-text">通用選擇器 (*)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素選擇器-elementName"><span class="nav-number">1.3.</span> <span class="nav-text">元素選擇器 (elementName)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-選擇器-classname"><span class="nav-number">1.4.</span> <span class="nav-text">Class 選擇器 (.classname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID-選擇器-idname"><span class="nav-number">1.5.</span> <span class="nav-text">ID 選擇器 (#idname)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屬性選擇器-attr-value"><span class="nav-number">1.6.</span> <span class="nav-text">屬性選擇器 ([attr=value])</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽類別（pseudo-class）"><span class="nav-number">2.</span> <span class="nav-text">偽類別（pseudo-class）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#錨點-Anchor"><span class="nav-number">2.1.</span> <span class="nav-text">錨點(Anchor)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#狀態-State"><span class="nav-number">2.2.</span> <span class="nav-text">狀態(State)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#結構"><span class="nav-number">2.3.</span> <span class="nav-text">結構</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本選擇器"><span class="nav-number">1.</span> <span class="nav-text">基本選擇器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#複合選擇器"><span class="nav-number">2.</span> <span class="nav-text">複合選擇器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽元素選擇器"><span class="nav-number">3.</span> <span class="nav-text">偽元素選擇器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#偽類選擇器"><span class="nav-number">4.</span> <span class="nav-text">偽類選擇器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回首頁"><span class="nav-number">5.</span> <span class="nav-text">回首頁</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -505,7 +272,7 @@ selector:pseudo-class { property: value; }
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

@@ -9,29 +9,56 @@
   background-color: #f8f1f4;
   color: #c01d54;
 }
-.syntaxbox {
+.codeBox {
   font-size: 1rem;
-  background: #eee;
-  border: 0 solid #3d7e9a;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 20px;
-  padding: 15px;
   position: relative;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
-  overflow: auto;
-  direction: ltr !important;
-  text-align: left !important;
-  border-left-width: 5px !important;
-  border-right-width: 0 !important;
-  tab-size: 4;
-  hyphens: none;
-}
-pre.syntaxbox {
-  white-space: pre-wrap;
   border-radius: 3px;
+  background: #eee;
+  padding: 1px 0 0 100px;
+  border-left: 5px solid #3d7e9a;
+  margin-top: 10px;
+}
+.codeBox .syntax {
+  font-size: 1rem;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  background: #eee;
+  color: #333;
+  overflow: auto;
+  padding-bottom: 0;
+}
+.codeBox .ribbon {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  background: #e74c3c;
+  top: -10px;
+  left: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 2px 0 2px rgba(0,0,0,0.2);
+}
+.codeBox .ribbon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  border-bottom: 10px solid #bf2718;
+  border-right: 10px solid transparent;
+}
+.codeBox .ribbon::after {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 0;
+  border-width: 20px 40px;
+  border-style: solid;
+  border-color: #e74c3c transparent transparent;
 }
 a.no-border {
   border: none;
@@ -88,6 +115,13 @@ a.btnEft:hover::after {
   border-bottom-left-radius: 30px;
   border-top-right-radius: 30px;
 }
+.result--light {
+  background-image: radial-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+.result--dark {
+  background: linear-gradient(to bottom, #323232 0%, #3f3f3f 40%, #1c1c1c 150%), linear-gradient(to top, rgba(255,255,255,0.4) 0%, rgba(0,0,0,0.25) 200%);
+  background-blend-mode: multiply;
+}
 .result .ribbon {
   position: absolute;
   width: 200px;
@@ -96,24 +130,63 @@ a.btnEft:hover::after {
   top: 20px;
   line-height: 40px;
   text-align: center;
-  background: #2ecc71;
   font-size: 24px;
   color: #fff;
 }
-.result .ribbon::before {
+.ribbon--success {
+  background: #2ecc71;
+}
+.ribbon--success::before {
   content: "";
   position: absolute;
-  height: nill;
+  border-bottom: 10px solid #208e4e;
+  border-left: 10px solid transparent;
   top: -10px;
   left: 0;
-  border: 5px solid;
-  border-color: transparent #1b7943 #1b7943 transparent;
 }
-.result .ribbon::after {
+.ribbon--success::after {
   content: "";
   position: absolute;
-  height: nill;
-  border: 20px solid;
-  border-color: #2ecc71 transparent #2ecc71 #2ecc71;
-  right: -40px;
+  border-top: 20px solid #2ecc71;
+  border-bottom: 20px solid #2ecc71;
+  border-right: 20px solid transparent;
+  right: -20px;
+}
+.ribbon--danger {
+  background: #eb2f06;
+}
+.ribbon--danger::before {
+  content: "";
+  position: absolute;
+  border-bottom: 10px solid #a02004;
+  border-left: 10px solid transparent;
+  top: -10px;
+  left: 0;
+}
+.ribbon--danger::after {
+  content: "";
+  position: absolute;
+  border-top: 20px solid #eb2f06;
+  border-bottom: 20px solid #eb2f06;
+  border-right: 20px solid transparent;
+  right: -20px;
+}
+.ribbon--primary {
+  background: #9b59b6;
+}
+.ribbon--primary::before {
+  content: "";
+  position: absolute;
+  border-bottom: 10px solid #713b87;
+  border-left: 10px solid transparent;
+  top: -10px;
+  left: 0;
+}
+.ribbon--primary::after {
+  content: "";
+  position: absolute;
+  border-top: 20px solid #9b59b6;
+  border-bottom: 20px solid #9b59b6;
+  border-right: 20px solid transparent;
+  right: -20px;
 }

@@ -48,12 +48,12 @@
 
   <meta name="description" content=".el-before::before {   font-weight: bold;   content: &quot;我是before&quot;;   margin-right: 10px;   color: red; } .el-after::after {   font-weight: bold;   content: &quot;我是after&quot;;   margin-left: 10px;   color: gre">
 <meta property="og:type" content="website">
-<meta property="og:title" content="前端學習">
+<meta property="og:title" content="偽元素（pseudo-element）">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;3.pseudo-element.html">
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content=".el-before::before {   font-weight: bold;   content: &quot;我是before&quot;;   margin-right: 10px;   color: red; } .el-after::after {   font-weight: bold;   content: &quot;我是after&quot;;   margin-left: 10px;   color: gre">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-06T04:22:15.644Z">
+<meta property="og:updated_time" content="2020-02-09T04:11:46.665Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/3.pseudo-element">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title> | 前端學習
+  <title>偽元素（pseudo-element） | 前端學習
   </title>
   
 
@@ -182,7 +182,7 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
+<h1 class="post-title" itemprop="name headline">偽元素（pseudo-element）
 </h1>
 
 <div class="post-meta">
@@ -235,7 +235,7 @@ p.el-selection::selection {
 </style>
 
 
-<h1 id="偽元素（pseudo-element）"><a href="#偽元素（pseudo-element）" class="headerlink" title="偽元素（pseudo-element）"></a><font color="#00408B" size=6>偽元素（pseudo-element）</font></h1><div class="note primary">
+<div class="note primary">
             <ul><li>它並不是真正網頁裡的元素，但行為與表現又和真正網頁元素一樣，也可以對其使用 CSS 操控。</li><li>同時偽元素也會「繼承」原本元素的屬性，如果原本文字是黑色，偽元素的文字也會是黑色。</li><li>偽元素一定要具備 content 的屬性，就算是只有content:””；沒有 content 的偽元素是不會出現在畫面上的。</li></ul>
           </div>
 <ul>
@@ -271,8 +271,8 @@ p.el-selection::selection {
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-before::before &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"我是before"</span>;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-after::after &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"我是after"</span>;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">before & after</div>
+<div class="result result--light">
+<div class="ribbon ribbon--primary">before & after</div>
   <div class="el-before">我是DIV</div>
   <div class="el-after">我是DIV</div>
 </div>
@@ -284,8 +284,8 @@ p.el-selection::selection {
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-first-line::first-line &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">first-line</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">first-line</div>
   <p class="el-first-line">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo facilis, error, labore rerum accusamus quasi consectetur exercitationem pariatur qui ad aliquid earum hic voluptatibus dolorum dolor vel dicta tenetur tempora.</p>
 </div>
 
@@ -296,8 +296,8 @@ p.el-selection::selection {
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-first-letter::first-letter &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">54px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f39c12</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">7px</span> -<span class="number">2px</span> <span class="number">0</span>;</span><br><span class="line">    &amp;::after &#123;</span><br><span class="line">      <span class="attribute">clear</span>: both;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">first-letter</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">first-letter</div>
   <p class="el-first-letter">
   1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, omnis dignissimos sapiente sint iusto similique! Totam aliquid tempora voluptatum, provident est, nihil, aliquam assumenda sed nemo dolore temporibus. Similique, molestiae!
   </p>
@@ -310,8 +310,8 @@ p.el-selection::selection {
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-selection::selection &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<div class="result">
-<div class="ribbon">鄰接同層選擇器</div>
+<div class="result result--light">
+<div class="ribbon ribbon--success">selection</div>
   <p class="el-selection">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente odio delectus commodi fugit ea iusto molestiae eius veniam illum quis? Consectetur impedit est quod ipsa iusto, corrupti sapiente! Esse, dolore.
   </p>
@@ -381,7 +381,7 @@ p.el-selection::selection {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#偽元素（pseudo-element）"><span class="nav-number">1.</span> <span class="nav-text">偽元素（pseudo-element）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#before"><span class="nav-number">1.1.</span> <span class="nav-text">before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#after"><span class="nav-number">1.2.</span> <span class="nav-text">after</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-line"><span class="nav-number">1.3.</span> <span class="nav-text">first-line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-letter"><span class="nav-number">1.4.</span> <span class="nav-text">first-letter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selection"><span class="nav-number">1.5.</span> <span class="nav-text">selection</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#before"><span class="nav-number">1.</span> <span class="nav-text">before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#after"><span class="nav-number">2.</span> <span class="nav-text">after</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-line"><span class="nav-number">3.</span> <span class="nav-text">first-line</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-letter"><span class="nav-number">4.</span> <span class="nav-text">first-letter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#selection"><span class="nav-number">5.</span> <span class="nav-text">selection</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +395,7 @@ p.el-selection::selection {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
