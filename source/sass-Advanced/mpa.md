@@ -54,3 +54,47 @@ $map: (
 {% note info %}
 瀏覽 $map 裡面是否有 $key 值，有則回傳true，沒有便回傳false。
 {% endnote %}
+
+## 搭配 @each 產生大量樣式
+
+```scss
+$themes: (
+  'primary': #9b59b6,
+  'success': #2ecc71,
+  'danger': #e74c3c
+);
+@each $key, $value in $themes {
+  .box-#{$key} {
+    background-color: $value;
+  }
+}
+```
+{% raw %}
+<style>
+.sass__each {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.sass__each .box {
+  width: 150px;
+  height: 150px;
+}
+.box-primary {background-color: #9b59b6;}
+.box-success {background-color: #2ecc71;}
+.box-danger {background-color: #e74c3c;}
+</style>
+<div class="result result--light">
+<div class="ribbon ribbon--primary">@for</div>
+  <div class="sass__each">
+    <div class="box box-primary"></div>
+    <div class="box box-success"></div>
+    <div class="box box-danger"></div>
+  </div>
+</div>
+{% endraw %}

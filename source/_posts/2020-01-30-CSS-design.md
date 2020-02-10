@@ -267,26 +267,18 @@ a.pure-button-selected {
 
 ```scss
 .list {
-  &__item {
-    樣式
-  }
+  &__item { 樣式 }
   &__img {
     樣式
-    &--change {
-      樣式
-    }
+    &--change { 樣式 }
   }
 }
 
 .card {
-  &__body {
-    樣式
-  }
+  &__body { 樣式 }
   &__img {
     樣式
-    &--top {
-      樣式
-    }
+    &--top { 樣式 }
   }
 }
 ```
