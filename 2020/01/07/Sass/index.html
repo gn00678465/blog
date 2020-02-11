@@ -63,7 +63,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;each_map.PNG">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_2.png">
-<meta property="og:updated_time" content="2020-02-08T09:02:53.027Z">
+<meta property="og:updated_time" content="2020-02-10T13:07:50.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;sass_logo.png">
 
@@ -218,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-02-08 17:02:53" itemprop="dateModified" datetime="2020-02-08T17:02:53+08:00">2020-02-08</time>
+                <time title="修改時間：2020-02-10 21:07:50" itemprop="dateModified" datetime="2020-02-10T21:07:50+08:00">2020-02-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,11 +437,15 @@
 <p><font color="red"><span class="label warning">單位最好不要混搭，只需用一個單位，這樣就減少出錯的機率。</span></font></p>
 <h2 id="字串管理"><a href="#字串管理" class="headerlink" title="字串管理"></a>字串管理</h2><p>變數也能用於字串中，使用 <code>&#39; &#39;</code> or <code>&quot; &quot;</code>，將字串包覆中便能調用字串。<br>常用於字型的管理。</p>
 <h2 id="顏色的運算"><a href="#顏色的運算" class="headerlink" title="顏色的運算"></a>顏色的運算</h2><p>透過一些內建的函式 <code>darken</code> &amp; <code>lighten</code>，可以簡單地調整顏色。</p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
 darken(color , %)   //已設定的顏色調暗 ％
 lighten(color , %)  //已設定的顏色調亮 ％
 </pre>
-<p>這兩個函數在操作 hover 狀態時非常好用</p>
+</div>
+這兩個函數在操作 hover 狀態時非常好用
+
 <h2 id="變數預設值-default"><a href="#變數預設值-default" class="headerlink" title="變數預設值 !default"></a>變數預設值 !default</h2><p>可以在變數尚未賦值前，通過在值的最後處添加 <code>!default</code> 標記來為其指定。<br>也就是說，如果該變數已經被賦值，就不會再次賦值；但是，如果還沒有被賦值，就會被指定一個值。</p>
 <h1 id="Interpolation-插值"><a href="#Interpolation-插值" class="headerlink" title="Interpolation 插值"></a>Interpolation 插值</h1><p>插值語法可以被用於幾乎所有的 Sass stylesheet 去崁入規則於CSS內。<br>只要將表達式包裹進 <code>#{}</code>。</p>
 <table>
@@ -519,14 +523,13 @@ lighten(color , %)  //已設定的顏色調亮 ％
             <ul><li>使用時機：需要大量重複使用到的屬性。</li><li>使用目的：建立專屬語法資料庫。</li><li>@minix 需對應 @include</li></ul>
           </div>
 
-<p><font size=5>語法</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
 @mixin 名稱 { 語法內容 };    /* 建立 */
 
-.selector {
-  @include 名稱;        /* 引入@mixin */
-}
-</pre>
+<p>.selector {<br>  @include 名稱;        /* 引入@mixin */<br>}<br></pre></p>
+</div>
 
 <p>範例：</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 隱藏文字</span></span><br><span class="line">@<span class="keyword">mixin</span> hide_text &#123;</span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">101%</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="selector-class">.logo</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: url(....);</span><br><span class="line">  @<span class="keyword">include</span> hide_text</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -648,14 +651,20 @@ lighten(color , %)  //已設定的顏色調亮 ％
             <p><code>@if</code> 用在判斷條件如果符合，就執行內容。<br><code>@else</code> 是如果在 <code>@if</code> 中不符合條件，則執行 <code>@else</code> 的內容。</p>
           </div>
 
-<p><font size=5>語法：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
 @if (expression) { ... }
 @else { ... }
-</pre>
+  </pre>
+</div>
 
-<h3 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h3><p><font size=5>語法：</font></p>
-<pre class="syntaxbox">@each $var in ( list or map ) {}</pre>
+<h3 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h3><div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
+@each $var in ( list or map ) {}
+  </pre>
+</div>
 
 <ul>
 <li><p>With list</p>
@@ -711,9 +720,12 @@ lighten(color , %)  //已設定的顏色調亮 ％
 </blockquote>
 <ul>
 <li><p>從start開始到end結束</p>
-<pre class="syntaxbox">
+<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<pre class="syntax">
 @for $var from (start) through (end)
 </pre>
+</div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from &lt;start&gt; through &lt;end&gt;</span><br></pre></td></tr></table></figure>
 <div class="note no-icon">
             <p>從整個循環都跑一遍。<br>透過 <code>#{ }</code> 轉為css可用的數值。</p>
@@ -738,9 +750,12 @@ lighten(color , %)  //已設定的顏色調亮 ％
 </table>
 </li>
 <li><p>從start開始,碰到end就結束</p>
-<pre class="syntaxbox">
+<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<pre class="syntax">
 @for $var from (start) to (end)
 </pre>
+</div>
 <div class="note no-icon">
             <p>從 <code>start</code> 開始碰到 <code>end</code> 就結束，所以沒有套用到 <code>end</code>。<br>因此大部分使用sass的for迴圈都是使用 <code>@for $var from through</code>。</p>
           </div>
@@ -765,13 +780,50 @@ lighten(color , %)  //已設定的顏色調亮 ％
 
 </li>
 </ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through 5 &#123;</span><br><span class="line">  <span class="selector-class">.box-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: darken(<span class="number">#c1dfc4</span>, <span class="variable">$i</span> * <span class="number">10%</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<style>
+.sass__for {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.sass__for .box {
+  width: 150px;
+  height: 150px;
+}
+.box-1 {background-color: #9fcea4;}
+.box-2 {background-color: #7ebc84;}
+.box-3 {background-color: #5cab64;}
+.box-4 {background-color: #488c4f;}
+.box-5 {background-color: #376a3c;}
+</style>
+<div class="result result--light">
+<div class="ribbon ribbon--primary">@for</div>
+  <div class="sass__for">
+    <div class="box box-1"></div>
+    <div class="box box-2"></div>
+    <div class="box box-3"></div>
+    <div class="box box-4"></div>
+    <div class="box box-5"></div>
+  </div>
+</div>
+
+
 <h3 id="while"><a href="#while" class="headerlink" title="@while"></a>@while</h3><blockquote>
 <p>while 只要條件符合 true ，就會一直跑下去，除非手動停止，否則很容易形成無限迴圈也因此稍有不慎會影響電腦效能。</p>
 </blockquote>
-<p><font size=5>語法：</font></p>
-<pre class="syntaxbox">
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <pre class="syntax">
 @while (expression) { ... }
-</pre>
+  </pre>
+</div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function scale-below(<span class="variable">$value</span>, <span class="variable">$base</span>, <span class="variable">$ratio</span>: 1.618) &#123;</span><br><span class="line">  @<span class="keyword">while</span> <span class="variable">$value</span> &gt; <span class="variable">$base</span> &#123;</span><br><span class="line">    <span class="variable">$value</span>: <span class="variable">$value</span> / <span class="variable">$ratio</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  @return <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$normal-font-size</span>: <span class="number">16px</span>;</span><br><span class="line"><span class="selector-tag">sup</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: scale-below(<span class="number">20px</span>, <span class="number">16px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>

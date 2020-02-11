@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="sass map             注意Sass Maps 是 Sass 3.3 版才有支援                         Sass Maps 提供變數類似於 json 的資料組合，也是 key&#x2F;value 的結構，可提升程式可讀、變數群組性。            寫Sass Maps的時候，要特別注意幾點：  外層要使用小括號。 最後一個key&#x2F;value後面的逗號可以">
+  <meta name="description" content="Arguments                Name       Type       Description                       $width (100%)       number       The max-width for the string to respect before being truncated.                 $displ">
 <meta property="og:type" content="website">
-<meta property="og:title" content="資料型別 Map">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;mpa.html">
+<meta property="og:title" content="省略文字">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-mixin&#x2F;text&#x2F;ellipsis.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="sass map             注意Sass Maps 是 Sass 3.3 版才有支援                         Sass Maps 提供變數類似於 json 的資料組合，也是 key&#x2F;value 的結構，可提升程式可讀、變數群組性。            寫Sass Maps的時候，要特別注意幾點：  外層要使用小括號。 最後一個key&#x2F;value後面的逗號可以">
+<meta property="og:description" content="Arguments                Name       Type       Description                       $width (100%)       number       The max-width for the string to respect before being truncated.                 $displ">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-10T13:17:36.882Z">
+<meta property="og:updated_time" content="2020-02-09T12:19:34.244Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/sass-Advanced/mpa">
+<link rel="canonical" href="http://yoursite.com/sass-mixin/text/ellipsis">
 
 
 <script id="page-configurations">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title>資料型別 Map | 前端學習
+  <title>省略文字 | 前端學習
   </title>
   
 
@@ -182,11 +182,18 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">資料型別 Map
+<h1 class="post-title" itemprop="name headline">省略文字
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
+            <li><a href="/sass-mixin/text/">TEXT</a></li>
+            <li>ELLIPSIS</li>
+          
+  </ul>
 
 </div>
 
@@ -196,81 +203,47 @@
       
       
       <div class="post-body">
-          <h1 id="sass-map"><a href="#sass-map" class="headerlink" title="sass map"></a>sass map</h1><div class="note warning">
-            <p>注意Sass Maps 是 Sass 3.3 版才有支援</p>
-          </div>
-<div class="note info">
-            <p>Sass Maps 提供變數類似於 json 的資料組合，也是 key/value 的結構，可提升程式可讀、變數群組性。</p>
-          </div>
-<p>寫Sass Maps的時候，要特別注意幾點：</p>
-<ol>
-<li>外層要使用小括號。</li>
-<li>最後一個key/value後面的逗號可以省略。</li>
-<li>key的名稱不能重複，否則會編譯錯誤。</li>
-<li>key/value的名稱可以是許多資料類型(數字、字串、布林等等)。<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$map</span>: (</span><br><span class="line">  key1: value1, </span><br><span class="line">  key2: value2, </span><br><span class="line">  key3: value3</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="sass-map-1"><a href="#sass-map-1" class="headerlink" title="sass:map"></a>sass:map</h2></li>
-<li>map-get($map,$key)</li>
-<li>map-merge($map1,$map2)</li>
-<li>map-remove($map,$key)</li>
-<li>map-keys($map)</li>
-<li>map-values($map)</li>
-<li>map-has-key($map,$key)<h3 id="map-get-map-key"><a href="#map-get-map-key" class="headerlink" title="map-get($map,$key)"></a>map-get($map,$key)</h3><div class="note info">
-            <p>取出 $map 裡指定的 $key 所關連的 value。</p>
-          </div>
-<h3 id="map-merge-map1-map2"><a href="#map-merge-map1-map2" class="headerlink" title="map-merge($map1,$map2)"></a>map-merge($map1,$map2)</h3><div class="note info">
-            <p>合併多個 $map。</p>
-          </div>
-<h3 id="map-remove-map-key"><a href="#map-remove-map-key" class="headerlink" title="map-remove($map,$key)"></a>map-remove($map,$key)</h3><div class="note info">
-            <p>從 $map 裡面刪除一個移除指定的 $key。</p>
-          </div>
-<h3 id="map-keys-map"><a href="#map-keys-map" class="headerlink" title="map-keys($map)"></a>map-keys($map)</h3><div class="note info">
-            <p>取出所有的 $key。</p>
-          </div>
-<h3 id="map-values-map"><a href="#map-values-map" class="headerlink" title="map-values($map)"></a>map-values($map)</h3><div class="note info">
-            <p>取出所有的 value。</p>
-          </div>
-<h3 id="map-has-key-map-key"><a href="#map-has-key-map-key" class="headerlink" title="map-has-key($map,$key)"></a>map-has-key($map,$key)</h3><div class="note info">
-            <p>瀏覽 $map 裡面是否有 $key 值，有則回傳true，沒有便回傳false。</p>
-          </div>
+          <h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$width (100%)</td>
+      <td>number</td>
+      <td>The <code>max-width</code> for the string to respect before being truncated.</td>
+    </tr>
+    <tr>
+      <td>$display (inline-block)</td>
+      <td>string</td>
+      <td>	
+Sets the display-value of the element.</td>
+    </tr>
+  </tbody>
+</table>
 
-</li>
-</ol>
-<h2 id="搭配-each-產生大量樣式"><a href="#搭配-each-產生大量樣式" class="headerlink" title="搭配 @each 產生大量樣式"></a>搭配 @each 產生大量樣式</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$themes</span>: (</span><br><span class="line">  <span class="string">'primary'</span>: <span class="number">#9b59b6</span>,</span><br><span class="line">  <span class="string">'success'</span>: <span class="number">#2ecc71</span>,</span><br><span class="line">  <span class="string">'danger'</span>: <span class="number">#e74c3c</span></span><br><span class="line">);</span><br><span class="line">@<span class="keyword">each</span> <span class="variable">$key</span>, <span class="variable">$value</span> in <span class="variable">$themes</span> &#123;</span><br><span class="line">  <span class="selector-class">.box-</span>#&#123;<span class="variable">$key</span>&#125; &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<style>
-.sass__each {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 10px;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-.sass__each .box {
-  width: 150px;
-  height: 150px;
-}
-.box-primary {background-color: #9b59b6;}
-.box-success {background-color: #2ecc71;}
-.box-danger {background-color: #e74c3c;}
-</style>
-<div class="result result--light">
-<div class="ribbon ribbon--primary">@for</div>
-  <div class="sass__each">
-    <div class="box box-primary"></div>
-    <div class="box box-success"></div>
-    <div class="box box-danger"></div>
-  </div>
-</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> ellipsis(</span><br><span class="line">  <span class="variable">$width</span>: 100%,</span><br><span class="line">  <span class="variable">$display</span>: inline-block</span><br><span class="line">) &#123;</span><br><span class="line">  <span class="attribute">display</span>: <span class="variable">$display</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">word-wrap</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
+            <li><a href="/sass-mixin/text/">TEXT</a></li>
+            <li>ELLIPSIS</li>
+          
+  </ul>
 
     
     
@@ -326,7 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sass-map"><span class="nav-number">1.</span> <span class="nav-text">sass map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sass-map-1"><span class="nav-number">1.1.</span> <span class="nav-text">sass:map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#map-get-map-key"><span class="nav-number">1.1.1.</span> <span class="nav-text">map-get($map,$key)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-merge-map1-map2"><span class="nav-number">1.1.2.</span> <span class="nav-text">map-merge($map1,$map2)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-remove-map-key"><span class="nav-number">1.1.3.</span> <span class="nav-text">map-remove($map,$key)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-keys-map"><span class="nav-number">1.1.4.</span> <span class="nav-text">map-keys($map)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-values-map"><span class="nav-number">1.1.5.</span> <span class="nav-text">map-values($map)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-has-key-map-key"><span class="nav-number">1.1.6.</span> <span class="nav-text">map-has-key($map,$key)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭配-each-產生大量樣式"><span class="nav-number">1.2.</span> <span class="nav-text">搭配 @each 產生大量樣式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arguments"><span class="nav-number">1.</span> <span class="nav-text">Arguments</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
