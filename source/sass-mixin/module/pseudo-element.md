@@ -50,11 +50,38 @@ code {
 {% endraw %}
 
 ```scss
-@mixin p-el($el, $content, $el-width, $el-height) {
+$position-default: null !default;
+$pseudo-content: null !default;
+@mixin position(
+  $type,
+  $top: $position-default,
+  $right: $position-default,
+  $bottom: $position-default,
+  $left: $position-default
+) {
+  $allowed_types: absolute relative fixed;
+  @if not index(
+    $allowed_types, $type
+  ) {
+    @warn "Unknown position: #{$type}.";
+  } @else {
+    position: $type;
+    @each $data in top $top, right $right, bottom $bottom, left $left {
+		  #{nth($data, 1)}: nth($data, 2);
+	  }
+  }
+}
+
+@mixin p-el(
+  $el,
+  $el-width,
+  $el-height,
+  $content: $pseudo-content
+) {
   @if $el == "before" or $el == "after" {
     &::#{$el} {
       content: "#{$content}";
-      position: absolute;
+      @include position(absolute);
       width: $el-width;
       height: $el-height;
       @content;
@@ -85,7 +112,7 @@ code {
 使用插值語法 `#{}` 可以使用變數來建立動態的選擇器，所以在 `mixin` 內可以使用連結符 `&` 以及變數 `$el` 來建立偽元素。
 有時需使用 `content` 屬性顯示特定內容，使用插值語法 `#{}` 讓變數 `$content` 可以正常帶入。
 ```scss
-@mixin p-el($el, $content, $el-width, $el-height) {
+@mixin p-el($el, $el-width, $el-height, $content) {
   &:#{$el} {
   content: '#{$content}';
   position: absolute;
@@ -94,7 +121,7 @@ code {
 ```
 增加 `width`, `height` 的屬性，並通過變數 `$el-width`, `$el-height` 帶入值來顯示偽元素。
 ```scss
-@mixin p-el($el, $content, $el-width, $el-height) {
+@mixin p-el($el, $el-width, $el-height, $content) {
   &:#{$el} {
   content: '#{$content}';
   position: absolute;
@@ -109,7 +136,7 @@ code {
 1. 目前無法避免 `$el` 會帶入 `before` or `after` 以外的值，為避免編譯出的CSS無作用，使用 `@if`, `@warn` 指令來加入判斷。
 輸入`before` or `after` 會正常編譯出CSS檔案，而以外的值時編譯會出現錯誤訊息。 
 ```scss
-@mixin p-el($el, $content, $el-width, $el-height) {
+@mixin p-el($el, $el-width, $el-height, $content) {
   @if $el == "before" or $el == "after" {
     &:#{$el} {
       ...
@@ -124,11 +151,11 @@ code {
 ## 引入方式
 
 ```scss
-@include p-el($el, $content, $el-width, $el-height) {
+@include p-el($el, $el-width, $el-height, $content) {
   其他樣式;
 }
 // 不顯示content內容
-@include p-el($el, null, $el-width, $el-height) {
+@include p-el($el, $el-width, $el-height, null) {
   其他樣式;
 }
 ```
