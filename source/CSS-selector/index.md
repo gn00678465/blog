@@ -11,4 +11,4 @@ date: 2019-12-01 12:30:59
 
 # [偽類選擇器](4.pseudo-class.html)
 
-# [回首頁](/)
+<a href="/" class="Btn Btn__secondary Btn--v"><span>回首頁</span></a>

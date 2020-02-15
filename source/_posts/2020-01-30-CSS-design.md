@@ -60,7 +60,7 @@ CSS易於理解，但應用和維護上並不簡單。
 ## What is SMACSS
 >Scalable and Modular Architecture for CSS
 
-<a href="http://smacss.com" class="btnEft">
+<a href="http://smacss.com" class="Btn Btn__secondary Btn--v">
 <span>Home page</span>
 </a>
 
