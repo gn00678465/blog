@@ -1,0 +1,43 @@
+a.btnEft {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid #111;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+a.btnEft > span {
+  z-index: 3;
+  position: relative;
+}
+a.btnEft::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background: #fff;
+  transition: 0.5s ease-in-out;
+  transform: scaleY(1);
+}
+a.btnEft::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background: #fff;
+  transition: 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+a.btnEft:hover::before {
+  transform: scaleY(0);
+}
+a.btnEft:hover::after {
+  transform: scaleX(0);
+}

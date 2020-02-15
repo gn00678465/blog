@@ -1,0 +1,58 @@
+/* syntaxbox */
+.codeBox {
+  font-size: 1rem;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 3px;
+  background: #eee;
+  padding: 1px 0 0 100px;
+  border-left: 5px solid #3d7e9a;
+  margin-top: 10px;
+}
+.codeBox .syntax {
+  font-size: 1rem;
+  position: relative;
+  font-style: normal;
+  font-weight: 400;
+  background: #eee;
+  color: #333;
+  overflow: auto;
+  padding-bottom: 0;
+}
+.codeBox .ribbon {
+  position: absolute;
+  width: 80px;
+  height: 45px;
+  background: #e74c3c;
+  top: -10px;
+  left: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 60px;
+  box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+}
+.codeBox .ribbon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  border-bottom: 10px solid #bf2718;
+  border-right: 10px solid transparent;
+}
+.codeBox .ribbon::after {
+  content: "";
+  position: absolute;
+  top: 45px;
+  left: 0;
+  border-width: 20px 40px;
+  border-style: solid;
+  border-color: #e74c3c transparent transparent;
+}
+.codeBox > figure.highlight, .codeBox .code pre {
+  background: #eee;
+}
+.codeBox > figure.highlight .code pre span.line {
+  color: #34495e;
+}
