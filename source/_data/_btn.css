@@ -25,10 +25,6 @@
   box-sizing: border-box;
 }
 
-.Btn {
-  /*Vertical*/
-  /*Horizontal*/
-}
 .Btn--v:before, .Btn--v:after,
 .Btn--v span:before,
 .Btn--v span:after {

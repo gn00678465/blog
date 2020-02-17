@@ -1,0 +1,15 @@
+@mixin pure-btn($width, $height) {
+  display: inline-block;
+  zoom: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  line-height: $height;
+  width: $width;
+  height: $height;
+}

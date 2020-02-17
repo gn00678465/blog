@@ -1,0 +1,17 @@
+@mixin position(
+  $type,
+  $top: $position-default,
+  $right: $position-default,
+  $bottom: $position-default,
+  $left: $position-default
+) {
+  $allowed_types: absolute relative fixed sticky;
+  @if not index($allowed_types, $type) {
+    @warn "Unknown position: #{$type}.";
+  } @else {
+    position: $type;
+    @each $data in top $top, right $right, bottom $bottom, left $left {
+      #{nth($data, 1)}: nth($data, 2);
+    }
+  }
+}
