@@ -1,10 +1,10 @@
 ---
 title: typeScript
 categories:
-  - null
+  - TypeScripe
 tags:
-  - null
-  - null
+  - TypeScripe
+  - JavaScript
 date: 2020-02-18 06:34:36
 ---
 
