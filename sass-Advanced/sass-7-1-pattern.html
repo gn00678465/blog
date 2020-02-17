@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="@mixin hide-text &amp;#123;  overflow: hidden;  text-indent: 101%;  white-space: nowrap;&amp;#125;  .element &amp;#123;  @include hide-text;&amp;#125;">
+  <meta name="description" content="切分並歸類 sass 的結構。 base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
 <meta property="og:type" content="website">
-<meta property="og:title" content="隱藏文字">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-mixin&#x2F;text&#x2F;hide_text.html">
+<meta property="og:title" content="7+1 Sass 架構">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;sass-7-1-pattern.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="@mixin hide-text &amp;#123;  overflow: hidden;  text-indent: 101%;  white-space: nowrap;&amp;#125;  .element &amp;#123;  @include hide-text;&amp;#125;">
+<meta property="og:description" content="切分並歸類 sass 的結構。 base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T09:25:12.275Z">
+<meta property="og:updated_time" content="2020-02-12T19:36:52.486Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/sass-mixin/text/hide_text">
+<link rel="canonical" href="http://yoursite.com/sass-Advanced/sass-7-1-pattern">
 
 
 <script id="page-configurations">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title>隱藏文字 | 前端學習
+  <title>7+1 Sass 架構 | 前端學習
   </title>
   
 
@@ -182,18 +182,11 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">隱藏文字
+<h1 class="post-title" itemprop="name headline">7+1 Sass 架構
 </h1>
 
 <div class="post-meta">
   
-  <ul class="breadcrumb">
-          
-            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
-            <li><a href="/sass-mixin/text/">TEXT</a></li>
-            <li>HIDE_TEXT</li>
-          
-  </ul>
 
 </div>
 
@@ -203,22 +196,22 @@
       
       
       <div class="post-body">
-          <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> hide-text &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">101%</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> hide-text;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="切分並歸類-sass-的結構。"><a href="#切分並歸類-sass-的結構。" class="headerlink" title="切分並歸類 sass 的結構。"></a>切分並歸類 sass 的結構。</h1><ul>
+<li>base：放置一些如 reset、文字規則 等初始化的scss文件。</li>
+<li>components：放置一些獨立的元件，</li>
+<li>layout：放置一些如格線系統、</li>
+<li>pages：放置特殊頁面，如視差滾動的頁面。</li>
+<li>themes：放置頁面的樣式。</li>
+<li>utils：放置變數、function、mixin、工具類的scss。</li>
+<li>vendors：放置載入的插件。</li>
+</ul>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">sass/</span><br><span class="line">|</span><br><span class="line">|– base/</span><br><span class="line">|   |– _reset.scss       # Reset/normalize</span><br><span class="line">|   |– _typography.scss  # Typography rules</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|– components/</span><br><span class="line">|   |– _buttons.scss     # Buttons</span><br><span class="line">|   |– _carousel.scss    # Carousel</span><br><span class="line">|   |– _cover.scss       # Cover</span><br><span class="line">|   |– _dropdown.scss    # Dropdown</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|– layout/</span><br><span class="line">|   |– _navigation.scss  # Navigation</span><br><span class="line">|   |– _grid.scss        # Grid system</span><br><span class="line">|   |– _header.scss      # Header</span><br><span class="line">|   |– _footer.scss      # Footer</span><br><span class="line">|   |– _sidebar.scss     # Sidebar</span><br><span class="line">|   |– _forms.scss       # Forms</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|– pages/</span><br><span class="line">|   |– _home.scss        # Home specific styles</span><br><span class="line">|   |– _contact.scss     # Contact specific styles</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|– themes/</span><br><span class="line">|   |– _theme.scss       # Default theme</span><br><span class="line">|   |– _admin.scss       # Admin theme</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|– utils/</span><br><span class="line">|   |– _variables.scss   # Sass Variables</span><br><span class="line">|   |– _functions.scss   # Sass Functions</span><br><span class="line">|   |– _mixins.scss      # Sass Mixins</span><br><span class="line">|   |– _helpers.scss     # Class &amp; placeholders helpers</span><br><span class="line">|</span><br><span class="line">|– vendors/</span><br><span class="line">|   |– _bootstrap.scss   # Bootstrap</span><br><span class="line">|   |– _jquery-ui.scss   # jQuery UI</span><br><span class="line">|   ...                  # Etc…</span><br><span class="line">|</span><br><span class="line">|</span><br><span class="line">`– main<span class="selector-class">.scss</span>             # Main Sass file</span><br></pre></td></tr></table></figure>
       </div>
       
       
       
     </div>
     
-  <ul class="breadcrumb">
-          
-            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
-            <li><a href="/sass-mixin/text/">TEXT</a></li>
-            <li>HIDE_TEXT</li>
-          
-  </ul>
 
     
     
@@ -274,6 +267,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#切分並歸類-sass-的結構。"><span class="nav-number">1.</span> <span class="nav-text">切分並歸類 sass 的結構。</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

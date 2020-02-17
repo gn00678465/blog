@@ -63,7 +63,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;each_map.PNG">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;for_2.png">
-<meta property="og:updated_time" content="2020-02-10T13:07:50.632Z">
+<meta property="og:updated_time" content="2020-02-13T21:55:10.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;07&#x2F;Sass&#x2F;sass_logo.png">
 
@@ -218,7 +218,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-02-10 21:07:50" itemprop="dateModified" datetime="2020-02-10T21:07:50+08:00">2020-02-10</time>
+                <time title="修改時間：2020-02-14 05:55:10" itemprop="dateModified" datetime="2020-02-14T05:55:10+08:00">2020-02-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -436,16 +436,41 @@
 </ol>
 <p><font color="red"><span class="label warning">單位最好不要混搭，只需用一個單位，這樣就減少出錯的機率。</span></font></p>
 <h2 id="字串管理"><a href="#字串管理" class="headerlink" title="字串管理"></a>字串管理</h2><p>變數也能用於字串中，使用 <code>&#39; &#39;</code> or <code>&quot; &quot;</code>，將字串包覆中便能調用字串。<br>常用於字型的管理。</p>
-<h2 id="顏色的運算"><a href="#顏色的運算" class="headerlink" title="顏色的運算"></a>顏色的運算</h2><p>透過一些內建的函式 <code>darken</code> &amp; <code>lighten</code>，可以簡單地調整顏色。</p>
-<div class="codeBox">
-  <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-darken(color , %)   //已設定的顏色調暗 ％
-lighten(color , %)  //已設定的顏色調亮 ％
-</pre>
+<h2 id="顏色的運算"><a href="#顏色的運算" class="headerlink" title="顏色的運算"></a>顏色的運算</h2><p>Sass 可透過一些內建的函式來簡單地調整顏色。</p>
+<ol>
+<li><p>亮度調整，<code>darken</code> &amp; <code>lighten</code></p>
+<div class="note info">
+            <p><code>darken</code> &amp; <code>lighten</code> 是基於HSL並調整L(lightness) 。<br>這兩個函數在操作 hover 狀態時非常好用。</p>
+          </div>
+<ul>
+<li>降低亮度(darken)<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">darken(<span class="attribute">color</span> , %)   <span class="comment">//已設定的顏色調暗 ％</span></span><br></pre></td></tr></table></figure>
+</div></li>
+<li>提高亮度(lighten)<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">lighten(<span class="attribute">color</span> , %)  <span class="comment">//已設定的顏色調亮 ％</span></span><br></pre></td></tr></table></figure>
 </div>
-這兩個函數在操作 hover 狀態時非常好用
+</li>
+</ul>
+</li>
+<li><p>色調與陰影 <code>Tint</code> &amp; <code>Shade</code></p>
+<ul>
+<li>混合白色色調(Tint)<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function tint(<span class="variable">$color</span>, <span class="variable">$percentage</span>) &#123;</span><br><span class="line">  @return mix(white, <span class="variable">$color</span>, <span class="variable">$percentage</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">tint( <span class="variable">$base-color</span>, % )</span><br></pre></td></tr></table></figure>
+</div></li>
+<li>混合黑色色調(Shade)<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function shade(<span class="variable">$color</span>, <span class="variable">$percentage</span>) &#123;</span><br><span class="line">  @return mix(black, <span class="variable">$color</span>, <span class="variable">$percentage</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="codeBox">
+<div class="ribbon">Syntax</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">shade( <span class="variable">$base-color</span>, % )</span><br></pre></td></tr></table></figure>
+</div>
 
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="變數預設值-default"><a href="#變數預設值-default" class="headerlink" title="變數預設值 !default"></a>變數預設值 !default</h2><p>可以在變數尚未賦值前，通過在值的最後處添加 <code>!default</code> 標記來為其指定。<br>也就是說，如果該變數已經被賦值，就不會再次賦值；但是，如果還沒有被賦值，就會被指定一個值。</p>
 <h1 id="Interpolation-插值"><a href="#Interpolation-插值" class="headerlink" title="Interpolation 插值"></a>Interpolation 插值</h1><p>插值語法可以被用於幾乎所有的 Sass stylesheet 去崁入規則於CSS內。<br>只要將表達式包裹進 <code>#{}</code>。</p>
 <table>
@@ -525,33 +550,108 @@ lighten(color , %)  //已設定的顏色調亮 ％
 
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-@mixin 名稱 { 語法內容 };    /* 建立 */
-
-<p>.selector {<br>  @include 名稱;        /* 引入@mixin */<br>}<br></pre></p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> 名稱 &#123; 語法內容 &#125;;    <span class="comment">/* 建立 */</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.selector</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> 名稱;        <span class="comment">/* 引入@mixin */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>範例：</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 隱藏文字</span></span><br><span class="line">@<span class="keyword">mixin</span> hide_text &#123;</span><br><span class="line">  <span class="attribute">text-indent</span>: <span class="number">101%</span>;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 引入</span></span><br><span class="line"><span class="selector-class">.logo</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: url(....);</span><br><span class="line">  @<span class="keyword">include</span> hide_text</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><font size=5>進階用法</font></p>
-<ul>
-<li><font size=5><strong>與變數搭配</strong></font><br><font size=4>語法</font></li>
-</ul>
+<h3 id="帶入參數"><a href="#帶入參數" class="headerlink" title="帶入參數"></a><font size=5><strong>帶入參數</strong></font></h3><div class="codeBox">
+  <div class="ribbon">Syntax</div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 變數可設多個 */</span></span><br><span class="line">@<span class="keyword">mixin</span> 名稱 (<span class="variable">$var1</span>, <span class="variable">$var2</span>,...) &#123;</span><br><span class="line">  css語法:<span class="variable">$var1</span>;</span><br><span class="line">  css語法:<span class="variable">$var2</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/* 引入 */</span></span><br><span class="line">selector &#123;</span><br><span class="line">  @<span class="keyword">include</span> (<span class="variable">$var1</span>, <span class="variable">$var2</span>,...) 名稱</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
 <div class="note warning noicon">
             <p>於 <code>@include</code> 名稱後面的小括號內設定參數數值，需依照 <code>@mixin</code> 所設定的變數順序來設定數值；<br>如無照順序的情況下，SASS編譯不會出現錯誤，但會讓網頁排版錯誤。</p>
           </div>
 
+<h3 id="參數預設值"><a href="#參數預設值" class="headerlink" title="參數預設值"></a><font size=5><strong>參數預設值</strong></font></h3><div class="note warning">
+            <p><code>@mixin</code> 帶入的參數是可以設定預設值的，但是有設定預設值的參數需排列在最後方，否則sass編譯時會出現error。<br><code>Required argument $max-width must come before any optional arguments.</code></p>
+          </div>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> grid(<span class="variable">$max-width</span>, <span class="variable">$flex</span>: true) &#123;</span><br><span class="line">    <span class="comment">// code here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+
+<h3 id="參數的變數"><a href="#參數的變數" class="headerlink" title="參數的變數"></a>參數的變數</h3><p>在Sass裡，變數可以為多個值的集合，稱為 list ，如果要將 list 帶入 padding 等可以有多值的屬性。</p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> padding(<span class="variable">$values</span>) &#123;    </span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$var</span> in <span class="variable">$values</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: #&#123;<span class="variable">$var</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> padding(<span class="number">2px</span> 4px 6px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+可以改成，使用展開參數 <code>...</code> 加在變數的後方。
+
+<h3 id="展開參數"><a href="#展開參數" class="headerlink" title="展開參數"></a><font size=5><strong>展開參數</strong></font></h3><table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> padding(<span class="variable">$values</span>...) &#123;    </span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$var</span> in <span class="variable">$values</span> &#123;</span><br><span class="line">        <span class="attribute">padding</span>: #&#123;<span class="variable">$var</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> padding(<span class="number">2px</span> 4px 6px);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">2px</span> <span class="number">4px</span> <span class="number">6px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>另外一種方式，定義兩個變數，分別為 list and map，並定義一個 mixin 可帶入3個參數。<br>此兩個變數皆使用 展開參數 <code>...</code> 帶入。</p>
+<table>
+  <thead>
+    <tr>
+      <th width="50%">SCSS</th>
+      <th width="50%">CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$style1</span>: <span class="number">100%</span>, <span class="number">70px</span>, <span class="number">#f</span>o6d06;</span><br><span class="line"><span class="variable">$style2</span>: (background: <span class="number">#bada55</span>, width: <span class="number">100%</span>, height: <span class="number">100px</span>);</span><br><span class="line">@<span class="keyword">mixin</span> box(<span class="variable">$width</span>, <span class="variable">$height</span>, <span class="variable">$background</span>) &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="variable">$height</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="variable">$background</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fogdog</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> box(<span class="variable">$style1</span>...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.badass</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> box(<span class="variable">$style2</span>...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+      <td>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.fogdog</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#f</span>o6d06;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.badass</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#bada55</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <ul>
-<li><font size=5><strong>與響應式搭配</strong></font><br><font size=4>語法</font></li>
+<li>在 list 的情況下<ol>
+<li>當 list 內有3個項目，且 mixin 須帶入的參數也為3個時，每一個參數皆會依順序分別的帶入，<span class="label danger">順序不能有錯，不然會造成網頁排版錯誤</span>。</li>
+<li>如 list 項目小於3個時，編譯時會出現錯誤。</li>
+<li>當 list 項目大於3個時，編譯時只會取前3個。</li>
+</ol>
+</li>
+<li>在 map 的情況下<ol>
+<li>與 lsit 相同，但例外的點為，mpa 內的 key values 會對應變數名稱。</li>
+</ol>
+</li>
 </ul>
+<h3 id="與響應式搭配"><a href="#與響應式搭配" class="headerlink" title="與響應式搭配"></a><font size=5><strong>與響應式搭配</strong></font></h3><div class="codeBox">
+  <div class="ribbon">Syntax</div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 建立 */</span></span><br><span class="line">@<span class="keyword">mixin</span> + 名稱 &#123;</span><br><span class="line">  @<span class="keyword">media</span> (裝置寬度) &#123;</span><br><span class="line">    @<span class="keyword">content</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">/* 引入 */</span></span><br><span class="line">selector &#123;</span><br><span class="line">  @<span class="keyword">include</span> + 名稱() &#123;</span><br><span class="line">    內容</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
 <div class="note primary">
             <ol><li><code>@media</code> 裡面只要填 <code>@content</code>。</li><li>用 <code>@include</code> + 名稱() 引入， 裡面填上 <code>@media</code> 的css樣式。</li></ol>
           </div>
-
-<p>範例：</p>
+範例：
 <table>
   <thead>
     <tr>
@@ -570,7 +670,8 @@ lighten(color , %)  //已設定的顏色調亮 ％
     </tr>
   </tbody>
 </table>
-<div class="note info">
+
+<h3 id="content"><a href="#content" class="headerlink" title="@content"></a><font size=5><strong>@content</strong></font></h3><div class="note info">
             <p><code>@content</code> 的用途主要是拿來傳遞樣式到 <code>@Mixin</code> 裡面去。</p>
           </div>
 
@@ -653,17 +754,12 @@ lighten(color , %)  //已設定的顏色調亮 ％
 
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-@if (expression) { ... }
-@else { ... }
-  </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">if</span> (expression) &#123; ... &#125;</span><br><span class="line">@<span class="keyword">else</span> &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <h3 id="each"><a href="#each" class="headerlink" title="@each"></a>@each</h3><div class="codeBox">
   <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-@each $var in ( list or map ) {}
-  </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">each</span> <span class="variable">$var</span> in ( list or map ) &#123;&#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <ul>
@@ -722,9 +818,7 @@ lighten(color , %)  //已設定的顏色調亮 ％
 <li><p>從start開始到end結束</p>
 <div class="codeBox">
 <div class="ribbon">Syntax</div>
-<pre class="syntax">
-@for $var from (start) through (end)
-</pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from (start) through (end)</span><br></pre></td></tr></table></figure>
 </div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from &lt;start&gt; through &lt;end&gt;</span><br></pre></td></tr></table></figure>
 <div class="note no-icon">
@@ -752,9 +846,7 @@ lighten(color , %)  //已設定的顏色調亮 ％
 <li><p>從start開始,碰到end就結束</p>
 <div class="codeBox">
 <div class="ribbon">Syntax</div>
-<pre class="syntax">
-@for $var from (start) to (end)
-</pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">for</span> <span class="variable">$var</span> from (start) to (end)</span><br></pre></td></tr></table></figure>
 </div>
 <div class="note no-icon">
             <p>從 <code>start</code> 開始碰到 <code>end</code> 就結束，所以沒有套用到 <code>end</code>。<br>因此大部分使用sass的for迴圈都是使用 <code>@for $var from through</code>。</p>
@@ -820,9 +912,7 @@ lighten(color , %)  //已設定的顏色調亮 ％
 </blockquote>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-@while (expression) { ... }
-  </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">while</span> (expression) &#123; ... &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@function scale-below(<span class="variable">$value</span>, <span class="variable">$base</span>, <span class="variable">$ratio</span>: 1.618) &#123;</span><br><span class="line">  @<span class="keyword">while</span> <span class="variable">$value</span> &gt; <span class="variable">$base</span> &#123;</span><br><span class="line">    <span class="variable">$value</span>: <span class="variable">$value</span> / <span class="variable">$ratio</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  @return <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$normal-font-size</span>: <span class="number">16px</span>;</span><br><span class="line"><span class="selector-tag">sup</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: scale-below(<span class="number">20px</span>, <span class="number">16px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -910,7 +1000,7 @@ lighten(color , %)  //已設定的顏色調亮 ％
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax-語法"><span class="nav-number">1.</span> <span class="nav-text">Syntax 語法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯方式"><span class="nav-number">1.1.</span> <span class="nav-text">編譯方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-註解"><span class="nav-number">1.2.</span> <span class="nav-text">Comments 註解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesting-巢狀"><span class="nav-number">1.3.</span> <span class="nav-text">Nesting 巢狀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-連結詞"><span class="nav-number">1.4.</span> <span class="nav-text">&amp;連結詞</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables-變數"><span class="nav-number">2.</span> <span class="nav-text">Variables 變數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#變數也支援運算"><span class="nav-number">2.1.</span> <span class="nav-text">變數也支援運算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字串管理"><span class="nav-number">2.2.</span> <span class="nav-text">字串管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顏色的運算"><span class="nav-number">2.3.</span> <span class="nav-text">顏色的運算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#變數預設值-default"><span class="nav-number">2.4.</span> <span class="nav-text">變數預設值 !default</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interpolation-插值"><span class="nav-number">3.</span> <span class="nav-text">Interpolation 插值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#At-rule-規則"><span class="nav-number">4.</span> <span class="nav-text">At-rule 規則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">4.1.</span> <span class="nav-text">@import</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partials"><span class="nav-number">4.1.1.</span> <span class="nav-text">Partials</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin-and-include"><span class="nav-number">4.2.</span> <span class="nav-text">@mixin and @include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">4.3.</span> <span class="nav-text">@function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">4.4.</span> <span class="nav-text">@extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#進階使用"><span class="nav-number">4.5.</span> <span class="nav-text">進階使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mixin和function-運算程式模組化"><span class="nav-number">4.5.1.</span> <span class="nav-text">mixin和function: 運算程式模組化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flow-control-流程控制"><span class="nav-number">4.6.</span> <span class="nav-text">Flow control 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-and-else"><span class="nav-number">4.6.1.</span> <span class="nav-text">@if and @else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">4.6.2.</span> <span class="nav-text">@each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">4.6.3.</span> <span class="nav-text">@for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">4.6.4.</span> <span class="nav-text">@while</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Syntax-語法"><span class="nav-number">1.</span> <span class="nav-text">Syntax 語法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯方式"><span class="nav-number">1.1.</span> <span class="nav-text">編譯方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comments-註解"><span class="nav-number">1.2.</span> <span class="nav-text">Comments 註解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nesting-巢狀"><span class="nav-number">1.3.</span> <span class="nav-text">Nesting 巢狀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#amp-連結詞"><span class="nav-number">1.4.</span> <span class="nav-text">&amp;連結詞</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variables-變數"><span class="nav-number">2.</span> <span class="nav-text">Variables 變數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#變數也支援運算"><span class="nav-number">2.1.</span> <span class="nav-text">變數也支援運算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字串管理"><span class="nav-number">2.2.</span> <span class="nav-text">字串管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#顏色的運算"><span class="nav-number">2.3.</span> <span class="nav-text">顏色的運算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#變數預設值-default"><span class="nav-number">2.4.</span> <span class="nav-text">變數預設值 !default</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Interpolation-插值"><span class="nav-number">3.</span> <span class="nav-text">Interpolation 插值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#At-rule-規則"><span class="nav-number">4.</span> <span class="nav-text">At-rule 規則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#import"><span class="nav-number">4.1.</span> <span class="nav-text">@import</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Partials"><span class="nav-number">4.1.1.</span> <span class="nav-text">Partials</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixin-and-include"><span class="nav-number">4.2.</span> <span class="nav-text">@mixin and @include</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#帶入參數"><span class="nav-number">4.2.1.</span> <span class="nav-text">帶入參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#參數預設值"><span class="nav-number">4.2.2.</span> <span class="nav-text">參數預設值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#參數的變數"><span class="nav-number">4.2.3.</span> <span class="nav-text">參數的變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展開參數"><span class="nav-number">4.2.4.</span> <span class="nav-text">展開參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#與響應式搭配"><span class="nav-number">4.2.5.</span> <span class="nav-text">與響應式搭配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#content"><span class="nav-number">4.2.6.</span> <span class="nav-text">@content</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">4.3.</span> <span class="nav-text">@function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extend"><span class="nav-number">4.4.</span> <span class="nav-text">@extend</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#進階使用"><span class="nav-number">4.5.</span> <span class="nav-text">進階使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mixin和function-運算程式模組化"><span class="nav-number">4.5.1.</span> <span class="nav-text">mixin和function: 運算程式模組化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flow-control-流程控制"><span class="nav-number">4.6.</span> <span class="nav-text">Flow control 流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if-and-else"><span class="nav-number">4.6.1.</span> <span class="nav-text">@if and @else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#each"><span class="nav-number">4.6.2.</span> <span class="nav-text">@each</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">4.6.3.</span> <span class="nav-text">@for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">4.6.4.</span> <span class="nav-text">@while</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

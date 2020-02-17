@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Gride system 模組化特點優點：  避免命名上的問題 整體性高 可用性高缺點： 變化性受限  Bootstrap Grid system 名詞介紹    Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度，欄與">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grid system">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;grid.html">
+<meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="Gride system 模組化特點優點：  避免命名上的問題 整體性高 可用性高缺點： 變化性受限  Bootstrap Grid system 名詞介紹    Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度，欄與">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_col.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_row.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_container.png">
+<meta property="og:updated_time" content="2020-02-13T12:38:51.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid.png">
+
+<link rel="canonical" href="http://yoursite.com/sass-Advanced/grid">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false
+  };
+</script>
+
+  <title>Grid system | 前端學習
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端學習</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-TW">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Grid system
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><strong>Gride system 模組化特點</strong><br>優點：</p>
+<ol>
+<li>避免命名上的問題</li>
+<li>整體性高</li>
+<li>可用性高<br>缺點：</li>
+<li>變化性受限</li>
+</ol>
+<h1 id="Bootstrap-Grid-system"><a href="#Bootstrap-Grid-system" class="headerlink" title="Bootstrap Grid system"></a>Bootstrap Grid system</h1><ul>
+<li><p>名詞介紹</p>
+<img src="/sass-Advanced/index/bootstrap_grid.png" width="900px" alt="Bootstrap Grid system">
+
+<ul>
+<li>Total Width: 總寬，網頁主要內容呈現的範圍。</li>
+<li>Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。</li>
+<li>Gutter Width: 間隔寬度，欄與欄的間距。</li>
+<li>Gutter on outside: 外部間距，設定的間隔寬度是否要加在外層。</li>
+<li>Column: 單一欄的寬度，總欄位數、間隔寬度及單一欄的寬度數值會有連帶的關係。</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>col</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.col-</span>**-* &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>於每個欄位加上左右的 padding 值，透過此方式，不斷增加欄位，於排列時也可以維持相同的Gutter。</p>
+<img src="/sass-Advanced/index/bootstrap_grid_col.png" width="900px" alt="Column">
+</li>
+<li><p>row<br>此時會出現左右邊應該要貼齊邊緣，但因有padding的值而有超出的部分，會造成主要內容有向內部縮的現象。<br>透過<strong>負值 margin</strong> 向外推，將超出邊緣的padding補回。</p>
+<img src="/sass-Advanced/index/bootstrap_grid_row.png" width="900px" alt="Row">
+</li>
+<li><p>container<br>此時因有外部的 marring 的寬度，於小畫面載具時會出現 horizontal scroll bar，為避免此情況發生。<br>最後透過<strong>padding</strong> 補回空間，也就是 Ｇutter on outside 的部分。</p>
+<img src="/sass-Advanced/index/bootstrap_grid_container.png" width="900px" alt="Container">
+
+</li>
+</ol>
+
+<style>
+.wrapper {
+  max-width: 90%;
+  margin: 1rem auto;
+}
+
+/*Basic Grid Styles*/
+.Grid {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.u-textCenter {
+  text-align: center;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+
+.Demo {
+  padding: .4em .5em 0;
+  margin-bottom: 1em;
+  background: rgba(51, 153, 204, 0.2);
+  transition: background-color 0.3s ease;
+  border: 1px solid #33cccc;
+  border-radius: 3px;
+}
+.Demo:after {
+  content: "";
+  display: block;
+  margin-top: .8em;
+  height: 1px;
+}
+.Demo:hover {
+  background: rgba(51, 153, 204, 0.6);
+}
+
+/* With gutters*/
+.Grid--gutters {
+  margin-left: -1em;
+}
+.Grid--gutters .Grid-cell {
+  padding-left: 1em;
+}
+.Grid--gutters .Grid--nested .Grid-cell:first-of-type .Demo {
+  margin-right: 1em;
+}
+
+/*===========================================*/
+/* Base classes for all media - Mobile first */
+.Grid--cols-2 > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+.Grid--cols-3 > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+.Grid--cols-4 > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+.Grid--cols-6 > .Grid-cell {
+  flex: 0 0 calc(50% - 1em);
+}
+
+.Grid--cols-12 > .Grid-cell {
+  flex: 0 0 calc(33.3333% - 1em);
+}
+
+.Grid--holly-grail .aside, .Grid--holly-grail .main {
+  flex: 1 100%;
+}
+
+/* One of -- columns*/
+.Grid--1of2 > .Grid-cell,
+.Grid--1of4 > .Grid-cell:first-of-type,
+.Grid--1of3 > .Grid-cell:first-of-type {
+  flex: 0 0 100%;
+}
+
+.Grid--1of6 > .Grid-cell:first-of-type {
+  flex: 0 0 50%;
+}
+
+.Grid--fit > .Grid-cell {
+  flex: 1;
+}
+
+.Grid--full > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+/* Tablet (medium) screens */
+@media (min-width: 30em) {
+  .Grid--cols-4 > .Grid-cell {
+    flex: 0 0 calc(50% - 1em);
+  }
+
+  .Grid--cols-6 > .Grid-cell {
+    flex: 0 0 calc(33.3333% - 1em);
+  }
+
+  .Grid--cols-12 > .Grid-cell {
+    flex: 0 0 calc(16.6666% - 1em);
+  }
+
+  .Grid--holly-grail .aside {
+    flex: 1 calc(25% - 1em);
+  }
+
+  .Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
+  .Grid--1of6 > .Grid-cell:first-of-type {
+    flex: 0 0 30%;
+  }
+
+  .Grid--1of4 > .Grid-cell:first-of-type {
+    flex: 0 0 50%;
+  }
+
+  .Grid--1of3 > .Grid-cell:first-of-type {
+    flex: 0 0 100%;
+  }
+}
+/* Large screens */
+@media (min-width: 48em) {
+  .Grid--cols-2 > .Grid-cell,
+  .Grid--cols-3 > .Grid-cell,
+  .Grid--cols-4 > .Grid-cell,
+  .Grid--cols-6 > .Grid-cell,
+  .Grid--cols-12 > .Grid-cell {
+    flex: 1;
+  }
+
+  .Grid--holly-grail .main {
+    flex: 2;
+  }
+  .Grid--holly-grail .aside {
+    flex: 1;
+  }
+  .Grid--holly-grail .aside-1 {
+    order: 1;
+  }
+  .Grid--holly-grail .main {
+    order: 2;
+  }
+  .Grid--holly-grail .aside-2 {
+    order: 3;
+  }
+
+  .Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
+  .Grid--1of6 > .Grid-cell:first-of-type {
+    flex: 0 0 16.6666%;
+  }
+
+  .Grid--1of4 > .Grid-cell:first-of-type {
+    flex: 0 0 25%;
+  }
+
+  .Grid--1of3 > .Grid-cell:first-of-type {
+    flex: 0 0 30%;
+  }
+
+  .Grid--gutters.Grid--nested .Grid-cell:first-of-type .Demo {
+    margin-right: 0;
+  }
+}
+.content-1of1::before {
+  content: "1";
+}
+
+.content-1of2::before {
+  content: "1/2";
+}
+
+.content-1of3::before {
+  content: "1/3";
+}
+
+.content-1of4::before {
+  content: "1/4";
+}
+
+.content-1of6::before {
+  content: "1/6";
+}
+
+.content-1of12::before {
+  content: "1/12";
+}
+</style>
+<div class="result result--light">
+<div class="ribbon ribbon--primary">Bootstrap Grid</div>
+<div class="wrapper">
+  <div class="Grid Grid--full u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of1"></div>
+    </div>
+  </div>
+  <div class="Grid Grid--gutters Grid--cols-2 u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of2"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of2"></div>
+    </div>
+  </div>
+  <div class="Grid Grid--gutters Grid--cols-3 u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of3"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of3"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of3"></div>
+    </div>
+  </div>
+  <div class="Grid Grid--gutters Grid--cols-4 u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of4"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of4"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of4"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of4"></div>
+    </div>
+  </div>
+  <div class="Grid Grid--gutters Grid--cols-6 u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of6"></div>
+    </div>
+  </div>
+
+  <div class="Grid Grid--gutters Grid--cols-12 u-textCenter">
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+    <div class="Grid-cell">
+      <div class="Demo content-1of12"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<h1 id="自製-Grid-system"><a href="#自製-Grid-system" class="headerlink" title="自製 Grid system"></a>自製 Grid system</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$gutter-width</span>: <span class="number">30px</span>;</span><br><span class="line"><span class="variable">$grid-num</span>: <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> row &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line">%<span class="selector-tag">col</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">1px</span>; <span class="comment">// Prevent columns from collapsing when empty</span></span><br><span class="line">  <span class="attribute">padding-left</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">padding-right</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">mixin</span> pad &#123;</span><br><span class="line">  @<span class="keyword">media</span> (mix-width: 767px) &#123;</span><br><span class="line">    @<span class="keyword">content</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1024px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> row;</span><br><span class="line">  <span class="attribute">margin-right</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">margin-left</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">  <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    @<span class="keyword">extend</span> %col;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">include</span> pad &#123;</span><br><span class="line">  @<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">    <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">      <span class="attribute">max-width</span>: percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bootstrap-Grid-system"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap Grid system</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自製-Grid-system"><span class="nav-number">2.</span> <span class="nav-text">自製 Grid system</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

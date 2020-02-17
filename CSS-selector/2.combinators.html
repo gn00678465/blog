@@ -53,7 +53,7 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content=".adjacent_sibling ul + p {   color: red; }  .general_sibling ul ~ p {   color: blue; }  .child .firstList &amp;gt; li {   color: red; }  .descendant li {   color: blue; }    鄰接同層選擇器 (A + B) 鄰接同層選擇器(Adjacen">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T04:11:41.760Z">
+<meta property="og:updated_time" content="2020-02-13T22:00:20.224Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/2.combinators">
@@ -221,9 +221,7 @@
 </ul>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-    <pre class="syntax">
-former_element + target_element { property: value; } 
-    </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">former_element + target_element &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.adjacent_sibling</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -247,9 +245,7 @@ former_element + target_element { property: value; }
 </ul>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-    <pre class="syntax">
-former_element ~ target_element { property: value; } 
-    </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">former_element ~ target_element &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.general_sibling</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> ~ <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -274,9 +270,7 @@ former_element ~ target_element { property: value; }
 </ul>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-    <pre class="syntax">
-selector1 > selector2 { property: value; } 
-    </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">selector1 &gt; selector2 &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.child</span> <span class="selector-class">.firstList</span> &gt; <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -303,9 +297,7 @@ selector1 > selector2 { property: value; }
 </ul>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
-  <pre class="syntax">
-selector1 selector2 { property: value; }
-  </pre>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">selector1 selector2 &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
 
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.descendant</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

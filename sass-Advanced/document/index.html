@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="Arguments                Name       Type       Description                       $width (100%)       number       The max-width for the string to respect before being truncated.                 $displ">
+  <meta name="description" content="CSS形狀 三角形 圓形   偽元素模組化 文字 隱藏文字 省略文字">
 <meta property="og:type" content="website">
-<meta property="og:title" content="省略文字">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-mixin&#x2F;text&#x2F;ellipsis.html">
+<meta property="og:title" content="Sass Mixin 整理">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;document&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Arguments                Name       Type       Description                       $width (100%)       number       The max-width for the string to respect before being truncated.                 $displ">
+<meta property="og:description" content="CSS形狀 三角形 圓形   偽元素模組化 文字 隱藏文字 省略文字">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T12:19:34.244Z">
+<meta property="og:updated_time" content="2020-02-09T12:24:23.147Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/sass-mixin/text/ellipsis">
+<link rel="canonical" href="http://yoursite.com/sass-Advanced/document/">
 
 
 <script id="page-configurations">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title>省略文字 | 前端學習
+  <title>Sass Mixin 整理 | 前端學習
   </title>
   
 
@@ -182,17 +182,16 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">省略文字
+<h1 class="post-title" itemprop="name headline">Sass Mixin 整理
 </h1>
 
 <div class="post-meta">
   
   <ul class="breadcrumb">
           
-            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
-            <li><a href="/sass-mixin/text/">TEXT</a></li>
-            <li>ELLIPSIS</li>
-          
+            <li><a href="/sass-Advanced/">SASS-ADVANCED</a></li>
+          <li>DOCUMENT</li>
+        
   </ul>
 
 </div>
@@ -203,34 +202,20 @@
       
       
       <div class="post-body">
-          <h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>$width (100%)</td>
-      <td>number</td>
-      <td>The <code>max-width</code> for the string to respect before being truncated.</td>
-    </tr>
-    <tr>
-      <td>$display (inline-block)</td>
-      <td>string</td>
-      <td>	
-Sets the display-value of the element.</td>
-    </tr>
-  </tbody>
-</table>
+          <ul>
+<li>CSS形狀<ol>
+<li><a href="snape/triangle.html">三角形</a></li>
+<li><a href="">圓形</a></li>
+</ol>
+</li>
+<li><a href="module/pseudo-element.html">偽元素模組化</a></li>
+<li>文字<ol>
+<li><a href="text/hide_text.html">隱藏文字</a></li>
+<li><a href="text/ellipsis.html">省略文字</a></li>
+</ol>
+</li>
+</ul>
 
-
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> ellipsis(</span><br><span class="line">  <span class="variable">$width</span>: 100%,</span><br><span class="line">  <span class="variable">$display</span>: inline-block</span><br><span class="line">) &#123;</span><br><span class="line">  <span class="attribute">display</span>: <span class="variable">$display</span>;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="variable">$width</span>;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">word-wrap</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
@@ -239,10 +224,9 @@ Sets the display-value of the element.</td>
     
   <ul class="breadcrumb">
           
-            <li><a href="/sass-mixin/">SASS-MIXIN</a></li>
-            <li><a href="/sass-mixin/text/">TEXT</a></li>
-            <li>ELLIPSIS</li>
-          
+            <li><a href="/sass-Advanced/">SASS-ADVANCED</a></li>
+          <li>DOCUMENT</li>
+        
   </ul>
 
     
@@ -299,7 +283,6 @@ Sets the display-value of the element.</td>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arguments"><span class="nav-number">1.</span> <span class="nav-text">Arguments</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

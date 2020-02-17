@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="1       Syntax">
+  <meta name="description" content="Arguments                Name       Type       Description                       $type       string       position 的屬性，只能輸入 absolute relative fixed sticky.                 $top       number       與 to">
 <meta property="og:type" content="website">
-<meta property="og:title" content="前端學習">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;demo&#x2F;test.html">
+<meta property="og:title" content="position">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;document&#x2F;utils&#x2F;mixin&#x2F;position.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="1       Syntax">
+<meta property="og:description" content="Arguments                Name       Type       Description                       $type       string       position 的屬性，只能輸入 absolute relative fixed sticky.                 $top       number       與 to">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-15T01:45:42.684Z">
+<meta property="og:updated_time" content="2020-02-15T03:48:29.336Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/demo/test">
+<link rel="canonical" href="http://yoursite.com/sass-Advanced/document/utils/mixin/position">
 
 
 <script id="page-configurations">
@@ -68,7 +68,7 @@
   };
 </script>
 
-  <title> | 前端學習
+  <title>position | 前端學習
   </title>
   
 
@@ -182,11 +182,20 @@
     <div class="post-block" lang="zh-TW">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
+<h1 class="post-title" itemprop="name headline">position
 </h1>
 
 <div class="post-meta">
   
+  <ul class="breadcrumb">
+          
+            <li><a href="/sass-Advanced/">SASS-ADVANCED</a></li>
+            <li><a href="/sass-Advanced/document/">DOCUMENT</a></li>
+            <li><a href="/sass-Advanced/document/utils/">UTILS</a></li>
+            <li><a href="/sass-Advanced/document/utils/mixin/">MIXIN</a></li>
+            <li>POSITION</li>
+          
+  </ul>
 
 </div>
 
@@ -196,26 +205,63 @@
       
       
       <div class="post-body">
-          <h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1>
-<style>
+          <h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$type</td>
+      <td>string</td>
+      <td>position 的屬性，只能輸入 absolute relative fixed sticky.</td>
+    </tr>
+    <tr>
+      <td>$top</td>
+      <td>number</td>
+      <td>與 top 的距離</td>
+    </tr>
+    <tr>
+      <td>$right</td>
+      <td>number</td>
+      <td>與 right 的距離</td>
+    </tr>
+    <tr>
+      <td>$bottom</td>
+      <td>number</td>
+      <td>與 bottom 的距離</td>
+    </tr>
+    <tr>
+      <td>$left</td>
+      <td>number</td>
+      <td>與 left 的距離</td>
+    </tr>
+  </tbody>
+</table>
 
-</style>
-<div class="codeBox">
-  <div class="ribbon">Syntax</div>
-    <pre class="syntax">
 
-    </pre>
-</div>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> position(</span><br><span class="line">  <span class="variable">$type</span>,</span><br><span class="line">  <span class="variable">$top</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$right</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$bottom</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$left</span>: <span class="variable">$position-default</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="variable">$allowed_types</span>: absolute relative fixed sticky;</span><br><span class="line">  @<span class="keyword">if</span> not index(<span class="variable">$allowed_types</span>, <span class="variable">$type</span>) &#123;</span><br><span class="line">    @<span class="keyword">warn</span> <span class="string">"Unknown position: #&#123;$type&#125;."</span>;</span><br><span class="line">  &#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: <span class="variable">$type</span>;</span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$data</span> in top <span class="variable">$top</span>, right <span class="variable">$right</span>, bottom <span class="variable">$bottom</span>, left <span class="variable">$left</span> &#123;</span><br><span class="line">      #&#123;nth(<span class="variable">$data</span>, 1)&#125;: nth(<span class="variable">$data</span>, <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-
-
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
       
     </div>
     
+  <ul class="breadcrumb">
+          
+            <li><a href="/sass-Advanced/">SASS-ADVANCED</a></li>
+            <li><a href="/sass-Advanced/document/">DOCUMENT</a></li>
+            <li><a href="/sass-Advanced/document/utils/">UTILS</a></li>
+            <li><a href="/sass-Advanced/document/utils/mixin/">MIXIN</a></li>
+            <li>POSITION</li>
+          
+  </ul>
 
     
     
@@ -271,7 +317,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arguments"><span class="nav-number">1.</span> <span class="nav-text">Arguments</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
