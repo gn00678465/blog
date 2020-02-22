@@ -98,3 +98,9 @@ theme: next
 deploy:
   type: 'git'
   repo: https://github.com/gn00678465/gn00678465.github.io.git
+
+#include_markdown
+## Docs:https://github.com/tea3/hexo-include-markdown
+include_markdown:
+  dir: source/_template   # Base directory of template markdown
+  verbose : true          # If you want to check the path of markdown that use <!-- md --> tag , please set the true.
