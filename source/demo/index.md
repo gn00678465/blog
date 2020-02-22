@@ -8,14 +8,13 @@ Please load another markdown file with the following code.
 
 <!-- md template.md -->
 
-```mermaid
-graph TB
-start(开始)-->inputA[输入用户名密码]
-inputA-->opA{数据库查询子类}
-opA-->conditionA{是否有此用户}
-conditionA--yes-->conditionB{密码是否正确}
-conditionA--no-->inputA
-conditionB--yes-->opB[读入用户信息]
-conditionB--no-->inputA
-opB-->en(登录)
-```
+Here is a footnote reference,[^1] and another.[^longnote]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
+
+++inserted++
