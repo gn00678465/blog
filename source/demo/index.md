@@ -2,11 +2,9 @@
 title: Hello World
 ---
 
-## include sample
+# include sample
 
 Please load another markdown file with the following code.
-
-<!-- md template.md -->
 
 Here is a footnote reference,[^1] and another.[^longnote]
 
@@ -18,3 +16,5 @@ Here is a footnote reference,[^1] and another.[^longnote]
 belong to the previous footnote.
 
 ++inserted++
+
+<hr>
