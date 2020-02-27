@@ -144,3 +144,6 @@ markdown:
     permalink: true
     permalinkClass: header-anchor
     permalinkSymbol: ''
+
+# Hexo-all-minifier
+all_minifier: true

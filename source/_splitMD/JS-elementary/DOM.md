@@ -25,22 +25,21 @@
   </body>
 </html>
 ```
+## DOM解析
 
 {% mermaid graph TD %}
-	A[document] --> B[HTML<br>&#60;HtmlElement&#62;]
-	B --> C[head<br>&#60;HeadElement&#62;]
-  C --> D[title<br>&#60;TitleElement&#62;]
-  D --> E[text<br>'首頁']
-  B --> F[body<br>&#60;BodyElement&#62;]
-  F --> G[h1<br>&#60;H1Element&#62;]
-  G --> H[text<br>'Hello!World!']
-  F --> I[a<br>&#60;AnchorElement&#62;]
-  I --> J[text<br>'學習筆記']
-  I --> L[Attribute<br>'href']
+	A(document) --> B[Root element<br>&#60;html&#62;]
+	B --> C[Element:<br>&#60;Head&#62;]
+  C --> D[Element:<br>&#60;Title&#62;]
+  D --> E[Text:<br>'首頁']
+  B --> F[Element:<br>&#60;Body&#62;]
+  F --> G[Element:<br>&#60;H1&#62;]
+  G --> H[Text:<br>'Hello!World!']
+  F --> I[Element:<br>&#60;a&#62;]
+  I --> J[Text:<br>'學習筆記']
+  I --> L[Attribute:<br>'href']
+  style A fill:#27ae60,stroke-width:0
 {% endmermaid %}
-
-
-## DOM解析
 
 - **document**：{%label danger@document代表整個文件，而不代表html節點%}。
 - **Element**：是所有標籤（也是節點），包含、等等各種 HTML Tag。
@@ -70,7 +69,7 @@ DOM標準分成了3個部分。
 - XML DOM - standard model for XML documents
 - HTML DOM - standard model for HTML documents
 
-![](https://www.w3.org/TR/DOM-Level-3-Core/images/dom-architecture.png)
+{% asset_img dom-architecture.png%}
 圖片來源：http://www.w3.org/TR/DOM-Level-3-Core/introduction.html
 
 ## HTML DOM
@@ -85,27 +84,42 @@ DOM標準分成了3個部分。
 ## HTML DOM 操作
 
 <dl>
-  <dt>document.getElementById(id)</dt>
+  <dt><code>document.getElementById(id)</code></dt>
   <dd>找尋 DOM 中符合此 id 名稱的元素，並回傳相對應的 element 。</dd>
-    <dt>document.getElementsByTagName(name)</dt>
+  <dt><code>document.getElementsByTagName(name)</code></dt>
   <dd>找尋 DOM 中符合此 tag 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
-    <dt>document.getElementsByClassName(name)</dt>
+  <dt><code>document.getElementsByClassName(name)</code></dt>
   <dd>找尋 DOM 中符合此 class 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
-    <dt>document.querySelector(selector)</dt>
+  <dt><code>document.querySelector(selector)</code></dt>
   <dd>利用 selector 來找尋 DOM 中的元素，並回傳相對應的第一個 element 。</dd>
-    <dt>document.querySelectorAll(selector)</dt>
+  <dt><code>document.querySelectorAll(selector)</code></dt>
   <dd>利用 selector 來找尋 DOM 中的所有元素，並回傳相對應的第一個 element ，集合為 <code>NodeList</code>。</dd>
 </dl>
 
 **HTMLCollection** 以及 **NodeList 的差異**
 
+<dl>
+  <dt><code>HTMLCollection</code></dt>
+  <dd>{% asset_img HTMLCollection.jpg%}</dd>
+  <dt><code>NodeList</code></dt>
+  <dd>{% asset_img NodeList.jpg%}</dd>
+</dl>
 
 1. `HTMLCollection` 為 **HTML element 的集合。**
-2. `NodeList` 為 **Node 的集合。**
-3. `HTMLCollection` & `NodeList` 幾乎相同。
-4. 兩者皆為類陣列，並繼承於 `objects` 。
-5. 兩者皆有 `length` 屬性
+1. `NodeList` 為 **Node 的集合。**
+1. `HTMLCollection` & `NodeList` 幾乎相同。
+1. 兩者皆為類陣列，並繼承於 `objects` 。
+1. 兩者皆有 `length` 屬性。
+1. `HTMLCollection` 有 `namedItem` （根據 ID & Name 篩選元素）的方法。
+1. `NodeList` 則有 `entries`, `forEach`, `item`, `keys`, `values` 5個方法。
 
+## 增加節點
 
-https://www.w3schools.com/js/js_htmldom_nodelist.asp
-https://segmentfault.com/a/1190000015498487
+<dl>
+  <dt>innerHTML</dt>
+  <dd></dd>
+  <dt>textContent</dt>
+  <dd>表示節點或其後代的文字內容。</dd>
+  <dt>createElement</dt>
+  <dd>可以依指定的標籤名稱（<code>tagName</code>）建立 HTML 元素，或是在未定義標籤名稱下建立一個 HTMLUnknownElement。</dd>
+</dl>
