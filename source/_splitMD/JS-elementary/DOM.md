@@ -83,18 +83,28 @@ DOM標準分成了3個部分。
 
 ## HTML DOM 操作
 
-<dl>
-  <dt><code>document.getElementById(id)</code></dt>
-  <dd>找尋 DOM 中符合此 id 名稱的元素，並回傳相對應的 element 。</dd>
-  <dt><code>document.getElementsByTagName(name)</code></dt>
-  <dd>找尋 DOM 中符合此 tag 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
-  <dt><code>document.getElementsByClassName(name)</code></dt>
-  <dd>找尋 DOM 中符合此 class 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
-  <dt><code>document.querySelector(selector)</code></dt>
-  <dd>利用 selector 來找尋 DOM 中的元素，並回傳相對應的第一個 element 。</dd>
-  <dt><code>document.querySelectorAll(selector)</code></dt>
-  <dd>利用 selector 來找尋 DOM 中的所有元素，並回傳相對應的第一個 element ，集合為 <code>NodeList</code>。</dd>
-</dl>
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">document.getElementById(id)</dt>
+    <dd class="timeline--entry__detail">找尋 DOM 中符合此 id 名稱的元素，並回傳相對應的 element。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">document.getElementsByTagName(name)</dt>
+    <dd class="timeline--entry__detail">找尋 DOM 中符合此 tag 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">document.getElementsByClassName(name)</dt>
+    <dd class="timeline--entry__detail">找尋 DOM 中符合此 class 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">document.querySelector(selector)</dt>
+    <dd class="timeline--entry__detail">利用 selector 來找尋 DOM 中的元素，並回傳相對應的第一個 element。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">document.querySelectorAll(selector)</dt>
+    <dd class="timeline--entry__detail">利用 selector 來找尋 DOM 中的所有元素，並回傳相對應的第一個 element ，集合為 <code>NodeList</code>。</dd>
+  </dl>
+</div>
 
 **HTMLCollection** 以及 **NodeList 的差異**
 
