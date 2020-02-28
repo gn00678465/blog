@@ -13,7 +13,7 @@
 
 {% endnote %}
 
-
+## DOM解析
 ```html
 <html>
   <head>
@@ -25,8 +25,6 @@
   </body>
 </html>
 ```
-## DOM解析
-
 {% mermaid graph TD %}
 	A(document) --> B[Root element<br>&#60;html&#62;]
 	B --> C[Element:<br>&#60;Head&#62;]
@@ -125,11 +123,17 @@ DOM標準分成了3個部分。
 
 ## 增加節點
 
-<dl>
-  <dt>innerHTML</dt>
-  <dd></dd>
-  <dt>textContent</dt>
-  <dd>表示節點或其後代的文字內容。</dd>
-  <dt>createElement</dt>
-  <dd>可以依指定的標籤名稱（<code>tagName</code>）建立 HTML 元素，或是在未定義標籤名稱下建立一個 HTMLUnknownElement。</dd>
-</dl>
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">innerHTML</dt>
+    <dd class="timeline--entry__detail"></dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">textContent</dt>
+    <dd class="timeline--entry__detail">表示節點或其後代的文字內容。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">createElement</dt>
+    <dd class="timeline--entry__detail">可以依指定的標籤名稱（<code>tagName</code>）建立 HTML 元素，或是在未定義標籤名稱下建立一個 HTMLUnknownElement。</dd>
+  </dl>
+</div>
