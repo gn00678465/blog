@@ -46,21 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="JS_elementary">
-<meta name="keywords" content="JavaScript">
+  <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 入門篇">
 <meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="JS_elementary">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;javascript.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;dom-architecture.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;HTMLCollection.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;NodeList.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;eventflow.png">
-<meta property="og:updated_time" content="2020-02-29T10:36:53.735Z">
+<meta property="og:updated_time" content="2020-02-29T14:01:18.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;dom-architecture.png">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;javascript.png">
 
 <link rel="canonical" href="https://gn00678465.github.io/2020/02/19/JS-elementary/">
 
@@ -213,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-02-29 18:36:53" itemprop="dateModified" datetime="2020-02-29T18:36:53+08:00">2020-02-29</time>
+                <time title="修改時間：2020-02-29 22:01:18" itemprop="dateModified" datetime="2020-02-29T22:01:18+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,7 +237,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>JS_elementary</p>
+        <img src="/blog/2020/02/19/JS-elementary/javascript.png" class="" title="JavaScript入門篇">
 <a id="more"></a>
 <h1 id="控制判斷"><a class="header-anchor" href="#控制判斷"></a>控制判斷</h1>
 <h2 id="if"><a class="header-anchor" href="#if"></a>if</h2>
@@ -429,7 +428,7 @@ DOM標準分成了3個部分。</p>
   <dl class="timeline--entry">
     <dt class="timeline--entry__title">listener</dt>
     <dd class="timeline--entry__detail">
-    當監聽的事件觸發時指定執行的函式。
+    當監聽的事件觸發時指定執行的函式，也稱為 callback function 。
     </dd>
   </dl>
   <dl class="timeline--entry">
@@ -457,7 +456,42 @@ DOM標準分成了3個部分。</p>
           </div>
 </li>
 </ul>
+<h2 id="事件的三個-Phase"><a class="header-anchor" href="#事件的三個-Phase"></a>事件的三個 Phase</h2>
 <img src="/blog/2020/02/19/JS-elementary/eventflow.png" class="">
+<div class="note success">
+            <ol><li>當點下 <code>td</code> 時，這一個點擊的事件會先從 <code>window</code> 開始往下傳遞，直到傳到 <code>td</code> 為止，此階段稱為 <code>CAPTURING_PHASE</code>，捕獲階段。</li><li>接著事件傳遞到 <code>td</code> 本身，此階段稱為 <code>AT_TARGET</code>。</li><li>最後事件會從 <code>td</code> 往上傳遞回 <code>window</code>，此階段稱為 <code>BUBBLING_PHASE</code>，冒泡階段。</li></ol>
+          </div>
+<div class="note info">
+            <p>通常在呼叫 callback function 的時候，會傳進一個值 <code>event</code> 通常會縮寫 <code>e</code>，<code>e</code> 裡面就蘊含了許多這次觸發事件的相關參數。</p>
+          </div>
+<p>其中一個參數 <code>eventPhase</code>，會回傳一個數字，表示這個事件在哪一個 Phase 觸發。</p>
+<table>
+  <tr>
+    <th width="50%">eventPhase</th>
+    <th width="50%">Number</th>
+  </tr>
+  <tr>
+    <td>CAPTURING_PHASE</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>AT_TARGET</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>BUBBLING_PHASE</td>
+    <td>3</td>
+  </tr>
+</table>
+<div class="note no-icon">
+            <p>事件的傳遞順序，原則：</p><ol><li>先捕獲，再冒泡。</li><li>當事件傳到 target 本身，沒有分捕獲跟冒泡。</li></ol>
+          </div>
+<a href="https://jsbin.com/mavuvezule/edit?html,js,console,output" target="_blank" rel="noopener" class="Btn Btn__primary Btn--h">
+<span>jsbin 範例</span>
+</a>
+<h1 id="取消事件傳遞"><a class="header-anchor" href="#取消事件傳遞"></a>取消事件傳遞</h1>
+<h1 id="取消預設行為"><a class="header-anchor" href="#取消預設行為"></a>取消預設行為</h1>
+
     </div>
 
     
@@ -538,7 +572,7 @@ DOM標準分成了3個部分。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制判斷"><span class="nav-number">1.</span> <span class="nav-text">控制判斷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單條件"><span class="nav-number">1.1.1.</span> <span class="nav-text">單條件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多條件"><span class="nav-number">1.1.2.</span> <span class="nav-text">多條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">1.2.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迴圈"><span class="nav-number">2.</span> <span class="nav-text">迴圈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-迴圈"><span class="nav-number">2.1.</span> <span class="nav-text">for 迴圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-array"><span class="nav-number">2.2.</span> <span class="nav-text">for array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-if"><span class="nav-number">2.3.</span> <span class="nav-text">for if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-break"><span class="nav-number">2.4.</span> <span class="nav-text">for break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM解析"><span class="nav-number">3.1.</span> <span class="nav-text">DOM解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何需要DOM"><span class="nav-number">3.2.</span> <span class="nav-text">為何需要DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM"><span class="nav-number">3.3.</span> <span class="nav-text">HTML DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM-操作"><span class="nav-number">3.4.</span> <span class="nav-text">HTML DOM 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加節點"><span class="nav-number">3.5.</span> <span class="nav-text">增加節點</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#event-事件"><span class="nav-number">4.</span> <span class="nav-text">event 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Capture-Event-Bubble-的差異。"><span class="nav-number">4.1.</span> <span class="nav-text">Event Capture &amp; Event Bubble 的差異。</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制判斷"><span class="nav-number">1.</span> <span class="nav-text">控制判斷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單條件"><span class="nav-number">1.1.1.</span> <span class="nav-text">單條件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多條件"><span class="nav-number">1.1.2.</span> <span class="nav-text">多條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">1.2.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迴圈"><span class="nav-number">2.</span> <span class="nav-text">迴圈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-迴圈"><span class="nav-number">2.1.</span> <span class="nav-text">for 迴圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-array"><span class="nav-number">2.2.</span> <span class="nav-text">for array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-if"><span class="nav-number">2.3.</span> <span class="nav-text">for if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-break"><span class="nav-number">2.4.</span> <span class="nav-text">for break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM解析"><span class="nav-number">3.1.</span> <span class="nav-text">DOM解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何需要DOM"><span class="nav-number">3.2.</span> <span class="nav-text">為何需要DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM"><span class="nav-number">3.3.</span> <span class="nav-text">HTML DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM-操作"><span class="nav-number">3.4.</span> <span class="nav-text">HTML DOM 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加節點"><span class="nav-number">3.5.</span> <span class="nav-text">增加節點</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#event-事件"><span class="nav-number">4.</span> <span class="nav-text">event 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Capture-Event-Bubble-的差異。"><span class="nav-number">4.1.</span> <span class="nav-text">Event Capture &amp; Event Bubble 的差異。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的三個-Phase"><span class="nav-number">4.2.</span> <span class="nav-text">事件的三個 Phase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取消事件傳遞"><span class="nav-number">5.</span> <span class="nav-text">取消事件傳遞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取消預設行為"><span class="nav-number">6.</span> <span class="nav-text">取消預設行為</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
