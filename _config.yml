@@ -145,6 +145,16 @@ markdown:
     permalinkClass: header-anchor
     permalinkSymbol: ''
 
-# Hexo-all-minifier
-all_minifier: true
+# moon_menu
+moon_menu:
+  back2top:
+    enable: true
+    icon: fa fa-chevron-up
+    func: back2top
+    order: -1
+  back2bottom:
+    enable: true
+    icon: fa fa-chevron-down
+    func: back2bottom
+    order: -2
 

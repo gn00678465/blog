@@ -172,9 +172,43 @@ target.addEventListener(type, listener[, options]);
 {% endcodeblock %}
 </div>
 
-<dl>
-  <dt><code>type</code></dt>
-  <dd>表示所監聽的 event type 名稱之字串。</dd>
-  <dd><a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank" class="Btn Btn--h Btn__primary"><span>event type</span></a></dd>
-  <dt><code>listener</code></dt>
-</dl>
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">type</dt>
+    <dd class="timeline--entry__detail">
+    表示所監聽的 <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank"><span>event type</span></a> 名稱之字串。
+    </dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">listener</dt>
+    <dd class="timeline--entry__detail">
+    當監聽的事件觸發時指定執行的函式。
+    </dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">options</dt>
+    <dd class="timeline--entry__detail">
+    可選。預設值為：false。
+    <ol>
+      <li>false：Event Bubble - 事件冒泡：從指定元素往外層尋找。</li>
+      <li>true：Event Capture - 事件捕捉：從最外層向內層尋找指定元素。</li>
+    </ol>
+    </dd>
+  </dl>
+</div>
+
+## Event Capture & Event Bubble 的差異。
+{% note primary %}
+這其實是在講 DOM 裡面事件傳遞的順序。
+假如在兩個元素上面都加了`eventListener`，哪一個會先執行？此時，知道事件的執行順序就很重要。
+{% endnote %}
+1. Event Bubble - 事件冒泡
+{% note success no-icon %}
+當 DOM 事件在傳播時，從`target`往上從子節點一路逆向傳回去根節點，此時就叫做`BUBBLING_PHASE`，也就是冒泡階段。
+{% endnote %}
+1. Event Capture - 事件捕捉
+{% note danger no-icon %}
+當 DOM 事件在傳播時，會先從根節點開始往下傳遞到`target`，這邊如果加上事件的話，就會處於`CAPTURING_PHASE`，捕獲階段。
+{% endnote %}
+
+{% asset_img eventflow.png %}

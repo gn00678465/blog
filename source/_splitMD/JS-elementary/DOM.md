@@ -126,7 +126,10 @@ DOM標準分成了3個部分。
 <div class="timeline">
   <dl class="timeline--entry">
     <dt class="timeline--entry__title">innerHTML</dt>
-    <dd class="timeline--entry__detail"></dd>
+    <dd class="timeline--entry__detail">
+    透過 innerHTML 可以取得或設定 HTML Code 中的元素，也可以單純的將字串寫入 HTML Code 的某一個部分。
+    <font color="red">盡量避免使用。</font>
+    </dd>
   </dl>
   <dl class="timeline--entry">
     <dt class="timeline--entry__title">textContent</dt>
