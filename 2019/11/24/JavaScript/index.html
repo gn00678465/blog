@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.0.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-code.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-code.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-code.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/blog/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
+    root: '/blog/',
     scheme: 'Pisces',
     version: '7.6.0',
     exturl: false,
@@ -54,24 +54,24 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="JavaScript 基礎介紹(執行環境、作用域) JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。 wikipediaJavaScript">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Interpreted_language.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;JS_process.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;RHS_LHS.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Lexical_Scope.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context_global.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_stake.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;scope_chain.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_2.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hosting_function.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;sync.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Event_queue.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Interpreted_language.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;JS_process.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;RHS_LHS.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Lexical_Scope.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Scope.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_Context_global.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Execution_stake.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;scope_chain.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hostion_2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hosting_function.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;sync.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Event_queue.png">
 <meta property="og:updated_time" content="2020-02-29T09:44:08.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;blog&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/24/JavaScript/">
 
@@ -127,7 +127,7 @@
   <div class="site-meta">
 
     <div>
-      <a href="/" class="brand" rel="start">
+      <a href="/blog/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">前端學習</span>
         <span class="logo-line-after"><i></i></span>
@@ -150,22 +150,22 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
 
   </li>
   </ul>
@@ -197,7 +197,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/JavaScript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
       <meta itemprop="name" content="MADAO">
       <meta itemprop="description" content="">
     </span>
@@ -232,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                  <a href="/blog/categories/JavaScript/" itemprop="url" rel="index">
                     <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
@@ -256,15 +256,15 @@
 <h1 id="編譯式語言-直譯式語言"><a class="header-anchor" href="#編譯式語言-直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1>
 <p>我們寫的原始碼是無法直接被電腦或是瀏覽器閱讀的，在被電腦運行之前須經過“解譯”成電腦看得懂的代碼。<br>
 而其中又可分為<strong>編譯式語言</strong>&amp;<strong>直譯式語言</strong>。</p>
-<img src="/2019/11/24/JavaScript/Compiled_language.png" class="" width="800" title="編譯式語言">
+<img src="/blog/2019/11/24/JavaScript/Compiled_language.png" class="" width="800" title="編譯式語言">
 <p><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br>
 <em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
-<img src="/2019/11/24/JavaScript/Interpreted_language.png" class="" width="800" title="直譯式語言">
+<img src="/blog/2019/11/24/JavaScript/Interpreted_language.png" class="" width="800" title="直譯式語言">
 <p><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>
 錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br>
 <em>Example</em>：JavaScript、Python、Ruby等等。</p>
 <h1 id="JavaScript-是如何運行的"><a class="header-anchor" href="#JavaScript-是如何運行的"></a>JavaScript 是如何運行的</h1>
-<img src="/2019/11/24/JavaScript/JS_process.png" class="" width="800" title="JS轉換過程">
+<img src="/blog/2019/11/24/JavaScript/JS_process.png" class="" width="800" title="JS轉換過程">
 <p>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>
 以下是JavaScript經過直譯器轉換的過程。<br>
 <strong>1. 語法基本單元化(Tokenizing)。</strong><br>
@@ -275,7 +275,7 @@
 <p>可透過編譯網站來了解語法單元化(Tokenizing)。<br>
 <a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">編譯網站</a></p>
 <h1 id="執行的錯誤情境-LHS-RHS"><a class="header-anchor" href="#執行的錯誤情境-LHS-RHS"></a>執行的錯誤情境 LHS, RHS</h1>
-<img src="/2019/11/24/JavaScript/RHS_LHS.png" class="" width="800" title="LHS &amp; RHS">
+<img src="/blog/2019/11/24/JavaScript/RHS_LHS.png" class="" width="800" title="LHS &amp; RHS">
 <p>此錯誤與取值與賦予值有相當的關係。</p>
 <ol>
 <li>RHS：將值從右側的變數中取出，當無法取值時，會丟出’ReferrenceError’的錯誤訊息。</li>
@@ -286,12 +286,12 @@
 <p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br>
 <strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br>
 <strong>動態作用域</strong> ：在函式調用時才決定作用域。</p>
-<img src="/2019/11/24/JavaScript/Lexical_Scope.png" class="" width="800" title="靜態作用域">
+<img src="/blog/2019/11/24/JavaScript/Lexical_Scope.png" class="" width="800" title="靜態作用域">
 <blockquote>
 <p><strong>JS採用靜態作用域(又稱語法作用域)。</strong></p>
 </blockquote>
 <p>在JS的作用域中</p>
-<img src="/2019/11/24/JavaScript/Scope.png" class="" width="800" title="作用域">
+<img src="/blog/2019/11/24/JavaScript/Scope.png" class="" width="800" title="作用域">
 <blockquote>
 <p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>
 如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>
@@ -311,10 +311,10 @@
 <h2 id="執行環境-Execution-Context"><a class="header-anchor" href="#執行環境-Execution-Context"></a>執行環境 Execution Context</h2>
 <p>當函式被執行時，會產生“執行環境 Execution Context”。<br>
 每執行一次便會產生一個新的執行環境。</p>
-<img src="/2019/11/24/JavaScript/Execution_Context.png" class="" width="800" title="執行環境">
+<img src="/blog/2019/11/24/JavaScript/Execution_Context.png" class="" width="800" title="執行環境">
 <p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>
 (在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000><strong>this是會隨著執行環境不同而改變的</strong></font>)。</p>
-<img src="/2019/11/24/JavaScript/Execution_Context_global.png" class="" width="800" title="全域執行環境">
+<img src="/blog/2019/11/24/JavaScript/Execution_Context_global.png" class="" width="800" title="全域執行環境">
 <h2 id="執行堆疊-Execution-stack"><a class="header-anchor" href="#執行堆疊-Execution-stack"></a>執行堆疊 Execution stack</h2>
 <p>執行堆疊跟函式在宣告的時候的時候&quot;沒有關聯&quot;，而是與&quot;呼叫的位置&quot;有關。<br>
 從以下程式碼來看：</p>
@@ -325,14 +325,14 @@
 <li>在doSomething函式中我們又執行了sayHi函式，因此sayHi的執行環境被生成，且堆疊在doSomething執行環境之上。</li>
 <li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。</li>
 </ol>
-<img src="/2019/11/24/JavaScript/Execution_stake.png" class="" width="800" title="執行堆疊">
+<img src="/blog/2019/11/24/JavaScript/Execution_stake.png" class="" width="800" title="執行堆疊">
 <p>我們可以從chrome 開發者工具中的source tab，一步一步觀察執行堆疊的運作。</p>
 <h1 id="範圍鍊-Scope-chain"><a class="header-anchor" href="#範圍鍊-Scope-chain"></a>範圍鍊 Scope chain</h1>
 <p>每個變數都有自己的作用範圍，若使用前未宣告，就會變成全域變數，若是在函式內宣告的變數，則只能在該區域內使用，也就是說 JavaScript 在查找變數時，會循著範圍鏈一層層往外尋找。</p>
 <blockquote>
 <p>範圍鍊取決於函式的作用域，與執行環境並無關聯性。</p>
 </blockquote>
-<img src="/2019/11/24/JavaScript/scope_chain.png" class="img-left" width="800" title="範圍鍊">
+<img src="/blog/2019/11/24/JavaScript/scope_chain.png" class="img-left" width="800" title="範圍鍊">
 <blockquote>
 <p>因JS為語法作用域，在原始碼寫好的時候，作用域就已經被訂下來了。<br>
 上方的程式碼中，無論是fn1或是fn2，因為fn1函式內沒有value變數，因此向外尋找，找到全域的value “1”，這就是範圍鍊的概念。</p>
@@ -353,16 +353,16 @@
 <p>執行程式碼時先將所有變數取出，並在記憶體中分配空間給這些變數，但目前階段尚未賦予值而顯示undefined的情況下，稱為提升。</p>
 <p><font size=6>執行環境其實可細分為兩個階段：創造環境及執行。</font></p>
 <ol>
-<li><font size=5><strong>創造環境</strong></font>：先將程式碼中的變數挑出來，在記憶體中分配空間給這些變數，但目前階段尚未賦予值，如果在此時去取用這些變數的話，會顯示undefined。 <img src="/2019/11/24/JavaScript/Hostion_1.png" class="img-left" width="800" title="創造環境">
+<li><font size=5><strong>創造環境</strong></font>：先將程式碼中的變數挑出來，在記憶體中分配空間給這些變數，但目前階段尚未賦予值，如果在此時去取用這些變數的話，會顯示undefined。 <img src="/blog/2019/11/24/JavaScript/Hostion_1.png" class="img-left" width="800" title="創造環境">
 </li>
-<li><font size=5><strong>執行</strong></font>：此階段下才會將值賦予至變數。 <img src="/2019/11/24/JavaScript/Hostion_2.png" class="img-left" width="800" title="創造環境">
+<li><font size=5><strong>執行</strong></font>：此階段下才會將值賦予至變數。 <img src="/blog/2019/11/24/JavaScript/Hostion_2.png" class="img-left" width="800" title="創造環境">
 </li>
 </ol>
 <p>變數的拆解</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Ming = <span class="string">'小明'</span>; <span class="comment">//宣告變數，可拆解成如下方所示</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Ming;         <span class="comment">//創造環境</span></span><br><span class="line">Ming = <span class="string">'小明'</span>;    <span class="comment">//執行</span></span><br></pre></td></tr></table></figure>
 <p><font size=6><strong>函式陳述式中在創造階段就會優先載入</strong></font><br>
 函式陳述式與一般變數不太一樣，<strong>函式陳述式在創造環境階段會被優先載入</strong>，記憶體在此階段就載入函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
-<img src="/2019/11/24/JavaScript/Hosting_function.png" class="img-left" width="800" title="創造環境">
+<img src="/blog/2019/11/24/JavaScript/Hosting_function.png" class="img-left" width="800" title="創造環境">
 <p>函式的拆解</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'呼叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
 <p>函式表達式的拆解</p>
@@ -407,8 +407,8 @@
 <p><strong>JS程式語言中的同步與非同步</strong><br>
 JS在執行時依舊是依照同步的概念，按照順序一個一個任務執行，但遇到非同步任務時，會把他往後放，放到事件佇列(Event Queue)中。<br>
 待所有任務執行完成後再執行事件佇列內的任務。</p>
-<img src="/2019/11/24/JavaScript/sync.png" class="img-left" width="800" title="同步與非同步">
-<img src="/2019/11/24/JavaScript/Event_queue.png" class="img-left" width="800" title="事件佇列">
+<img src="/blog/2019/11/24/JavaScript/sync.png" class="img-left" width="800" title="同步與非同步">
+<img src="/blog/2019/11/24/JavaScript/Event_queue.png" class="img-left" width="800" title="事件佇列">
 <p>在所有非同步事件如 <span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>…，都不會立即執行這些任務，而是將這些任務放到<span class="label danger">事件佇列(event queue)</span>中，並將所有的事件堆疊完成後，才會開始讓<span class="label danger">事件佇列(event queue)</span>內的事件被觸發。</p>
 <div class="note info">
             <font size=2><p>名詞解釋：</p><ul><li>同步( Scynchronous )：同步處理就像是一般的程式邏輯的話，都是按照你所寫的一行一行去執行，而順序必定都是<strong>前一個動作執行完才會去接著執行下一個動作</strong>。</li><li>非同步( Ascynchronous )：<strong>等待前面步驟執行完之前可以先去執行後面的步驟</strong>。</li><li>事件佇列( event queue )</li></ul></font>
@@ -425,7 +425,7 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Basic/" rel="tag"># Basic</a>
+              <a href="/blog/tags/Basic/" rel="tag"># Basic</a>
           </div>
 
         
@@ -435,7 +435,7 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/12/01/HTML-Basic/" rel="next" title="HTML 基礎概念">
+    <a href="/blog/2019/12/01/HTML-Basic/" rel="next" title="HTML 基礎概念">
       HTML 基礎概念 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -509,20 +509,20 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
+          <a href="/blog/archives/">
         
           <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/blog/categories/">
           
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
+            <a href="/blog/tags/">
           
         <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">標籤</span></a>
@@ -575,12 +575,12 @@ JS在執行時依舊是依照同步的概念，按照順序一個一個任務執
   </div>
 
   
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
-<script src="/js/next-boot.js"></script>
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
 
 
 
