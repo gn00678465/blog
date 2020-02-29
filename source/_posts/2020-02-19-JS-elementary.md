@@ -343,13 +343,14 @@ target.addEventListener(type, listener[, options]);
 這其實是在講 DOM 裡面事件傳遞的順序。
 假如在兩個元素上面都加了`eventListener`，哪一個會先執行？此時，知道事件的執行順序就很重要。
 {% endnote %}
-1. Event Bubble - 事件冒泡
-{% note success no-icon %}
-當 DOM 事件在傳播時，從`target`往上從子節點一路逆向傳回去根節點，此時就叫做`BUBBLING_PHASE`，也就是冒泡階段。
-{% endnote %}
-1. Event Capture - 事件捕捉
-{% note danger no-icon %}
-當 DOM 事件在傳播時，會先從根節點開始往下傳遞到`target`，這邊如果加上事件的話，就會處於`CAPTURING_PHASE`，捕獲階段。
-{% endnote %}
+
+- <font size="4">Event Bubble - 事件冒泡</font>
+  {% note success no-icon %}
+  當 DOM 事件在傳播時，從`target`往上從子節點一路逆向傳回去根節點，此時就叫做`BUBBLING_PHASE`，也就是冒泡階段。
+  {% endnote %}
+- <font size="4">Event Capture - 事件捕捉</font>
+  {% note danger no-icon %}
+  當 DOM 事件在傳播時，會先從根節點開始往下傳遞到`target`，這邊如果加上事件的話，就會處於`CAPTURING_PHASE`，捕獲階段。
+  {% endnote %}
 
 {% asset_img eventflow.png %}
