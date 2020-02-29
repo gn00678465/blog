@@ -58,7 +58,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;HTMLCollection.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;NodeList.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;eventflow.png">
-<meta property="og:updated_time" content="2020-02-29T09:54:16.764Z">
+<meta property="og:updated_time" content="2020-02-29T10:36:53.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;dom-architecture.png">
 
@@ -213,7 +213,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-02-29 17:54:16" itemprop="dateModified" datetime="2020-02-29T17:54:16+08:00">2020-02-29</time>
+                <time title="修改時間：2020-02-29 18:36:53" itemprop="dateModified" datetime="2020-02-29T18:36:53+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -447,18 +447,16 @@ DOM標準分成了3個部分。</p>
 <div class="note primary">
             <p>這其實是在講 DOM 裡面事件傳遞的順序。<br>假如在兩個元素上面都加了<code>eventListener</code>，哪一個會先執行？此時，知道事件的執行順序就很重要。</p>
           </div>
-<ol>
-<li>Event Bubble - 事件冒泡</li>
-</ol>
-<div class="note success no-icon">
+<ul>
+<li><font size="4">Event Bubble - 事件冒泡</font><div class="note success no-icon">
             <p>當 DOM 事件在傳播時，從<code>target</code>往上從子節點一路逆向傳回去根節點，此時就叫做<code>BUBBLING_PHASE</code>，也就是冒泡階段。</p>
           </div>
-<ol>
-<li>Event Capture - 事件捕捉</li>
-</ol>
-<div class="note danger no-icon">
+</li>
+<li><font size="4">Event Capture - 事件捕捉</font><div class="note danger no-icon">
             <p>當 DOM 事件在傳播時，會先從根節點開始往下傳遞到<code>target</code>，這邊如果加上事件的話，就會處於<code>CAPTURING_PHASE</code>，捕獲階段。</p>
           </div>
+</li>
+</ul>
 <img src="/blog/2020/02/19/JS-elementary/eventflow.png" class="">
     </div>
 
