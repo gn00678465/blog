@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="Arguments                Name       Type       Description                       $size       number (with unit)       可輸入2個參數，第一個參數為 width，第二個為 height，如只輸入一個參數則 width = height。                 $color">
+  <meta name="description" content="Arguments                 Name       Type       Description                       $size       number (with unit)       可輸入2個參數，第一個參數為 width，第二個為 height，如只輸入一個參數則 width = height。                 $color">
 <meta property="og:type" content="website">
 <meta property="og:title" content="triangle">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;document&#x2F;utils&#x2F;mixin&#x2F;snape&#x2F;triangle.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Arguments                Name       Type       Description                       $size       number (with unit)       可輸入2個參數，第一個參數為 width，第二個為 height，如只輸入一個參數則 width = height。                 $color">
+<meta property="og:description" content="Arguments                 Name       Type       Description                       $size       number (with unit)       可輸入2個參數，第一個參數為 width，第二個為 height，如只輸入一個參數則 width = height。                 $color">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T02:10:20.034Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.180Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/sass-Advanced/document/utils/mixin/snape/triangle">
@@ -206,7 +206,8 @@
       
       
       <div class="post-body">
-          <h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2>
+          <h2 id="Arguments"><a class="header-anchor" href="#Arguments"></a>Arguments</h2>
+
 <table>
   <thead>
     <tr>
@@ -234,13 +235,10 @@
   </tbody>
 </table>
 
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> triangle (<span class="variable">$size</span>, <span class="variable">$color</span>, <span class="variable">$direction</span>) &#123;</span><br><span class="line">  <span class="variable">$width</span>: nth(<span class="variable">$size</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="variable">$height</span>: nth(<span class="variable">$size</span>, length(<span class="variable">$size</span>));</span><br><span class="line">  <span class="variable">$foreground-color</span>: nth(<span class="variable">$color</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="variable">$background-color</span>: transparent !default;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">if</span> (length(<span class="variable">$color</span>) == 2) &#123;</span><br><span class="line">    <span class="variable">$background-color</span>: nth(<span class="variable">$color</span>, <span class="number">2</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">if</span> (<span class="variable">$direction</span> == up) or (<span class="variable">$direction</span> == down) or (<span class="variable">$direction</span> == right) or (<span class="variable">$direction</span> == left) &#123;</span><br><span class="line">    <span class="variable">$width</span>: <span class="variable">$width</span> / <span class="number">2</span>;</span><br><span class="line">    @<span class="keyword">if</span> <span class="variable">$direction</span> == up &#123;</span><br><span class="line">      <span class="attribute">border-left</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-right</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-bottom</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> if <span class="variable">$direction</span> == right &#123;</span><br><span class="line">      <span class="attribute">border-top</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-bottom</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-left</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> if <span class="variable">$direction</span> == down &#123;</span><br><span class="line">      <span class="attribute">border-left</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-right</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-top</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> if <span class="variable">$direction</span> == left &#123;</span><br><span class="line">      <span class="attribute">border-top</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-bottom</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">      <span class="attribute">border-right</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == up-right) or (<span class="variable">$direction</span> == up-left) &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    @<span class="keyword">if</span> <span class="variable">$direction</span> == up-right &#123;</span><br><span class="line">      <span class="attribute">border-left</span>:  <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> if <span class="variable">$direction</span> == up-left &#123;</span><br><span class="line">      <span class="attribute">border-right</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == down-right) or (<span class="variable">$direction</span> == down-left) &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="variable">$height</span> solid <span class="variable">$foreground-color</span>;</span><br><span class="line">    @<span class="keyword">if</span> <span class="variable">$direction</span> == down-right &#123;</span><br><span class="line">      <span class="attribute">border-left</span>:  <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">    &#125; @<span class="keyword">else</span> if <span class="variable">$direction</span> == down-left &#123;</span><br><span class="line">      <span class="attribute">border-right</span>: <span class="variable">$width</span> solid <span class="variable">$background-color</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == inset-up) &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="variable">$height</span> <span class="variable">$width</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="variable">$background-color</span> <span class="variable">$background-color</span> <span class="variable">$foreground-color</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == inset-down) &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="variable">$height</span> <span class="variable">$width</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="variable">$foreground-color</span> <span class="variable">$background-color</span> <span class="variable">$background-color</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == inset-right) &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="variable">$width</span> <span class="variable">$height</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="variable">$background-color</span> <span class="variable">$background-color</span> <span class="variable">$background-color</span> <span class="variable">$foreground-color</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @<span class="keyword">else</span> if (<span class="variable">$direction</span> == inset-left) &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="variable">$width</span> <span class="variable">$height</span>;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">    <span class="attribute">border-color</span>: <span class="variable">$background-color</span> <span class="variable">$foreground-color</span> <span class="variable">$background-color</span> <span class="variable">$background-color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">include</span> triangle(<span class="variable">$width</span> <span class="variable">$height</span>, <span class="variable">$foreground-color</span> <span class="variable">$background-color</span>, <span class="variable">$direction</span>)</span><br></pre></td></tr></table></figure>
 <div class="result result--light">
   <div class="ribbon ribbon--success">
-
   </div>
 </div>
       </div>
@@ -328,20 +326,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -433,6 +431,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

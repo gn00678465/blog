@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="code {   background: #f6f9fa !important;   padding: 0 4px !important;   color: #ed5a5a; }    Arguments                Name       Type       Description                       $el       string       產">
+  <meta name="description" content="code {   background: #f6f9fa !important;   padding: 0 4px !important;   color: #ed5a5a; }   Arguments                 Name       Type       Description                       $el       string       產">
 <meta property="og:type" content="website">
 <meta property="og:title" content="模組化 pseudo-element">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;document&#x2F;module&#x2F;pseudo-element.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="code {   background: #f6f9fa !important;   padding: 0 4px !important;   color: #ed5a5a; }    Arguments                Name       Type       Description                       $el       string       產">
+<meta property="og:description" content="code {   background: #f6f9fa !important;   padding: 0 4px !important;   color: #ed5a5a; }   Arguments                 Name       Type       Description                       $el       string       產">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-11T15:25:35.114Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.180Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/sass-Advanced/document/module/pseudo-element">
@@ -213,8 +213,8 @@ code {
 }
 </style>
 
+<h2 id="Arguments"><a class="header-anchor" href="#Arguments"></a>Arguments</h2>
 
-<h2 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h2>
 <table>
   <thead>
     <tr>
@@ -247,26 +247,28 @@ code {
   </tbody>
 </table>
 
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$position-default</span>: null !default;</span><br><span class="line"><span class="variable">$pseudo-content</span>: null !default;</span><br><span class="line">@<span class="keyword">mixin</span> position(</span><br><span class="line">  <span class="variable">$type</span>,</span><br><span class="line">  <span class="variable">$top</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$right</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$bottom</span>: <span class="variable">$position-default</span>,</span><br><span class="line">  <span class="variable">$left</span>: <span class="variable">$position-default</span></span><br><span class="line">) &#123;</span><br><span class="line">  <span class="variable">$allowed_types</span>: absolute relative fixed;</span><br><span class="line">  @<span class="keyword">if</span> not index(</span><br><span class="line">    <span class="variable">$allowed_types</span>, <span class="variable">$type</span></span><br><span class="line">  ) &#123;</span><br><span class="line">    @<span class="keyword">warn</span> <span class="string">"Unknown position: #&#123;$type&#125;."</span>;</span><br><span class="line">  &#125; @<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: <span class="variable">$type</span>;</span><br><span class="line">    @<span class="keyword">each</span> <span class="variable">$data</span> in top <span class="variable">$top</span>, right <span class="variable">$right</span>, bottom <span class="variable">$bottom</span>, left <span class="variable">$left</span> &#123;</span><br><span class="line">		  #&#123;nth(<span class="variable">$data</span>, 1)&#125;: nth(<span class="variable">$data</span>, <span class="number">2</span>);</span><br><span class="line">	  &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> p-el(</span><br><span class="line">  <span class="variable">$el</span>,</span><br><span class="line">  <span class="variable">$el-width</span>,</span><br><span class="line">  <span class="variable">$el-height</span>,</span><br><span class="line">  <span class="variable">$content</span>: <span class="variable">$pseudo-content</span></span><br><span class="line">) &#123;</span><br><span class="line">  @<span class="keyword">if</span> <span class="variable">$el</span> == <span class="string">"before"</span> or <span class="variable">$el</span> == <span class="string">"after"</span> &#123;</span><br><span class="line">    &amp;::#&#123;<span class="variable">$el</span>&#125; &#123;</span><br><span class="line">      content: <span class="string">"#&#123;$content&#125;"</span>;</span><br><span class="line">      @<span class="keyword">include</span> position(absolute);</span><br><span class="line">      <span class="attribute">width</span>: <span class="variable">$el-width</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="variable">$el-height</span>;</span><br><span class="line">      @<span class="keyword">content</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    @<span class="keyword">warn</span> <span class="string">"`#&#123;$el&#125;` is not a valid pseudo-element."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>使用CSS產生偽元素經常會使用某些屬性讓偽元素可以顯示。而經常重覆使用的CSS 宣告 不外乎為<code>content</code>，<code>display</code>和<code>position</code>，這些都是在建立偽元素時常見的屬性。</p>
+<h2 id="說明"><a class="header-anchor" href="#說明"></a>說明</h2>
+<p>使用CSS產生偽元素經常會使用某些屬性讓偽元素可以顯示。而經常重覆使用的CSS 宣告 不外乎為<code>content</code>，<code>display</code>和<code>position</code>，這些都是在建立偽元素時常見的屬性。</p>
 <p>使用sass，我們可以建立 <code>mixins</code> 來幫助我們以較少的code 方便維護CSS檔案。</p>
 <ol>
-<li><p>撰寫mixin，先建立偽元素 <code>@mixin</code> 並帶入4個參數，分別為偽元素<code>::before</code> &amp; <code>::after</code>、<code>content</code>、寬度、高度。<br>建立偽元素必須包含 <code>content</code> 屬性，以及使用 <code>display</code> 或 <code>position</code> 屬性來去排板。</p>
+<li>撰寫mixin，先建立偽元素 <code>@mixin</code> 並帶入4個參數，分別為偽元素<code>::before</code> &amp; <code>::after</code>、<code>content</code>、寬度、高度。<br>
+建立偽元素必須包含 <code>content</code> 屬性，以及使用 <code>display</code> 或 <code>position</code> 屬性來去排板。</li>
+</ol>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// _mixins.scss</span></span><br><span class="line">@<span class="keyword">mixin</span> p-el(<span class="variable">$el</span>, <span class="variable">$content</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>) &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用插值語法 <code>#{}</code> 可以使用變數來建立動態的選擇器，所以在 <code>mixin</code> 內可以使用連結符 <code>&amp;</code> 以及變數 <code>$el</code> 來建立偽元素。<br>有時需使用 <code>content</code> 屬性顯示特定內容，使用插值語法 <code>#{}</code> 讓變數 <code>$content</code> 可以正常帶入。</p>
+<p>使用插值語法 <code>#{}</code> 可以使用變數來建立動態的選擇器，所以在 <code>mixin</code> 內可以使用連結符 <code>&amp;</code> 以及變數 <code>$el</code> 來建立偽元素。<br>
+有時需使用 <code>content</code> 屬性顯示特定內容，使用插值語法 <code>#{}</code> 讓變數 <code>$content</code> 可以正常帶入。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  &amp;:#&#123;<span class="variable">$el</span>&#125; &#123;</span><br><span class="line">  content: <span class="string">'#&#123;$content&#125;'</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>增加 <code>width</code>, <code>height</code> 的屬性，並通過變數 <code>$el-width</code>, <code>$el-height</code> 帶入值來顯示偽元素。</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  &amp;:#&#123;<span class="variable">$el</span>&#125; &#123;</span><br><span class="line">  content: <span class="string">'#&#123;$content&#125;'</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">width</span>: <span class="variable">$el-width</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="variable">$el-height</span>;</span><br><span class="line">  @<span class="keyword">content</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>@content</code> 的用途主要是拿來傳遞內容到Mixin裡面。</p>
-</li>
-<li><p>目前無法避免 <code>$el</code> 會帶入 <code>before</code> or <code>after</code> 以外的值，為避免編譯出的CSS無作用，使用 <code>@if</code>, <code>@warn</code> 指令來加入判斷。<br>輸入<code>before</code> or <code>after</code> 會正常編譯出CSS檔案，而以外的值時編譯會出現錯誤訊息。 </p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  @<span class="keyword">if</span> <span class="variable">$el</span> == <span class="string">"before"</span> or <span class="variable">$el</span> == <span class="string">"after"</span> &#123;</span><br><span class="line">    &amp;:#&#123;<span class="variable">$el</span>&#125; &#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @else &#123;</span><br><span class="line">    @warn <span class="string">"`#&#123;$el&#125;` is not a valid pseudo-element."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<ol>
+<li>目前無法避免 <code>$el</code> 會帶入 <code>before</code> or <code>after</code> 以外的值，為避免編譯出的CSS無作用，使用 <code>@if</code>, <code>@warn</code> 指令來加入判斷。<br>
+輸入<code>before</code> or <code>after</code> 會正常編譯出CSS檔案，而以外的值時編譯會出現錯誤訊息。</li>
 </ol>
-<h2 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h2><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">include</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  其他樣式;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不顯示content內容</span></span><br><span class="line">@<span class="keyword">include</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, null) &#123;</span><br><span class="line">  其他樣式;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">mixin</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  @<span class="keyword">if</span> <span class="variable">$el</span> == <span class="string">"before"</span> or <span class="variable">$el</span> == <span class="string">"after"</span> &#123;</span><br><span class="line">    &amp;:#&#123;<span class="variable">$el</span>&#125; &#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @else &#123;</span><br><span class="line">    @warn <span class="string">"`#&#123;$el&#125;` is not a valid pseudo-element."</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="引入方式"><a class="header-anchor" href="#引入方式"></a>引入方式</h2>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">include</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, <span class="variable">$content</span>) &#123;</span><br><span class="line">  其他樣式;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不顯示content內容</span></span><br><span class="line">@<span class="keyword">include</span> p-el(<span class="variable">$el</span>, <span class="variable">$el-width</span>, <span class="variable">$el-height</span>, null) &#123;</span><br><span class="line">  其他樣式;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
@@ -350,20 +352,20 @@ code {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -455,6 +457,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

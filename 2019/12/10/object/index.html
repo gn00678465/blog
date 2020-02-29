@@ -65,7 +65,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-10.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-11.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;Shallow_Copy_VS_Deep_copy.png">
-<meta property="og:updated_time" content="2020-01-07T00:52:18.480Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;10&#x2F;object&#x2F;object-1.png">
 
@@ -220,7 +220,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-07 08:52:18" itemprop="dateModified" datetime="2020-01-07T08:52:18+08:00">2020-01-07</time>
+                <time title="修改時間：2020-02-29 17:44:08" itemprop="dateModified" datetime="2020-02-29T17:44:08+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -247,14 +247,16 @@
       
         <blockquote class="blockquote-center"><p>物件是一批相關的數據以及/或者功能（通常包含了幾個變數及函式 — 當它們包含在物件中時被稱做「屬性」（properties）或「函式」（methods））。</p>
 </blockquote>
-
 <a id="more"></a>
-
-<h1 id="物件結構"><a href="#物件結構" class="headerlink" title="物件結構"></a>物件結構</h1><p>物件宣告方式有兩種</p>
+<h1 id="物件結構"><a class="header-anchor" href="#物件結構"></a>物件結構</h1>
+<p>物件宣告方式有兩種</p>
 <ol>
-<li>物件實字(Object Literals)<br>宣告一個物件名稱，並於賦值運算子後方填入<code>{}</code>作為區塊宣告。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> 物件名稱 = &#123;&#125;</span><br></pre></td></tr></table></figure>
+<li>物件實字(Object Literals)<br>
+宣告一個物件名稱，並於賦值運算子後方填入<code>{}</code>作為區塊宣告。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> 物件名稱 = &#123;&#125;</span><br></pre></td></tr></table></figure>
 <div class="note info">
-            <ul><li>物件本身的組成是由一個 {屬性(property) : 值(value)} 組成的，屬性的值可以是任何合法的值，可以包含陣列、函式或其他物件。</li><li>如果是一般的值的情況，稱為”屬性(property, prop)”，如果是一個函式，稱之為”方法(method)”。屬性與方法我們通常合稱為物件中的成員(member)。</li><li>物件中的每一個成員(member)須以<code>,</code>相隔。</li><li>屬性定義上一律為字串，固可使用特殊字元。</li></ul>
+            <ul><li>物件本身的組成是由一個 {屬性(property) : 值(value)} 組成的，屬性的值可以是任何合法的值，可以包含陣列、函式或其他物件。</li><li>如果是一般的值的情況，稱為&quot;屬性(property, prop)&quot;，如果是一個函式，稱之為&quot;方法(method)&quot;。屬性與方法我們通常合稱為物件中的成員(member)。</li><li>物件中的每一個成員(member)須以<code>,</code>相隔。</li><li>屬性定義上一律為字串，固可使用特殊字元。</li></ul>
           </div>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  properties: value,  <span class="comment">//屬性: 值(可為number or string)</span></span><br><span class="line">  array: [],</span><br><span class="line">  object: &#123;&#125;,</span><br><span class="line">  holloworld: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;    <span class="comment">//方法: 值</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World'</span>)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <div class="note no-icon">
@@ -266,118 +268,183 @@
 <div class="note warning">
             <p>多數情況請使用物件實字(Object Literals)宣告物件</p>
           </div>
-
-</li>
-</ol>
-<p>參考：<br><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part3/object.html" target="_blank" rel="noopener">從ES6開始的JavaScript學習生活-物件</a></p>
-<h1 id="物件取值、新增、刪除"><a href="#物件取值、新增、刪除" class="headerlink" title="物件取值、新增、刪除"></a>物件取值、新增、刪除</h1><p>物件取值取值、新增、刪除有以下兩種，分別為</p>
+<p>參考：<br>
+<a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part3/object.html" target="_blank" rel="noopener">從ES6開始的JavaScript學習生活-物件</a></p>
+<h1 id="物件取值、新增、刪除"><a class="header-anchor" href="#物件取值、新增、刪除"></a>物件取值、新增、刪除</h1>
+<p>物件取值取值、新增、刪除有以下兩種，分別為</p>
 <ol>
-<li><strong>點記法 (Dot notation)</strong><br>可透過點記法 (Dot notation) 存取物件的屬性與函式。<br>物件名稱作為<strong>命名空間 (Namespace)</strong>，接著寫一個”<font color='red'><strong>.</strong></font>“以及想取值、新增、刪除的屬性 or 方法名稱。<br>點記法只可接受字串表示的成員名稱，不能是指向變數名稱。<ul>
-<li>取值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱.屬性名稱</span><br><span class="line">物件名稱.子物件名稱.屬性名稱    <span class="comment">//巢狀物件</span></span><br><span class="line">物件名稱.方法名稱()            <span class="comment">//函式取值</span></span><br></pre></td></tr></table></figure></li>
-<li>更新(新增)<br>透過賦值運算子將值賦予現有屬性與函式的數值，也可以建立全新的成員。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱.屬性名稱 = 值</span><br><span class="line">物件名稱.方法名稱 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>)&#125;  <span class="comment">//新增函式</span></span><br></pre></td></tr></table></figure></li>
-<li>刪除<br>使用一元運算子<code>delete</code>刪除現有屬性與函式的數值。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱.屬性名稱</span><br><span class="line"><span class="keyword">delete</span> 物件名稱.方法名稱    <span class="comment">//刪除函式</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><strong>點記法 (Dot notation)</strong><br>
+可透過點記法 (Dot notation) 存取物件的屬性與函式。<br>
+物件名稱作為<strong>命名空間 (Namespace)</strong>，接著寫一個&quot;<font color='red'><strong>.</strong></font>&quot;以及想取值、新增、刪除的屬性 or 方法名稱。<br>
+點記法只可接受字串表示的成員名稱，不能是指向變數名稱。</li>
+</ol>
+<ul>
+<li>取值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱.屬性名稱</span><br><span class="line">物件名稱.子物件名稱.屬性名稱    <span class="comment">//巢狀物件</span></span><br><span class="line">物件名稱.方法名稱()            <span class="comment">//函式取值</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><strong>括弧記法 (Bracket notation)</strong><br>括弧記法 (Bracket notation) 是另一種存取物件屬性的方法。<br>將要存取屬性名稱使用”<font color='red'><strong>[]</strong></font>“包覆起來。<br>如屬性名稱為<strong>變數值</strong>可使用括弧記法。<ul>
-<li>取值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line">物件名稱[變數名稱]</span><br><span class="line">物件名稱[方法名稱]()  <span class="comment">//函式取值</span></span><br></pre></td></tr></table></figure></li>
-<li>新增<br>透過賦值運算子將值賦予現有屬性與函式的數值，也可以建立全新的成員，與點記法相同。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>] = 值</span><br><span class="line">物件名稱[變數名稱] = 變數值</span><br><span class="line">物件名稱[<span class="string">'方法名稱'</span>]()  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure></li>
-<li>刪除<br>使用一元運算子<code>delete</code>刪除現有屬性與函式的數值，與點記法相同。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'方法名稱'</span>]  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure>
-<div class="note no-icon">
+<li>更新(新增)<br>
+透過賦值運算子將值賦予現有屬性與函式的數值，也可以建立全新的成員。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱.屬性名稱 = 值</span><br><span class="line">物件名稱.方法名稱 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>)&#125;  <span class="comment">//新增函式</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>刪除<br>
+使用一元運算子<code>delete</code>刪除現有屬性與函式的數值。</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱.屬性名稱</span><br><span class="line"><span class="keyword">delete</span> 物件名稱.方法名稱    <span class="comment">//刪除函式</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>括弧記法 (Bracket notation)</strong><br>
+括弧記法 (Bracket notation) 是另一種存取物件屬性的方法。<br>
+將要存取屬性名稱使用&quot;<font color='red'><strong>[]</strong></font>&quot;包覆起來。<br>
+如屬性名稱為<strong>變數值</strong>可使用括弧記法。</li>
+</ol>
+<ul>
+<li>取值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line">物件名稱[變數名稱]</span><br><span class="line">物件名稱[方法名稱]()  <span class="comment">//函式取值</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>新增<br>
+透過賦值運算子將值賦予現有屬性與函式的數值，也可以建立全新的成員，與點記法相同。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">物件名稱[<span class="string">'屬性名稱'</span>] = 值</span><br><span class="line">物件名稱[變數名稱] = 變數值</span><br><span class="line">物件名稱[<span class="string">'方法名稱'</span>]()  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>刪除<br>
+使用一元運算子<code>delete</code>刪除現有屬性與函式的數值，與點記法相同。</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'屬性名稱'</span>]</span><br><span class="line"><span class="keyword">delete</span> 物件名稱[<span class="string">'方法名稱'</span>]  <span class="comment">//函式</span></span><br></pre></td></tr></table></figure>
+  <div class="note no-icon">
             <p><font size=2>此方式與陣列取值方式相似，陣列取值使用指數  (index number) 選擇項目；而括弧記法 (Bracket notation)取值是透過各成員數值相關的名稱來選擇項目。</font></p>
           </div>
-
-</li>
-</ul>
-</li>
-</ol>
-<p>補充：<br><strong>變數無法被刪除，屬性才能被刪除。</strong><br>使用 var 宣告變數，此變數無法被刪除。<br>如直接使用賦值運算子賦予一個值，類似於全域變數下新增一個屬性<code>window.property = value</code>。</p>
+<p>補充：<br>
+<strong>變數無法被刪除，屬性才能被刪除。</strong><br>
+使用 var 宣告變數，此變數無法被刪除。<br>
+如直接使用賦值運算子賦予一個值，類似於全域變數下新增一個屬性<code>window.property = value</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>        <span class="comment">//宣告變數  a = 1</span></span><br><span class="line">aa = <span class="number">1</span>           <span class="comment">//類似windows.a = 1</span></span><br><span class="line"><span class="keyword">delete</span> a         <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(a)   <span class="comment">//1  </span></span><br><span class="line"><span class="keyword">delete</span> aa        <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(aa)  <span class="comment">//aa is not defined</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="物件與純值"><a href="#物件與純值" class="headerlink" title="物件與純值"></a>物件與純值</h1><ul>
-<li>純值(Primitive Types)又稱為原始型別，可參考：。<ul>
-<li>使用建立的純值無法新增屬性。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br><span class="line">name.age = <span class="number">30</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br></pre></td></tr></table></figure></li>
-<li>使用建構式建立則變為物件型別，便可以新增屬性。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newName = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(newName));   <span class="comment">//String &#123;"小明"&#125;</span></span><br><span class="line">newName.age = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(newName);   <span class="comment">//String &#123;"小明", age: 30&#125;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>未定義的物件屬性預設值<br>物件下未定義屬性的值為undefined，並於undefined下無法新增任何屬性。</li>
-</ul>
-<h1 id="物件的參考特性"><a href="#物件的參考特性" class="headerlink" title="物件的參考特性"></a>物件的參考特性</h1><img src="/2019/12/10/object/object-1.png" class="" width="800" title="[傳值 vs 傳參考]">
+<h1 id="物件與純值"><a class="header-anchor" href="#物件與純值"></a>物件與純值</h1>
 <ul>
-<li><p>傳值(Call By Value)：<br>把 <span class="label primary">值</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。</p>
-<div class="note no-icon">
+<li>純值(Primitive Types)又稱為原始型別，可參考：。
+<ul>
+<li>使用建立的純值無法新增屬性。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br><span class="line">name.age = <span class="number">30</span></span><br><span class="line"><span class="built_in">console</span>.log(name)   <span class="comment">//小明</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用建構式建立則變為物件型別，便可以新增屬性。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newName = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'小明'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(newName));   <span class="comment">//String &#123;"小明"&#125;</span></span><br><span class="line">newName.age = <span class="number">30</span>;</span><br><span class="line"><span class="built_in">console</span>.log(newName);   <span class="comment">//String &#123;"小明", age: 30&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>未定義的物件屬性預設值<br>
+物件下未定義屬性的值為undefined，並於undefined下無法新增任何屬性。</li>
+</ul>
+<h1 id="物件的參考特性"><a class="header-anchor" href="#物件的參考特性"></a>物件的參考特性</h1>
+<img src="/2019/12/10/object/object-1.png" class="" width="800" title="[傳值 vs 傳參考]">
+<ul>
+<li>傳值(Call By Value)：<br>
+把 <span class="label primary">值</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。<div class="note no-icon">
             <p>當宣告一個 primitive type 的變數時（如：數字、字串、布林），假設把 preson 指定成一個 primitive type 的時候，preson 會在記憶體中存在一個自己的位置（0x01）。當指定另一個變數 <code>preson2 = preson</code> 的時候，preson2 實際上會建立另一個獨立的記憶體位置（假設叫做0x02），接著再把 preson 的值存在這個獨立的記憶體位置。<br>preson 和 preson2 其實是存在於兩個不同的記憶體位置，因此彼此並不會乎相干擾影響，當修改preson2的值時，preson仍不會變。</p>
           </div>
+</li>
+</ul>
 <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-2.png" class=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-3.png" class=""></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/12/10/object/object-4.png" class=""></div></div></div></div>
 <div class="note info">
             <p>在 JavaScript 中 primitive type（Boolean, String, Number, null, undefined）都屬於 Call By Value。</p>
-          </div></li>
-<li><p>傳參考<br>是把<span class="label danger">記憶體位置</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。</p>
+          </div>
+<ul>
+<li>
+<p>傳參考<br>
+是把<span class="label danger">記憶體位置</span> 傳到 <span class="label danger">另一個記憶體位置</span> 的 <span class="label primary">值</span> 上。</p>
 <div class="note no-icon">
             <p>當建立一個 preson 為 Object(或function) 時，preson 會在記憶體中建立一個自己的位置（0x01）。當指定另一個變數 <code>preson2 = preson</code> 的時候，這時候並不會給 preson2 一個新的位置，而是一樣指定到物件 preson 的位置（即0x01）。<br>物件 preson 和 preson2 都會被指稱到相同的位置（即0x01），因此，當 preson 的值改變的時候 preson 的值也會改變。</p>
           </div>
 <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-5.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-6.png" class=""></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-7.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-8.png" class=""></div></div></div></div>
-
 <div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-10.png" class=""></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/12/10/object/object-11.png" class=""></div></div></div></div>
-
 </li>
 </ul>
 <p><strong><a href="/object-example/"><font color="red">物件參考觀念-延伸範例</font></a></strong></p>
-<h1 id="Call-by-Reference-還是-Call-by-Sharing"><a href="#Call-by-Reference-還是-Call-by-Sharing" class="headerlink" title="Call by Reference 還是 Call by Sharing"></a>Call by Reference 還是 Call by Sharing</h1><ul>
-<li>傳參照呼叫（Call by reference）<blockquote class="blockquote-center"><p>傳遞給函式的是它的實際參數的隱式參照而不是實參的拷貝。</p>
-</blockquote></li>
-<li>傳共享物件呼叫（Call by sharing）<blockquote class="blockquote-center"><p>與傳參照呼叫不同，對於呼叫者而言在被呼叫函數裡修改參數是沒有影響的。</p>
-</blockquote>
-
-</li>
-</ul>
-<p>參考：<a href="https://zh.wikipedia.org/wiki/求值策略" target="_blank" rel="noopener">求值策略- 维基百科</a></p>
-<h1 id="淺層複製及深層複製"><a href="#淺層複製及深層複製" class="headerlink" title="淺層複製及深層複製"></a>淺層複製及深層複製</h1><img src="/2019/12/10/object/Shallow_Copy_VS_Deep_copy.png" class="" width="800" title="[淺層複製及深層複製]">
+<h1 id="Call-by-Reference-還是-Call-by-Sharing"><a class="header-anchor" href="#Call-by-Reference-還是-Call-by-Sharing"></a>Call by Reference 還是 Call by Sharing</h1>
 <ul>
-<li>淺層複製(Shallow Copy)<div class="note info">
+<li>傳參照呼叫（Call by reference）</li>
+</ul>
+<blockquote class="blockquote-center"><p>傳遞給函式的是它的實際參數的隱式參照而不是實參的拷貝。</p>
+</blockquote>
+<ul>
+<li>傳共享物件呼叫（Call by sharing）</li>
+</ul>
+<blockquote class="blockquote-center"><p>與傳參照呼叫不同，對於呼叫者而言在被呼叫函數裡修改參數是沒有影響的。</p>
+</blockquote>
+<p>參考：<a href="https://zh.wikipedia.org/wiki/%E6%B1%82%E5%80%BC%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">求值策略- 维基百科</a></p>
+<h1 id="淺層複製及深層複製"><a class="header-anchor" href="#淺層複製及深層複製"></a>淺層複製及深層複製</h1>
+<img src="/2019/12/10/object/Shallow_Copy_VS_Deep_copy.png" class="" width="800" title="[淺層複製及深層複製]">
+<ul>
+<li>淺層複製(Shallow Copy)</li>
+</ul>
+<div class="note info">
             <p>只能達到淺層的複製(<font color="blue">第一層</font>)，若有<font color="red">第二層</font>以上的資料的話，<br>就無法達到實際的複製，而是會與舊物件一起共用同一塊記憶體。</p>
           </div>
-有下列3種方式<ul>
-<li><code>for () { ... in ... }</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  name: <span class="string">'小明家'</span>,</span><br><span class="line">  members: &#123;</span><br><span class="line">    father: <span class="string">'老爸'</span>,</span><br><span class="line">    mon: <span class="string">'老媽'</span>,</span><br><span class="line">    ming: <span class="string">'小明'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> newFamily = &#123;&#125;         <span class="comment">//建立一個新物件</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> family) &#123;</span><br><span class="line">  newFamily[key] = family[key]</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(family === newFamily)  <span class="comment">//false (物件第一層已指向不同位址)</span></span><br><span class="line"><span class="built_in">console</span>.log(newFamily)     <span class="comment">//&#123;name: "小明家", merbers: &#123;...&#125;&#125;</span></span><br><span class="line">newFamily.name = <span class="string">"大明家"</span></span><br><span class="line"><span class="built_in">console</span>.log(newFamily)     <span class="comment">//&#123;name: "大明家", merbers: &#123;...&#125;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(family.members === newFamily.members)  <span class="comment">//true (物件第二層仍指向相同位址)</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>有下列3種方式</p>
 <ul>
-<li>jQuery<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily2 = jQuery.extend(&#123;&#125;, family)</span><br></pre></td></tr></table></figure></li>
-<li>ES6<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily3 = <span class="built_in">Object</span>.assign(&#123;&#125;, family)</span><br></pre></td></tr></table></figure></li>
-<li>展開運算子(Spread Operator)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily4 = &#123;...family&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>for () { ... in ... } </code></li>
 </ul>
-</li>
-<li>深層複製(Deep Copy)<div class="note info">
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> family = &#123;</span><br><span class="line">  name: <span class="string">'小明家'</span>,</span><br><span class="line">  members: &#123;</span><br><span class="line">    father: <span class="string">'老爸'</span>,</span><br><span class="line">    mon: <span class="string">'老媽'</span>,</span><br><span class="line">    ming: <span class="string">'小明'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> newFamily = &#123;&#125;         <span class="comment">//建立一個新物件</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> family) &#123;</span><br><span class="line">  newFamily[key] = family[key]</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(family === newFamily)  <span class="comment">//false (物件第一層已指向不同位址)</span></span><br><span class="line"><span class="built_in">console</span>.log(newFamily)     <span class="comment">//&#123;name: "小明家", merbers: &#123;...&#125;&#125;</span></span><br><span class="line">newFamily.name = <span class="string">"大明家"</span></span><br><span class="line"><span class="built_in">console</span>.log(newFamily)     <span class="comment">//&#123;name: "大明家", merbers: &#123;...&#125;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(family.members === newFamily.members)  <span class="comment">//true (物件第二層仍指向相同位址)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>jQuery</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily2 = jQuery.extend(&#123;&#125;, family)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ES6</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily3 = <span class="built_in">Object</span>.assign(&#123;&#125;, family)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>展開運算子(Spread Operator)</li>
+</ul>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily4 = &#123;...family&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>深層複製(Deep Copy)</li>
+</ul>
+<div class="note info">
             <p>會另外創造一個一模一樣的物件，新物件跟原物件<font color="red">不</font>共用記憶體，修改新物件不會改到原物件。</p>
           </div>
 <ul>
-<li>轉成 JSON 再轉回來<br>用<code>JSON.stringify</code>把物件轉成字串，再用<code>JSON.parse</code>把字串轉成新的物件。<br>缺點：繼承的屬性會遺失。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily5 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(family))</span><br><span class="line"><span class="built_in">console</span>.log( family === newFamily5 )    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( family.members === newFamily5.members )    <span class="comment">//false</span></span><br></pre></td></tr></table></figure></li>
-<li>Lodash<br>另外一個很熱門的<span class="label primary">JS函式庫 lodash</span>，提供<code>_.cloneDeep</code>用來做 Deep Copy。<br><a href="https://lodash.com" target="_blank" rel="noopener">lodash</a><br><a href="https://lodash.com/docs/" target="_blank" rel="noopener">API</a><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily6 = _.cloneDeep(family);</span><br><span class="line"><span class="built_in">console</span>.log( family === newFamily6 )    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( family.members === newFamily6.members )    <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>轉成 JSON 再轉回來<br>
+用<code>JSON.stringify</code>把物件轉成字串，再用<code>JSON.parse</code>把字串轉成新的物件。<br>
+缺點：繼承的屬性會遺失。</li>
 </ul>
-</li>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily5 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(family))</span><br><span class="line"><span class="built_in">console</span>.log( family === newFamily5 )    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( family.members === newFamily5.members )    <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Lodash<br>
+另外一個很熱門的<span class="label primary">JS函式庫 lodash</span>，提供<code>_.cloneDeep</code>用來做 Deep Copy。<br>
+<a href="https://lodash.com" target="_blank" rel="noopener">lodash</a><br>
+<a href="https://lodash.com/docs/" target="_blank" rel="noopener">API</a></li>
 </ul>
-<h1 id="陣列-Array"><a href="#陣列-Array" class="headerlink" title="陣列(Array)"></a>陣列(Array)</h1><div class="note info">
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newFamily6 = _.cloneDeep(family);</span><br><span class="line"><span class="built_in">console</span>.log( family === newFamily6 )    <span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log( family.members === newFamily6.members )    <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<h1 id="陣列-Array"><a class="header-anchor" href="#陣列-Array"></a>陣列(Array)</h1>
+<div class="note info">
             <p>陣列是一種有順序的複合式的資料結構，用於定義、存放複數的資料類型，陣列是用來把複數的值存進一個變數裡，可以是原始的資料類型、其他陣列、函式等等。</p>
           </div>
 <blockquote>
-<p>註: 雖然陣列資料類型是屬於物件，但Array這個包裝物件的 <code>typeof Array</code> 也是回傳’function’。<br>定義方式</p>
+<p>註: 雖然陣列資料類型是屬於物件，但Array這個包裝物件的 <code>typeof Array</code> 也是回傳’function’。<br>
+定義方式</p>
 </blockquote>
 <ul>
-<li>一：<br>將複數的值以 <code>,</code> 隔開並使用方括號 <code>[]</code> 包覆存進一個變數內。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [<span class="number">1</span>, <span class="string">'string'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>)&#125;, <span class="literal">true</span>, &#123;&#125;]</span><br></pre></td></tr></table></figure></li>
-<li>建構式：<br>這種方式並不建議使用，使用此語法在分配後，會把長度值(成員個數)固定住，除非你百分之百確定陣列裡面的成員個數，不然千萬不要用。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//警告: 不要使用這種定義方式</span></span><br><span class="line"><span class="keyword">var</span> aArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>)    <span class="comment">//預先分配的定義</span></span><br><span class="line"><span class="keyword">var</span> bArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//定義三個陣列值</span></span><br></pre></td></tr></table></figure>
+<li>一：<br>
+將複數的值以 <code>,</code> 隔開並使用方括號 <code>[]</code> 包覆存進一個變數內。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [<span class="number">1</span>, <span class="string">'string'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hello world'</span>)&#125;, <span class="literal">true</span>, &#123;&#125;]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>建構式：<br>
+這種方式並不建議使用，使用此語法在分配後，會把長度值(成員個數)固定住，除非你百分之百確定陣列裡面的成員個數，不然千萬不要用。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//警告: 不要使用這種定義方式</span></span><br><span class="line"><span class="keyword">var</span> aArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>)    <span class="comment">//預先分配的定義</span></span><br><span class="line"><span class="keyword">var</span> bArray = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//定義三個陣列值</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>註: JavaScript的內建物件都不建議new作初始定義的。不過有一些特例是一定要的，例如Date、Error等等。<br>每一個陣列中的元素，都附有一個能讀相對應元素的數字，稱做數字索引（numeric index）。<br>是從<font color="red">0</font>開始的順序整數值，可以用方括號 <code>[]</code> 來取得成員的指定值，也可以用這個方式來改變成員包含的值。</p>
+<p>註: JavaScript的內建物件都不建議new作初始定義的。不過有一些特例是一定要的，例如Date、Error等等。<br>
+每一個陣列中的元素，都附有一個能讀相對應元素的數字，稱做數字索引（numeric index）。<br>
+是從<font color="red">0</font>開始的順序整數值，可以用方括號 <code>[]</code> 來取得成員的指定值，也可以用這個方式來改變成員包含的值。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">0</span>])    <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">1</span>])    <span class="comment">//string</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">2</span>]())  <span class="comment">//hello world</span></span><br><span class="line"><span class="built_in">console</span>.log(newArray[<span class="number">3</span>])    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<h2 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h2></li>
-</ul>
+<h2 id="注意事項"><a class="header-anchor" href="#注意事項"></a>注意事項</h2>
 <ul>
-<li>多維陣列<br>多維陣列指的是”陣列中的陣列”結構，只是在陣列中保存其他的陣列值。<br>維數過多時在處理上會愈複雜，一般常見的只有二維。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br></pre></td></tr></table></figure></li>
-<li>儲存多種資料類型</li>
-<li>多洞的陣列(Holey Arrays)或稀疏陣列(Sparse Arrays)<br>在定義陣列時，它的陣列值和索引(index)並沒有塞滿，或是從一個完整的陣列刪除其中一個(留了個空位)。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = []</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>多維陣列<br>
+多維陣列指的是&quot;陣列中的陣列&quot;結構，只是在陣列中保存其他的陣列值。<br>
+維數過多時在處理上會愈複雜，一般常見的只有二維。</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>儲存多種資料類型</li>
+<li>多洞的陣列(Holey Arrays)或稀疏陣列(Sparse Arrays)<br>
+在定義陣列時，它的陣列值和索引(index)並沒有塞滿，或是從一個完整的陣列刪除其中一個(留了個空位)。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> newArray = []</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -477,20 +544,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -582,6 +649,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

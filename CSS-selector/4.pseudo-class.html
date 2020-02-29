@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="Syntax selector:pseudo-class &amp;#123; property: value; &amp;#125;                pseudo-class 是以 : 為開頭。有些會在後面加上括號 ()，並在括號之間加上值。如：:nth-child(2)。             錨點(Anchor)             主要讓元素可以跟使用者作互動，算是一種可以將元素">
+  <meta name="description" content="Syntax selector:pseudo-class &amp;#123; property: value; &amp;#125;               pseudo-class 是以 : 為開頭。有些會在後面加上括號 ()，並在括號之間加上值。如：:nth-child(2)。            錨點(Anchor)              主要讓元素可以跟使用者作互動，算是一種可以將元素即">
 <meta property="og:type" content="website">
 <meta property="og:title" content="偽類別（pseudo-class）">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;4.pseudo-class.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Syntax selector:pseudo-class &amp;#123; property: value; &amp;#125;                pseudo-class 是以 : 為開頭。有些會在後面加上括號 ()，並在括號之間加上值。如：:nth-child(2)。             錨點(Anchor)             主要讓元素可以跟使用者作互動，算是一種可以將元素">
+<meta property="og:description" content="Syntax selector:pseudo-class &amp;#123; property: value; &amp;#125;               pseudo-class 是以 : 為開頭。有些會在後面加上括號 ()，並在括號之間加上值。如：:nth-child(2)。            錨點(Anchor)              主要讓元素可以跟使用者作互動，算是一種可以將元素即">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-17T13:41:52.230Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.160Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/4.pseudo-class">
@@ -200,12 +200,11 @@
   <div class="ribbon">Syntax</div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">selector:pseudo-class &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
-
 <div class="note warning">
             <ol><li>pseudo-class 是以 <code>:</code> 為開頭。</li><li>有些會在後面加上括號 <code>()</code>，並在括號之間加上值。如：<code>:nth-child(2)</code>。</li></ol>
           </div>
-
-<h2 id="錨點-Anchor"><a href="#錨點-Anchor" class="headerlink" title="錨點(Anchor)"></a>錨點(Anchor)</h2><div class="note info">
+<h2 id="錨點-Anchor"><a class="header-anchor" href="#錨點-Anchor"></a>錨點(Anchor)</h2>
+<div class="note info">
             <p>主要讓元素可以跟使用者作互動，算是一種可以將元素即時套用樣式的效果。</p>
           </div>
 
@@ -224,12 +223,11 @@
     </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:link</code>：未訪問過的連結。</li><li><code>:visited</code>：已訪問過的連結。</li><li><code>:hover</code>：當 cursor (滑鼠指標) hover 在元素上(未按下)時，visual UA 就可以應用此 pseudo-class。</li><li><code>:active</code>：在使用者按下滑鼠按鈕並放開它之間的時間會應用此 pseudo-class。</li><li><code>:focus</code>：當元素有焦點時會應用此 pseudo-class。<ul><li>例如：按鍵盤的 Tab 鍵所選到的元素。</li><li>除了超連結可以有取得焦點的狀態外，一些表單也有支援取得焦點的狀態。如：input 框</li></ul></li><li><code>:target</code>：</li></ul>
           </div>
-
-<h2 id="狀態-State"><a href="#狀態-State" class="headerlink" title="狀態(State)"></a>狀態(State)</h2><div class="note info">
+<h2 id="狀態-State"><a class="header-anchor" href="#狀態-State"></a>狀態(State)</h2>
+<div class="note info">
             <p>使用者介面元素狀態。</p>
           </div>
 
@@ -248,16 +246,15 @@
     </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:enabled</code>：處於啟用狀態的 UI 元素</li><li><code>:disabled</code>：處於禁用狀態的 UI 元素</li><li><code>:checked</code>：選取 radio 或勾選 checkbox 元素時會應用</li><li><code>:unchecked</code>：</li></ul>
           </div>
-
-<h2 id="結構"><a href="#結構" class="headerlink" title="結構"></a>結構</h2><div class="note ">
+<h2 id="結構"><a class="header-anchor" href="#結構"></a>結構</h2>
+<div class="note ">
             <p>主要有<code>-child</code>和<code>of-type</code>兩類<br><code>child</code>:父元素內的子元素都是 child。<br><code>of-type</code>:如果子元素交錯混雜，可用於選取相同 type 元素類型</p>
           </div>
+<h3 id="順向選取"><a class="header-anchor" href="#順向選取"></a>順向選取</h3>
 
-<h3 id="順向選取"><a href="#順向選取" class="headerlink" title="順向選取"></a>順向選取</h3>
 <table>
 <tbody>
     <tr>
@@ -267,12 +264,11 @@
   </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:first-child</code>：選擇 sibling 列表中的第一個元素，等同於 <code>:nth-child(1)</code></li><li><code>:first-of-type</code>：選擇 sibling 列表中的第一個相同 type 的 sibling 元素，等同於 <code>:nth-of-type(1)</code></li></ul>
           </div>
+<h3 id="逆向選取"><a class="header-anchor" href="#逆向選取"></a>逆向選取</h3>
 
-<h3 id="逆向選取"><a href="#逆向選取" class="headerlink" title="逆向選取"></a>逆向選取</h3>
 <table>
 <tbody>
     <tr>
@@ -282,11 +278,9 @@
   </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:last-child</code>：：選擇 sibling 列表中的倒數第一個元素，等同於 <code>:nth-last-child(1)</code></li><li><code>:last-of-type</code>：：選擇 sibling 列表中的倒數第一個相同 type 的 sibling 元素，等同於 <code>:nth-last-of-type(1)</code></li></ul>
           </div>
-
 
 <style>
 .nth-container {
@@ -397,8 +391,8 @@
   </div>
 </div>
 
+<h3 id="Child-indexed"><a class="header-anchor" href="#Child-indexed"></a>Child-indexed</h3>
 
-<h3 id="Child-indexed"><a href="#Child-indexed" class="headerlink" title="Child-indexed"></a>Child-indexed</h3>
 <table>
 <tbody>
     <tr>
@@ -412,14 +406,12 @@
   </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:nth-child(an+b)</code>：選擇指定 index 的所有 sibling 元素，從第一個元素開始數</li><li><code>:nth-last-child(an+b)</code>：選擇指定 index 的所有 sibling 元素，從最後一個元素開始數</li><li><code>:nth-of-type(an+b)</code>：選擇指定 index 的所有相同 type 的 sibling 元素，從第一個元素開始數</li><li><code>:nth-last-of-type(an+b)</code>：選擇指定 index 的所有相同 type 的 sibling 元素，從最後一個元素開始數</li></ul>
           </div>
 <div class="note primary">
-            <ol><li>此 pseudo-class 會根據 inclusive sibling 之間的 index 來選擇元素。</li><li>元素的第一個子元素的 index 是 1。</li><li>只有開頭為 <code>nth</code> 的 Child &amp; Type 可以在 <code>()</code> 括號裡面可以使用下面這幾種值：<ul><li><code>an + b</code>：<ul><li><code>n</code> 可以是任何​​正整數或 0 的數值。</li><li><code>a</code> 和 <code>b</code> 的值必須是整數 (正數、負數或 0)。<ul><li><code>0n+1</code>：可以 match 到第 1 個子元素，與 <code>:first-child</code> 選擇器作用相同。</li><li><code>1n+0</code>：可以 match 每個子元素。</li><li><code>-n+3</code>：可以 match 前三個子元素。</li><li><code>3n+4</code>：可以 match 第4、7、10、13…的子元素。</li></ul></li></ul></li><li><code>odd</code>：奇數的所有 sibling 元素，等同於 <code>2n + 1</code></li><li><code>even</code>：偶數的所有 sibling 元素，等同於 <code>2n</code></li></ul></li></ol>
+            <ol><li>此 pseudo-class 會根據 inclusive sibling 之間的 index 來選擇元素。</li><li>元素的第一個子元素的 index 是 1。</li><li>只有開頭為 <code>nth</code> 的 Child &amp; Type 可以在 <code>()</code> 括號裡面可以使用下面這幾種值：</li></ol><ul><li><code>an + b</code>：<ul><li><code>n</code> 可以是任何​​正整數或 0 的數值。</li><li><code>a</code> 和 <code>b</code> 的值必須是整數 (正數、負數或 0)。<ul><li><code>0n+1</code>：可以 match 到第 1 個子元素，與 <code>:first-child</code> 選擇器作用相同。</li><li><code>1n+0</code>：可以 match 每個子元素。</li><li><code>-n+3</code>：可以 match 前三個子元素。</li><li><code>3n+4</code>：可以 match 第4、7、10、13…的子元素。</li></ul></li></ul></li><li><code>odd</code>：奇數的所有 sibling 元素，等同於 <code>2n + 1</code></li><li><code>even</code>：偶數的所有 sibling 元素，等同於 <code>2n</code></li></ul>
           </div>
-
 
 <style>
 .nth-container {
@@ -678,12 +670,11 @@ changeType("nth-of-type");
 changeChild("nth-child");
 </script>
 
-
-<h3 id="否定選取"><a href="#否定選取" class="headerlink" title="否定選取"></a>否定選取</h3><p><code>:not()</code></p>
+<h3 id="否定選取"><a class="header-anchor" href="#否定選取"></a>否定選取</h3>
+<p><code>:not()</code></p>
 <div class="note info">
             <p><code>:not(X)</code> 代表不選擇 match 到 X simple selector 的元素。<br>simple selector</p><ul><li>type selector：如 <code>div</code></li><li>universal selector：如 <code>*</code></li><li>attribute selector：如 <code>div[foo]</code></li><li>class selector：如 <code>.myclass</code></li><li>ID selector：如 <code>#myid</code></li><li>pseudo-class：如 <code>a:hover</code></li></ul><ol><li>不能巢狀使用，所以 <code>:not(:not(...))</code> 是無效的。</li><li>偽元素不是選擇器，不能被當作 <code>:not()</code> 中的參數，如 <code>:not(p::before)</code> 是無效的。</li></ol>
           </div>
-
 
 <style>
 #notDemo {
@@ -763,12 +754,11 @@ function changeNot(e) {
 changeNot("not");
 </script>
 
-
-<h3 id="空值選取"><a href="#空值選取" class="headerlink" title="空值選取"></a>空值選取</h3><p><code>:empty</code></p>
+<h3 id="空值選取"><a class="header-anchor" href="#空值選取"></a>空值選取</h3>
+<p><code>:empty</code></p>
 <div class="note info">
             <p>選擇所有沒有子元素的元素（包括文本節點）。</p>
           </div>
-
 
 <style>
   .empty {
@@ -794,8 +784,8 @@ changeNot("not");
     </table>
 </div>
 
+<h2 id="獨子選取"><a class="header-anchor" href="#獨子選取"></a>獨子選取</h2>
 
-<h2 id="獨子選取"><a href="#獨子選取" class="headerlink" title="獨子選取"></a>獨子選取</h2>
 <table>
 <tbody>
     <tr>
@@ -805,12 +795,11 @@ changeNot("not");
   </tbody>
 </table>
 
-
 <div class="note info">
             <ul><li><code>:only-child</code><ul><li>選擇沒有 sibling 的元素。</li><li>等同於 <code>:first-child:last-child</code> 或 <code>:nth-child(1):nth-last-child(1)</code>。</li></ul></li><li><code>:only-of-type</code><ul><li>選擇沒有相同 type 的 sibling 元素。</li><li>等同於 <code>:first-of-type:last-of-type</code> 或 <code>:nth-of-type(1):nth-last-of-type(1)</code>。</li></ul></li></ul>
           </div>
-
-<h2 id="根目錄選取器"><a href="#根目錄選取器" class="headerlink" title="根目錄選取器"></a>根目錄選取器</h2><p><code>:root</code></p>
+<h2 id="根目錄選取器"><a class="header-anchor" href="#根目錄選取器"></a>根目錄選取器</h2>
+<p><code>:root</code></p>
 <div class="note info">
             <ul><li>代表文件的 root 元素。</li><li>HTML 中，root 元素就是 <code>&lt;html&gt;</code> 元素。</li><li>DOM 文件中，<code>:root</code> 與 Document 物件的 root 元素會 match。</li><li><code>:root</code> 應用多是搭配 CSS 變數 ( CSS variables )。</li></ul>
           </div>
@@ -818,20 +807,26 @@ changeNot("not");
 <li>CSS 變數的使用方式</li>
 </ul>
 <ol>
-<li>建立變數<div class="note info">
+<li>建立變數</li>
+</ol>
+<div class="note info">
             <p>建立變數的方式是使用兩個dash開始，然後在dash的右側接著輸入你要當作變數的名稱。</p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">--csscoke-red</span>: <span class="selector-id">#f00</span>;</span><br></pre></td></tr></table></figure>
           </div>
 <ul>
-<li>變數放在 <code>:root</code> 下，整個頁面中都可以使用這個變數。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>變數放選取器內，只在選取器中使用這個變數。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.section-item</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-title-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>變數放在 <code>:root</code> 下，整個頁面中都可以使用這個變數。</li>
 </ul>
-</li>
-<li>套用變數<div class="note info">
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>變數放選取器內，只在選取器中使用這個變數。</li>
+</ul>
+  <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.section-item</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-title-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>套用變數</li>
+</ol>
+<div class="note info">
             <p>只需要在屬性值的地方使用關鍵字 <code>var( )</code> 並在括號內寫上想套用的變數名稱，這樣就可以囉。</p>
           </div>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*建立全域變數*/</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*套用變數*/</span></span><br><span class="line"><span class="selector-class">.section-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>( --csscoke-red );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*建立全域變數*/</span></span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attribute">--csscoke-red</span>: <span class="number">#f00</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*套用變數*/</span></span><br><span class="line"><span class="selector-class">.section-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>( --csscoke-red );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
@@ -907,20 +902,20 @@ changeNot("not");
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -1012,6 +1007,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。             $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可">
+  <meta name="description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。            $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可加">
 <meta property="og:type" content="website">
 <meta property="og:title" content="資料型別 List">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;list.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。             $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可">
+<meta property="og:description" content="Sass 中 List 就像一般 array，是用來存放沒有鍵名的變數，但當要從陣列裡取得資料的時候只能透過索引（1, 2, 3, 4）。                         要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。            $lists: #fff, orange, yellow, #000;&#x2F;&#x2F;逗號可加">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-09T02:09:16.142Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.182Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/sass-Advanced/list">
@@ -202,9 +202,7 @@
 <div class="note warning">
             <p>要注意的是在 Sass 中，List 從 1 開始算起，而不是正常程式界的 0。</p>
           </div>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$lists</span>: <span class="number">#fff</span>, orange, yellow, <span class="number">#000</span>;</span><br><span class="line"><span class="comment">//逗號可加或不加都可以,如果是字串必須在外面包一個單雙引號</span></span><br></pre></td></tr></table></figure>
-
 <p>list 可以使用的函數</p>
 <ol>
 <li>nth</li>
@@ -214,7 +212,9 @@
 <li>zip</li>
 <li>length</li>
 </ol>
-<h2 id="nth"><a href="#nth" class="headerlink" title="nth"></a>nth</h2><p><code>list.nth($list, $n)</code><br>透過 nth(變數, 索引) 你能夠取得 List 裡的資料。</p>
+<h2 id="nth"><a class="header-anchor" href="#nth"></a>nth</h2>
+<p><code>list.nth($list, $n)</code><br>
+透過 nth(變數, 索引) 你能夠取得 List 裡的資料。</p>
 <table>
   <thead>
     <tr>
@@ -233,9 +233,11 @@
     </tr>
   </tbody>
 </table>
-
-<p>透過這樣子，產生出來的code的顏色就會變成第二個orange橘色。<br>nth() 你可以想像成提取變數裡面第幾個樣式。</p>
-<h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2><p><code>list.index($list, $value)</code><br>index的其中一種做法可以拿來算你所選擇的變數排序。</p>
+<p>透過這樣子，產生出來的code的顏色就會變成第二個orange橘色。<br>
+nth() 你可以想像成提取變數裡面第幾個樣式。</p>
+<h2 id="index"><a class="header-anchor" href="#index"></a>index</h2>
+<p><code>list.index($list, $value)</code><br>
+index的其中一種做法可以拿來算你所選擇的變數排序。</p>
 <table>
   <thead>
     <tr>
@@ -254,8 +256,8 @@
     </tr>
   </tbody>
 </table>
-
-<h2 id="nth-與index-結合"><a href="#nth-與index-結合" class="headerlink" title="nth()與index()結合"></a>nth()與index()結合</h2><p>透過nth()與index()結合來規劃多種版型樣式：</p>
+<h2 id="nth-與index-結合"><a class="header-anchor" href="#nth-與index-結合"></a>nth()與index()結合</h2>
+<p>透過nth()與index()結合來規劃多種版型樣式：</p>
 <table>
   <thead>
     <tr>
@@ -274,7 +276,6 @@
     </tr>
   </tbody>
 </table>
-
 
 <style>
 .listBtn {
@@ -376,20 +377,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -481,6 +482,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

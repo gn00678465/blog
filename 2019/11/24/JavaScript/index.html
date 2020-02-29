@@ -46,13 +46,13 @@
   };
 </script>
 
-  <meta name="description" content="JavaScript 基礎介紹(執行環境、作用域)JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。 wikipediaJavaScript">
+  <meta name="description" content="JavaScript 基礎介紹(執行環境、作用域) JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。 wikipediaJavaScript">
 <meta name="keywords" content="Basic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 基礎介紹(執行環境、作用域)">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="JavaScript 基礎介紹(執行環境、作用域)JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。 wikipediaJavaScript">
+<meta property="og:description" content="JavaScript 基礎介紹(執行環境、作用域) JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。 wikipediaJavaScript">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Interpreted_language.png">
@@ -69,7 +69,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Hosting_function.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;sync.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Event_queue.png">
-<meta property="og:updated_time" content="2020-01-07T00:52:18.436Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;24&#x2F;JavaScript&#x2F;Compiled_language.png">
 
@@ -224,7 +224,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-07 08:52:18" itemprop="dateModified" datetime="2020-01-07T08:52:18+08:00">2020-01-07</time>
+                <time title="修改時間：2020-02-29 17:44:08" itemprop="dateModified" datetime="2020-02-29T17:44:08+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -249,28 +249,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="JavaScript-基礎介紹-執行環境、作用域"><a href="#JavaScript-基礎介紹-執行環境、作用域" class="headerlink" title="JavaScript 基礎介紹(執行環境、作用域)"></a>JavaScript 基礎介紹(執行環境、作用域)</h1><blockquote><p>JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。</p>
+        <h1 id="JavaScript-基礎介紹-執行環境、作用域"><a class="header-anchor" href="#JavaScript-基礎介紹-執行環境、作用域"></a>JavaScript 基礎介紹(執行環境、作用域)</h1>
+<blockquote><p>JavaScript（通常縮寫為JS）是一種進階的、直譯的程式語言。JavaScript是一門基於原型、函式先行的語言，是一門多範式的語言，它支援物件導向編程，指令式程式設計，以及函式語言程式設計。</p>
 <footer><strong>wikipedia</strong><cite><a href="https://zh.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a></cite></footer></blockquote>
-
-
 <a id="more"></a>
-
-<h1 id="編譯式語言-amp-直譯式語言"><a href="#編譯式語言-amp-直譯式語言" class="headerlink" title="編譯式語言 &amp; 直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1><p>我們寫的原始碼是無法直接被電腦或是瀏覽器閱讀的，在被電腦運行之前須經過“解譯”成電腦看得懂的代碼。<br>而其中又可分為<strong>編譯式語言</strong>&amp;<strong>直譯式語言</strong>。</p>
+<h1 id="編譯式語言-直譯式語言"><a class="header-anchor" href="#編譯式語言-直譯式語言"></a>編譯式語言 &amp; 直譯式語言</h1>
+<p>我們寫的原始碼是無法直接被電腦或是瀏覽器閱讀的，在被電腦運行之前須經過“解譯”成電腦看得懂的代碼。<br>
+而其中又可分為<strong>編譯式語言</strong>&amp;<strong>直譯式語言</strong>。</p>
 <img src="/2019/11/24/JavaScript/Compiled_language.png" class="" width="800" title="編譯式語言">
-<p><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br><em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
+<p><strong>編譯式語言</strong>：編譯式語言編寫完原始碼後會經由編譯器編譯，並在預先編譯過程中除錯，確定無錯誤後再將代碼生成並於執行環境中運行。<br>
+<em>Example</em>：C、C++、bjective-C、Visual Basic等等。</p>
 <img src="/2019/11/24/JavaScript/Interpreted_language.png" class="" width="800" title="直譯式語言">
-<p><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br><em>Example</em>：JavaScript、Python、Ruby等等。</p>
-<h1 id="JavaScript-是如何運行的"><a href="#JavaScript-是如何運行的" class="headerlink" title="JavaScript 是如何運行的"></a>JavaScript 是如何運行的</h1><img src="/2019/11/24/JavaScript/JS_process.png" class="" width="800" title="JS轉換過程">
-<p>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>以下是JavaScript經過直譯器轉換的過程。<br><strong>1. 語法基本單元化(Tokenizing)。</strong><br>    將一串字元拆解成(對該語言)有意義的組塊，這些組塊就叫做語法基本單元化。<br><strong>2. 組成抽象語法樹AST（Abstract Syntax Tree）。</strong><br>    將token流轉化為一個有元素層級巢狀所組成的代表程式語法結構的樹，這個樹被叫做抽象語法樹AST。<br><strong>3. 代碼生成。</strong></p>
-<p>可透過編譯網站來了解語法單元化(Tokenizing)。<br><a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">編譯網站</a></p>
-<h1 id="執行的錯誤情境-LHS-RHS"><a href="#執行的錯誤情境-LHS-RHS" class="headerlink" title="執行的錯誤情境 LHS, RHS"></a>執行的錯誤情境 LHS, RHS</h1><img src="/2019/11/24/JavaScript/RHS_LHS.png" class="" width="800" title="LHS &amp; RHS">
+<p><strong>直譯式語言</strong>：直譯式語言編寫完原始碼後會經由直譯器編譯，並直接將代碼生成並於執行環境中運行。<br>
+錯誤直接反映在環境中，像是 console 出現錯誤紅字。<br>
+<em>Example</em>：JavaScript、Python、Ruby等等。</p>
+<h1 id="JavaScript-是如何運行的"><a class="header-anchor" href="#JavaScript-是如何運行的"></a>JavaScript 是如何運行的</h1>
+<img src="/2019/11/24/JavaScript/JS_process.png" class="" width="800" title="JS轉換過程">
+<p>JavaScript是直譯式語言的一種，直譯語言在執行時會一行一行的動態將程式碼直譯(interpret)為機器碼，並執行。<br>
+以下是JavaScript經過直譯器轉換的過程。<br>
+<strong>1. 語法基本單元化(Tokenizing)。</strong><br>
+將一串字元拆解成(對該語言)有意義的組塊，這些組塊就叫做語法基本單元化。<br>
+<strong>2. 組成抽象語法樹AST（Abstract Syntax Tree）。</strong><br>
+將token流轉化為一個有元素層級巢狀所組成的代表程式語法結構的樹，這個樹被叫做抽象語法樹AST。<br>
+<strong>3. 代碼生成。</strong></p>
+<p>可透過編譯網站來了解語法單元化(Tokenizing)。<br>
+<a href="https://esprima.org/demo/parse.html#" target="_blank" rel="noopener">編譯網站</a></p>
+<h1 id="執行的錯誤情境-LHS-RHS"><a class="header-anchor" href="#執行的錯誤情境-LHS-RHS"></a>執行的錯誤情境 LHS, RHS</h1>
+<img src="/2019/11/24/JavaScript/RHS_LHS.png" class="" width="800" title="LHS &amp; RHS">
 <p>此錯誤與取值與賦予值有相當的關係。</p>
 <ol>
 <li>RHS：將值從右側的變數中取出，當無法取值時，會丟出’ReferrenceError’的錯誤訊息。</li>
-<li>LHS：將值賦予至左側的變數，如果左側不為’identifier’ or 無法被賦予時，會丟出’Invalid left-hand side’的錯誤訊息。</li>
+<li>LHS：將值賦予至左側的變數，如果左側不為’identifier’ or 無法被賦予時，會丟出’Invalid left-hand side’的錯誤訊息。<br>
+<strong><font color=#800000>如有出現錯誤需立即修正，否則錯誤後方的程式碼會無法運行。</font></strong></li>
 </ol>
-<p><strong><font color=#800000>如有出現錯誤需立即修正，否則錯誤後方的程式碼會無法運行。</font></strong></p>
-<h1 id="語法作用域-Lexical-scope"><a href="#語法作用域-Lexical-scope" class="headerlink" title="語法作用域(Lexical scope)"></a>語法作用域(Lexical scope)</h1><p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br><strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br><strong>動態作用域</strong> ：在函式調用時才決定作用域。</p>
+<h1 id="語法作用域-Lexical-scope"><a class="header-anchor" href="#語法作用域-Lexical-scope"></a>語法作用域(Lexical scope)</h1>
+<p>作用域分為<strong>靜態作用域</strong>以及<strong>動態作用域</strong>，不同的程式語言可能有不同的作用域，而同一語言內也可能存在多種作用域。<br>
+<strong>靜態作用域</strong> ：在原始碼寫好的時候，作用域就已經被訂下來了，且不會再被改變。<br>
+<strong>動態作用域</strong> ：在函式調用時才決定作用域。</p>
 <img src="/2019/11/24/JavaScript/Lexical_Scope.png" class="" width="800" title="靜態作用域">
 <blockquote>
 <p><strong>JS採用靜態作用域(又稱語法作用域)。</strong></p>
@@ -278,101 +293,126 @@
 <p>在JS的作用域中</p>
 <img src="/2019/11/24/JavaScript/Scope.png" class="" width="800" title="作用域">
 <blockquote>
-<p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>查找到便會調用此變數，<br>但如果查找不到此變數時就會出現錯誤 <strong><font color=#800000>ReferenceError: 變數 is not defined</font></strong>。</p>
+<p>JS的作用域為一層一層向內，最外層有一全域，再向內包覆Function的作用域，Function的作用域是獨立的。<br>
+如Function的作用域內需要調用變數，但此作用域內無此變數時，會<em>向外查找</em>變數，<br>
+查找到便會調用此變數，<br>
+但如果查找不到此變數時就會出現錯誤 <strong><font color=#800000>ReferenceError: 變數 is not defined</font></strong>。</p>
 </blockquote>
-
 
 <p>EX:以下這段程式碼，會印出什麼結果呢？</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span> ;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">2</span>;</span><br><span class="line">    fn1();</span><br><span class="line">&#125;</span><br><span class="line">fn2();</span><br><span class="line"><span class="comment">// 語法作用域下顯示為：1</span></span><br><span class="line"><span class="comment">// 動態作用域下顯示為：2</span></span><br></pre></td></tr></table></figure>
-<p>首先，我們宣告了一個變數value, 他是一個全域變數。接著宣告兩個函式，最後執行fn2。<br>執行fn2時，我們把變數value賦予了另外一個值2，接著執行fn1。fn1因為要印出value，因此向外查找value這個變數，在全域中找到value，值等於1。最後console.log的結果會是1。</p>
+<p>首先，我們宣告了一個變數value, 他是一個全域變數。接著宣告兩個函式，最後執行fn2。<br>
+執行fn2時，我們把變數value賦予了另外一個值2，接著執行fn1。fn1因為要印出value，因此向外查找value這個變數，在全域中找到value，值等於1。最後console.log的結果會是1。</p>
 <blockquote>
 <p>JS為語法作用域，console.log的結果會是1。</p>
 </blockquote>
 <p>但如果是動態作用域的話，結果就不一樣了。在執行到console.log(value)時，他會向上一層調用的函式來查找value的值，因此找到值等於2。</p>
-<h1 id="執行環境與執行堆疊"><a href="#執行環境與執行堆疊" class="headerlink" title="執行環境與執行堆疊"></a>執行環境與執行堆疊</h1><h2 id="執行環境-Execution-Context"><a href="#執行環境-Execution-Context" class="headerlink" title="執行環境 Execution Context"></a>執行環境 Execution Context</h2><p>當函式被執行時，會產生“執行環境 Execution Context”。<br>每執行一次便會產生一個新的執行環境。</p>
+<h1 id="執行環境與執行堆疊"><a class="header-anchor" href="#執行環境與執行堆疊"></a>執行環境與執行堆疊</h1>
+<h2 id="執行環境-Execution-Context"><a class="header-anchor" href="#執行環境-Execution-Context"></a>執行環境 Execution Context</h2>
+<p>當函式被執行時，會產生“執行環境 Execution Context”。<br>
+每執行一次便會產生一個新的執行環境。</p>
 <img src="/2019/11/24/JavaScript/Execution_Context.png" class="" width="800" title="執行環境">
-
-<p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000><strong>this是會隨著執行環境不同而改變的</strong></font>)。</p>
+<p>除了函式之外，全域也有全域執行環境，在網頁被瀏覽器開啟或是後端Node.js被啟動時，就被建立了。全域執行環境被建立時會同時宣告window或是global變數。<br>
+(在瀏覽器是window, Node.js是global，而在全域執行環境中的this就等同於這兩個變數。<font color=#800000><strong>this是會隨著執行環境不同而改變的</strong></font>)。</p>
 <img src="/2019/11/24/JavaScript/Execution_Context_global.png" class="" width="800" title="全域執行環境">
-
-<h2 id="執行堆疊-Execution-stack"><a href="#執行堆疊-Execution-stack" class="headerlink" title="執行堆疊 Execution stack"></a>執行堆疊 Execution stack</h2><p>執行堆疊跟函式在宣告的時候的時候”沒有關聯”，而是與”呼叫的位置”有關。<br>從以下程式碼來看：</p>
+<h2 id="執行堆疊-Execution-stack"><a class="header-anchor" href="#執行堆疊-Execution-stack"></a>執行堆疊 Execution stack</h2>
+<p>執行堆疊跟函式在宣告的時候的時候&quot;沒有關聯&quot;，而是與&quot;呼叫的位置&quot;有關。<br>
+從以下程式碼來看：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//…</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  sayHi();</span><br><span class="line">&#125;</span><br><span class="line">doSomething();</span><br></pre></td></tr></table></figure>
 <ol>
 <li>首先，在瀏覽器開啟或是Node.js啟動時，全域執行環境就會被建立。</li>
 <li>接著我們執行doSomething函式，所以doSomething的執行環境被生成，且堆疊在全域執行環境之上。</li>
 <li>在doSomething函式中我們又執行了sayHi函式，因此sayHi的執行環境被生成，且堆疊在doSomething執行環境之上。</li>
-<li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。<img src="/2019/11/24/JavaScript/Execution_stake.png" class="" width="800" title="執行堆疊">
-
-</li>
+<li>當離開執行堆疊的時候也會一層一層離開，sayHi執行環境先離開並回到doSomething執行環境，最後會回到全域執行環境。</li>
 </ol>
+<img src="/2019/11/24/JavaScript/Execution_stake.png" class="" width="800" title="執行堆疊">
 <p>我們可以從chrome 開發者工具中的source tab，一步一步觀察執行堆疊的運作。</p>
-<h1 id="範圍鍊-Scope-chain"><a href="#範圍鍊-Scope-chain" class="headerlink" title="範圍鍊 Scope chain"></a>範圍鍊 Scope chain</h1><p>每個變數都有自己的作用範圍，若使用前未宣告，就會變成全域變數，若是在函式內宣告的變數，則只能在該區域內使用，也就是說 JavaScript 在查找變數時，會循著範圍鏈一層層往外尋找。</p>
+<h1 id="範圍鍊-Scope-chain"><a class="header-anchor" href="#範圍鍊-Scope-chain"></a>範圍鍊 Scope chain</h1>
+<p>每個變數都有自己的作用範圍，若使用前未宣告，就會變成全域變數，若是在函式內宣告的變數，則只能在該區域內使用，也就是說 JavaScript 在查找變數時，會循著範圍鏈一層層往外尋找。</p>
 <blockquote>
 <p>範圍鍊取決於函式的作用域，與執行環境並無關聯性。</p>
 </blockquote>
 <img src="/2019/11/24/JavaScript/scope_chain.png" class="img-left" width="800" title="範圍鍊">
 <blockquote>
-<p>因JS為語法作用域，在原始碼寫好的時候，作用域就已經被訂下來了。<br>上方的程式碼中，無論是fn1或是fn2，因為fn1函式內沒有value變數，因此向外尋找，找到全域的value “1”，這就是範圍鍊的概念。</p>
+<p>因JS為語法作用域，在原始碼寫好的時候，作用域就已經被訂下來了。<br>
+上方的程式碼中，無論是fn1或是fn2，因為fn1函式內沒有value變數，因此向外尋找，找到全域的value “1”，這就是範圍鍊的概念。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">sayHi();  <span class="comment">//hi 老媽</span></span><br></pre></td></tr></table></figure>
-<p>執行 <code>sayHi()</code> console.log顯示”hi 老媽”。<br>因為sayHi函式內沒有person變數，因此向外尋找，找到全域的person “老媽”。</p>
+<p>執行 <code>sayHi()</code> console.log顯示&quot;hi 老媽&quot;。<br>
+因為sayHi函式內沒有person變數，因此向外尋找，找到全域的person “老媽”。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125;</span><br><span class="line"> sayHi();</span><br><span class="line">&#125;</span><br><span class="line">doMorningWork();  <span class="comment">//hi 老媽</span></span><br></pre></td></tr></table></figure>
-<p>執行 <code>doMorningWork()</code> console.log仍然顯示”hi 老媽”。<br>這是因為<code>sayHi()</code>函式的範圍鍊依然指向全域，雖然他在<code>doMorningWork()</code>函式內。</p>
+<p>執行 <code>doMorningWork()</code> console.log仍然顯示&quot;hi 老媽&quot;。<br>
+這是因為<code>sayHi()</code>函式的範圍鍊依然指向全域，雖然他在<code>doMorningWork()</code>函式內。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’ </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> person = ‘漂亮阿姨’; </span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125; </span><br><span class="line"> meetAuntie(); </span><br><span class="line">&#125; </span><br><span class="line">doMorningWork(); <span class="comment">//哈囉～ 漂亮阿姨</span></span><br></pre></td></tr></table></figure>
-<p>執行 <code>doMorningWork()</code> console.log顯示”哈囉～ 漂亮阿姨”。<br>因為<code>meetAuntie()</code>函式內有宣告變數，因此console.log會印出”哈囉～ 漂亮阿姨”。</p>
+<p>執行 <code>doMorningWork()</code> console.log顯示&quot;哈囉～ 漂亮阿姨&quot;。<br>
+因為<code>meetAuntie()</code>函式內有宣告變數，因此console.log會印出&quot;哈囉～ 漂亮阿姨&quot;。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = ‘老媽’ </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(‘hi ‘ + person); </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doMorningWork</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> person = ‘老爸’; </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">meetAuntie</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="comment">//var person = ‘漂亮阿姨’; </span></span><br><span class="line">  <span class="built_in">console</span>.log(‘哈囉～ ‘ + person); </span><br><span class="line"> &#125; </span><br><span class="line"> meetAuntie(); </span><br><span class="line">&#125; </span><br><span class="line">doMorningWork(); <span class="comment">//哈囉～ 老爸</span></span><br></pre></td></tr></table></figure>
-<p>執行 <code>doMorningWork()</code> console.log顯示”哈囉～ 老爸”。<br>因為<code>meetAuntie()</code>函式內變數<code>var person = ‘漂亮阿姨’</code>已經被註解掉了，這時便會向外尋找，找到上一層的變數 “老爸”，因此console.log會印出”哈囉～ 老爸”。</p>
-<h1 id="提升-Hoisting"><a href="#提升-Hoisting" class="headerlink" title="提升 Hoisting"></a>提升 Hoisting</h1><p>執行程式碼時先將所有變數取出，並在記憶體中分配空間給這些變數，但目前階段尚未賦予值而顯示undefined的情況下，稱為提升。</p>
+<p>執行 <code>doMorningWork()</code> console.log顯示&quot;哈囉～ 老爸&quot;。<br>
+因為<code>meetAuntie()</code>函式內變數<code>var person = ‘漂亮阿姨’</code>已經被註解掉了，這時便會向外尋找，找到上一層的變數 “老爸”，因此console.log會印出&quot;哈囉～ 老爸&quot;。</p>
+<h1 id="提升-Hoisting"><a class="header-anchor" href="#提升-Hoisting"></a>提升 Hoisting</h1>
+<p>執行程式碼時先將所有變數取出，並在記憶體中分配空間給這些變數，但目前階段尚未賦予值而顯示undefined的情況下，稱為提升。</p>
 <p><font size=6>執行環境其實可細分為兩個階段：創造環境及執行。</font></p>
 <ol>
-<li><font size=5><strong>創造環境</strong></font>：先將程式碼中的變數挑出來，在記憶體中分配空間給這些變數，但目前階段尚未賦予值，如果在此時去取用這些變數的話，會顯示undefined。 <img src="/2019/11/24/JavaScript/Hostion_1.png" class="img-left" width="800" title="創造環境"></li>
+<li><font size=5><strong>創造環境</strong></font>：先將程式碼中的變數挑出來，在記憶體中分配空間給這些變數，但目前階段尚未賦予值，如果在此時去取用這些變數的話，會顯示undefined。 <img src="/2019/11/24/JavaScript/Hostion_1.png" class="img-left" width="800" title="創造環境">
+</li>
 <li><font size=5><strong>執行</strong></font>：此階段下才會將值賦予至變數。 <img src="/2019/11/24/JavaScript/Hostion_2.png" class="img-left" width="800" title="創造環境">
-
 </li>
 </ol>
 <p>變數的拆解</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Ming = <span class="string">'小明'</span>; <span class="comment">//宣告變數，可拆解成如下方所示</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Ming;         <span class="comment">//創造環境</span></span><br><span class="line">Ming = <span class="string">'小明'</span>;    <span class="comment">//執行</span></span><br></pre></td></tr></table></figure>
-
-<p><font size=6><strong>函式陳述式中在創造階段就會優先載入</strong></font><br>函式陳述式與一般變數不太一樣，<strong>函式陳述式在創造環境階段會被優先載入</strong>，記憶體在此階段就載入函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
+<p><font size=6><strong>函式陳述式中在創造階段就會優先載入</strong></font><br>
+函式陳述式與一般變數不太一樣，<strong>函式陳述式在創造環境階段會被優先載入</strong>，記憶體在此階段就載入函式的完整內容。所以函式在創造環境階段就已經可以被運行。</p>
 <img src="/2019/11/24/JavaScript/Hosting_function.png" class="img-left" width="800" title="創造環境">
 <p>函式的拆解</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'呼叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();</span><br></pre></td></tr></table></figure>
-
 <p>函式表達式的拆解</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'呼叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="keyword">var</span> callName;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'呼叫'</span>);</span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><font color='blue'>範例一：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 1'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 2'</span>); </span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//呼叫小明 2</span></span><br></pre></td></tr></table></figure>
-因上面所提及在創造階段時，函式優先下，不論函式先宣告，還是後宣告，結果皆為”呼叫小明 2”，可拆解成如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;         <span class="comment">//函式優先載入</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 1'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> callName;                 <span class="comment">//變數不能重複宣告</span></span><br><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;                 <span class="comment">//覆蓋上面的函式</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 2'</span>);</span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//呼叫小明 2</span></span><br></pre></td></tr></table></figure></li>
-<li><font color='blue'>範例二：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(Ming); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Ming = <span class="string">'小明'</span>;</span><br></pre></td></tr></table></figure>
-拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(Ming); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Ming;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">Ming = <span class="string">'小明'</span>;</span><br></pre></td></tr></table></figure></li>
-<li><font color='blue'>範例三：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line">callName();   <span class="comment">//第二次執行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure>
-拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;     <span class="comment">//覆蓋上面的函式內容</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure></li>
-<li><font color='blue'>測驗：</font><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">whosName()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;</span><br><span class="line">    myName = <span class="string">'杰倫'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName = <span class="string">'小明'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(myName);</span><br></pre></td></tr></table></figure>
-拆解如下<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;        <span class="comment">// 這裡是 undefined，所以以下程式碼不執行</span></span><br><span class="line">    myName = <span class="string">'杰倫'</span>;   <span class="comment">// 變數已經宣告，所以是 undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName;           <span class="comment">// 宣告變數 myName</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">whosName();</span><br><span class="line">myName = <span class="string">'小明'</span>;      <span class="comment">// 賦值'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(myName);  <span class="comment">// 小明</span></span><br></pre></td></tr></table></figure>
+<li><font color='blue'>範例一：</font></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 1'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> callName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 2'</span>); </span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//呼叫小明 2</span></span><br></pre></td></tr></table></figure>
+<p>因上面所提及在創造階段時，函式優先下，不論函式先宣告，還是後宣告，結果皆為&quot;呼叫小明 2&quot;，可拆解成如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;         <span class="comment">//函式優先載入</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 1'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> callName;                 <span class="comment">//變數不能重複宣告</span></span><br><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;                 <span class="comment">//覆蓋上面的函式</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'呼叫小明 2'</span>);</span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//呼叫小明 2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><font color='blue'>範例二：</font></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(Ming); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Ming = <span class="string">'小明'</span>;</span><br></pre></td></tr></table></figure>
+<p>拆解如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line">callName();   <span class="comment">//undefined</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(Ming); </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Ming;</span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">Ming = <span class="string">'小明'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><font color='blue'>範例三：</font></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line">callName();   <span class="comment">//第一次執行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line">callName();   <span class="comment">//第二次執行</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//console.log</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br><span class="line"><span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure>
+<p>拆解如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'小明'</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callName</span>(<span class="params"></span>) </span>&#123;     <span class="comment">//覆蓋上面的函式內容</span></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'肥宅'</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br><span class="line">callName();   <span class="comment">//肥宅</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><font color='blue'>測驗：</font></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">whosName()</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;</span><br><span class="line">    myName = <span class="string">'杰倫'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName = <span class="string">'小明'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(myName);</span><br></pre></td></tr></table></figure>
+<p>拆解如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//創造環境</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whosName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (myName) &#123;        <span class="comment">// 這裡是 undefined，所以以下程式碼不執行</span></span><br><span class="line">    myName = <span class="string">'杰倫'</span>;   <span class="comment">// 變數已經宣告，所以是 undefined</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myName;           <span class="comment">// 宣告變數 myName</span></span><br><span class="line"><span class="comment">//執行</span></span><br><span class="line">whosName();</span><br><span class="line">myName = <span class="string">'小明'</span>;      <span class="comment">// 賦值'小明'</span></span><br><span class="line"><span class="built_in">console</span>.log(myName);  <span class="comment">// 小明</span></span><br></pre></td></tr></table></figure>
 <div class="note info">
             <font size=2><ol><li>目前來說，程式碼還是會透過 Babel 編譯而編譯後的結果依然是 var 做執行，所以這樣的觀念還是要有。<br>(可以參考各大框架實際執行的程式碼)</li><li>function 的提升依然存在，這也是部分開發者的實作技巧之一將宣告的函式放在後方，呼叫放在前方。<br>(並非建議這樣的寫法，ESLint 中就不推薦此寫法)。</li><li>let, const 雖沒有 hoisting，但還是有類似的概念(暫時性死區)，其運作與 var hoisting 非常接近，同樣會影響原始碼的運行。</li></ol></font>
           </div>
-
-</li>
-</ul>
-<h1 id="Not-Defined-VS-undefined"><a href="#Not-Defined-VS-undefined" class="headerlink" title="Not Defined VS undefined"></a>Not Defined VS undefined</h1><p>Is not defined：</p>
+<h1 id="Not-Defined-VS-undefined"><a class="header-anchor" href="#Not-Defined-VS-undefined"></a>Not Defined VS undefined</h1>
+<p>Is not defined：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//a is not defined</span></span><br></pre></td></tr></table></figure>
 <p>undefined：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<h1 id="執行緒與同步-非同步"><a href="#執行緒與同步-非同步" class="headerlink" title="執行緒與同步/非同步"></a>執行緒與同步/非同步</h1><p>學習 JS 時，必須要知道它是單執行緒（single thread）的語言，瀏覽器只分配給 JS 一個主執行緒，用來執行任務（函式），但一次只能執行一個任務，這些任務形成一個任務佇列排隊等候執行。</p>
+<h1 id="執行緒與同步-非同步"><a class="header-anchor" href="#執行緒與同步-非同步"></a>執行緒與同步/非同步</h1>
+<p>學習 JS 時，必須要知道它是單執行緒（single thread）的語言，瀏覽器只分配給 JS 一個主執行緒，用來執行任務（函式），但一次只能執行一個任務，這些任務形成一個任務佇列排隊等候執行。</p>
 <div class="note info">
             <font size=2><p>名詞解釋：</p><ul><li>程式( Program )：Program 意旨軟體工程師所寫的程式碼(code)，但還尚未load入記憶體的 code，我們稱之為Program。</li><li>程序(Process )：Process 意旨已經執行並且 load 到記憶體中的 Program ，程序中的每一行程式碼隨時都有可能被CPU執行。<ul><li>Process 是電腦中已執行 Program 的實體。</li><li>Process 本身不是基本執行單位，而是 Thread (執行緒)的容器。</li><li>Process 需要一些資源才能完成工作，如 CPU、記憶體、檔案以及I/O裝置。</li></ul></li><li>執行緒：Thread 是 Process 的一個實體,也是CPU排程和分派的基本單位,它是比 Process 更小的能獨立執行的基本單位。<br>在同一個 Process 中會有很多個 Thread ，每一個 Thread 負責某一項功能。<ul><li>同一個 Process 會同時存在多個 Thread。</li><li>同一個 Process 底下的 Thread 共享資源，如 記憶體、變數等，不同的Process 則否。</li><li>單執行緒：有一個特性就是順序執行，當遇到比較耗時的任務時，還未執行的任務就會處於等待狀態，一定要等到前面的任務完成了，才會往後執行。</li><li>多執行緒：能夠在同一時間執行多於一個執行緒，進而提升整體處理效能。</li></ul></li></ul></font>
           </div>
-
-<p><strong>JS程式語言中的同步與非同步</strong><br>JS在執行時依舊是依照同步的概念，按照順序一個一個任務執行，但遇到非同步任務時，會把他往後放，放到事件佇列(Event Queue)中。<br>待所有任務執行完成後再執行事件佇列內的任務。</p>
+<p><strong>JS程式語言中的同步與非同步</strong><br>
+JS在執行時依舊是依照同步的概念，按照順序一個一個任務執行，但遇到非同步任務時，會把他往後放，放到事件佇列(Event Queue)中。<br>
+待所有任務執行完成後再執行事件佇列內的任務。</p>
 <img src="/2019/11/24/JavaScript/sync.png" class="img-left" width="800" title="同步與非同步">
 <img src="/2019/11/24/JavaScript/Event_queue.png" class="img-left" width="800" title="事件佇列">
-
 <p>在所有非同步事件如 <span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>…，都不會立即執行這些任務，而是將這些任務放到<span class="label danger">事件佇列(event queue)</span>中，並將所有的事件堆疊完成後，才會開始讓<span class="label danger">事件佇列(event queue)</span>內的事件被觸發。</p>
 <div class="note info">
             <font size=2><p>名詞解釋：</p><ul><li>同步( Scynchronous )：同步處理就像是一般的程式邏輯的話，都是按照你所寫的一行一行去執行，而順序必定都是<strong>前一個動作執行完才會去接著執行下一個動作</strong>。</li><li>非同步( Ascynchronous )：<strong>等待前面步驟執行完之前可以先去執行後面的步驟</strong>。</li><li>事件佇列( event queue )</li></ul></font>
           </div>
-
 <div class="note success">
             <p>從上面的描述，可以統整出兩個重點：</p><ol><li>瀏覽器內核除了 js 引擎的執行緒，還有其他同步執行的執行緒。</li><li><span class="label primary">addEventListener</span>、<span class="label primary">setTimeout</span>、<span class="label primary">ajax</span>，或其他無法預期執行時間的操作，都會以非同步處理。也就是會先被丟到<span class="label danger">事件佇列(event queue)</span>，等到同步執行的程式碼執行完，才會去處理那些被放到佇列中的任務。</li></ol>
           </div>
@@ -457,7 +497,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹-執行環境、作用域"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹(執行環境、作用域)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-amp-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行環境與執行堆疊"><span class="nav-number">6.</span> <span class="nav-text">執行環境與執行堆疊</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境-Execution-Context"><span class="nav-number">6.1.</span> <span class="nav-text">執行環境 Execution Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊-Execution-stack"><span class="nav-number">6.2.</span> <span class="nav-text">執行堆疊 Execution stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#範圍鍊-Scope-chain"><span class="nav-number">7.</span> <span class="nav-text">範圍鍊 Scope chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升-Hoisting"><span class="nav-number">8.</span> <span class="nav-text">提升 Hoisting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Not-Defined-VS-undefined"><span class="nav-number">9.</span> <span class="nav-text">Not Defined VS undefined</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行緒與同步-非同步"><span class="nav-number">10.</span> <span class="nav-text">執行緒與同步/非同步</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-基礎介紹-執行環境、作用域"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 基礎介紹(執行環境、作用域)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯式語言-直譯式語言"><span class="nav-number">2.</span> <span class="nav-text">編譯式語言 &amp; 直譯式語言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-是如何運行的"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 是如何運行的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行的錯誤情境-LHS-RHS"><span class="nav-number">4.</span> <span class="nav-text">執行的錯誤情境 LHS, RHS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#語法作用域-Lexical-scope"><span class="nav-number">5.</span> <span class="nav-text">語法作用域(Lexical scope)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行環境與執行堆疊"><span class="nav-number">6.</span> <span class="nav-text">執行環境與執行堆疊</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#執行環境-Execution-Context"><span class="nav-number">6.1.</span> <span class="nav-text">執行環境 Execution Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行堆疊-Execution-stack"><span class="nav-number">6.2.</span> <span class="nav-text">執行堆疊 Execution stack</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#範圍鍊-Scope-chain"><span class="nav-number">7.</span> <span class="nav-text">範圍鍊 Scope chain</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升-Hoisting"><span class="nav-number">8.</span> <span class="nav-text">提升 Hoisting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Not-Defined-VS-undefined"><span class="nav-number">9.</span> <span class="nav-text">Not Defined VS undefined</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#執行緒與同步-非同步"><span class="nav-number">10.</span> <span class="nav-text">執行緒與同步/非同步</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,20 +511,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -576,6 +616,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

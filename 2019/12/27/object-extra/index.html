@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:description" content="物件屬性延伸章節：屬性的特徵">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-01-30T02:54:07.750Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.168Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/12/27/object-extra/">
@@ -208,7 +208,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-01-30 10:54:07" itemprop="dateModified" datetime="2020-01-30T10:54:07+08:00">2020-01-30</time>
+                <time title="修改時間：2020-02-29 17:44:08" itemprop="dateModified" datetime="2020-02-29T17:44:08+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,8 +233,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="物件屬性延伸章節：屬性的特徵"><a href="#物件屬性延伸章節：屬性的特徵" class="headerlink" title="物件屬性延伸章節：屬性的特徵"></a>物件屬性延伸章節：屬性的特徵</h1><a id="more"></a>
-<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h2><p>what is Object.defineProperty</p>
+        <h1 id="物件屬性延伸章節：屬性的特徵"><a class="header-anchor" href="#物件屬性延伸章節：屬性的特徵"></a>物件屬性延伸章節：屬性的特徵</h1>
+<a id="more"></a>
+<h2 id="Object-defineProperty"><a class="header-anchor" href="#Object-defineProperty"></a>Object.defineProperty()</h2>
+<p>what is Object.defineProperty</p>
 <blockquote>
 <p>可以通過 <code>Object.defineProperty()</code> 這個方法，直接在一個物件上定義一個新的屬性，或者是修改已存在的屬性。執行後會回傳定義完的物件。</p>
 </blockquote>
@@ -245,24 +247,35 @@
 <ul>
 <li><code>obj</code> - 要定義屬性的物件。</li>
 <li><code>prop</code> - 要被定義或修改的屬性名字。</li>
-<li><code>descriptor</code> - 要定義或修改物件敘述內容，可設置的值有如下。<ul>
+<li><code>descriptor</code> - 要定義或修改物件敘述內容，可設置的值有如下。
+<ul>
 <li>【value】：<span class="label success">屬性的值，預設為 undefined。</span></li>
-<li>【writable】<ul>
-<li><span class="label success">true：預設值</span>，該屬性可透過賦予運算子改變其值。</li>
-<li>false：任何對該屬性改寫的操作都無效（靜默錯誤），嚴謹模式下才會報錯。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'a'</span>, &#123;</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">obj.a = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj);     <span class="comment">//&#123;a: 1, b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+<li>【writable】
+<ul>
+<li>
+<span class="label success">true：預設值</span>，該屬性可透過賦予運算子改變其值。
 </li>
-<li>【configurable】<ul>
-<li><span class="label success">true：預設值。</span></li>
-<li>false：任何嘗試刪除目標屬性或修改屬性以下特性（writable, configurable, enumerable）的行為將被無效化。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'c'</span>, &#123;</span><br><span class="line">  configurable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">delete</span> obj.a</span><br><span class="line"><span class="keyword">delete</span> obj.c</span><br><span class="line"><span class="built_in">console</span>.log(obj);     <span class="comment">//&#123;b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>false：任何對該屬性改寫的操作都無效（靜默錯誤），嚴謹模式下才會報錯。</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'a'</span>, &#123;</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">obj.a = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj);     <span class="comment">//&#123;a: 1, b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li>【enumerable】<ul>
-<li><span class="label success">true：預設值。</span></li>
-<li>false：不能在 <code>for-in</code> 迴圈中或 <code>Object.keys</code> 中被列舉出來。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'b'</span>, &#123;</span><br><span class="line">  enumerable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'列舉'</span>+ key)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//列舉a</span></span><br><span class="line"><span class="comment">//列舉b</span></span><br></pre></td></tr></table></figure>
-
+<li>【configurable】
+<ul>
+<li>
+<span class="label success">true：預設值。</span>
 </li>
+<li>false：任何嘗試刪除目標屬性或修改屬性以下特性（writable, configurable, enumerable）的行為將被無效化。</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'c'</span>, &#123;</span><br><span class="line">  configurable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">delete</span> obj.a</span><br><span class="line"><span class="keyword">delete</span> obj.c</span><br><span class="line"><span class="built_in">console</span>.log(obj);     <span class="comment">//&#123;b: 2, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>【enumerable】
+<ul>
+<li>
+<span class="label success">true：預設值。</span>
+</li>
+<li>false：不能在 <code>for-in</code> 迴圈中或 <code>Object.keys</code> 中被列舉出來。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'b'</span>, &#123;</span><br><span class="line">  enumerable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'列舉'</span>+ key)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//列舉a</span></span><br><span class="line"><span class="comment">//列舉b</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -271,53 +284,63 @@
 <p>註：<code>Object.defineProperty()</code> 只可做到淺層(第一層)保護，如欲調整的屬性值為巢狀(第二層含之後)物件，則不起作用。</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'d'</span>, &#123;</span><br><span class="line">  value: &#123;&#125;,</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">obj.d = <span class="number">6</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//&#123;a: 1, b: 2, c: 3, d: &#123;&#125;&#125;</span></span><br><span class="line">obj.d.a = <span class="number">7</span></span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//&#123;a: 1, b: 2, c: 3, d: &#123;a: 7&#125;&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties()"></a>Object.defineProperties()</h2><p>與 <code>Object.defineProperty()</code> 相同可定義新的或是修改已存在的物件屬性，但不同的是可同時調整多組物件屬性，並回傳修改後的物件。<br>語法</p>
+<h2 id="Object-defineProperties"><a class="header-anchor" href="#Object-defineProperties"></a>Object.defineProperties()</h2>
+<p>與 <code>Object.defineProperty()</code> 相同可定義新的或是修改已存在的物件屬性，但不同的是可同時調整多組物件屬性，並回傳修改後的物件。<br>
+語法</p>
 <div class="note info no-icon">
             <p><code>Object.defineProperties(obj, props)</code></p>
           </div>
 <ul>
 <li><code>obj</code> - 要定義屬性的物件。</li>
-<li><code>prop</code> - 要被定義或修改的屬性名字以及要定義或修改物件敘述內容。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    value: <span class="number">4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  b: &#123;</span><br><span class="line">    value: <span class="number">5</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//&#123;a: 4, b: 5, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li><code>prop</code> - 要被定義或修改的屬性名字以及要定義或修改物件敘述內容。</li>
 </ul>
-<h1 id="物件擴充的修改與調整"><a href="#物件擴充的修改與調整" class="headerlink" title="物件擴充的修改與調整"></a>物件擴充的修改與調整</h1><p>延伸的三個物件方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    value: <span class="number">4</span></span><br><span class="line">  &#125;,</span><br><span class="line">  b: &#123;</span><br><span class="line">    value: <span class="number">5</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//&#123;a: 4, b: 5, c: 3&#125;</span></span><br></pre></td></tr></table></figure>
+<h1 id="物件擴充的修改與調整"><a class="header-anchor" href="#物件擴充的修改與調整"></a>物件擴充的修改與調整</h1>
+<p>延伸的三個物件方法。</p>
 <ol>
 <li><a href="#object_extra-1">preventExtensions</a>.</li>
 <li><a href="#object_extra-2">seal</a>.</li>
-<li><a href="#object_extra-3">Freeze</a>.<div class="tabs" id="object_extra"><ul class="nav-tabs"><li class="tab active"><a href="#object_extra-1"><i class="fa fa-object-group"></i>Object.preventExtensions</a></li><li class="tab"><a href="#object_extra-2"><i class="fa fa-object-group"></i>Object.seal</a></li><li class="tab"><a href="#object_extra-3"><i class="fa fa-object-group"></i>Object.freeze</a></li></ul><div class="tab-content"><div class="tab-pane active" id="object_extra-1"><p>preventExtensions：防止擴充，避免物件被新增新的屬性。<br>語法</p>
+<li><a href="#object_extra-3">Freeze</a>.</li>
+</ol>
+<div class="tabs" id="object_extra"><ul class="nav-tabs"><li class="tab active"><a href="#object_extra-1"><i class="fa fa-object-group"></i>Object.preventExtensions</a></li><li class="tab"><a href="#object_extra-2"><i class="fa fa-object-group"></i>Object.seal</a></li><li class="tab"><a href="#object_extra-3"><i class="fa fa-object-group"></i>Object.freeze</a></li></ul><div class="tab-content"><div class="tab-pane active" id="object_extra-1"><p>preventExtensions：防止擴充，避免物件被新增新的屬性。<br>
+語法</p>
 <div class="note info no-icon">
             <p><code>Object.preventExtensions(obj)</code></p>
           </div>
  <code>obj</code> - 要定義屬性的物件。
-
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:&#123;&#125;&#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否可被擴充'</span>, <span class="built_in">Object</span>.isExtensible(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br><span class="line"><span class="comment">//調整屬性</span></span><br><span class="line">obj.a = <span class="string">'a'</span></span><br><span class="line"><span class="comment">//新增屬性</span></span><br><span class="line">obj.d = <span class="string">'d'</span></span><br><span class="line"><span class="comment">//巢狀屬性調整</span></span><br><span class="line">obj.c.a = <span class="string">'ca'</span></span><br><span class="line"><span class="comment">//調整特徵</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'a'</span>, &#123;</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//刪除屬性</span></span><br><span class="line"><span class="keyword">delete</span> obj.b</span><br><span class="line"><span class="comment">//結果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj物件'</span>, obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵(嘗試修改)'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br></pre></td></tr></table></figure>
 <div class="note warning no-icon">
             <p>是否可被擴充 <font color="#D0576B">false</font><br>obj a 的屬性特徵 <font color="#0086CC">{value: 1, writable: true, enumerable: true, configurable: true}</font><br>obj物件 <font color="#0086CC">{a: <font color="#D0576B">“a”</font>, c: <font color="#D0576B">{a: “ca”}</font>}</font><br>obj a 的屬性特徵(嘗試修改) <font color="#0086CC">{value: <font color="#D0576B">“a”</font>, writable: <font color="#D0576B">false</font>, enumerable: true, configurable: true}</font></p>
-          </div></div><div class="tab-pane" id="object_extra-2"><p>seal：封裝。<br><font size=3></p>
+          </div></div><div class="tab-pane" id="object_extra-2"><p>seal：封裝。<br>
+<font size=3></p>
 <blockquote>
-<p>可以封裝一個物件，並返回被封裝後的物件。<br>封裝物件將會阻止向物件添加新的屬性，並且會將所有已有屬性的可配置性（configurable）改為不可配置（false），即不可修改屬性的描述或刪除屬性。<br>但是可寫性描述（writable）為可寫（true）的屬性的值仍然可以被修改。<br>seal也同時包含preventExtensions。<br></font></p>
+<p>可以封裝一個物件，並返回被封裝後的物件。<br>
+封裝物件將會阻止向物件添加新的屬性，並且會將所有已有屬性的可配置性（configurable）改為不可配置（false），即不可修改屬性的描述或刪除屬性。<br>
+但是可寫性描述（writable）為可寫（true）的屬性的值仍然可以被修改。<br>
+seal也同時包含preventExtensions。<br>
+</font></p>
 </blockquote>
 <p>語法</p>
 <div class="note info no-icon">
             <p><code>Object.seal(obj)</code></p>
           </div>
  <code>obj</code> - 要定義屬性的物件。
-
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:&#123;&#125;&#125;</span><br><span class="line"><span class="built_in">Object</span>.seal(obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否可被擴充'</span>, <span class="built_in">Object</span>.isExtensible(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否被封裝'</span>, <span class="built_in">Object</span>.isSealed(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br><span class="line"><span class="comment">//調整屬性</span></span><br><span class="line">obj.a = <span class="string">'a'</span></span><br><span class="line"><span class="comment">//新增屬性</span></span><br><span class="line">obj.d = <span class="string">'d'</span></span><br><span class="line"><span class="comment">//巢狀屬性調整</span></span><br><span class="line">obj.c.a = <span class="string">'ca'</span></span><br><span class="line"><span class="comment">//調整特徵</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'a'</span>, &#123;</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//刪除屬性</span></span><br><span class="line"><span class="keyword">delete</span> obj.b</span><br><span class="line"><span class="comment">//結果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj物件'</span>, obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵(嘗試修改)'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br></pre></td></tr></table></figure>
 <div class="note warning no-icon">
             <p>是否可被擴充 <font color="#D0576B">false</font><br>是否被封裝 <font color="#D0576B">true</font><br>obj a 的屬性特徵 <font color="#0086CC">{value: 1, writable: true, enumerable: true, configurable: <font color="#D0576B">false</font>}</font><br>obj物件 <font color="#0086CC">{a: <font color="#D0576B">“a”</font>, <font color="#A4CA68">b: 2</font>, c: <font color="#D0576B">{a: “ca”}</font>}</font><br>obj a 的屬性特徵(嘗試修改) <font color="#0086CC">{value: <font color="#D0576B">“a”</font>, writable: true, enumerable: true, configurable: <font color="#D0576B">false</font>}</font></p>
-          </div></div><div class="tab-pane" id="object_extra-3"><p>Freeze：凍結。<br><font size=3></p>
+          </div></div><div class="tab-pane" id="object_extra-3"><p>Freeze：凍結。<br>
+<font size=3></p>
 <blockquote>
-<p>可以凍結一個物件，該方法返回被凍結的物件。<br>凍結指的是不能向這個物件添加新的屬性，不能修改其已有屬性的值，不能刪除已有屬性，以及不能修改該物件已有屬性的可枚舉性、可配置性、可寫性，這個物件永遠是不可變的。<br>Freeze也同時包含seal &amp; preventExtensions。<br></font></p>
+<p>可以凍結一個物件，該方法返回被凍結的物件。<br>
+凍結指的是不能向這個物件添加新的屬性，不能修改其已有屬性的值，不能刪除已有屬性，以及不能修改該物件已有屬性的可枚舉性、可配置性、可寫性，這個物件永遠是不可變的。<br>
+Freeze也同時包含seal &amp; preventExtensions。<br>
+</font></p>
 </blockquote>
 <p>語法</p>
 <div class="note info no-icon">
             <p><code>Object.freeze(obj)</code></p>
           </div>
  <code>obj</code> - 要定義屬性的物件。
-
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:&#123;&#125;&#125;</span><br><span class="line"><span class="built_in">Object</span>.freeze(obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否可被擴充'</span>, <span class="built_in">Object</span>.isExtensible(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否被封裝'</span>, <span class="built_in">Object</span>.isSealed(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'是否被凍結'</span>, <span class="built_in">Object</span>.isFrozen(obj))</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br><span class="line"><span class="comment">//調整屬性</span></span><br><span class="line">obj.a = <span class="string">'a'</span></span><br><span class="line"><span class="comment">//新增屬性</span></span><br><span class="line">obj.d = <span class="string">'d'</span></span><br><span class="line"><span class="comment">//巢狀屬性調整</span></span><br><span class="line">obj.c.a = <span class="string">'ca'</span></span><br><span class="line"><span class="comment">//調整特徵(實際上會報錯，需註解此段程式碼)</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'a'</span>, &#123;</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//刪除屬性</span></span><br><span class="line"><span class="keyword">delete</span> obj.b</span><br><span class="line"><span class="comment">//結果</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj物件'</span>, obj)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'obj a 的屬性特徵(嘗試修改)'</span>, <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">'a'</span>))</span><br></pre></td></tr></table></figure>
 <div class="note warning no-icon">
             <p>是否可被擴充 <font color="#D0576B">false</font><br>是否被封裝 <font color="#D0576B">true</font><br>是否被凍結 <font color="#D0576B">true</font><br>obj a 的屬性特徵 <font color="#0086CC">{value: 1, writable: <font color="#D0576B">false</font>, enumerable: true, configurable: <font color="#D0576B">false</font>}</font><br>obj物件 <font color="#0086CC">{a: 1, <font color="#A4CA68">b: 2</font>, c: <font color="#D0576B">{a: “ca”}</font>}</font><br>obj a 的屬性特徵(嘗試修改) <font color="#0086CC">{value: 1, writable: <font color="#D0576B">false</font>, enumerable: true, configurable: <font color="#D0576B">false</font>}</font></p>
@@ -325,15 +348,14 @@
 <blockquote>
 <p>註：以上三個物件方法皆只能針對參數內所指定的物件，而巢狀物件的調整則不受限。</p>
 </blockquote>
-</li>
-</ol>
-<h1 id="屬性列舉與原型的關係"><a href="#屬性列舉與原型的關係" class="headerlink" title="屬性列舉與原型的關係"></a>屬性列舉與原型的關係</h1><h1 id="Getter-與-Setter"><a href="#Getter-與-Setter" class="headerlink" title="Getter 與 Setter"></a>Getter 與 Setter</h1><ul>
+<h1 id="屬性列舉與原型的關係"><a class="header-anchor" href="#屬性列舉與原型的關係"></a>屬性列舉與原型的關係</h1>
+<h1 id="Getter-與-Setter"><a class="header-anchor" href="#Getter-與-Setter"></a>Getter 與 Setter</h1>
+<ul>
 <li>Getter：取得特定值的方法。</li>
-<li>Setter：純值的方法。<div class="tabs" id="getter_setter"><ul class="nav-tabs"><li class="tab active"><a href="#getter_setter-1"><i class="fa fa-object-group"></i>一般的 Setters 和 Getters</a></li><li class="tab"><a href="#getter_setter-2"><i class="fa fa-object-group"></i>Object.defineProperty</a></li><li class="tab"><a href="#getter_setter-3"><i class="fa fa-object-group"></i>Extrs</a></li></ul><div class="tab-content"><div class="tab-pane active" id="getter_setter-1"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> wallet = &#123;</span><br><span class="line">  total: <span class="number">100</span>,</span><br><span class="line">  <span class="keyword">set</span> save(price) &#123;</span><br><span class="line">    <span class="keyword">this</span>.total = <span class="keyword">this</span>.total + price</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">get</span> save() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.total</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">wallet.save = <span class="number">300</span>;                  <span class="comment">//使用賦值運算子將參數傳入</span></span><br><span class="line"><span class="built_in">console</span>.log(wallet.save, wallet)    <span class="comment">//400 &#123;total: 400&#125;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="getter_setter-2"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> wallet = &#123;</span><br><span class="line">  total: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(wallet, <span class="string">'save'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.total</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>: function(price) &#123;</span><br><span class="line">    <span class="keyword">this</span>.total = <span class="keyword">this</span>.total + price</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">wallet.save = <span class="number">500</span>;                  <span class="comment">//使用賦值運算子將參數傳入</span></span><br><span class="line"><span class="built_in">console</span>.log(wallet.save, wallet)    <span class="comment">//600 &#123;total: 600&#125;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="getter_setter-3"><p>操作陣列原型來取得陣列的最後一個值，因是修改原型內的方法，所有的陣列皆可使用此方法。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Array</span>.prototype, <span class="string">'latest'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>[<span class="keyword">this</span>.length<span class="number">-1</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(a.latest)   <span class="comment">//3</span></span><br><span class="line"><span class="keyword">var</span> b = [<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'banana'</span>]</span><br><span class="line"><span class="built_in">console</span>.log(b.latest)   <span class="comment">//banana</span></span><br></pre></td></tr></table></figure></div></div></div>
-
-</li>
+<li>Setter：純值的方法。</li>
 </ul>
+<div class="tabs" id="getter_setter"><ul class="nav-tabs"><li class="tab active"><a href="#getter_setter-1"><i class="fa fa-object-group"></i>一般的 Setters 和 Getters</a></li><li class="tab"><a href="#getter_setter-2"><i class="fa fa-object-group"></i>Object.defineProperty</a></li><li class="tab"><a href="#getter_setter-3"><i class="fa fa-object-group"></i>Extrs</a></li></ul><div class="tab-content"><div class="tab-pane active" id="getter_setter-1"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> wallet = &#123;</span><br><span class="line">  total: <span class="number">100</span>,</span><br><span class="line">  <span class="keyword">set</span> save(price) &#123;</span><br><span class="line">    <span class="keyword">this</span>.total = <span class="keyword">this</span>.total + price</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">get</span> save() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.total</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">wallet.save = <span class="number">300</span>;                  <span class="comment">//使用賦值運算子將參數傳入</span></span><br><span class="line"><span class="built_in">console</span>.log(wallet.save, wallet)    <span class="comment">//400 &#123;total: 400&#125;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="getter_setter-2"><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> wallet = &#123;</span><br><span class="line">  total: <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(wallet, <span class="string">'save'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.total</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>: function(price) &#123;</span><br><span class="line">    <span class="keyword">this</span>.total = <span class="keyword">this</span>.total + price</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">wallet.save = <span class="number">500</span>;                  <span class="comment">//使用賦值運算子將參數傳入</span></span><br><span class="line"><span class="built_in">console</span>.log(wallet.save, wallet)    <span class="comment">//600 &#123;total: 600&#125;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="getter_setter-3"><p>操作陣列原型來取得陣列的最後一個值，因是修改原型內的方法，所有的陣列皆可使用此方法。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(<span class="built_in">Array</span>.prototype, <span class="string">'latest'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>[<span class="keyword">this</span>.length<span class="number">-1</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(a.latest)   <span class="comment">//3</span></span><br><span class="line"><span class="keyword">var</span> b = [<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'banana'</span>]</span><br><span class="line"><span class="built_in">console</span>.log(b.latest)   <span class="comment">//banana</span></span><br></pre></td></tr></table></figure></div></div></div>
 
     </div>
 
@@ -433,20 +455,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -538,6 +560,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

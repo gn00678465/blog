@@ -46,16 +46,16 @@
   };
 </script>
 
-  <meta name="description" content="CSS：(Cascading Style Sheets)串接樣式表， 可用以塑造網站的特殊風格。">
-<meta name="keywords" content="Basic">
+  <meta name="description" content="CSS：(**C**ascading **S**tyle **S**heets)串接樣式表， 可用以塑造網站的特殊風格。">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 基礎概念">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="CSS：(Cascading Style Sheets)串接樣式表， 可用以塑造網站的特殊風格。">
+<meta property="og:description" content="CSS：(**C**ascading **S**tyle **S**heets)串接樣式表， 可用以塑造網站的特殊風格。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;css-declaration.png">
-<meta property="og:updated_time" content="2020-02-15T02:26:04.134Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;01&#x2F;CSS-Basic&#x2F;css-declaration.png">
 
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-02-15 10:26:04" itemprop="dateModified" datetime="2020-02-15T10:26:04+08:00">2020-02-15</time>
+                <time title="修改時間：2020-02-29 17:44:08" itemprop="dateModified" datetime="2020-02-29T17:44:08+08:00">2020-02-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,28 +235,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote class="blockquote-center"><p>CSS：(<strong><font color="red">C</font></strong>ascading <strong><font color="red">S</font></strong>tyle <strong><font color="red">S</font></strong>heets)串接樣式表， 可用以塑造網站的特殊風格。</p>
+        <blockquote class="blockquote-center"><p>CSS：(**<font color="red">C</font>**ascading **<font color="red">S</font>**tyle **<font color="red">S</font>**heets)串接樣式表， 可用以塑造網站的特殊風格。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="CSS-基礎概念"><a href="#CSS-基礎概念" class="headerlink" title="CSS 基礎概念"></a>CSS 基礎概念</h1><p>CSS 既非標準程式語言，也不是標記語言, 而是一種風格頁面語言（style sheet language），它能讓你在 HTML 文件中的元素（element）上套用不同的頁面樣式（style）。</p>
+<h1 id="CSS-基礎概念"><a class="header-anchor" href="#CSS-基礎概念"></a>CSS 基礎概念</h1>
+<p>CSS 既非標準程式語言，也不是標記語言, 而是一種風格頁面語言（style sheet language），它能讓你在 HTML 文件中的元素（element）上套用不同的頁面樣式（style）。</p>
 <p>HTML元素套用CSS有以下3種方式：</p>
 <ul>
 <li>inline - 將CSS樣式寫在元素屬性內</li>
 <li>Internal - 於<code>&lt;head&gt;</code>的標籤內加入<code>&lt;style&gt;</code>元素。</li>
-<li>External - 額外載入CSS檔案。<font color="red"><strong>建議使用</strong></font><br>於<code>&lt;head&gt;</code>的標籤內加入</li>
+<li>External - 額外載入CSS檔案。<font color="red"><strong>建議使用</strong></font><br>
+於<code>&lt;head&gt;</code>的標籤內加入</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"CSS檔案"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解析-CSS-ruleset"><a href="#解析-CSS-ruleset" class="headerlink" title="解析 CSS ruleset"></a>解析 CSS ruleset</h2><img src="/2019/12/01/CSS-Basic/css-declaration.png" class="" title="[css-declaration]">
-
+<h2 id="解析-CSS-ruleset"><a class="header-anchor" href="#解析-CSS-ruleset"></a>解析 CSS ruleset</h2>
+<img src="/2019/12/01/CSS-Basic/css-declaration.png" class="" title="[css-declaration]">
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">選擇器 &#123; </span><br><span class="line">  屬性：屬性值；</span><br><span class="line">  ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>整個架構我們稱為<strong>規則集 (rule set)，或是簡稱為規則 (rule)</strong>也可以。</p>
+<p>整個架構我們稱為**規則集 (rule set)，或是簡稱為規則 (rule)**也可以。</p>
 <ul>
-<li><strong>選擇器（Selector）：</strong><br>在這個規則的最前頭為 HTML 的元素名。它將決定你 HTML 裡什麼元素將被你接下來的設定影響。若要改變欲影響的元素，只要更改選擇器就行了。</li>
-<li><strong>宣告（Declaration）：</strong><br>單一個規則，例如 <code>color: red;</code> 指定了這個元素的呈現樣貌。</li>
-<li><strong>屬性 (Properties)：</strong><br>修改屬性是改變你HTML元素的一種方法 . (ex: color) 在CSS中, 你可以選擇哪些屬性用來影響 rule。</li>
-<li><strong>屬性值 (Property value)：</strong><br><strong>屬性值</strong>就是位於屬性右邊，在冒號（<code>:</code>）之後，從眾多的可能樣式選出一個給予屬性。(ex: red)</li>
+<li><strong>選擇器（Selector）：</strong><br>
+在這個規則的最前頭為 HTML 的元素名。它將決定你 HTML 裡什麼元素將被你接下來的設定影響。若要改變欲影響的元素，只要更改選擇器就行了。</li>
+<li><strong>宣告（Declaration）：</strong><br>
+單一個規則，例如 <code>color: red;</code> 指定了這個元素的呈現樣貌。</li>
+<li><strong>屬性 (Properties)：</strong><br>
+修改屬性是改變你HTML元素的一種方法 . (ex: color) 在CSS中, 你可以選擇哪些屬性用來影響 rule。</li>
+<li><strong>屬性值 (Property value)：</strong><br>
+<strong>屬性值</strong>就是位於屬性右邊，在冒號（<code>:</code>）之後，從眾多的可能樣式選出一個給予屬性。(ex: red)</li>
 </ul>
 <p>注意語法中其他重要的部分：</p>
 <ul>
@@ -266,7 +270,6 @@
 </ul>
 <p>Ex:</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line"> <span class="attribute">color</span>: red;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>CSS 選擇器</strong>是 CSS 規則的一部分。它能讓你選定要調整哪個（或哪些）元素的樣式。</p>
 <a href="/CSS-selector" class="Btn Btn__secondary Btn--v">
 <span>CSS 選擇器的不同類型</span>
@@ -279,7 +282,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Basic/" rel="tag"># Basic</a>
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
           </div>
 
         
@@ -368,20 +371,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -473,6 +476,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

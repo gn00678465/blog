@@ -46,18 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="Gride system 模組化特點優點：  避免命名上的問題 整體性高 可用性高缺點： 變化性受限  Bootstrap Grid system 名詞介紹    Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度，欄與">
+  <meta name="description" content="Gride system 模組化特點 優點：  避免命名上的問題 整體性高 可用性高 缺點： 變化性受限  Bootstrap Grid system   名詞介紹   Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Grid system">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;grid.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Gride system 模組化特點優點：  避免命名上的問題 整體性高 可用性高缺點： 變化性受限  Bootstrap Grid system 名詞介紹    Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度，欄與">
+<meta property="og:description" content="Gride system 模組化特點 優點：  避免命名上的問題 整體性高 可用性高 缺點： 變化性受限  Bootstrap Grid system   名詞介紹   Total Width: 總寬，網頁主要內容呈現的範圍。 Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。 Gutter Width: 間隔寬度">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_col.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_row.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid_container.png">
-<meta property="og:updated_time" content="2020-02-13T12:38:51.004Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;index&#x2F;bootstrap_grid.png">
 
@@ -201,17 +201,20 @@
       
       
       <div class="post-body">
-          <p><strong>Gride system 模組化特點</strong><br>優點：</p>
+          <p><strong>Gride system 模組化特點</strong><br>
+優點：</p>
 <ol>
 <li>避免命名上的問題</li>
 <li>整體性高</li>
-<li>可用性高<br>缺點：</li>
+<li>可用性高<br>
+缺點：</li>
 <li>變化性受限</li>
 </ol>
-<h1 id="Bootstrap-Grid-system"><a href="#Bootstrap-Grid-system" class="headerlink" title="Bootstrap Grid system"></a>Bootstrap Grid system</h1><ul>
-<li><p>名詞介紹</p>
-<img src="/sass-Advanced/index/bootstrap_grid.png" width="900px" alt="Bootstrap Grid system">
-
+<h1 id="Bootstrap-Grid-system"><a class="header-anchor" href="#Bootstrap-Grid-system"></a>Bootstrap Grid system</h1>
+<ul>
+<li>
+<p>名詞介紹<br>
+<img src="/sass-Advanced/index/bootstrap_grid.png" width="900px" alt="Bootstrap Grid system"></p>
 <ul>
 <li>Total Width: 總寬，網頁主要內容呈現的範圍。</li>
 <li>Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。</li>
@@ -222,17 +225,23 @@
 </li>
 </ul>
 <ol>
-<li><p>col</p>
+<li>col</li>
+</ol>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.col-</span>**-* &#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">1px</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="number">15px</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>於每個欄位加上左右的 padding 值，透過此方式，不斷增加欄位，於排列時也可以維持相同的Gutter。</p>
-<img src="/sass-Advanced/index/bootstrap_grid_col.png" width="900px" alt="Column">
+<p>於每個欄位加上左右的 padding 值，透過此方式，不斷增加欄位，於排列時也可以維持相同的Gutter。<br>
+<img src="/sass-Advanced/index/bootstrap_grid_col.png" width="900px" alt="Column"></p>
+<ol>
+<li>
+<p>row<br>
+此時會出現左右邊應該要貼齊邊緣，但因有padding的值而有超出的部分，會造成主要內容有向內部縮的現象。<br>
+透過<strong>負值 margin</strong> 向外推，將超出邊緣的padding補回。<br>
+<img src="/sass-Advanced/index/bootstrap_grid_row.png" width="900px" alt="Row"></p>
 </li>
-<li><p>row<br>此時會出現左右邊應該要貼齊邊緣，但因有padding的值而有超出的部分，會造成主要內容有向內部縮的現象。<br>透過<strong>負值 margin</strong> 向外推，將超出邊緣的padding補回。</p>
-<img src="/sass-Advanced/index/bootstrap_grid_row.png" width="900px" alt="Row">
-</li>
-<li><p>container<br>此時因有外部的 marring 的寬度，於小畫面載具時會出現 horizontal scroll bar，為避免此情況發生。<br>最後透過<strong>padding</strong> 補回空間，也就是 Ｇutter on outside 的部分。</p>
-<img src="/sass-Advanced/index/bootstrap_grid_container.png" width="900px" alt="Container">
-
+<li>
+<p>container<br>
+此時因有外部的 marring 的寬度，於小畫面載具時會出現 horizontal scroll bar，為避免此情況發生。<br>
+最後透過<strong>padding</strong> 補回空間，也就是 Ｇutter on outside 的部分。<br>
+<img src="/sass-Advanced/index/bootstrap_grid_container.png" width="900px" alt="Container"></p>
 </li>
 </ol>
 
@@ -538,8 +547,8 @@
 </div>
 </div>
 
-
-<h1 id="自製-Grid-system"><a href="#自製-Grid-system" class="headerlink" title="自製 Grid system"></a>自製 Grid system</h1><figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$gutter-width</span>: <span class="number">30px</span>;</span><br><span class="line"><span class="variable">$grid-num</span>: <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> row &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line">%<span class="selector-tag">col</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">1px</span>; <span class="comment">// Prevent columns from collapsing when empty</span></span><br><span class="line">  <span class="attribute">padding-left</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">padding-right</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">mixin</span> pad &#123;</span><br><span class="line">  @<span class="keyword">media</span> (mix-width: 767px) &#123;</span><br><span class="line">    @<span class="keyword">content</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1024px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> row;</span><br><span class="line">  <span class="attribute">margin-right</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">margin-left</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">  <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    @<span class="keyword">extend</span> %col;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">include</span> pad &#123;</span><br><span class="line">  @<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">    <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">      <span class="attribute">max-width</span>: percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="自製-Grid-system"><a class="header-anchor" href="#自製-Grid-system"></a>自製 Grid system</h1>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$gutter-width</span>: <span class="number">30px</span>;</span><br><span class="line"><span class="variable">$grid-num</span>: <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">mixin</span> row &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line">%<span class="selector-tag">col</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">1px</span>; <span class="comment">// Prevent columns from collapsing when empty</span></span><br><span class="line">  <span class="attribute">padding-left</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">padding-right</span>: (<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">mixin</span> pad &#123;</span><br><span class="line">  @<span class="keyword">media</span> (mix-width: 767px) &#123;</span><br><span class="line">    @<span class="keyword">content</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">1024px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">  <span class="attribute">padding-right</span>: <span class="variable">$gutter-width</span> / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.row</span> &#123;</span><br><span class="line">  @<span class="keyword">include</span> row;</span><br><span class="line">  <span class="attribute">margin-right</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">  <span class="attribute">margin-left</span>: -(<span class="variable">$gutter-width</span> / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">  <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">    @<span class="keyword">extend</span> %col;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">include</span> pad &#123;</span><br><span class="line">  @<span class="keyword">for</span> <span class="variable">$i</span> from 1 through <span class="variable">$grid-num</span> &#123;</span><br><span class="line">    <span class="selector-class">.col-</span>#&#123;<span class="variable">$i</span>&#125; &#123;</span><br><span class="line">      <span class="attribute">max-width</span>: percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">      <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> percentage(<span class="variable">$i</span> / <span class="variable">$grid-num</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       
       
@@ -615,20 +624,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -720,6 +729,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

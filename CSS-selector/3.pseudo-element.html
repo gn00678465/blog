@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="Syntax selector::pseudo-element &amp;#123; property: value; &amp;#125;                pseudo-class 是以 :: 為開頭，以便區分偽類和偽元素。但由於舊版本的 W3C 規範並未對此進行特別區分，因此目前絕大多數的瀏覽器都同時支持使用 :: &amp;amp; : 這兩種方式來表示偽元素。一個選擇器中只能使用一個偽元素。偽">
+  <meta name="description" content="Syntax selector::pseudo-element &amp;#123; property: value; &amp;#125;               pseudo-class 是以 :: 為開頭，以便區分偽類和偽元素。但由於舊版本的 W3C 規範並未對此進行特別區分，因此目前絕大多數的瀏覽器都同時支持使用 :: &amp;amp; : 這兩種方式來表示偽元素。一個選擇器中只能使用一個偽元素。偽元">
 <meta property="og:type" content="website">
 <meta property="og:title" content="偽元素（pseudo-element）">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;CSS-selector&#x2F;3.pseudo-element.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="Syntax selector::pseudo-element &amp;#123; property: value; &amp;#125;                pseudo-class 是以 :: 為開頭，以便區分偽類和偽元素。但由於舊版本的 W3C 規範並未對此進行特別區分，因此目前絕大多數的瀏覽器都同時支持使用 :: &amp;amp; : 這兩種方式來表示偽元素。一個選擇器中只能使用一個偽元素。偽">
+<meta property="og:description" content="Syntax selector::pseudo-element &amp;#123; property: value; &amp;#125;               pseudo-class 是以 :: 為開頭，以便區分偽類和偽元素。但由於舊版本的 W3C 規範並未對此進行特別區分，因此目前絕大多數的瀏覽器都同時支持使用 :: &amp;amp; : 這兩種方式來表示偽元素。一個選擇器中只能使用一個偽元素。偽元">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-13T22:01:02.139Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.159Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/CSS-selector/3.pseudo-element">
@@ -200,11 +200,9 @@
   <div class="ribbon">Syntax</div>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">selector::pseudo-element &#123; property: value; &#125;</span><br></pre></td></tr></table></figure>
 </div>
-
 <div class="note warning">
             <ol><li>pseudo-class 是以 <code>::</code> 為開頭，以便區分偽類和偽元素。但由於舊版本的 W3C 規範並未對此進行特別區分，因此目前絕大多數的瀏覽器都同時支持使用 <code>::</code> &amp; <code>:</code> 這兩種方式來表示偽元素。</li><li>一個選擇器中只能使用一個偽元素。</li><li>偽元素內必須包含 <code>content</code> 屬性，不然會無法顯示。</li></ol>
           </div>
-
 
 <style>
 .el-before::before {
@@ -243,12 +241,11 @@ p.el-selection::selection {
 }
 </style>
 
-
 <div class="note primary">
-            <ul><li>它並不是真正網頁裡的元素，但行為與表現又和真正網頁元素一樣，也可以對其使用 CSS 操控。</li><li>同時偽元素也會「繼承」原本元素的屬性，如果原本文字是黑色，偽元素的文字也會是黑色。</li><li>偽元素一定要具備 content 的屬性，就算是只有content:””；沒有 content 的偽元素是不會出現在畫面上的。</li></ul>
+            <ul><li>它並不是真正網頁裡的元素，但行為與表現又和真正網頁元素一樣，也可以對其使用 CSS 操控。</li><li>同時偽元素也會「繼承」原本元素的屬性，如果原本文字是黑色，偽元素的文字也會是黑色。</li><li>偽元素一定要具備 content 的屬性，就算是只有content:&quot;&quot;；沒有 content 的偽元素是不會出現在畫面上的。</li></ul>
           </div>
 <ul>
-<li>另外，<code>content</code> 是個很特別的屬性，它可以使用 <code>attr</code> 直接獲取內容元素的屬性值 ( attribute )，舉例來說，在 HTML 裡有一個超連結，點擊後會彈出新視窗並連結至 </li>
+<li>另外，<code>content</code> 是個很特別的屬性，它可以使用 <code>attr</code> 直接獲取內容元素的屬性值 ( attribute )，舉例來說，在 HTML 裡有一個超連結，點擊後會彈出新視窗並連結至</li>
 </ul>
 <table>
   <thead>
@@ -269,15 +266,14 @@ p.el-selection::selection {
     </tr>
   </tbody>
 </table>
-
-<h2 id="before"><a href="#before" class="headerlink" title="before"></a>before</h2><div class="note info">
+<h2 id="before"><a class="header-anchor" href="#before"></a>before</h2>
+<div class="note info">
             <p>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。<br><code>::before</code> 是在原本的元素「之前」加入內容。</p>
           </div>
-
-<h2 id="after"><a href="#after" class="headerlink" title="after"></a>after</h2><div class="note info">
+<h2 id="after"><a class="header-anchor" href="#after"></a>after</h2>
+<div class="note info">
             <p>最常使用的偽元素之一，以 <code>display:inline-block</code> 的屬性存在。<br><code>::after</code> 是在原本的元素「之後」加入內容。</p>
           </div>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-before::before &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"我是before"</span>;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">  &amp;-after::after &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">"我是after"</span>;</span><br><span class="line">    <span class="attribute">color</span>: green;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 <div class="result result--light">
@@ -286,11 +282,10 @@ p.el-selection::selection {
   <div class="el-after">我是DIV</div>
 </div>
 
-
-<h2 id="first-line"><a href="#first-line" class="headerlink" title="first-line"></a>first-line</h2><div class="note info">
+<h2 id="first-line"><a class="header-anchor" href="#first-line"></a>first-line</h2>
+<div class="note info">
             <p><code>::first-line</code> 顧名思義就是「第一行」，透過這個偽元素可以輕鬆指定文字的第一行。<br>需要注意的是 <code>::first-line</code> 「不能」作用於 <code>display:inline</code> 的元素。</p>
           </div>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-first-line::first-line &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="result result--light">
@@ -298,11 +293,10 @@ p.el-selection::selection {
   <p class="el-first-line">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo facilis, error, labore rerum accusamus quasi consectetur exercitationem pariatur qui ad aliquid earum hic voluptatibus dolorum dolor vel dicta tenetur tempora.</p>
 </div>
 
-
-<h2 id="first-letter"><a href="#first-letter" class="headerlink" title="first-letter"></a>first-letter</h2><div class="note info">
+<h2 id="first-letter"><a class="header-anchor" href="#first-letter"></a>first-letter</h2>
+<div class="note info">
             <p><code>::first-letter</code> 顧名思義就是「第一個字」。<br>透過這個偽元素，可以做出許多文章第一個字放大或變色的效果。</p>
           </div>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-first-letter::first-letter &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">54px</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f39c12</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">7px</span> -<span class="number">2px</span> <span class="number">0</span>;</span><br><span class="line">    &amp;::after &#123;</span><br><span class="line">      <span class="attribute">clear</span>: both;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="result result--light">
@@ -312,11 +306,10 @@ p.el-selection::selection {
   </p>
 </div>
 
-
-<h2 id="selection"><a href="#selection" class="headerlink" title="selection"></a>selection</h2><div class="note info">
+<h2 id="selection"><a class="header-anchor" href="#selection"></a>selection</h2>
+<div class="note info">
             <p><code>::selection</code> 是個十分常見的偽元素，它就是負責一段選取文字的效果。</p>
           </div>
-
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.el</span> &#123;</span><br><span class="line">  &amp;-selection::selection &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <div class="result result--light">
@@ -401,20 +394,20 @@ p.el-selection::selection {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -506,6 +499,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>

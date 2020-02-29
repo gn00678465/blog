@@ -1190,7 +1190,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff2459;
+  background: #ddfbff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2505,6 +2505,9 @@ ul.breadcrumb li + li:last-child {
 a.no-border {
   border: none;
 }
+pre.mermaid {
+  background: transparent;
+}
 /* syntaxbox */
 .codeBox {
   font-size: 1rem;
@@ -2804,3 +2807,123 @@ a.no-border {
   background-color: #ff3f34;
 }
 
+.timeline {
+  line-height: 1.5em;
+  font-size: 14px;
+  transition: all 0.4s ease;
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.timeline:before {
+  content: "";
+  width: 10px;
+  height: 100%;
+  background: #87ceeb;
+  position: absolute;
+  top: 0;
+  left: -3rem;
+  border-radius: 40px 40px;
+}
+
+.timeline--entry {
+  position: relative;
+  background-color: #eeeeee;
+}
+.timeline--entry__title {
+  color: white;
+  background-color: #ec407a;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 1rem;
+}
+.timeline--entry__title:before {
+  border-top: 1rem solid transparent;
+  border-bottom: 1rem solid transparent;
+  border-right: 1rem solid #ec407a;
+  content: "";
+  position: absolute;
+  left: -1rem;
+}
+.timeline--entry__detail {
+  background-color: #dddddd;
+  padding: 1em;
+  margin: 0;
+}
+.timeline--entry:before {
+  content: "";
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border: 0.2em solid #87ceeb;
+  border-radius: 50%;
+  position: absolute;
+  text-shadow: 0 1px 0 #424242;
+  top: 1.5rem;
+  left: -3.25rem;
+}
+.moon-menu,
+.moon-menu-text {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  z-index: 999;
+}
+.moon-menu-svg,
+.moon-menu-button {
+  width: 4rem;
+  height: 4rem;
+}
+.moon-menu-button {
+  cursor: pointer;
+}
+.moon-menu-cricle {
+  fill: #607d8b;
+  opacity: 0.9;
+}
+.moon-menu-border {
+  stroke: #607d8b;
+  opacity: 0.9;
+  stroke-width: 1px;
+  fill: none;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+.moon-menu-points {
+  transform: translate3d(2rem, 2rem, 0);
+}
+.moon-menu-point {
+  fill: #fff;
+  transition: all 0.15s cubic-bezier(0, 0, 0.382, 1.618);
+}
+.moon-menu-text {
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  line-height: 4rem;
+  font-size: 1.2rem;
+  display: none;
+}
+.moon-menu-item {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0;
+  display: block;
+  transition: all 0.3s cubic-bezier(0, 0, 0.382, 1.618);
+  z-index: -1;
+  text-align: center;
+  line-height: 2.5rem;
+  color: #fff;
+  cursor: pointer;
+}

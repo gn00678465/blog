@@ -46,14 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="切分並歸類 sass 的結構。 base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
+  <meta name="description" content="切分並歸類 sass 的結構。  base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
 <meta property="og:type" content="website">
 <meta property="og:title" content="7+1 Sass 架構">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;sass-Advanced&#x2F;sass-7-1-pattern.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="切分並歸類 sass 的結構。 base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
+<meta property="og:description" content="切分並歸類 sass 的結構。  base：放置一些如 reset、文字規則 等初始化的scss文件。 components：放置一些獨立的元件， layout：放置一些如格線系統、 pages：放置特殊頁面，如視差滾動的頁面。 themes：放置頁面的樣式。 utils：放置變數、function、mixin、工具類的scss。 vendors：放置載入的插件。  sass&#x2F;||– base&#x2F;|">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-02-12T19:36:52.486Z">
+<meta property="og:updated_time" content="2020-02-29T09:44:08.183Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/sass-Advanced/sass-7-1-pattern">
@@ -196,7 +196,8 @@
       
       
       <div class="post-body">
-          <h1 id="切分並歸類-sass-的結構。"><a href="#切分並歸類-sass-的結構。" class="headerlink" title="切分並歸類 sass 的結構。"></a>切分並歸類 sass 的結構。</h1><ul>
+          <h1 id="切分並歸類-sass-的結構。"><a class="header-anchor" href="#切分並歸類-sass-的結構。"></a>切分並歸類 sass 的結構。</h1>
+<ul>
 <li>base：放置一些如 reset、文字規則 等初始化的scss文件。</li>
 <li>components：放置一些獨立的元件，</li>
 <li>layout：放置一些如格線系統、</li>
@@ -281,20 +282,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -386,6 +387,105 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
 
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
 </body>
 </html>
