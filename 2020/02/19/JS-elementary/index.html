@@ -57,7 +57,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;HTMLCollection.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;NodeList.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;eventflow.png">
-<meta property="og:updated_time" content="2020-03-01T21:21:24.905Z">
+<meta property="og:updated_time" content="2020-03-02T15:27:27.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;javascript.png">
 
@@ -212,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-02 05:21:24" itemprop="dateModified" datetime="2020-03-02T05:21:24+08:00">2020-03-02</time>
+                <time title="修改時間：2020-03-02 23:27:27" itemprop="dateModified" datetime="2020-03-02T23:27:27+08:00">2020-03-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -546,8 +546,8 @@ DOM標準分成了3個部分。</p>
 <li>加入判斷，排除父節點。</li>
 </ol>
 <ul>
-<li><code>e.target.classList.contains('搜尋的節點')</code>，如果有回傳 true沒有則回傳 false。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/contains" target="_blank" rel="noopener">MDN</a></li>
-<li><code>e.target.nodeName === '要匹配的節點'</code>。 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Node/nodeName" target="_blank" rel="noopener">MDN</a></li>
+<li><code>e.target.classList.contains('搜尋的子節點')</code>，如果有回傳 true沒有則回傳 false。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/contains" target="_blank" rel="noopener">MDN</a></li>
+<li><code>e.target.nodeName === '要匹配的子節點'</code>。 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Node/nodeName" target="_blank" rel="noopener">MDN</a></li>
 </ul>
 
 <div class="result result--light">
@@ -595,13 +595,22 @@ add.addEventListener('click',function(e){
 outer.addEventListener('click',function(e){
   if (e.target.classList.contains('eventBtn')) {
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    e.target.setAttribute('style', `background: #${randomColor}`)
+    e.target.setAttribute('style', `background: #${randomColor}`);
   }
 })
   </script>
 </div>
 
-
+<h2 id="網頁座標"><a class="header-anchor" href="#網頁座標"></a>網頁座標</h2>
+<p><code>e</code> 裡面蘊含了許多觸發事件的相關參數，包括與網頁座標的相關參數。</p>
+<ol>
+<li><code>e.screenX</code>、<code>e.screenY</code> - 抓取整個螢幕的大小。</li>
+<li><code>e.pageX</code>、<code>e.pageY</code>     - 抓取整個網頁的大小。</li>
+<li><code>e.clientX</code>、<code>e.clientY</code> - 抓取瀏覽器的大小。</li>
+</ol>
+<a href="/blog/demoHTML/js-event-position/index.html" target="_blank" class="Btn Btn__secondary Btn--v">
+<span>js-event-position</span>
+</a>
     </div>
 
     
@@ -682,7 +691,7 @@ outer.addEventListener('click',function(e){
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制判斷"><span class="nav-number">1.</span> <span class="nav-text">控制判斷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單條件"><span class="nav-number">1.1.1.</span> <span class="nav-text">單條件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多條件"><span class="nav-number">1.1.2.</span> <span class="nav-text">多條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">1.2.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迴圈"><span class="nav-number">2.</span> <span class="nav-text">迴圈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-迴圈"><span class="nav-number">2.1.</span> <span class="nav-text">for 迴圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-array"><span class="nav-number">2.2.</span> <span class="nav-text">for array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-if"><span class="nav-number">2.3.</span> <span class="nav-text">for if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-break"><span class="nav-number">2.4.</span> <span class="nav-text">for break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM解析"><span class="nav-number">3.1.</span> <span class="nav-text">DOM解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何需要DOM"><span class="nav-number">3.2.</span> <span class="nav-text">為何需要DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM"><span class="nav-number">3.3.</span> <span class="nav-text">HTML DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM-操作"><span class="nav-number">3.4.</span> <span class="nav-text">HTML DOM 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加節點"><span class="nav-number">3.5.</span> <span class="nav-text">增加節點</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#event-事件"><span class="nav-number">4.</span> <span class="nav-text">event 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#capturing-bubbling-的差異"><span class="nav-number">4.1.</span> <span class="nav-text">capturing &amp; bubbling 的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的三個-Phase"><span class="nav-number">4.2.</span> <span class="nav-text">事件的三個 Phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消事件傳遞"><span class="nav-number">4.3.</span> <span class="nav-text">取消事件傳遞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消預設行為"><span class="nav-number">4.4.</span> <span class="nav-text">取消預設行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前所在元素位置"><span class="nav-number">4.5.</span> <span class="nav-text">目前所在元素位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見的-event-type"><span class="nav-number">4.6.</span> <span class="nav-text">常見的 event type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實際應用"><span class="nav-number">4.7.</span> <span class="nav-text">實際應用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#event-delegation-事件代理"><span class="nav-number">4.7.1.</span> <span class="nav-text">event delegation(事件代理)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制判斷"><span class="nav-number">1.</span> <span class="nav-text">控制判斷</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.1.</span> <span class="nav-text">if</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#單條件"><span class="nav-number">1.1.1.</span> <span class="nav-text">單條件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多條件"><span class="nav-number">1.1.2.</span> <span class="nav-text">多條件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch"><span class="nav-number">1.2.</span> <span class="nav-text">switch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#迴圈"><span class="nav-number">2.</span> <span class="nav-text">迴圈</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#for-迴圈"><span class="nav-number">2.1.</span> <span class="nav-text">for 迴圈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-array"><span class="nav-number">2.2.</span> <span class="nav-text">for array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-if"><span class="nav-number">2.3.</span> <span class="nav-text">for if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-break"><span class="nav-number">2.4.</span> <span class="nav-text">for break</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">3.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM解析"><span class="nav-number">3.1.</span> <span class="nav-text">DOM解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何需要DOM"><span class="nav-number">3.2.</span> <span class="nav-text">為何需要DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM"><span class="nav-number">3.3.</span> <span class="nav-text">HTML DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML-DOM-操作"><span class="nav-number">3.4.</span> <span class="nav-text">HTML DOM 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增加節點"><span class="nav-number">3.5.</span> <span class="nav-text">增加節點</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#event-事件"><span class="nav-number">4.</span> <span class="nav-text">event 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#capturing-bubbling-的差異"><span class="nav-number">4.1.</span> <span class="nav-text">capturing &amp; bubbling 的差異</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的三個-Phase"><span class="nav-number">4.2.</span> <span class="nav-text">事件的三個 Phase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消事件傳遞"><span class="nav-number">4.3.</span> <span class="nav-text">取消事件傳遞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消預設行為"><span class="nav-number">4.4.</span> <span class="nav-text">取消預設行為</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前所在元素位置"><span class="nav-number">4.5.</span> <span class="nav-text">目前所在元素位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常見的-event-type"><span class="nav-number">4.6.</span> <span class="nav-text">常見的 event type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實際應用"><span class="nav-number">4.7.</span> <span class="nav-text">實際應用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#event-delegation-事件代理"><span class="nav-number">4.7.1.</span> <span class="nav-text">event delegation(事件代理)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#網頁座標"><span class="nav-number">4.8.</span> <span class="nav-text">網頁座標</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
