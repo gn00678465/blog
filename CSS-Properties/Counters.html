@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://gn00678465.github.io').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="CSS counters 就像1個變數，可以依照CSS的規則增加計數器的數值。搭配偽元素 ::before and ::after 將產生的計數器插入 content 內。            properties         counter-reset     Creates or resets a counter.     建立 or 重置計數器。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Counters">
+<meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;CSS-Properties&#x2F;Counters.html">
+<meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="CSS counters 就像1個變數，可以依照CSS的規則增加計數器的數值。搭配偽元素 ::before and ::after 將產生的計數器插入 content 內。            properties         counter-reset     Creates or resets a counter.     建立 or 重置計數器。">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2020-03-03T13:29:42.407Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://gn00678465.github.io/CSS-Properties/Counters">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false
+  };
+</script>
+
+  <title>Counters | 前端學習
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端學習</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-TW">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Counters
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <div class="note info">
+            <p>CSS counters 就像1個變數，可以依照CSS的規則增加計數器的數值。<br>搭配偽元素 <code>::before</code> and <code>::after</code> 將產生的計數器插入 <code>content</code> 內。</p>
+          </div>
+<h1 id="properties"><a class="header-anchor" href="#properties"></a>properties</h1>
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>counter-reset</code></dt>
+    <dd class="timeline--entry__detail">Creates or resets a counter.</dd>
+    <dd class="timeline--entry__detail">建立 or 重置計數器。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>counter-increment</code></dt>
+    <dd class="timeline--entry__detail">Increments a counter value.</dd>
+    <dd class="timeline--entry__detail">增加計數器的值。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>counter()</code> or <code>counters()</code></dt>
+    <dd class="timeline--entry__detail">function - Adds the value of a counter to an element.</dd>
+    <dd class="timeline--entry__detail">將計數器的值插入至元素內。</dd>
+  </dl>
+</div>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">counter-reset</span>:num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>:num; </span><br><span class="line">  <span class="attribute">content</span>:<span class="built_in">counter</span>(num) <span class="string">'. '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>counter-reset:num</code> num 是計數器累加數值的變數。</li>
+<li><code>counter-increment:num</code> 把 num 累加上去，預設數值為加 1。</li>
+<li><code>content:counter(num)</code> 將計數器的值透過 content 顯示出來。</li>
+</ol>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">counter</span>(計數器名稱, <span class="selector-tag">list-style-type</span>)</span><br></pre></td></tr></table></figure>
+</div>
+
+<style>
+.palmar {
+  counter-reset: num;
+}
+.palmar span {
+  display: block;
+}
+.palmar span::before {
+  counter-increment: num;
+  content: counter(num) ". ";
+}
+</style>
+<div class="result result--light">
+  <div class="ribbon ribbon--success">counter</div>
+<div class="palmar">
+  <span>天眾敬生靈</span>
+  <span>人眾歸老境</span>
+  <span>刀途厄病苦</span>
+  <span>血途漫死塵</span>
+  <span>火途煉修羅</span>
+</div>
+</div>
+
+<br>
+如果要更換數字的樣式，也可以透過 list-style-type 設定值來更改。<br>
+<a href="https://www.w3schools.com/cssref/pr_list-style-type.asp" target="_blank" class="Btn Btn__success Btn--v">
+<span>list-style-type</span>
+</a>
+<h1 id="counter-進階用法"><a class="header-anchor" href="#counter-進階用法"></a>counter 進階用法</h1>
+<ol>
+<li>
+<p>counter 也可以同時指定多個變數<br>
+counter-reset 可以指定多個變數，透過一個空白字元分隔，如果空白字元後面接著數字則是起始值，沒有數字預設為 0。</p>
+ <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">  <span class="attribute">counter-reset</span>:nums <span class="number">2</span> nume <span class="number">4</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">span</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>:nums <span class="number">2</span>; </span><br><span class="line">  <span class="attribute">content</span>:<span class="built_in">counter</span>(numi) <span class="string">'. '</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">em</span><span class="selector-pseudo">::before</span>&#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>:nume <span class="number">3</span>; </span><br><span class="line">  <span class="attribute">content</span>:<span class="built_in">counter</span>(numb) <span class="string">'. '</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>span</code> 標籤的初始值為 2 ，每次增加數值為 2；</li>
+<li><code>em</code> 標籤的初始值為 4 ，每次增加數值為 3；</li>
+</ul>
+</li>
+<li>
+<p>巢狀結構<br>
+counter 還提供了另外一個 <code>counters</code> 的功能，目的就是來解決巢狀結構的情況 (1 &gt; 1.1 &gt; 1.1.1)。</p>
+</li>
+</ol>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">counters</span>(計數器名稱, 分隔字, <span class="selector-tag">list-style-type</span>)</span><br></pre></td></tr></table></figure>
+</div>
+<table>
+  <tr>
+    <td>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"palmar-2"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>菩提三悟</span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>菩提明鏡<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>無樹非台<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>來處惹何埃<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>金剛四正</span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>金剛般若<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>怒相行深<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>照見諸法<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>自在觀空<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>摩訶五趣</span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>人眾歸老境<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>刀途厄病苦<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>血途漫死塵<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>火途煉修羅<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>天眾敬生靈<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    </td>
+    <td>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.palmar-2</span>, <span class="selector-class">.outer</span> &#123;</span><br><span class="line">  <span class="attribute">counter-reset</span>:section;</span><br><span class="line">  <span class="attribute">list-style-type</span>: none;</span><br><span class="line">  <span class="selector-class">.item</span> &#123;</span><br><span class="line">    &amp;::before &#123;</span><br><span class="line">      <span class="attribute">counter-increment</span>: section;</span><br><span class="line">      <span class="attribute">content</span>: counters(section, <span class="string">"."</span>) <span class="string">". "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.outer</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: -<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </td>
+  </tr>
+</table>
+
+<style>
+.palmar-2, .outer {
+  counter-reset: section;
+  list-style-type: none;
+}
+.palmar-2 .item::before, .outer .item::before {
+  counter-increment: section;
+  content: counters(section,".") ". ";
+}
+
+.outer {
+  margin-left: -20px;
+}
+</style>
+<div class="result result--light">
+  <div class="ribbon ribbon--success">counters</div>
+<ol class="palmar-2">
+  <li class="item">菩提三悟
+    <ol class="outer">
+      <li class="item">菩提明鏡</li>
+      <li class="item">無樹非台</li>
+      <li class="item">來處惹何埃</li>
+    </ol>
+  </li>
+  <li class="item">金剛四正
+    <ol class="outer">
+      <li class="item">金剛般若</li>
+      <li class="item">怒相行深</li>
+      <li class="item">照見諸法</li>
+      <li class="item">自在觀空</li>
+    </ol>
+  </li>
+  <li class="item">摩訶五趣
+    <ol class="outer">
+      <li class="item">人眾歸老境</li>
+      <li class="item">刀途厄病苦</li>
+      <li class="item">血途漫死塵</li>
+      <li class="item">火途煉修羅</li>
+      <li class="item">天眾敬生靈</li>
+    </ol>
+  </li>
+</ol>
+</div>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#properties"><span class="nav-number">1.</span> <span class="nav-text">properties</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#counter-進階用法"><span class="nav-number">2.</span> <span class="nav-text">counter 進階用法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
+</body>
+</html>
