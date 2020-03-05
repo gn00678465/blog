@@ -26,7 +26,7 @@ function updateList(item) {
 // 移除資料
 function delToDoItem(e) {
   e.preventDefault();
-  if (e.target.nodeName !== 'A') {return};
+  if (e.target.nodeName !== 'A') {return};    // nodeName 不等於 'A'，不動作。
   let num = e.target.dataset.index;
   data.splice(num, 1);
   console.log(data);

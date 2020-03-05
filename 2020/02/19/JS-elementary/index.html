@@ -57,7 +57,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;HTMLCollection.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;NodeList.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;eventflow.png">
-<meta property="og:updated_time" content="2020-03-05T21:50:27.147Z">
+<meta property="og:updated_time" content="2020-03-05T22:07:29.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;javascript.png">
 
@@ -212,7 +212,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-06 05:50:27" itemprop="dateModified" datetime="2020-03-06T05:50:27+08:00">2020-03-06</time>
+                <time title="修改時間：2020-03-06 06:07:29" itemprop="dateModified" datetime="2020-03-06T06:07:29+08:00">2020-03-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -632,8 +632,19 @@ outer.addEventListener('click',function(e){
 <h2 id="賦值"><a class="header-anchor" href="#賦值"></a>賦值</h2>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> menu = <span class="built_in">document</span>.querySelector(<span class="string">'#menu'</span>);</span><br><span class="line">menu.dataset.key1 = <span class="string">'val1'</span>;</span><br><span class="line">menu.dataset.key2 = <span class="string">'val2'</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="與-Array-搭配使用"><a class="header-anchor" href="#與-Array-搭配使用"></a>與 Array 搭配使用</h2>
+<ol>
+<li>從 webStorsge 取值，設定變數為 data ，如果無值則建立一個空陣列。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> data = <span class="built_in">JSON</span>.parse(sessionStorage.getItem(<span class="string">'toDoList'</span>)) || [];</span><br></pre></td></tr></table></figure>
+</li>
+<li>新增資料，將 <code>input</code> 內的值帶入物件並 <code>psuh</code> 進 <code>data</code> 陣列內。<br>
+再將 <code>data</code> 陣列更新進 webStorsge 內。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addDate</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> toDoItem = <span class="built_in">document</span>.querySelector(<span class="string">'.text'</span>).value;</span><br><span class="line">  <span class="keyword">if</span> ( toDoItem === <span class="string">''</span> ) &#123;<span class="keyword">return</span>&#125;;</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'.text'</span>).value = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">let</span> toDo = &#123; <span class="attr">content</span>: toDoItem &#125;;</span><br><span class="line">  data.push(toDo);</span><br><span class="line">  sessionStorage.setItem(<span class="string">'toDoList'</span>, <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">  updateList(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>更新資料，並將內容插入至 list 內。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">send.addEventListener(<span class="string">'click'</span>, addDate);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateList</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; item.length; i++) &#123;</span><br><span class="line">    str += <span class="string">`&lt;li&gt;&lt;a href="#" data-index="<span class="subst">$&#123;i&#125;</span>"&gt;刪除&lt;/a&gt; &lt;span&gt;<span class="subst">$&#123;data[i].content&#125;</span>&lt;/span&gt;&lt;/li&gt;`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  list.innerHTML = str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>移除資料，使用事件代理，父節點 list 做為監聽對象，監聽子節點的 A 標籤，移除後並重新更新資料。 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">list.addEventListener(<span class="string">'click'</span>, delToDoItem)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">delToDoItem</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  e.preventDefault();</span><br><span class="line">  <span class="keyword">if</span> (e.target.nodeName !== <span class="string">'A'</span>) &#123;<span class="keyword">return</span>&#125;;  <span class="comment">// nodeName 不等於 'A'，不動作。</span></span><br><span class="line">  <span class="keyword">let</span> num = e.target.dataset.index;</span><br><span class="line">  data.splice(num, <span class="number">1</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">  sessionStorage.setItem(<span class="string">'toDoList'</span>, <span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">  updateList(data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <a href="/blog/demoHTML/js-webStorage/index.html" target="_blank" class="Btn Btn__success Btn--v">
-<span>js-event-position</span>
+<span>js-webStorsge</span>
 </a>
 <h1 id="web-storage"><a class="header-anchor" href="#web-storage"></a>web storage</h1>
 <div class="note info">
