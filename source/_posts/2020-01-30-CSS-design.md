@@ -7,8 +7,7 @@ tags:
 - CSS
 - Sass
 ---
-網頁收納術！
-
+{% asset_img css.jpeg %}
 {%cq%}
 "CSS is simple..., it's simple to understand.
 But CSS is not simple to use or maintain."

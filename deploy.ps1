@@ -1,9 +1,9 @@
-Write-Output "---------clean start---------";
+Write-Output "--------clean start--------";
 hexo cl;
-Write-Output "----------clean end---------";
-Write-Output "---------generate start-----------";
+Write-Output "---------clean end----------";
+Write-Output "------generate start--------";
 hexo g;
-Write-Output "----------generate end----------";
-Write-Output "----------deploy start----------";
+Write-Output "--------generate end--------";
+Write-Output "--------deploy start--------";
 hexo d;
-Write-Output "--------deploy end------";
+Write-Output "--------deploy end----------";
