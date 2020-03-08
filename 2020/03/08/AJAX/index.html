@@ -46,15 +46,14 @@
   };
 </script>
 
-  <meta name="description" content="AJAX 全名為 Asynchronous JavaScript and XML（非同步 JavaScript 及 XML）  AJAX 是一種用於創建快速動態網頁的技術。 在傳統的網頁（不使用 AJAX）如果需要更新內容，必須重載整個頁面。而AJAX 通過在後台與伺服器進行少量數據交換，使網頁實現異步更新。這意味著可以在不重載整個頁面的情況下，對網頁的某些部分進行更新。  XMLHttpR">
+  <meta name="keywords" content="JavaScript,AJAX">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;index.html">
 <meta property="og:site_name" content="前端學習">
-<meta property="og:description" content="AJAX 全名為 Asynchronous JavaScript and XML（非同步 JavaScript 及 XML）  AJAX 是一種用於創建快速動態網頁的技術。 在傳統的網頁（不使用 AJAX）如果需要更新內容，必須重載整個頁面。而AJAX 通過在後台與伺服器進行少量數據交換，使網頁實現異步更新。這意味著可以在不重載整個頁面的情況下，對網頁的某些部分進行更新。  XMLHttpR">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;AJAX.png">
-<meta property="og:updated_time" content="2020-03-08T05:42:45.068Z">
+<meta property="og:updated_time" content="2020-03-08T13:55:45.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;AJAX.png">
 
@@ -203,7 +202,18 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-03-08 11:32:38 / 修改時間：13:42:45" itemprop="dateCreated datePublished" datetime="2020-03-08T11:32:38+08:00">2020-03-08</time>
+              <time title="創建時間：2020-03-08 11:32:38 / 修改時間：21:55:45" itemprop="dateCreated datePublished" datetime="2020-03-08T11:32:38+08:00">2020-03-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -217,9 +227,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <a id="more"></a>
-<img src="/blog/2020/03/08/AJAX/AJAX.png" class="">
-<!--more-->
+        <img src="/blog/2020/03/08/AJAX/AJAX.png" class="">
+<a id="more"></a>
 <p>AJAX 全名為 <strong>Asynchronous JavaScript and XML</strong>（非同步 JavaScript 及 XML）</p>
 <ul>
 <li>AJAX 是一種用於創建快速動態網頁的技術。</li>
@@ -311,23 +320,23 @@
 </div>
 從上列的語法中可得知目前的狀態，是否有成功回應又或者獲取失敗等等。
 <p><strong>HTTP 狀態碼大致分成 5 類。</strong></p>
-<div class="tabs" id="fourth-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#fourth-unique-name-1">1xx</a></li><li class="tab"><a href="#fourth-unique-name-2">2xx</a></li><li class="tab"><a href="#fourth-unique-name-3">3xx</a></li><li class="tab"><a href="#fourth-unique-name-4">4xx</a></li><li class="tab"><a href="#fourth-unique-name-5">5xx</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fourth-unique-name-1"><p><span class="label primary">1xx - 參考資訊 (Informational)</span><br>
+<div class="tabs" id="status"><ul class="nav-tabs"><li class="tab active"><a href="#status-1">1xx</a></li><li class="tab"><a href="#status-2">2xx</a></li><li class="tab"><a href="#status-3">3xx</a></li><li class="tab"><a href="#status-4">4xx</a></li><li class="tab"><a href="#status-5">5xx</a></li></ul><div class="tab-content"><div class="tab-pane active" id="status-1"><p><span class="label primary">1xx - 參考資訊 (Informational)</span><br>
 這些狀態碼代表主機先暫時回應用戶端一個狀態，所以在接收一般的回應之前，用戶端應準備接收一個或多個 1xx 的回應。</p>
 <div class="note info no-icon">
             <ul><li>100 - 繼續。</li><li>101 - 切換通訊協定。</li></ul>
-          </div></div><div class="tab-pane" id="fourth-unique-name-2"><p><span class="label primary">2xx - 成功 (OK)</span><br>
+          </div></div><div class="tab-pane" id="status-2"><p><span class="label primary">2xx - 成功 (OK)</span><br>
 這類的狀態碼表示伺服器成功接收到用戶端要求、理解用戶端要求、以及接受用戶端要求。</p>
 <div class="note info no-icon">
             <ul><li><span class="label danger">200 - 確定。 用戶端要求成功</span>。</li><li>201 - 已建立。</li><li>202 - 已接受。</li><li>203 - 非授權資訊。</li><li>204 - 無內容。</li><li>205 - 重設內容。</li><li>206 - 部分內容。</li><li>207 - 多重狀態 (WebDAV) – 這好像只有在 IIS 中才有，HTTP/1.1 並沒有定義這個狀態。這狀態會出現在可以包含多個不同回應代碼 (視子要求數量而定) 的 XML 訊息之前。</li></ul>
-          </div></div><div class="tab-pane" id="fourth-unique-name-3"><p><span class="label primary">3xx - 重新導向 (Redirection)</span><br>
+          </div></div><div class="tab-pane" id="status-3"><p><span class="label primary">3xx - 重新導向 (Redirection)</span><br>
 用戶端瀏覽器必須採取更多動作才能完成要求。例如：瀏覽器可能必須重新發出 HTTP Request 要求伺服器上的不同頁面。</p>
 <div class="note info no-icon">
             <ul><li>301 - 要求的網頁已經永久改變網址。此狀態要求用戶端未來在連結此網址時應該導向至指定的 URI。</li><li>302 - 物件已移動，並告知移動過去的網址。針對表單架構驗證，這通常表示為「物件已移動」。 要求的資源暫時存於不同的 URI 底下。 由於重新導向可能偶而改變，用戶端應繼續使用要求 URI 來執行未來的要求。 除非以 Cache-Control 或 Expires 標頭欄位表示，此回應才能夠快取。</li><li>303 - 通知 Client 連到另一個網址去查看上傳表單的結果(POST 變成 GET)，當使用程式作網頁轉向時，會回應此訊息。</li><li>304 - 未修改。用戶端要求該網頁時，其內容並沒有變更，應該回傳 304 告知網頁未修改。此時用戶端僅需要取得本地快取(Local Cache)的副本即可。</li><li>305 - 要求的網頁必須透過 Server 指定的 proxy 才能觀看 ( 透過 Location 標頭 )</li><li>306 - (未使用) 此代碼僅用來為了向前相容而已。</li><li>307 - 暫時重新導向。要求的網頁只是「暫時」改變網址而已。</li></ul>
-          </div></div><div class="tab-pane" id="fourth-unique-name-4"><p><span class="label primary">4xx - 用戶端錯誤 (Client Error)</span><br>
+          </div></div><div class="tab-pane" id="status-4"><p><span class="label primary">4xx - 用戶端錯誤 (Client Error)</span><br>
 這代表錯誤發生，且這錯誤的發生的原因跟「用戶端」有關。例如：用戶端可能連結到不存在的頁面、用戶端的權限不足、或可能未提供有效的驗證資訊(輸入的帳號、密碼錯誤)。</p>
 <div class="note info no-icon">
             <ul><li>400 - 錯誤的要求。</li><li>401 - 拒絕存取。 IIS 定義數個不同的 401 錯誤，以表示更詳細的錯誤原因。 這些特定的錯誤碼會顯示在瀏覽器中，但不會顯示在 IIS 記錄檔中：<ul><li>401.1 - 登入失敗。</li><li>401.2 - 因為伺服器設定導致登入失敗。</li><li>401.3 - 因為資源上的 ACL 而沒有授權。</li><li>401.4 - 篩選授權失敗。</li><li>401.5 - ISAPI/CGI 應用程式授權失敗。</li><li>401.7 - Web 伺服器上的 URL 授權原則拒絕存取。 這是 IIS 6.0 專用的錯誤碼。</li></ul></li><li>403 - 禁止使用。 IIS 定義數個不同的 403 錯誤，以表示更詳細的錯誤原因：<ul><li>403.1 - 禁止執行存取。</li><li>403.2 - 禁止讀取存取。</li><li>403.3 - 禁止寫入存取。</li><li>403.4 - 需要 SSL。</li><li>403.5 - 需要 SSL 128。</li><li>403.6 - IP 位址遭拒。</li><li>403.7 - 需要用戶端憑證。</li><li>403.8 - 網站存取遭拒。</li><li>403.9 - 使用者過多。</li><li>403.10 - 設定無效。</li><li>403.11 - 密碼變更。</li><li>403.12 - 對應程式拒絕存取。</li><li>403.13 - 用戶端憑證已撤銷。</li><li>403.14 - 目錄清單遭拒。</li><li>403.15 - 超過用戶端存取授權數量。</li><li>403.16 - 用戶端憑證不受信任或無效。</li><li>403.17 - 用戶端憑證已經過期或尚未生效。</li><li>403.18 - 無法在目前的應用程式集區中執行要求的 URL。 這是 IIS 6.0 專用的代碼。</li><li>403.19 - 無法在這個應用程式集區中執行用戶端的 CGI。 這是 IIS 6.0 專用的代碼。</li><li>403.20 - Passport 登入失敗。 這是 IIS 6.0 專用的錯誤碼。</li></ul></li><li><span class="label danger">404 - 找不到</span>。<ul><li>404.0 - (無) – 找不到檔案或目錄。</li><li>404.1 - 無法在要求的連接埠上存取網站。</li><li>404.2 - 網頁服務延伸鎖定原則阻止這個要求。</li><li>404.3 - MIME 對應原則阻止這個要求。</li></ul></li><li>405 - 用來存取這個頁面的 HTTP 動詞不受允許 (方法不受允許)。</li><li>406 - 用戶端瀏覽器不接受要求頁面的 MIME 類型。</li><li>407 - 需要 Proxy 驗證。</li><li>412 - 指定條件失敗。</li><li>413 - 要求的實體太大。</li><li>414 - 要求 URI 太長。</li><li>415 - 不支援的媒體類型。</li><li>416 - 無法滿足要求的範圍。</li><li>417 - 執行失敗。</li><li>423 - 鎖定錯誤。</li></ul>
-          </div></div><div class="tab-pane" id="fourth-unique-name-5"><p><span class="label primary">5xx - 伺服器錯誤 (Server Error)</span><br>
+          </div></div><div class="tab-pane" id="status-5"><p><span class="label primary">5xx - 伺服器錯誤 (Server Error)</span><br>
 這代表錯誤發生，且這錯誤發生的原因跟「伺服器」有關。伺服器因為發生錯誤或例外狀況(Exception)而無法完成要求(Request)時，就會回應 5xx 的錯誤，且這肯定跟伺服器有關。</p>
 <div class="note info no-icon">
             <ul><li>500 - 內部伺服器錯誤。<ul><li>500.12 - 應用程式正忙於在 Web 伺服器上重新啟動。</li><li>500.13 - Web 伺服器過於忙碌。</li><li>500.15 - 不允許直接要求 Global.asa。</li><li>500.16 – UNC 授權認證不正確。 這是 IIS 6.0 專用的錯誤碼。</li><li>500.18 – 無法開啟 URL 授權存放區。 這是 IIS 6.0 專用的錯誤碼。</li><li>500.19 - 此檔案的資料在 Metabase 中設定不當。</li><li>500.100 - 內部的 ASP 錯誤。</li></ul></li><li>501 – 標頭值指定未實作的設定。</li><li>502 - Web 伺服器在作為閘道或 Proxy 時收到無效的回應。<ul><li>502.1 - CGI 應用程式逾時。</li><li>502.2 - CGI 應用程式中發生錯誤。</li></ul></li><li>503 - 服務無法使用。 這是 IIS 6.0 專用的錯誤碼。</li><li>504 - 閘道逾時。</li><li>505 - 不支援的 HTTP 版本。</li></ul>
@@ -368,14 +377,169 @@
     <dd class="timeline--entry__detail">JSON傳遞 - <code>Content-type: application/json</code> ；表單資訊使用 <code>JSON.stringify</code> 轉型成 string 格式再進行傳送。</dd>
   </dl>
 </div>
+<h1 id="Fetch-API"><a class="header-anchor" href="#Fetch-API"></a>Fetch API</h1>
+<p>以往都是依賴 <code>XMLHttpRequest</code>。Fetch API 提供了一個能獲取包含跨網路資源在的資源介面，但這個新的 API 提供了更強更彈性的功能，其使用 <code>Promise</code> 作為基本構造要素。<br>
+並被廣泛使用在 Service Workers。Fetch 在設定 HTTP 相關的設定時, 也提供可讀性比較好的方法, 這些設定包括 CORS 以及其他 header。</p>
+<h2 id="Fetch-基本用法"><a class="header-anchor" href="#Fetch-基本用法"></a>Fetch 基本用法</h2>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(input, &#123;init&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 處理 response</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 錯誤處理</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</div>
+<ul>
+<li>fetch 會使用 ES6 的 Promise 作回應
+<ul>
+<li>then 作為下一步</li>
+<li>catch 作為錯誤回應 (404, 500…)</li>
+</ul>
+</li>
+<li>回傳的為 <code>Response</code> 物件，需要使用不同資料類型使用對應方法，才能正確取得資料物件。</li>
+</ul>
+<p>最簡單的方式只需要一個參數就是資料的 URI，fetch 會回傳一個包含 <code>response</code> 的 promise ，<code>return</code> 並針對不同資料類型使用對應方法處理此 <code>response</code>，再將資料傳到下一個 <code>then()</code>。<br>
+fetch 後方會接 <code>then()</code>，這是 Promise 的特性，資料取得後可在 <code>then()</code> 裡面接收。</p>
+<div class="tabs" id="fetch"><ul class="nav-tabs"><li class="tab active"><a href="#fetch-1">fetch()</a></li><li class="tab"><a href="#fetch-2">Response 屬性</a></li><li class="tab"><a href="#fetch-3">Response 方法</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fetch-1"><dl>
+  <dt>input</dt>
+  <dd>定義你想要fetch的資源。</dd>
+  <dd>
+    <ul>
+      <li>一個直接包含你希望fetch的資源的URL</li>
+      <li>一個 <code>Request</code> 對象</li>
+    </ul>
+  </dd>
+  <dt>init</dt>
+  <dd>可選對象，包含希望被包括到請求中的各種自定義選項。</dd>
+  <dd>
+    <table>
+      <thead>
+        <tr>
+          <th>屬性</th>
+          <th>設定值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>method</td>
+          <td>請求的方法：GET、POST、PUT、DELETE、HEAD ( 預設 GET )</td>
+        </tr>
+        <tr>
+          <td>headers</td>
+          <td>要求相關的 Headers 物件 ( 預設 {} )</td>
+        </tr>
+        <tr>
+          <td>mode</td>
+          <td>請求的模式：cors、no-cors、same-origin、navigate ( 預設 cors )</td>
+        </tr>
+        <tr>
+          <td>referrer</td>
+          <td>no-referrer、client 或一個 URL ( 預設 client )</td>
+        </tr>
+        <tr>
+          <td>credentials</td>
+          <td>請求中想要使用的credentials：omit、same-origin、include ( 預設 omit )</td>
+        </tr>
+        <tr>
+          <td>redirect</td>
+          <td>對重定向處理的模式：follow、error、manual ( 預設 manual )</td>
+        </tr>
+        <tr>
+          <td>cache</td>
+          <td>請求中想要使用的cache mode：default、no-store、reload、no-cache、force-cache ( 預設 default )</td>
+        </tr>
+        <tr>
+          <td>body</td>
+          <td>要加到要求中的內容。
+          <li>可以是Blob, BufferSource, FormData, URLSearchParams, 或 USVString對象</li>
+          <li>method 為 GET 或 HEAD 則不設定</li>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span>更多屬性請參考 </span><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Request/Request" target="_blank" rel="noopener">fetch Request</a>
+  </dd>
+</dl></div><div class="tab-pane" id="fetch-2"><table>
+  <thead>
+    <tr>
+      <th>屬性</th>
+      <th>設定值</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+  <tr>
+    <td>headers</td>
+    <td>包含與 response 相關的 Headers 物件</td>
+  </tr>
+  <tr>
+    <td>ok</td>
+    <td>成功回傳 true，不成功回傳 false</td>
+  </tr>
+  <tr>
+    <td>status</td>
+    <td>包含此  response  的狀態碼(例如：成功時為 200 )。</td>
+  </tr>
+  <tr>
+    <td>statusText</td>
+    <td>包含狀態碼所對應的狀態文字 (例如： OK 對應 200)。</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>包含此 response 的類型 (例如： basic, cors)。</td>
+  </tr>
+  <tr>
+    <td>url</td>
+    <td>包含此 response 的 URL。</td>
+  </tr>
+</table>
+<p>更多屬性和方法請參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Response" target="_blank" rel="noopener">fetch Response</a></p></div><div class="tab-pane" id="fetch-3"><table>
+  <thead>
+    <tr>
+      <th>方法</th>
+      <th>設定值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.json()</code></td>
+      <td>讀取 Response 對象，並返回一個被解析為 <code>JSON</code> 格式的 Promise 對象。</td>
+    </tr>
+    <tr>
+      <td><code>.text()</code></td>
+      <td>讀取 Response 對象，並返回一個被解析為 <code>string</code> 格式的 Promise 對象。</td>
+    </tr>
+    <tr>
+      <td><code>.blob()</code></td>
+      <td>讀取 Response 對象，並返回一個被解析為 <code>blob</code> 格式的 Promise 對象 ( 非結構化物件資料，例如文字或二進位資料 )。</td>
+    </tr>
+    <tr>
+      <td><code>.arrayBuffer()</code></td>
+      <td>讀取 Response 對象，並返回一個被解析為 <code>arrayBuffer</code> 格式的 Promise 對象( 有多少 bytes )。</td>
+    </tr>
+    <tr>
+      <td><code>.formData()</code></td>
+      <td>讀取 Response 對象，並返回一個被解析為 <code>formData</code> 格式的 Promise 對象( 表單資料對應的的 Key 或 Value )。</td>
+    </tr>
+    <tr>
+      <td><code>.clone()</code></td>
+      <td>建立 Response 的複製物件</td>
+    </tr>
+    <tr>
+      <td><code>.error()</code></td>
+      <td>返回一個錯誤的新的 Response 對象。</td>
+    </tr>
+  </tbody>
+</table>
+<p>更多屬性和方法請參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Response" target="_blank" rel="noopener">fetch Response</a></p></div></div></div>
 <h1 id="框架"><a class="header-anchor" href="#框架"></a>框架</h1>
 <h2 id="span-jQuery-span"><a class="header-anchor" href="#span-jQuery-span"></a><span>jQuery</span></h2>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  url: <span class="string">'https://randomuser.me/api/'</span>,</span><br><span class="line">  dataType: <span class="string">'json'</span>,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    result.html(data.results[<span class="number">0</span>].email)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="Axios"><a class="header-anchor" href="#Axios"></a>Axios</h2>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">'https://randomuser.me/api/'</span>)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data = response.data;</span><br><span class="line">    result.textContent = data.results[<span class="number">0</span>].email;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// handle error</span></span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;)</span><br><span class="line">  .finally(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// always executed</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I always Execued'</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<a href="https://api.jquery.com/jquery.ajax/" target="_blank" class="Btn Btn__success Btn--v">
+<span>jQuery</span>
+</a>
+<h2 id="Axios-推薦"><a class="header-anchor" href="#Axios-推薦"></a>Axios(推薦)</h2>
+<a href="https://github.com/axios/axios" target="_blank" class="Btn Btn__success Btn--v">
+<span>Axios</span>
+</a>
 <h1 id="參考"><a class="header-anchor" href="#參考"></a>參考</h1>
 <p><a href="https://notfalse.net/29/xmlhttprequest" target="_blank" rel="noopener">XMLHttpRequest — JavaScript 發送 HTTP 請求 (I)</a><br>
-<a href="https://blog.miniasp.com/post/2009/01/16/Web-developer-should-know-about-HTTP-Status-Code" target="_blank" rel="noopener">網頁開發人員應了解的 HTTP 狀態碼</a></p>
+<a href="https://blog.miniasp.com/post/2009/01/16/Web-developer-should-know-about-HTTP-Status-Code" target="_blank" rel="noopener">網頁開發人員應了解的 HTTP 狀態碼</a><br>
+<a href="https://github.com/hsiangfeng/APIList" target="_blank" rel="noopener">練習用APIList</a></p>
 
     </div>
 
@@ -384,6 +548,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/blog/tags/AJAX/" rel="tag"># AJAX</a>
+          </div>
 
         
 
@@ -454,7 +622,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.5.</span> <span class="nav-text">POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.5.1.</span> <span class="nav-text">AJAX POST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">2.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">2.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios"><span class="nav-number">2.2.</span> <span class="nav-text">Axios</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">3.</span> <span class="nav-text">參考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.5.</span> <span class="nav-text">POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.5.1.</span> <span class="nav-text">AJAX POST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-API"><span class="nav-number">2.</span> <span class="nav-text">Fetch API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">Fetch 基本用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">3.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios-推薦"><span class="nav-number">3.2.</span> <span class="nav-text">Axios(推薦)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -481,7 +649,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
