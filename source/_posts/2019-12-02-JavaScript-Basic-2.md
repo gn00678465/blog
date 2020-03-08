@@ -5,6 +5,7 @@ categories:
 - JavaScript
 tags:
 - Basic
+- JavaScript
 ---
 **JavaScript 基礎介紹(運算子、型別與文法)**
 
@@ -13,8 +14,8 @@ tags:
 # 陳述式與表達式
 
 - **陳述式( Statement )**：JS的語句類型，用於命令執行指定的一系列操作，最大的特徵是{% label primary@不會回傳結果 %}，使用如下。
-  + 流程控制：block、break、if...else。
-  + 宣告：var、let、const。
+  + 流程控制：`block`、`break`、`if...else`。
+  + 宣告：`var`、`let`、`const`。
   + 函數(function)
   ```javascript
   // 函式陳述式、具名函式
@@ -25,7 +26,7 @@ tags:
   + 迭代（Iteration)；for迴圈等等。
   + {% link 可以參考MDN裡面對陳述式與宣告的詳細說明及舉例 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Statements true 陳述式與宣告 %}
 - **表達式( Expression )**：又可稱為表示式、運算式，經常可透過一些符號結合上下語句運算並{% label primary@回傳結果 %}。
-  + 運算子：+、-、*、/、%，一般四則運算、餘數。
+  + 運算子：`+`、`-`、`*`、`/`、`%`，一般四則運算、餘數。
   + 函數(function)
   ```javascript
   // 函式表達式、匿名函式
@@ -37,7 +38,7 @@ tags:
 
 **常見誤解：**
 **Block**結構可以內含Statement，或是Expression作為物件實字 (Object Literal)。
-- Statement
+- <font size="5">Statement</font>
   ```javascript
   { 
   var ming = '小明' 
@@ -57,8 +58,8 @@ tags:
   }
   console.log(ming);    //ming is not definded
   ```
-- 物件實字
-```javascript
+- <font size="5">物件實字</font>
+  ```javascript
   { 
   ming: '小明'
   }
