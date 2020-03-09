@@ -13,7 +13,7 @@ title: Grid system
 # Bootstrap Grid system
 
 - 名詞介紹
-<img src="/sass-Advanced/index/bootstrap_grid.png" width="900px" alt="Bootstrap Grid system">
+<img src="/blog/sass-Advanced/index/bootstrap_grid.png" width="900px" alt="Bootstrap Grid system">
 
   - Total Width: 總寬，網頁主要內容呈現的範圍。
   - Number of Column: 總欄位數，12 是常用的數值，16、24 也是許多開發者使用，這些數值同時是許多數值的最小公倍數。
@@ -31,17 +31,17 @@ title: Grid system
 }
 ```
 於每個欄位加上左右的 padding 值，透過此方式，不斷增加欄位，於排列時也可以維持相同的Gutter。
-<img src="/sass-Advanced/index/bootstrap_grid_col.png" width="900px" alt="Column">
+<img src="/blog/sass-Advanced/index/bootstrap_grid_col.png" width="900px" alt="Column">
 
 1. row
 此時會出現左右邊應該要貼齊邊緣，但因有padding的值而有超出的部分，會造成主要內容有向內部縮的現象。
 透過<strong>負值 margin</strong> 向外推，將超出邊緣的padding補回。
-<img src="/sass-Advanced/index/bootstrap_grid_row.png" width="900px" alt="Row">
+<img src="/blog/sass-Advanced/index/bootstrap_grid_row.png" width="900px" alt="Row">
 
 1. container
 此時因有外部的 marring 的寬度，於小畫面載具時會出現 horizontal scroll bar，為避免此情況發生。
 最後透過<strong>padding</strong> 補回空間，也就是 Ｇutter on outside 的部分。
-<img src="/sass-Advanced/index/bootstrap_grid_container.png" width="900px" alt="Container">
+<img src="/blog/sass-Advanced/index/bootstrap_grid_container.png" width="900px" alt="Container">
 
 {% raw %}
 <style>

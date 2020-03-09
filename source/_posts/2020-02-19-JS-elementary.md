@@ -725,6 +725,10 @@ BOM 的核心其實是 window 物件。而 window 物件提供的屬性主要有
     ```javascript
     window.location()
     ```
+- 目前的URL(currentURL)
+    ```javascript
+    const currentURL = () => window.location.href;
+    ```
 - 移動到其他網頁
     ```javascript
     window.open(url)
