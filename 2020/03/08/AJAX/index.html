@@ -53,7 +53,10 @@
 <meta property="og:site_name" content="前端學習">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;AJAX.png">
-<meta property="og:updated_time" content="2020-03-08T13:55:45.205Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_get_1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_get_2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_error.png">
+<meta property="og:updated_time" content="2020-03-09T19:37:04.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;AJAX.png">
 
@@ -200,10 +203,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-03-08 11:32:38 / 修改時間：21:55:45" itemprop="dateCreated datePublished" datetime="2020-03-08T11:32:38+08:00">2020-03-08</time>
+              <time title="創建時間：2020-03-08 11:32:38" itemprop="dateCreated datePublished" datetime="2020-03-08T11:32:38+08:00">2020-03-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-03-10 03:37:04" itemprop="dateModified" datetime="2020-03-10T03:37:04+08:00">2020-03-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -386,16 +395,14 @@
   <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(input, &#123;init&#125;)</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 處理 response</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 錯誤處理</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </div>
 <ul>
-<li>fetch 會使用 ES6 的 Promise 作回應
+<li><code>fetch</code> 會使用 ES6 的 <code>Promise</code> 作回應
 <ul>
-<li>then 作為下一步</li>
-<li>catch 作為錯誤回應 (404, 500…)</li>
+<li><code>.then(onFulfilled, onRejected)</code> 作為下一步</li>
+<li><code>catch()</code> 作為錯誤回應 (404, 500…)</li>
 </ul>
 </li>
 <li>回傳的為 <code>Response</code> 物件，需要使用不同資料類型使用對應方法，才能正確取得資料物件。</li>
 </ul>
-<p>最簡單的方式只需要一個參數就是資料的 URI，fetch 會回傳一個包含 <code>response</code> 的 promise ，<code>return</code> 並針對不同資料類型使用對應方法處理此 <code>response</code>，再將資料傳到下一個 <code>then()</code>。<br>
-fetch 後方會接 <code>then()</code>，這是 Promise 的特性，資料取得後可在 <code>then()</code> 裡面接收。</p>
 <div class="tabs" id="fetch"><ul class="nav-tabs"><li class="tab active"><a href="#fetch-1">fetch()</a></li><li class="tab"><a href="#fetch-2">Response 屬性</a></li><li class="tab"><a href="#fetch-3">Response 方法</a></li></ul><div class="tab-content"><div class="tab-pane active" id="fetch-1"><dl>
   <dt>input</dt>
   <dd>定義你想要fetch的資源。</dd>
@@ -527,6 +534,35 @@ fetch 後方會接 <code>then()</code>，這是 Promise 的特性，資料取得
   </tbody>
 </table>
 <p>更多屬性和方法請參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Response" target="_blank" rel="noopener">fetch Response</a></p></div></div></div>
+<h2 id="GET"><a class="header-anchor" href="#GET"></a>GET</h2>
+<p>最簡單的方式只需要一個參數就是資料的 URL，fetch 會回傳一個包含 <code>Response</code> 的 promise ，針對不同資料類型使用對應方法處理此 <code>Response</code>，<code>return</code>此 <code>Response</code> 再將資料傳到下一個 <code>then()</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://gank.io/api/random/data/福利/20'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(response)</span><br><span class="line">      <span class="keyword">return</span> response.json()</span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">myJson</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(myJson)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<img src="/blog/2020/03/08/AJAX/fetch_get_1.png" class="">
+<ul>
+<li><code>fetch()</code> 函式會回傳一個 Promise，並在解析/完成 (resolve) 後，回傳 <code>Response</code> 物件。</li>
+<li><code>Response</code> 資訊內包含了請求的 <code>url</code> 和用來判斷請求是否成功的 <code>status</code> 狀態等。</li>
+<li>針對不同資料類型使用其對應方法，才能正確取得資料物件，<code>return</code> 已解析的資料並傳給第二個 <code>.then()</code> 接收。
+<ul>
+<li>return 使用的 <code>.json()</code> ，能夠將回傳的資料以物件的方式傳給第二個 <code>.then()</code> 接收。</li>
+<li>當回傳的資料無法轉換為物件時，則會將請求資料以字串 <code>.text()</code> 方式取出。</li>
+</ul>
+</li>
+</ul>
+<img src="/blog/2020/03/08/AJAX/fetch_get_2.png" class="">
+<h2 id="POST-v2"><a class="header-anchor" href="#POST-v2"></a>POST</h2>
+<ul>
+<li><code>POST</code>請求需外在 <code>method</code> 屬性內指定 <code>POST</code> 方式。</li>
+<li><code>body</code> 屬性指定要送出的資料。
+<ul>
+<li>需要注意的是， <code>body</code> 內的資料需使用 <code>JSON.stringify</code> 將物件轉換成字串型態，否則 <code>server</code> 端會無法正確取得資料。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="string">'https://hexschool-tutorial.herokuapp.com/api/signup'</span>;</span><br><span class="line"><span class="keyword">const</span> account = &#123;</span><br><span class="line">email: <span class="string">'hex123456789@gmail.com'</span>,</span><br><span class="line">password: <span class="string">'12345678'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch(url, &#123;</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">	<span class="comment">// body 將 json 轉字串送出</span></span><br><span class="line">    body: <span class="built_in">JSON</span>.stringify(account),</span><br><span class="line">	<span class="comment">// headers 加入 json 格式</span></span><br><span class="line">    headers: &#123;<span class="string">'Content-type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">myJson</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myJson)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="請求失敗"><a class="header-anchor" href="#請求失敗"></a>請求失敗</h2>
+<p>請求失敗須從 <code>Response</code> 的 <code>status</code> 的屬性值判斷，當 <code>status</code> 的值不等於 200 時，將在 <code>.then()</code> 中使用 <code>throw</code> 創建一個錯誤，並由 <code>.catch()</code> 接收錯誤內容。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://httpbin.org/status/404'</span>, &#123;</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(response.status !== <span class="number">200</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(response.status)</span><br><span class="line">    <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">myJson</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(myJson)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`錯誤代碼為<span class="subst">$&#123;error&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<img src="/blog/2020/03/08/AJAX/fetch_error.png" class="">
 <h1 id="框架"><a class="header-anchor" href="#框架"></a>框架</h1>
 <h2 id="span-jQuery-span"><a class="header-anchor" href="#span-jQuery-span"></a><span>jQuery</span></h2>
 <a href="https://api.jquery.com/jquery.ajax/" target="_blank" class="Btn Btn__success Btn--v">
@@ -622,7 +658,7 @@ fetch 後方會接 <code>then()</code>，這是 Promise 的特性，資料取得
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.5.</span> <span class="nav-text">POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.5.1.</span> <span class="nav-text">AJAX POST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-API"><span class="nav-number">2.</span> <span class="nav-text">Fetch API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">Fetch 基本用法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">3.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios-推薦"><span class="nav-number">3.2.</span> <span class="nav-text">Axios(推薦)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.5.</span> <span class="nav-text">POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.5.1.</span> <span class="nav-text">AJAX POST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-API"><span class="nav-number">2.</span> <span class="nav-text">Fetch API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">Fetch 基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET"><span class="nav-number">2.2.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-v2"><span class="nav-number">2.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#請求失敗"><span class="nav-number">2.4.</span> <span class="nav-text">請求失敗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">3.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios-推薦"><span class="nav-number">3.2.</span> <span class="nav-text">Axios(推薦)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
