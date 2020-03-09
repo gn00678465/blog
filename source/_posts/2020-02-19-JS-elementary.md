@@ -246,23 +246,23 @@ DOM標準分成了3個部分。
 
 <div class="timeline">
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">document.getElementById(id)</dt>
+    <dt class="timeline--entry__title"><code>document.getElementById(id)</code></dt>
     <dd class="timeline--entry__detail">找尋 DOM 中符合此 id 名稱的元素，並回傳相對應的 element。</dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">document.getElementsByTagName(name)</dt>
+    <dt class="timeline--entry__title"><code>document.getElementsByTagName(name)</code></dt>
     <dd class="timeline--entry__detail">找尋 DOM 中符合此 tag 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">document.getElementsByClassName(name)</dt>
+    <dt class="timeline--entry__title"><code>document.getElementsByClassName(name)</code></dt>
     <dd class="timeline--entry__detail">找尋 DOM 中符合此 class 名稱的所有元素，並回傳相對應的 element 集合，集合為 <code>HTMLCollection</code>。</dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">document.querySelector(selector)</dt>
+    <dt class="timeline--entry__title"><code>document.querySelector(selector)</code></dt>
     <dd class="timeline--entry__detail">利用 selector 來找尋 DOM 中的元素，並回傳相對應的第一個 element。</dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">document.querySelectorAll(selector)</dt>
+    <dt class="timeline--entry__title"><code>document.querySelectorAll(selector)</code></dt>
     <dd class="timeline--entry__detail">利用 selector 來找尋 DOM 中的所有元素，並回傳相對應的第一個 element ，集合為 <code>NodeList</code>。</dd>
   </dl>
 </div>
@@ -288,19 +288,49 @@ DOM標準分成了3個部分。
 
 <div class="timeline">
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">innerHTML</dt>
+    <dt class="timeline--entry__title"><code>innerHTML</code></dt>
     <dd class="timeline--entry__detail">
     透過 innerHTML 可以取得或設定 HTML Code 中的元素，也可以單純的將字串寫入 HTML Code 的某一個部分。
     <font color="red">盡量避免使用。</font>
     </dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">textContent</dt>
+    <dt class="timeline--entry__title"><code>textContent</code></dt>
     <dd class="timeline--entry__detail">表示節點或其後代的文字內容。</dd>
   </dl>
   <dl class="timeline--entry">
-    <dt class="timeline--entry__title">createElement</dt>
+    <dt class="timeline--entry__title"><code>document.createElement(tagName)</code></dt>
     <dd class="timeline--entry__detail">可以依指定的標籤名稱（<code>tagName</code>）建立 HTML 元素，或是在未定義標籤名稱下建立一個 HTMLUnknownElement。</dd>
+  </dl>
+    <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>document.createTextNode()</code></dt>
+    <dd class="timeline--entry__detail">用來建立文字節點的方法，直接加入字串即可。</dd>
+  </dl>
+    <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>document.createDocumentFragment()</code></dt>
+    <dd class="timeline--entry__detail">它是一種沒有父層節點的「最小化文件物件」。 可以把它看作是一個輕量化的 Document，用如同標準文件一般的方式來保存「片段的文件結構」。</dd>
+    <dd class="timeline--entry__detail">因為 <code>createDocumentFragment()</code> 是存在記憶體中，增加子元素並不會導致網頁 reflow (重新計算元素的位置和幾何)。因此採用 <code>createDocumentFragment()</code> 通常會有比較好的效能表現 (better performance)。</dd>
+  </dl>
+</div>
+
+## 節點的修改與刪除
+
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>NODE.appendChild(childNode)</code></dt>
+    <dd class="timeline--entry__detail">可以將指定的 <code>childNode</code> 節點，加入到 <code>Node</code> 父容器節點的末端。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>NODE.insertBefore(newNode, refNode)</code></dt>
+    <dd class="timeline--entry__detail">將新節點 <code>newNode</code> 插入至指定的 <code>refNode</code> 節點的前面。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>NODE.replaceChild(newChildNode, oldChildNode)</code></dt>
+    <dd class="timeline--entry__detail">將原本的 <code>oldChildNode</code> 替換成指定的 <code>newChildNode</code>。</dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>NODE.removeChild(childNode)</code></dt>
+    <dd class="timeline--entry__detail">將指定的 <code>childNode</code> 子節點移除。</dd>
   </dl>
 </div>
 
