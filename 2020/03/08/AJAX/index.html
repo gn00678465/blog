@@ -56,7 +56,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_get_1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_get_2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;fetch_error.png">
-<meta property="og:updated_time" content="2020-03-09T19:37:04.400Z">
+<meta property="og:updated_time" content="2020-03-10T14:57:57.175Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;08&#x2F;AJAX&#x2F;AJAX.png">
 
@@ -211,7 +211,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-10 03:37:04" itemprop="dateModified" datetime="2020-03-10T03:37:04+08:00">2020-03-10</time>
+                <time title="修改時間：2020-03-10 22:57:57" itemprop="dateModified" datetime="2020-03-10T22:57:57+08:00">2020-03-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,9 @@
     <dt class="timeline--entry__title"><span>實例物件</span> <code>const XHR = new XMLHttpRequest();</code></dt>
     <dd class="timeline--entry__detail">要送出一個 HTTP 請求，需要建立一個 <code>XMLHttpRequest</code> 物件、開啟一個 URL，並發起一個請求。</dd>
   </dl>
-  readyState will be 0
+  <div class="note success">
+            <p>readyState will be 0</p>
+          </div>
   <dl class="timeline--entry">
     <dt class="timeline--entry__title"><span>設定請求</span> <code>XMLHttpRequest.open(method, url, async);</code></dt>
     <dd class="timeline--entry__detail">
@@ -264,6 +266,9 @@
       </li>
     </dd>
   </dl>
+  <div class="note success">
+            <p>readyState will be 1</p>
+          </div>
   <dl class="timeline--entry">
     <dt class="timeline--entry__title"><span>請求表頭</span> <code>XMLHttpRequest.setRequestHeader(header, value);</code></dt>
     <dd class="timeline--entry__detail">使用 <code>post</code> 時，需透過 <code>setRequestHeader()</code> 方法，設置請求訊息的表頭欄位。</dd>
@@ -277,6 +282,9 @@
     <dd class="timeline--entry__detail">用於發送 HTTP 請求。如果是非同步請求（默認為異步請求），則此方法會在請求發送後立即返回；如果是同步請求，則此方法直到響應到達後才會返回。</dd>
     <dd class="timeline--entry__detail">如請求使用 GET 方法，設為空值: <code>null</code></dd>
   </dl>
+  <div class="note success">
+            <p>readyState will be 2</p>
+          </div>
   <dl class="timeline--entry">
     <dt class="timeline--entry__title">處理回應</dt>
     <dd class="timeline--entry__detail">回應的文字 text，可透過 <code>responseText</code> 屬性取得，<br>若 Server 回應的是 XML 或 XHTML，則使用 <code>responseXML</code> 屬性，<br>若回應的是常見的 JSON，則可以使用 <code>JSON.parse()</code> 方法，解析 <code>responseText</code> 屬性。</dd>
@@ -356,14 +364,13 @@
 <a href="http://www.test-cors.org" target="_blank" class="Btn Btn__secondary Btn--v">
 <span>CORS測試網站</span>
 </a>
-<h2 id="POST"><a class="header-anchor" href="#POST"></a>POST</h2>
-<p><strong>傳統表單輸入</strong></p>
+<h2 id="傳統表單輸入"><a class="header-anchor" href="#傳統表單輸入"></a>傳統表單輸入</h2>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.html"</span> <span class="attr">method</span>=<span class="string">'post'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"account"</span>&gt;</span>帳號<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"account"</span> <span class="attr">name</span>=<span class="string">"account"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"password"</span>&gt;</span>密碼<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">'送出'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <div class="note no-icon">
             <ul><li>action - 用來設定接收程式。</li><li>method - 則是資料傳遞的方式 : <code>GET</code>、<code>POST</code>。  <table>    <thead>      <tr>        <th></th>        <th>GET</th>        <th>POST</th>      </tr>    </thead>    <tbody>      <tr>        <td>網址差異</td>        <td>網址會帶有 HTML Form 表單的參數與資料。</td>        <td>網址並不會改變。</td>      </tr>      <tr>        <td>資料傳遞量</td>        <td>透過 URL 帶資料，所以有長度限制。</td>        <td>不透過 URL 帶參數，所以不受限於 URL 長度限制。</td>      </tr>      <tr>        <td>安全性</td>        <td>表單參數與填寫內容可在 URL 看到。</td>        <td>透過 HTTP Request 方式，故參數與填寫內容不會顯示於 URL。</td>      </tr>    </tbody>  </table></li></ul>
           </div>
 <p>當按下 <code>submit</code> 按鈕將表單送出後，HTML 會將表單內的資料以 URL<code>?表單資訊</code> ，如果有多組內容則會以 <code>&amp;</code> 連接，並進行傳送。</p>
-<h3 id="AJAX-POST"><a class="header-anchor" href="#AJAX-POST"></a>AJAX POST</h3>
+<h2 id="AJAX-POST"><a class="header-anchor" href="#AJAX-POST"></a>AJAX POST</h2>
 <div class="timeline">
   <dl class="timeline--entry">
     <dt class="timeline--entry__title"><span>設定請求</span> <code>XMLHttpRequest.open('post', 'API_URL', true);</code></dt>
@@ -386,6 +393,21 @@
     <dd class="timeline--entry__detail">JSON傳遞 - <code>Content-type: application/json</code> ；表單資訊使用 <code>JSON.stringify</code> 轉型成 string 格式再進行傳送。</dd>
   </dl>
 </div>
+<h2 id="GET"><a class="header-anchor" href="#GET"></a>GET</h2>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="keyword">const</span> URL = <span class="string">'https://gank.io/api/random/data/福利/20'</span>;</span><br><span class="line">xhr.open(<span class="string">'GET'</span>, URL, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 非同步模式，需監聽 load 事件，並於請求成功完成後執行 callback function。</span></span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = <span class="built_in">JSON</span>.parse(xhr.responseText)</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(<span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="POST"><a class="header-anchor" href="#POST"></a>POST</h2>
+<ol>
+<li>
+<p>HTML5 表單<br>
+使用 HTML5 表單 傳送資料到 serve ，表單資訊如有多個欄位需使用 <code>&amp;</code> 來連接。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="keyword">const</span> URL = <span class="string">'https://hexschool-tutorial.herokuapp.com/api/signup'</span>;</span><br><span class="line">xhr.open(<span class="string">'post'</span>, URL, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 設定檔頭格式為 HTML5 表單 格式</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">xhr.send(<span class="string">'email=abcdd@gmail.com&amp;password=123456'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>JSON<br>
+使用 JSON 傳送資料到 serve ，JSON 需轉成字串格式。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="keyword">const</span> URL = <span class="string">'https://hexschool-tutorial.herokuapp.com/api/signup'</span>;</span><br><span class="line"><span class="keyword">const</span> account = &#123;  <span class="attr">email</span>: <span class="string">'ttest@hexschool.com'</span>,  <span class="attr">password</span>: <span class="string">'ttest12345678'</span> &#125;</span><br><span class="line">xhr.open(<span class="string">'post'</span>, URL, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 設定檔頭格式為 JSON 格式</span></span><br><span class="line">xhr.setRequestHeader(<span class="string">'Content-type'</span>, <span class="string">'application/json'</span>);</span><br><span class="line">xhr.send(<span class="built_in">JSON</span>.stringify(account));</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <h1 id="Fetch-API"><a class="header-anchor" href="#Fetch-API"></a>Fetch API</h1>
 <p>以往都是依賴 <code>XMLHttpRequest</code>。Fetch API 提供了一個能獲取包含跨網路資源在的資源介面，但這個新的 API 提供了更強更彈性的功能，其使用 <code>Promise</code> 作為基本構造要素。<br>
 並被廣泛使用在 Service Workers。Fetch 在設定 HTTP 相關的設定時, 也提供可讀性比較好的方法, 這些設定包括 CORS 以及其他 header。</p>
@@ -534,7 +556,7 @@
   </tbody>
 </table>
 <p>更多屬性和方法請參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Response" target="_blank" rel="noopener">fetch Response</a></p></div></div></div>
-<h2 id="GET"><a class="header-anchor" href="#GET"></a>GET</h2>
+<h2 id="GET-v2"><a class="header-anchor" href="#GET-v2"></a>GET</h2>
 <p>最簡單的方式只需要一個參數就是資料的 URL，fetch 會回傳一個包含 <code>Response</code> 的 promise ，針對不同資料類型使用對應方法處理此 <code>Response</code>，<code>return</code>此 <code>Response</code> 再將資料傳到下一個 <code>then()</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch(<span class="string">'https://gank.io/api/random/data/福利/20'</span>)</span><br><span class="line">  .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(response)</span><br><span class="line">      <span class="keyword">return</span> response.json()</span><br><span class="line">  &#125;).then(<span class="function">(<span class="params">myJson</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(myJson)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
 <img src="/blog/2020/03/08/AJAX/fetch_get_1.png" class="">
@@ -658,7 +680,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.5.</span> <span class="nav-text">POST</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.5.1.</span> <span class="nav-text">AJAX POST</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-API"><span class="nav-number">2.</span> <span class="nav-text">Fetch API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">Fetch 基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET"><span class="nav-number">2.2.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-v2"><span class="nav-number">2.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#請求失敗"><span class="nav-number">2.4.</span> <span class="nav-text">請求失敗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">3.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios-推薦"><span class="nav-number">3.2.</span> <span class="nav-text">Axios(推薦)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">1.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#readyState"><span class="nav-number">1.2.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP狀態碼"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP狀態碼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS"><span class="nav-number">1.4.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#傳統表單輸入"><span class="nav-number">1.5.</span> <span class="nav-text">傳統表單輸入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AJAX-POST"><span class="nav-number">1.6.</span> <span class="nav-text">AJAX POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET"><span class="nav-number">1.7.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST"><span class="nav-number">1.8.</span> <span class="nav-text">POST</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fetch-API"><span class="nav-number">2.</span> <span class="nav-text">Fetch API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetch-基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">Fetch 基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-v2"><span class="nav-number">2.2.</span> <span class="nav-text">GET</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POST-v2"><span class="nav-number">2.3.</span> <span class="nav-text">POST</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#請求失敗"><span class="nav-number">2.4.</span> <span class="nav-text">請求失敗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#框架"><span class="nav-number">3.</span> <span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#span-jQuery-span"><span class="nav-number">3.1.</span> <span class="nav-text">jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Axios-推薦"><span class="nav-number">3.2.</span> <span class="nav-text">Axios(推薦)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
