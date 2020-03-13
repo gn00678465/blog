@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://gn00678465.github.io').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="promise">
+<meta property="og:type" content="website">
+<meta property="og:title" content="promise">
+<meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;promise&#x2F;index.html">
+<meta property="og:site_name" content="前端學習">
+<meta property="og:description" content="promise">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2020-03-13T12:44:08.919Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://gn00678465.github.io/promise/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false
+  };
+</script>
+
+  <title>promise | 前端學習
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端學習</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-TW">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">promise
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>promise</p>
+<a id="more"></a>
+<p>JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。</p>
+<p><code>Promise</code> 是在 <code>ES6</code> 出現的語法，是用來改善 <code>JavaScript</code> 非同步的語法結構，而 <code>ES7</code> <code>Async</code>、<code>Await</code> 可以基於 <code>Promise</code> 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。</p>
+<p>標準的 Promise 共有三種狀態 (<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN</a>):</p>
+<div class="note primary">
+            <ul><li>pending(等待中)：為初始之狀態，即不是 fulfilled 也不是 rejected。</li><li>fulfilled(實現)：表示操作完成，又稱 resolved。</li><li>rejected(拒絕)：表示操作失敗。</li></ul>
+          </div>
+<h2 id="生命週期"><a class="header-anchor" href="#生命週期"></a>生命週期</h2>
+
+<p><code>Promise</code> 的生命週期：</p>
+<ol>
+<li>每個 <code>Promise</code> 都會經過 <code>pending</code> 狀態</li>
+<li><code>pending</code> 後分別會有成功時的 <code>fulfill</code> ，及失敗時的 <code>reject</code> 。</li>
+<li>透過 <code>.then()</code> 在成功時接著處理資料，或是以 <code>.catch()</code> 做失敗時的應對。</li>
+<li>也可以再 <code>return</code> 一個新的 <code>Promise</code> 延續處理。</li>
+</ol>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="comment">/* executor */</span> <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123; ... &#125; );</span><br></pre></td></tr></table></figure>
+</div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//成功時執行</span></span><br><span class="line">  resolve(value);</span><br><span class="line">  <span class="comment">//失敗時執行</span></span><br><span class="line">  reject(value);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise</span><br><span class="line">  .then(<span class="function"><span class="params">value</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="comment">//成功的話，做...</span></span><br><span class="line">    &#125;, value =&gt; &#123;</span><br><span class="line">      <span class="comment">//失敗的話，做...</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">promise</span><br><span class="line">  .then(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(err) &#123;</span><br><span class="line">    <span class="comment">//如果有還沒處理的失敗，做...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<dl>
+  <dt>executor</dt>
+  <dd><li>為一個依序接收兩個參數的函式：<code>resolve</code> 及 <code>reject</code>（實現及拒絕回呼函式）。</li></dd>
+  <dd><li><code>executor</code> 函式在傳入參數 <code>resolve</code> 與 <code>reject</code> 後會立刻執行（會在 <code>Promise</code> 建構式回傳 <code>Promise</code> 物件前被執行）。</li></dd>
+  <dd><li><code>resolve</code> 與 <code>reject</code> 函式，會在被個別呼叫時，個別執行。</li></dd>
+  <dd><li>成功完成後執行 <code>resolve</code> 以完成 <code>Promise</code>；或如果有錯誤，執行 <code>reject</code>。</li></dd>
+</dl>
+<h2 id="執行順序"><a class="header-anchor" href="#執行順序"></a>執行順序</h2>
+<div class="note primary">
+            <p>非同步(異步)任務可分為 <code>task</code> 和 <code>microtask</code> 兩類。</p><blockquote><p><font size="3">另外在 ES2015 規範中稱為 <code>microtask</code> 又被稱為 <code>Job</code>。</font></p></blockquote><ul><li>(macro)task 主要包含：<code>script</code>(整體代碼)、<code>setTimeout</code>、<code>setInterval</code>、<code>I/O</code>、<code>UI交互事件</code>、<code>postMessage</code>、<code>MessageChannel</code>、<code>setImmediate</code>(Node.js 環境)。</li><li>microtask(Job) 主要包含：<code>Promise.then</code>、<code>MutaionObserver</code>、<code>process.nextTick</code>(Node.js 環境)。</li><li>microtask(Job) 執行的順位較 task queue 高。</li></ul>
+          </div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'script start'</span>);</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'timeout1'</span>);</span><br><span class="line">&#125;, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'promise1'</span>);</span><br><span class="line">    resolve();</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'timeout2'</span>), <span class="number">10</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'then1'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'script end'</span>);</span><br></pre></td></tr></table></figure>
+
+<div class="note success">
+            <ol><li>遇到了 <code>console</code> 語句，直接輸出 <code>script start</code>。輸出之後，script 任務繼續往下執行，遇到 <code>setTimeout</code>，<code>setTimeout</code> 為一個 task queue，會先將其任務移往 event queue 中。</li><li>遇到 <code>Promise</code> 實例。<code>Promise</code> 構造函數中的第一個參數，是在 new 的時候執行，構造函數執行時，裡面的參數進入執行堆疊執行；而後續的 <code>.then</code> 則會被分發到 microtask 的 Promise 隊列中去。所以會先輸出 <code>promise1</code>，然後執行 <code>resolve</code>，將 <code>then1</code> 分配到對應隊列。<br>構造函數繼續往下執行，又碰到 <code>setTimeout</code>，然後將對應的任務分配到對應 event queue 中。</li><li>script任務繼續往下執行，最後只有一句輸出了 <code>script end</code>，至此，全局任務就執行完畢了。</li><li>每次執行完一個 <code>macrotask</code> 之後，會去檢查是否存在 <code>Microtasks</code>；如果有，則執行 <code>Microtasks</code> 直至清空 Microtask Queue。<br>此時，只有 <code>Promise</code> 隊列中的一個任務 <code>then1</code>，因此直接執行，執行結果輸出 <code>then1</code>。當所有的 <code>microtast</code> 執行完畢之後，表示第一輪的循環就結束了。</li><li>開始第二輪的循環。第二輪循環仍然從 <code>macrotask</code> 開始。此時，有兩個 <code>macrotask</code>：<code>timeout1</code> 和 <code>timeout2</code>。</li><li>取出 <code>timeout1</code> 執行，輸出 <code>timeout1</code>。此時 event queue 中已經沒有可執行的任務了。</li><li>開始第三輪循環。第三輪循環依舊從 <code>macrotask</code> 開始。此時 <code>macrotask</code> 中只有一個 <code>timeout2</code>，取出直接輸出。</li></ol>
+          </div>
+<h2 id="return-Promise"><a class="header-anchor" href="#return-Promise"></a>return Promise</h2>
+<p>另一種寫法，<code>return</code> 一個 <code>Promise</code> 值，在這種情況下，放在 <code>return</code> 中的 <code>Promise</code> 會「立即」被解開，由那個 <code>Promise</code> 的 <code>fulfillment</code> 或 <code>rejection</code> 作為解析結果傳遞給下一個 <code>then</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  resolve(<span class="number">50</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise</span><br><span class="line">  .then(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v);   </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">      resolve(v * <span class="number">2</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(v);   </span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 50</span></span><br><span class="line"><span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+<h2 id="觀念"><a class="header-anchor" href="#觀念"></a>觀念</h2>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">	resolve(<span class="number">1</span>);</span><br><span class="line">	<span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="number">2</span>));</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">t</span> =&gt;</span> <span class="built_in">console</span>.log(t));</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<div class="note warning">
+            
+          </div>
+<div class="note success">
+            <ol><li>執行 <code>promise</code> 建構函式，會先輸出 <code>console.log(3)</code> ， 而 <code>console.log(2)</code> &amp; <code>console.log(t)</code> 會先移至 microtask 等待執行。</li><li>輸出 <code>console.log(4)</code>。全局任務執行完畢。</li><li>執行 microtask 內的任務，先輸出 <code>console.log(2)</code> 在輸出 <code>console.log(1)</code><ul><li><code>Promise.resolve</code> 方法允許調用時不帶參數，直接返回一個 resolved 狀態的 Promise 對象。立即 resolved 的 Promise 對象，是在本輪“事件循環”（event loop）的結束時，而不是在下一輪“事件循環”的開始時。</li><li>所以，<code>console.log(2)</code> 比 <code>console.log(1)</code> 會先進入 microtask 的 Promise 隊列。</li></ul></li><li>代碼執行完畢。</li></ol>
+          </div>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">  resolve(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">Promise</span>.resolve()</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="number">2</span>); </span><br><span class="line">      <span class="keyword">return</span> <span class="string">'A'</span>;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> </span><br><span class="line">      <span class="built_in">console</span>.log(data)</span><br><span class="line">    );</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">t</span> =&gt;</span> </span><br><span class="line">    <span class="built_in">console</span>.log(t)</span><br><span class="line">  )</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'B'</span>)</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+<div class="note warning">
+            
+          </div>
+<div class="note success">
+            <ol><li></li><li></li><li></li><li></li></ol>
+          </div>
+<h2 id="Promise-API"><a class="header-anchor" href="#Promise-API"></a>Promise API</h2>
+<ol>
+<li>
+<p><code>Promise.all( [promise1, promise2, …] )</code><br>
+<code>Promise.all</code> 接受一個promise陣列，會在陣列中的promise都傳回fulfillment訊號後，執行下面的then的第一個function (成功)，傳遞給then的參數是一個帶有解析值的陣列，如果有其中一個訊號是rejection，就會執行then第二個function (失敗)。</p>
+</li>
+<li>
+<p><code>Promise.race( [promise1, promise2, …] )</code><br>
+<code>promise.race</code> 接受一個陣列，會在收到第一個訊號(無論是fulfillment或是rejection)後執行下面的then，不管其他之後才收到的訊號。</p>
+</li>
+<li>
+<p><code>Promise.resolve()</code></p>
+</li>
+</ol>
+<div class="note info">
+            <p><code>Promise.resolve(value);</code><br><code>Promise.resolve(promise);</code><br><code>Promise.resolve(theanable);</code><br>這三種形式都會產生一個新的Promise。其中：</p>  <div class="note success no-icon">            <font size="3">第一種形式提供了自定義Promise的值的能力，它與<code>Promise.reject(reason)</code>對應。兩者的不同，在於得到的Promise的狀態不同。<p>第二種形式，提供了創建一個Promise的副本的能力。</p><p>第三種形式，是將一個類似Promise的對象轉換成一個真正的Promise對象。它的一個重要作用是將一個其他實現的Promise對象封裝成一個當前實現的Promise對象。例如你正在用bluebird，但是現在有一個Q的Promise，那麼你可以通過此方法把Q的Promise變成一個bluebird的Promise。</p><p>實際上第二種形式可以歸在第三種形式中。<br></font></p>          </div>
+          </div>
+<h2 id="參考"><a class="header-anchor" href="#參考"></a>參考</h2>
+<p><a href="https://github.com/dwqs/blog/issues/61" target="_blank" rel="noopener">從一道題淺說 JavaScript 的事件循環</a><br>
+<a href="https://github.com/whinc/blog/issues/2" target="_blank" rel="noopener">自己動手實現 ES6 Promise</a><br>
+<a href="https://medium.com/@xyz030206/promise-%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8-66605ef56e34" target="_blank" rel="noopener">promise-介紹與使用</a></p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命週期"><span class="nav-number">1.</span> <span class="nav-text">生命週期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行順序"><span class="nav-number">2.</span> <span class="nav-text">執行順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#return-Promise"><span class="nav-number">3.</span> <span class="nav-text">return Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#觀念"><span class="nav-number">4.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-API"><span class="nav-number">5.</span> <span class="nav-text">Promise API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">6.</span> <span class="nav-text">參考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
+</body>
+</html>
