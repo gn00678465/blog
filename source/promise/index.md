@@ -1,13 +1,7 @@
 ---
 title: promise
 date: 2020-03-13 20:43:27
-tags:
 ---
-
-
-promise
-
-<!--more-->
 
 JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。
 
@@ -97,7 +91,7 @@ new Promise(resolve => {
 
 console.log('script end');
 ```
-{% asset_img promise_async.PNG %}
+<img src="/blog/promise/index/promise_async.PNG" alt="">
 {% note success %}
 1. 遇到了 `console` 語句，直接輸出 `script start`。輸出之後，script 任務繼續往下執行，遇到 `setTimeout`，`setTimeout` 為一個 task queue，會先將其任務移往 event queue 中。
 1. 遇到 `Promise` 實例。`Promise` 構造函數中的第一個參數，是在 new 的時候執行，構造函數執行時，裡面的參數進入執行堆疊執行；而後續的 `.then` 則會被分發到 microtask 的 Promise 隊列中去。所以會先輸出 `promise1`，然後執行 `resolve`，將 `then1` 分配到對應隊列。
@@ -145,7 +139,7 @@ new Promise(resolve => {
 console.log(4);
 ```
 {% note warning %}
-{% asset_img promise_test_1.PNG %}
+<img src="/blog/promise/index/promise_test_1.PNG" alt="">
 {% endnote %}
 {% note success %}
 1. 執行 `promise` 建構函式，會先輸出 `console.log(3)` ， 而 `console.log(2)` & `console.log(t)` 會先移至 microtask 等待執行。
@@ -181,7 +175,7 @@ new Promise(resolve => {
 console.log(4);
 ```
 {% note warning %}
-{% asset_img promise_test_2.PNG %}
+<img src="/blog/promise/index/promise_test_2.PNG" alt="">
 {% endnote %}
 {% note success %}
 1. 
