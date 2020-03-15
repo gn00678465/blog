@@ -55,7 +55,7 @@
 <meta property="og:description" content="關於ES6新增的語法  讓原有的 JS 語法撰寫更為精簡 (語法糖) 讓 JS 撰寫觀念更為直覺、簡便 (新方法)">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2019&#x2F;12&#x2F;28&#x2F;ES6&#x2F;ES6.jpg">
-<meta property="og:updated_time" content="2020-03-15T02:07:26.821Z">
+<meta property="og:updated_time" content="2020-03-15T13:45:40.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2019&#x2F;12&#x2F;28&#x2F;ES6&#x2F;ES6.jpg">
 
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-15 10:07:26" itemprop="dateModified" datetime="2020-03-15T10:07:26+08:00">2020-03-15</time>
+                <time title="修改時間：2020-03-15 21:45:40" itemprop="dateModified" datetime="2020-03-15T21:45:40+08:00">2020-03-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -404,7 +404,20 @@
 </ul>
 <h2 id="物件"><a class="header-anchor" href="#物件"></a>物件</h2>
 <p>物件則是使用物件的屬性名稱來做對應(因此沒有順序性)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 基本用法</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">user</span>: x &#125; = &#123; <span class="attr">user</span>: <span class="number">5</span> &#125; <span class="comment">// x=5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 失敗保護(Fail-safe)</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">user</span>: x &#125; = &#123; <span class="attr">user2</span>: <span class="number">5</span> &#125; <span class="comment">//x=undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 賦予新的變數名稱</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: x, <span class="attr">prop2</span>: y &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">// x=5, y=10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 屬性賦值語法</span></span><br><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: prop, <span class="attr">prop2</span>: prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相當於上一行的簡短語法(Short-hand syntax)</span></span><br><span class="line"><span class="keyword">const</span> &#123; prop, prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES7+的物件屬性其餘運算符</span></span><br><span class="line"><span class="keyword">const</span> &#123;a, b, ...rest&#125; = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>, <span class="attr">d</span>:<span class="number">4</span>&#125; <span class="comment">//a=1, b=2, rest=&#123;c:3, d:4&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>基本用法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">user</span>: x &#125; = &#123; <span class="attr">user</span>: <span class="number">5</span> &#125; <span class="comment">// x=5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>失敗保護(Fail-safe)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">user</span>: x &#125; = &#123; <span class="attr">user2</span>: <span class="number">5</span> &#125; <span class="comment">// x=undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>賦予新的變數名稱<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: x, <span class="attr">prop2</span>: y &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">// x=5, y=10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>屬性賦值語法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: prop, <span class="attr">prop2</span>: prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>相當於上一項的簡短語法(Short-hand syntax)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; prop, prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>ES7+的物件屬性其餘運算符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;a, b, ...rest&#125; = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>, <span class="attr">d</span>:<span class="number">4</span>&#125; <span class="comment">//a=1, b=2, rest=&#123;c:3, d:4&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
     </div>
 
     
