@@ -1,7 +1,14 @@
 ---
 title: TypeScript
+categories:
+  - null
 tags:
+  - null
+  - null
+date: 2020-03-25 00:43:49
 ---
+
+<!--more-->
 {% asset_img ts.svg %}
 {% cq %}
 TypeScript 是一個具有型別的 JavaScript {% label primary@超集合 %} (Superset)
@@ -591,12 +598,112 @@ console.log(add(1, 3, 5, 7 ,9));    // 25
     monge.doIt()        // mongoDB 連接中...
     ```
 1. `private`
-    通過 getter & setter 可以獲取 `private` 的屬性或方法。
-    ```
-    
+    可透過 `get` & `set` 來存取 `private` 的屬性。
+    ```ts
+    class BMIcalc {
+    private weight: number;
+    height: number;
+    constructor(weight: number, height: number) {
+        this.weight = weight;
+        this.height = height;
+    }
+    BMI( ): number {
+        return Math.round(this.weight / (Math.pow((this.height / 100), 2))) ;
+    }
+    set changeW(val: number) {
+        this.weight = val;
+    }
+    get getWeight():number {
+        return this.weight;
+    }
+    }
+
+    let otaku = new BMIcalc(70, 172);
+
+    console.log(otaku.BMI());
+    console.log(otaku.height);
+    console.log(`Your secret weight is ${otaku.getWeight} kg`);
+    otaku.changeW = 172;
+    console.log(otaku.BMI());
     ```
 
-### 靜態成員
+### 靜態成員(static)
+> 使用 `static` 修飾符修飾的方法稱為靜態方法， `static` 不需要實例化，而是直接透過類別來呼叫。
+```ts
+class Animal {
+    static num: number;
+
+    constructor() {
+        // ...
+    }
+}
+
+Animal.num = 42;
+console.log(Animal.num); // 42
+```
+### 命名空間(namespace)
+> 對(函數/類/接口等...)進行分組管理就可以用命名空間。
+
+1. 使用 `namespace` 關鍵字宣告。
+1. 在命名空間中默認成員都是私有 `private` 的。
+1. 在命名空間中使用 `export` 關鍵字宣告公有資源。
+1. 命名空間支持跨文件分隔。
+1. 在Node.js/Require.js中使用 `require` 關鍵字導入模塊。
+1. 可以使用 `import` 關鍵字聲明命名空間的別名。
+
+- 定義
+    ```ts
+    namespace 命名空間的名稱(可以用句號連接多個名稱) {
+        export class class_name {}
+        export function func_name {}
+        export namespace ns_name {}
+    }
+    ```
+- 使用
+    ```ts
+    ```
+
+### 繼承
+> 使用 `extends` 關鍵字實現繼承，子類別中使用 `super` 關鍵字來呼叫父類別的建構函式和方法。
+
+- 定義
+    ```ts
+    class child_class extends parenClass {
+        super()
+    }
+    ```
+
+- 使用
+    ```ts
+    class database {
+        protected name:string;
+        constructor(name: string) {
+            this.name = name;
+        };
+        showInfo() {
+            console.log(`目前使用的資料庫為 ${this.name}`)
+        }
+    }
+    class MongoDB extends database {};
+
+    let mydb = new MongoDB('mongoDB');
+    mydb.showInfo()     // 目前使用的資料庫為 mongoDB
+    ```
+
+## interface(介面)
+
+- 定義
+    ```ts
+    interface name {
+        // 定義介面內容
+    }
+    ```
+
+- 使用
+
+[介面](https://willh.gitbook.io/typescript-tutorial/advanced/class#lei-bie-de-ji-cheng)
+[類別實現介面](https://willh.gitbook.io/typescript-tutorial/advanced/class-and-interfaces)
+
 
 ## 型別轉換 (Type assertions)
 >assertions : 斷言
