@@ -1,14 +1,13 @@
 ---
 title: TypeScript
 categories:
-  - null
+  - TypeScript
 tags:
-  - null
-  - null
+  - TypeScript
+  - JavaScript
 date: 2020-03-25 00:43:49
 ---
 
-<!--more-->
 {% asset_img ts.svg %}
 {% cq %}
 TypeScript 是一個具有型別的 JavaScript {% label primary@超集合 %} (Superset)
@@ -698,11 +697,115 @@ console.log(Animal.num); // 42
         // 定義介面內容
     }
     ```
-
 - 使用
+    - 基本使用
+        ```typescript
+        interface Ilabel {
+            label: string;              // 必要屬性，必須傳入!
+            age?: number;               // 可選屬性
+            [propName: string]: any;    //允許任意屬性傳入
+        }
+        ```
+        {% note info %}
+        1. 在無其他可選及任意屬性下，賦值的時候，變數的形狀必須和介面的形狀保持一致。
+        1. 使用 `?` 可選屬性，可選屬性的含義是該屬性可以不存在。
+        1. `[propName: string]: any` 允許有任意的屬性。
+            - 一旦定義了任意屬性，那麼確定屬性和可選屬性的型別都必須是它的型別的子集。
+        {% endnote %}
 
-[介面](https://willh.gitbook.io/typescript-tutorial/advanced/class#lei-bie-de-ji-cheng)
-[類別實現介面](https://willh.gitbook.io/typescript-tutorial/advanced/class-and-interfaces)
+    - 類別的使用
+        ```ts
+        interface IDatabase {
+            connect(): void;
+            close(): void;
+            exxsql(sql: string): number
+        }
+        class mySQL implements IDatabase {
+            connect() {
+                console.log('[mySQL]資料庫連接')
+            }
+            close() {
+                console.log('[mySQL]資料庫關閉')
+            }
+            exxsql(sql: string) {
+                console.log('[mySQL]sql 執行成功');
+                return 0;
+            }
+        }
+        let myDB: IDatabase = new mySQL();
+        myDB.connect();                         // [mySQL]資料庫連接
+        myDB.exxsql("select * from table");     // [mySQL]sql 執行成功
+        myDB.close();                           // [mySQL]資料庫關閉
+
+        class PostgreSQL implements IDatabase {
+            connect() {
+                console.log('[PostgreSQL]資料庫連接')
+            }
+            close() {
+                console.log('[PostgreSQL]資料庫關閉')
+            }
+            exxsql(sql: string) {
+                console.log('[PostgreSQL]sql 執行成功');
+                return 0;
+            }
+        }
+        myDB = new PostgreSQL();
+        myDB.connect();                         // [PostgreSQL]資料庫連接
+        myDB.exxsql("select * from table");     // [PostgreSQL]sql 執行成功
+        myDB.close();                           // [PostgreSQL]資料庫關閉
+        ```
+    
+    - 介面參數
+        ```ts
+        interface IDatabase {
+            connect(): void;
+            close(): void;
+            exxsql(sql: string): number
+        }
+        class mySQL implements IDatabase {
+            connect() {
+                console.log('[mySQL]資料庫連接')
+            }
+            close() {
+                console.log('[mySQL]資料庫關閉')
+            }
+            exxsql(sql: string) {
+                console.log('[mySQL]sql 執行成功');
+                return 0;
+            }
+        }
+        class PostgreSQL implements IDatabase {
+            connect() {
+                console.log('[PostgreSQL]資料庫連接')
+            }
+            close() {
+                console.log('[PostgreSQL]資料庫關閉')
+            }
+            exxsql(sql: string) {
+                console.log('[PostgreSQL]sql 執行成功');
+                return 0;
+            }
+        }
+
+        function doSomething(db: IDatabase) {
+            db.connect();
+            db.exxsql('update ...');
+            db.close();
+        }
+        let mysql: IDatabase = new mySQL();
+        let pgsql: IDatabase = new PostgreSQL();
+
+        doSomething(mysql);
+        doSomething(pgsql);
+        // [mySQL]資料庫連接
+        // [mySQL]sql 執行成功
+        // [mySQL]資料庫關閉
+        // [PostgreSQL]資料庫連接
+        // [PostgreSQL]sql 執行成功
+        // [PostgreSQL]資料庫關閉
+        ```
+
+        [類別實現介面](https://willh.gitbook.io/typescript-tutorial/advanced/class-and-interfaces)
 
 
 ## 型別轉換 (Type assertions)
@@ -728,15 +831,6 @@ console.log(Animal.num); // 42
     let a = <HTMLAnchorElement>document.getElementById('link');
     a.href = 'http://www.google.com';           // OK
     ```
-
-### 排除過度屬性檢查的性別宣告技巧
-
-```typescript
-interface Ilabel {
-    label: string;           // 必要屬性，必須傳入!
-    [propName: string]: any; //允許任意屬性傳入
-}
-```
 
 ## 嚴格空值檢查模式
 
