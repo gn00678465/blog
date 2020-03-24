@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://gn00678465.github.io').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="TypeScript 是一個具有型別的 JavaScript 超集合 (Superset)  所有 JS 語法，都是合法的 TypeScript 語法。 記得以 ; 結尾。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript">
+<meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;2020&#x2F;03&#x2F;25&#x2F;typescript&#x2F;index.html">
+<meta property="og:site_name" content="マダオの前端學習筆記">
+<meta property="og:description" content="TypeScript 是一個具有型別的 JavaScript 超集合 (Superset)  所有 JS 語法，都是合法的 TypeScript 語法。 記得以 ; 結尾。">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;25&#x2F;typescript&#x2F;ts.svg">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;25&#x2F;typescript&#x2F;lib.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;25&#x2F;typescript&#x2F;noImplicitAny.png">
+<meta property="og:updated_time" content="2020-03-24T16:45:28.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;25&#x2F;typescript&#x2F;ts.svg">
+
+<link rel="canonical" href="https://gn00678465.github.io/2020/03/25/typescript/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>TypeScript | マダオの前端學習筆記</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">マダオの前端學習筆記</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://gn00678465.github.io/2020/03/25/typescript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="マダオの前端學習筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TypeScript
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-03-25 00:43:49 / 修改時間：00:45:28" itemprop="dateCreated datePublished" datetime="2020-03-25T00:43:49+08:00">2020-03-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/blog/2020/03/25/typescript/ts.svg" class="">
+<blockquote class="blockquote-center"><p>TypeScript 是一個具有型別的 JavaScript <span class="label primary">超集合</span> (Superset)</p>
+<ul>
+<li>所有 JS 語法，都是合法的 TypeScript 語法。</li>
+<li>記得以 <code>;</code> 結尾。</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h1 id="TypeScript-編譯器"><a class="header-anchor" href="#TypeScript-編譯器"></a>TypeScript 編譯器</h1>
+<h2 id="環境建立"><a class="header-anchor" href="#環境建立"></a>環境建立</h2>
+<div class="timeline">
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">安裝指令工具</dt>
+    <dd class="timeline--entry__detail"><code>npm install -g typescript</code></dd>
+  </dl>
+  <dl class="timeline--entry">
+    <dt class="timeline--entry__title">初始化 <code>tsconfig.json</code> 設定檔</dt>
+    <dd class="timeline--entry__detail"><code>tsc --init</code></dd>
+  </dl>
+  此時專案資料夾內會出現一個名為 <code>tsconfig.json</code> 的檔案，這就是 TypeScript 編譯器的設定檔。
+  <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"target"</span>: <span class="string">"es5"</span>,  <span class="comment">//指定編譯生成的JS版本</span></span><br><span class="line">    <span class="attr">"module"</span>: <span class="string">"commonjs"</span>, <span class="comment">//指定生成哪種模組</span></span><br><span class="line">    <span class="attr">"strict"</span>: <span class="literal">true</span>,  <span class="comment">//採用嚴格模式  </span></span><br><span class="line">    <span class="attr">"esModuleInterop"</span>: <span class="literal">true</span>,  <span class="comment">//兼容模組導入的方式</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div>
+<ol>
+<li>編譯方式
+<ul>
+<li>編譯所有檔案(讀取 tsconfig.json 設定檔)<br>
+TypeScript 編譯器就會自動掃描當前目錄以及子目錄所有 <code>.ts</code> 結尾的檔案並且產出 JS 檔案。  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">tsc</span><br></pre></td></tr></table></figure>
+<blockquote></blockquote>
+</li>
+<li>編譯單一檔案(需指定 TypeScript 編譯器選項)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">tsc [options] [file...]</span><br></pre></td></tr></table></figure>
+</li>
+<li>顯示完整的 TypeScript 編譯器選項  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">tsc --all</span><br></pre></td></tr></table></figure>
+</li>
+<li>顯示 tsc 編譯器摘要說明  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">tsc -h</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="設定技巧"><a class="header-anchor" href="#設定技巧"></a>設定技巧</h2>
+<ol>
+<li><code>tsconfig.json</code> 設定技巧
+<ul>
+<li>Glob support in tsconfig.json
+<ul>
+<li><code>*</code>   代表0到多個字元比對(不含目錄分隔字元)。</li>
+<li><code>?</code>   代表1個字元比對(不含目錄分隔字元)。</li>
+<li><code>**/</code> 代表比對任意子目錄。</li>
+</ul>
+</li>
+<li>設定 Base URL 預設 import 的基底路徑</li>
+<li>設定 Path mapping
+<ul>
+<li>必須搭配 baseUrl 設定一起使用。</li>
+</ul>
+</li>
+</ul>
+ <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"baseUrl"</span>: <span class="string">"src/"</span>,          <span class="comment">//base url</span></span><br><span class="line">    <span class="attr">"paths"</span>: &#123;</span><br><span class="line">        <span class="attr">"env/*"</span>: [<span class="string">"目錄/*"</span>],   <span class="comment">//path mapping</span></span><br><span class="line">        <span class="attr">"env"</span>: [<span class="string">"目錄/檔名"</span>]   <span class="comment">//path mapping 單檔案</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>預設載入內建的模組定義檔(–lib) <figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"lib"</span>: [</span><br><span class="line">    <span class="string">"es2017"</span>,</span><br><span class="line">    <span class="string">"dom"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<img src="/blog/2020/03/25/typescript/lib.png" class="">
+<h1 id="型別應用"><a class="header-anchor" href="#型別應用"></a>型別應用</h1>
+<h2 id="自動型別推導-Type-Inference"><a class="header-anchor" href="#自動型別推導-Type-Inference"></a>自動型別推導 (Type Inference)</h2>
+<blockquote>
+<p>TypeScript 設定變數可不需特別設定型別，可從 <code>=</code> 的右側的值推導型別。</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> fullName: <span class="built_in">string</span> = <span class="string">'John'</span>;   <span class="comment">// : string 非必要</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    obj.name = <span class="string">'will'</span>;          <span class="comment">// 無法擴充沒有屬性的 object，須設定型別</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line">    arr.push(&#123;&#125;);               <span class="comment">// 陣列預設為 any 型別</span></span><br></pre></td></tr></table></figure>
+<h2 id="靜態型別標示"><a class="header-anchor" href="#靜態型別標示"></a>靜態型別標示</h2>
+<table>
+    <thead>
+        <tr>
+            <th width='10%'>物件</th>
+            <th width='45%'>JavaScript</th>
+            <th width='45%'>TypeScript</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>數值</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a : <span class="built_in">number</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+        <tr>
+            <td>字串</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'string'</span></span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a : <span class="built_in">string</span> = <span class="string">'string'</span></span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+        <tr>
+            <td>布林</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a : <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+        <tr>
+            <td>陣列</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a : <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+可以為 any 型別
+            </td>
+        </tr>
+        <tr>
+            <td>任意物件</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a : <span class="built_in">any</span> = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+        <tr>
+            <td>列舉</td>
+            <td>以 JS 物件模擬列舉型別</td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> color &#123;red, green, blue&#125;</span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+        <tr>
+            <td>void</td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) : <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+void 代表沒有回傳值 undefined
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="數值"><a class="header-anchor" href="#數值"></a>數值</h3>
+<blockquote>
+<p>與 JavaScript 相同，TypeScript 裡的所有數字都是浮點數。 這些浮點數的類型是 <code>number</code>。 除了支持十進制和十六進制字面量，TypeScript 還支持 ECMAScript 2015 中引入的二進制和八進制字面量。</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> isNumber : <span class="built_in">number</span> = <span class="number">1</span>;            <span class="comment">// 數字</span></span><br><span class="line"><span class="keyword">let</span> isHexNumber : <span class="built_in">number</span> = <span class="number">0xff00f</span>;   <span class="comment">// 16進位</span></span><br><span class="line"><span class="keyword">let</span> isBinaryNumber : <span class="built_in">number</span> = <span class="number">0b1001</span>; <span class="comment">//2進位</span></span><br><span class="line"><span class="keyword">let</span> isOctalNumber : <span class="built_in">number</span> = <span class="number">0o7340</span>;  <span class="comment">// 8進位</span></span><br></pre></td></tr></table></figure>
+<h3 id="字串"><a class="header-anchor" href="#字串"></a>字串</h3>
+<blockquote>
+<p>使用 <code>string</code> 表示文本數據類型。使用雙引號（ <code>&quot;</code> ）或單引號（ <code>'</code>）表示字符串。<br>
+還可以使用 ECMAScript 2015 新增的字串模板，它可以定義多行文本和內嵌表達式。這種字符串是被反引號包圍（ <code>`</code> ），並且以 <code>${ expr }</code> 這種形式嵌入表達式</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> isString : <span class="built_in">string</span> = <span class="string">'string'</span>;</span><br><span class="line"><span class="keyword">let</span> stringliteral : <span class="built_in">number</span> = isString.length;</span><br><span class="line"><span class="comment">// 字串模板</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;isString&#125;</span> 有 <span class="subst">$&#123;stringliteral&#125;</span> 位數`</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="布林"><a class="header-anchor" href="#布林"></a>布林</h3>
+<blockquote>
+<p>最基本的數據類型就是簡單的 <code>true</code> / <code>false</code> 值</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> isTrue : <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> isFalse : <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="陣列"><a class="header-anchor" href="#陣列"></a>陣列</h3>
+<p>TypeScript 像 JavaScript 一樣可以操作陣列元素。 有兩種方式可以定義陣列。</p>
+<ol>
+<li>在元素類型後面接上 <code>[]</code>，表示由此類型元素組成的一個陣列。 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name: <span class="keyword">type</span> = [];</span><br></pre></td></tr></table></figure>
+</li>
+<li>使用泛型陣列， <code>Array&lt;元素類型&gt;</code> 。 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr : <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr2 : <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> arr3 : <span class="built_in">string</span> = [<span class="string">'Java'</span>, <span class="string">'ASP'</span>, <span class="string">'PHP'</span>, <span class="string">'Dart'</span>]</span><br><span class="line"><span class="keyword">let</span> arr4 : <span class="built_in">any</span> = [<span class="number">1</span>, <span class="string">'2'</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="多維陣列"><a class="header-anchor" href="#多維陣列"></a>多維陣列</h3>
+<ol>
+<li>多維陣列定義 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name: <span class="keyword">type</span>[][] = [[], [], []...]</span><br></pre></td></tr></table></figure>
+ <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr : <span class="built_in">number</span>[][] = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>],</span><br><span class="line">    [<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>],</span><br><span class="line">    [<span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">0.9</span>]</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+</li>
+<li>多維陣列使用 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>])     <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">0</span>][<span class="number">1</span>])  <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">2</span>][<span class="number">2</span>])  <span class="comment">// 0.9</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="列舉型別-Enum"><a class="header-anchor" href="#列舉型別-Enum"></a>列舉型別 (Enum)</h3>
+<div class="note info">
+            <ul><li>可讓程式碼更好維護且增加程式可讀性。</li><li>可用來管理多個同系列的常數，做為狀態的判斷所使用。</li></ul>
+          </div>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> name &#123; name1, name2, name3 &#125;</span><br></pre></td></tr></table></figure>
+<table>
+    <thead>
+        <tr>
+            <th>TypeScript</th>
+            <th>JavaScript</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宣告一個名為 day 的Enum type變數，並讓其包含一周的星期</span></span><br><span class="line"><span class="keyword">enum</span> day &#123;</span><br><span class="line">  Sunday,</span><br><span class="line">  Monday,</span><br><span class="line">  Tuesday,</span><br><span class="line">  Wednesday,</span><br><span class="line">  Thursday,</span><br><span class="line">  Friday,</span><br><span class="line">  Saturday</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//將today定義為Week中的Friday </span></span><br><span class="line"><span class="keyword">let</span> today: day = day.Friday;</span><br><span class="line"><span class="comment">//day.Friday作為判斷能讓程式碼更一目瞭然</span></span><br><span class="line"><span class="keyword">if</span> (today == day.Friday) <span class="built_in">console</span>.log(<span class="string">"Today is Friday!"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(today);         <span class="comment">//return "Friday"</span></span><br><span class="line"><span class="built_in">console</span>.log(day[today]);    <span class="comment">//return 5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(day[<span class="number">1</span>]);        <span class="comment">//return "Monday"</span></span><br><span class="line"><span class="built_in">console</span>.log(day[<span class="string">"Sunday"</span>]); <span class="comment">//return 0</span></span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//宣告一個名為 day 的Enum type變數，並讓其包含一周的星期</span></span><br><span class="line"><span class="keyword">var</span> day;</span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">day</span>) </span>&#123;</span><br><span class="line">    day[day[<span class="string">"Sunday"</span>] = <span class="number">0</span>] = <span class="string">"Sunday"</span>;</span><br><span class="line">    day[day[<span class="string">"Monday"</span>] = <span class="number">1</span>] = <span class="string">"Monday"</span>;</span><br><span class="line">    day[day[<span class="string">"Tuesday"</span>] = <span class="number">2</span>] = <span class="string">"Tuesday"</span>;</span><br><span class="line">    day[day[<span class="string">"Wednesday"</span>] = <span class="number">3</span>] = <span class="string">"Wednesday"</span>;</span><br><span class="line">    day[day[<span class="string">"Thursday"</span>] = <span class="number">4</span>] = <span class="string">"Thursday"</span>;</span><br><span class="line">    day[day[<span class="string">"Friday"</span>] = <span class="number">5</span>] = <span class="string">"Friday"</span>;</span><br><span class="line">    day[day[<span class="string">"Saturday"</span>] = <span class="number">6</span>] = <span class="string">"Saturday"</span>;</span><br><span class="line">&#125;)(day || (day = &#123;&#125;));</span><br><span class="line"><span class="comment">//將today定義為day中的Friday</span></span><br><span class="line"><span class="keyword">var</span> today = day.Friday;</span><br><span class="line"><span class="comment">//用day.Friday作為判斷能讓程式碼更一目瞭然</span></span><br><span class="line"><span class="keyword">if</span> (today == day.Friday)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Today is Friday!"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(day[<span class="number">5</span>]); <span class="comment">//return "Friday"</span></span><br><span class="line"><span class="built_in">console</span>.log(day[<span class="string">"Friday"</span>]); <span class="comment">//return 5</span></span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ol>
+<li>在 Enum 中的每個常數，都可以經由 = 指定 Value 。 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> httpStatusCodes &#123;</span><br><span class="line">error = <span class="number">400</span>,</span><br><span class="line">success = <span class="number">200</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>也可以為定義字串 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> httpStatusCodes &#123;</span><br><span class="line">error = <span class="string">'A'</span>,</span><br><span class="line">success = <span class="string">'B'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><font size="5"><b>應用</b></font></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> week &#123;</span><br><span class="line">  Sunday,</span><br><span class="line">  Monday,</span><br><span class="line">  Tuesday,</span><br><span class="line">  Wednesday,</span><br><span class="line">  Thursday,</span><br><span class="line">  Friday,</span><br><span class="line">  Saturday</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> today = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">let</span> currentDay = today.getDay();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkDay</span>(<span class="params">Day: week</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result: <span class="built_in">string</span> = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">switch</span> (Day) &#123;</span><br><span class="line">        <span class="keyword">case</span> week.Sunday:</span><br><span class="line">            result = <span class="string">'星期天'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Monday:</span><br><span class="line">            result = <span class="string">'星期一'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Tuesday:</span><br><span class="line">            result = <span class="string">'星期二'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Wednesday:</span><br><span class="line">            result = <span class="string">'星期三'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Thursday:</span><br><span class="line">            result = <span class="string">'星期四'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Friday:</span><br><span class="line">            result = <span class="string">'星期五'</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> week.Saturday:</span><br><span class="line">            result = <span class="string">'星期六'</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(checkDay(currentDay));</span><br></pre></td></tr></table></figure>
+<p><a href="https://medium.com/@notwist123/typescript-%E5%88%97%E8%88%89%E5%9E%8B%E5%88%A5-enumerate-96fc2eedd581" target="_blank" rel="noopener">列舉型別</a></p>
+<h3 id="聯合型別"><a class="header-anchor" href="#聯合型別"></a>聯合型別</h3>
+<blockquote>
+<p>可包含多種型別的變數，不建議使用。</p>
+</blockquote>
+<ul>
+<li>
+<p>定義</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> data : type1 | type2 | ... ;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> myData : <span class="built_in">boolean</span> | <span class="built_in">string</span> ;</span><br><span class="line">myData = <span class="string">'Hello world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(myData);        <span class="comment">// Hello world</span></span><br><span class="line"></span><br><span class="line">myData = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">console</span>.log(myData);        <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">myData = <span class="number">100</span>;               <span class="comment">//編譯錯誤</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Function"><a class="header-anchor" href="#Function"></a>Function</h2>
+<ul>
+<li>
+<p>定義</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">para1: <span class="keyword">type</span>, ...</span>) : <span class="title">return_type</span> </span>&#123;</span><br><span class="line">    <span class="comment">// do soming</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>return_type</code> 可以為 <code>void</code> 代表沒有回傳值。</p>
+</blockquote>
+</li>
+<li>
+<p>使用</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x:<span class="built_in">number</span>, y:<span class="built_in">number</span> </span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> multiply = <span class="function"><span class="keyword">function</span> (<span class="params">x:<span class="built_in">number</span>, y:<span class="built_in">number</span> </span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">10</span>,<span class="number">50</span>))     <span class="comment">// 60</span></span><br><span class="line"><span class="built_in">console</span>.log(multiply(<span class="number">2</span>,<span class="number">50</span>)) <span class="comment">// 100</span></span><br><span class="line"><span class="comment">// 沒有回傳值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) : <span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'message'</span>);</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="箭頭函式"><a class="header-anchor" href="#箭頭函式"></a>箭頭函式</h3>
+<ul>
+<li>定義  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line">(para1: <span class="keyword">type</span>, ...) : <span class="function"><span class="params">return_type</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// do soming</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>使用  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> multiply = (x:<span class="built_in">number</span>, y:<span class="built_in">number</span> ): <span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(multiply(<span class="number">2</span>,<span class="number">50</span>)); <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="可省略參數與默認參數"><a class="header-anchor" href="#可省略參數與默認參數"></a>可省略參數與默認參數</h3>
+<blockquote>
+<p>TypeScript裡的每個函數參數都是必須的。 這不是指不能傳遞 <code>null</code>或<code>undefined</code>作為參數，而是指編譯器會檢查用戶是否為每個參數都傳入了值。</p>
+</blockquote>
+<ul>
+<li>
+<p>可省略參數<br>
+在參數旁使用 <code>?</code> 可以實現可省略參數的功能。</p>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sayHello = <span class="function"><span class="keyword">function</span>(<span class="params">name?: <span class="built_in">string</span></span>):<span class="title">void</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (name === <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello World!'</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>!`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">sayHello();             <span class="comment">// Hello World!</span></span><br><span class="line">sayHello(<span class="string">'Spongebob'</span>);  <span class="comment">// Hello Spongebob!</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>默認參數<br>
+另外也可以為參數提供一個默認值，當用戶沒有傳遞這個參數或傳遞的值是 <code>undefined</code> 時。</p>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sayHello = (name: <span class="built_in">string</span> = <span class="string">'World'</span>):<span class="function"><span class="params">void</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>!`</span>)</span><br><span class="line">&#125;</span><br><span class="line">sayHello();             <span class="comment">// Hello World!</span></span><br><span class="line">sayHello(<span class="string">'Spongebob'</span>);  <span class="comment">// Hello Spongebob!</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="其餘參數"><a class="header-anchor" href="#其餘參數"></a>其餘參數</h3>
+<blockquote>
+<p>當想同時操作多個參數，或者不知道會有多少參數傳遞進來，可使用 ES6 新增的其餘參數來操作所有傳入的參數。</p>
+</blockquote>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">...values: <span class="built_in">number</span>[] </span>):<span class="title">number</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">let</span> val of values ) &#123;</span><br><span class="line">        result += val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(add(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span> ,<span class="number">9</span>));    <span class="comment">// 25</span></span><br></pre></td></tr></table></figure>
+<h2 id="class-類別"><a class="header-anchor" href="#class-類別"></a>class(類別)</h2>
+<ul>
+<li>定義  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> className &#123;</span><br><span class="line">    property_name1: <span class="keyword">type</span>;</span><br><span class="line">    property_name2: <span class="keyword">type</span>;</span><br><span class="line">    <span class="comment">// 構造函數</span></span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">para1: <span class="keyword">type</span>, para2: <span class="keyword">type</span>, ...</span>) &#123;</span><br><span class="line">        <span class="comment">// 構造函數內容</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 方法</span></span><br><span class="line">    method1 (para1: <span class="keyword">type</span>, para2: <span class="keyword">type</span>, ...): returb_type &#123;</span><br><span class="line">        <span class="comment">// 函式內容</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// method2, method3, ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>使用  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age: <span class="built_in">number</span>;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span>, age: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age</span><br><span class="line">    &#125;</span><br><span class="line">    sayHello (): <span class="built_in">void</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`Hello. I'm <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> and I'm <span class="subst">$&#123;<span class="keyword">this</span>.age&#125;</span> years old`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> patrick = <span class="keyword">new</span> Person (patrick, <span class="number">28</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(patrick.name);  <span class="comment">// patrick</span></span><br><span class="line">patrick.sayHello();         <span class="comment">// Hello. I'm patrick and I'm 28 years old</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="訪問限制"><a class="header-anchor" href="#訪問限制"></a>訪問限制</h3>
+<ul>
+<li><code>public</code> : 修飾的屬性或方法是<span class="label primary">公有的</span>，可以在任何地方被訪問到，預設所有的屬性和方法都是 public 的。</li>
+<li><code>protected</code> : 飾的屬性或方法是<span class="label primary">受保護的</span>，它和 private 類似，區別是它在子類別中也是允許被訪問的。</li>
+<li><code>private</code> : 修飾的屬性或方法是<span class="label primary">私有的</span>，不能在宣告它的類別的外部訪問。</li>
+</ul>
+<ol>
+<li><code>public</code> <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> database &#123;</span><br><span class="line">    dbname: <span class="built_in">string</span>;</span><br><span class="line">    <span class="keyword">constructor</span> (<span class="params">dbname: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.dbname = dbname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> showDB() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`數據庫：<span class="subst">$&#123;<span class="keyword">this</span>.dbname&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">protected</span> connect() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.dbname&#125;</span> 連接中...`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> disconnect() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.dbname&#125;</span> 關閉`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> firebase = <span class="keyword">new</span> database(<span class="string">"firebase"</span>);</span><br><span class="line">firebase.showDB()       <span class="comment">// 數據庫：firebase</span></span><br><span class="line">firebase.connect()</span><br><span class="line"><span class="comment">// Property 'connect' is protected and only accessible within class 'database' and its subclasses.</span></span><br><span class="line">firebase.disconnect()</span><br><span class="line"><span class="comment">// Property 'disconnect' is private and only accessible within class 'database'.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><code>protected</code> <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 繼承</span></span><br><span class="line"><span class="keyword">class</span> mongoDB <span class="keyword">extends</span> database &#123;</span><br><span class="line">    <span class="keyword">public</span> doIt() &#123;</span><br><span class="line">        <span class="keyword">super</span>.connect();</span><br><span class="line">        <span class="keyword">super</span>.disconnect();</span><br><span class="line">        <span class="comment">// Property 'disconnect' is private and only accessible within class 'database'.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> mongo = <span class="keyword">new</span> mongoDB(<span class="string">'mongoDB'</span>);</span><br><span class="line">mongo.showDB();     <span class="comment">// 數據庫：mongoDB</span></span><br><span class="line">mongo.connect();</span><br><span class="line"><span class="comment">// Property 'connect' is protected and only accessible within class 'database' and its subclasses.</span></span><br><span class="line">monge.doIt()        <span class="comment">// mongoDB 連接中...</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><code>private</code><br>
+可透過 <code>get</code> &amp; <code>set</code> 來存取 <code>private</code> 的屬性。 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> BMIcalc &#123;</span><br><span class="line"><span class="keyword">private</span> weight: <span class="built_in">number</span>;</span><br><span class="line">height: <span class="built_in">number</span>;</span><br><span class="line"><span class="keyword">constructor</span>(<span class="params">weight: <span class="built_in">number</span>, height: <span class="built_in">number</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">&#125;</span><br><span class="line">BMI( ): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="keyword">this</span>.weight / (<span class="built_in">Math</span>.pow((<span class="keyword">this</span>.height / <span class="number">100</span>), <span class="number">2</span>))) ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">set</span> changeW(val: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.weight = val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">get</span> getWeight():<span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.weight;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> otaku = <span class="keyword">new</span> BMIcalc(<span class="number">70</span>, <span class="number">172</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(otaku.BMI());</span><br><span class="line"><span class="built_in">console</span>.log(otaku.height);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`Your secret weight is <span class="subst">$&#123;otaku.getWeight&#125;</span> kg`</span>);</span><br><span class="line">otaku.changeW = <span class="number">172</span>;</span><br><span class="line"><span class="built_in">console</span>.log(otaku.BMI());</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="靜態成員-static"><a class="header-anchor" href="#靜態成員-static"></a>靜態成員(static)</h3>
+<blockquote>
+<p>使用 <code>static</code> 修飾符修飾的方法稱為靜態方法， <code>static</code> 不需要實例化，而是直接透過類別來呼叫。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal &#123;</span><br><span class="line">    <span class="keyword">static</span> num: <span class="built_in">number</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Animal.num = <span class="number">42</span>;</span><br><span class="line"><span class="built_in">console</span>.log(Animal.num); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<h3 id="命名空間-namespace"><a class="header-anchor" href="#命名空間-namespace"></a>命名空間(namespace)</h3>
+<blockquote>
+<p>對(函數/類/接口等…)進行分組管理就可以用命名空間。</p>
+</blockquote>
+<ol>
+<li>使用 <code>namespace</code> 關鍵字宣告。</li>
+<li>在命名空間中默認成員都是私有 <code>private</code> 的。</li>
+<li>在命名空間中使用 <code>export</code> 關鍵字宣告公有資源。</li>
+<li>命名空間支持跨文件分隔。</li>
+<li>在Node.js/Require.js中使用 <code>require</code> 關鍵字導入模塊。</li>
+<li>可以使用 <code>import</code> 關鍵字聲明命名空間的別名。</li>
+</ol>
+<ul>
+<li>定義  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">namespace</span> 命名空間的名稱(可以用句號連接多個名稱) &#123;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">class</span> class_name &#123;&#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">func_name</span> </span>&#123;&#125;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">namespace</span> ns_name &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>使用  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="繼承"><a class="header-anchor" href="#繼承"></a>繼承</h3>
+<blockquote>
+<p>使用 <code>extends</code> 關鍵字實現繼承，子類別中使用 <code>super</code> 關鍵字來呼叫父類別的建構函式和方法。</p>
+</blockquote>
+<ul>
+<li>
+<p>定義</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> child_class <span class="keyword">extends</span> parenClass &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> database &#123;</span><br><span class="line">    <span class="keyword">protected</span> name:<span class="built_in">string</span>;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">name: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;;</span><br><span class="line">    showInfo() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`目前使用的資料庫為 <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> MongoDB <span class="keyword">extends</span> database &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> mydb = <span class="keyword">new</span> MongoDB(<span class="string">'mongoDB'</span>);</span><br><span class="line">mydb.showInfo()     <span class="comment">// 目前使用的資料庫為 mongoDB</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="interface-介面"><a class="header-anchor" href="#interface-介面"></a>interface(介面)</h2>
+<ul>
+<li>
+<p>定義</p>
+  <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> name &#123;</span><br><span class="line">    <span class="comment">// 定義介面內容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用</p>
+</li>
+</ul>
+<p><a href="https://willh.gitbook.io/typescript-tutorial/advanced/class#lei-bie-de-ji-cheng" target="_blank" rel="noopener">介面</a><br>
+<a href="https://willh.gitbook.io/typescript-tutorial/advanced/class-and-interfaces" target="_blank" rel="noopener">類別實現介面</a></p>
+<h2 id="型別轉換-Type-assertions"><a class="header-anchor" href="#型別轉換-Type-assertions"></a>型別轉換 (Type assertions)</h2>
+<blockquote>
+<p>assertions : 斷言</p>
+</blockquote>
+<p>有時宣告了 any，但有時需要做明確的轉型，此時可使用 type assertion 明確轉型，也就是告訴編譯器：「我說這是 string ，就是 string 型別」。<br>
+有兩種形式</p>
+<ul>
+<li>
+<p><code>&lt;&gt;</code></p>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (&lt;<span class="built_in">string</span>&gt;someValue).length;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>as</p>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: <span class="built_in">any</span> = <span class="string">"this is a string"</span>;</span><br><span class="line"><span class="keyword">let</span> strLength: <span class="built_in">number</span> = (someValue <span class="keyword">as</span> <span class="built_in">string</span>).length;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);    <span class="comment">// HTMLElement 型別</span></span><br><span class="line">a.href = <span class="string">'http://www.google.com'</span>;           <span class="comment">// 找不到 href 屬性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = &lt;HTMLAnchorElement&gt;<span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);</span><br><span class="line">a.href = <span class="string">'http://www.google.com'</span>;           <span class="comment">// OK</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="排除過度屬性檢查的性別宣告技巧"><a class="header-anchor" href="#排除過度屬性檢查的性別宣告技巧"></a>排除過度屬性檢查的性別宣告技巧</h3>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> Ilabel &#123;</span><br><span class="line">    label: <span class="built_in">string</span>;           <span class="comment">// 必要屬性，必須傳入!</span></span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span>; <span class="comment">//允許任意屬性傳入</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="嚴格空值檢查模式"><a class="header-anchor" href="#嚴格空值檢查模式"></a>嚴格空值檢查模式</h2>
+<p>開啟方式：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">"compilerOptions"</span>: &#123;</span><br><span class="line">    <span class="attr">"strictNullChecks"</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>預設型別檢查模式 (regular type checking mode)</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a: T;       <span class="comment">// 可以指派 undefined 或 null，因為 undefined 和 null 是所有型別的子型別。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>(2)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="literal">null</span>;           <span class="comment">// a 變數型別為 any</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">undefined</span>;      <span class="comment">// b 變數型別為 any</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>嚴格空值檢查模式 (strict null checking mode) (–strictNullChecks)</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a: T;            <span class="comment">// 不允許為 undefined 或 null (嚴格檢查)。</span></span><br><span class="line"><span class="keyword">let</span> a: T | <span class="literal">null</span>;     <span class="comment">// 不允許為 undefined 也代表需要初始值。</span></span><br><span class="line"><span class="keyword">let</span> a: T | <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> a: T | <span class="literal">null</span> | <span class="literal">undefined</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>可選參數</strong>預設就擁有 undefined 型別，啟用<strong>嚴格空值檢查模式</strong>也一樣(例外)。  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> T1 = <span class="function">(<span class="params">X?: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">string</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>(2)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="literal">null</span>;           <span class="comment">// a 變數型別為 null</span></span><br><span class="line"><span class="keyword">let</span> b = <span class="literal">undefined</span>;      <span class="comment">// b 變數型別為 undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>(3) 非空值斷言運算子 ( ! ) (Non-null assertion operator)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> Entity &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">valiableEntity</span>(<span class="params">e?: Entity</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 丟出例外 如果 e 是 null or invalid entity</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">processEntity</span>(<span class="params">e?: Entity</span>) </span>&#123;</span><br><span class="line">    valiableEntity(e);</span><br><span class="line">    <span class="keyword">let</span> s = e!.name</span><br><span class="line">    <span class="comment">// Assert that e is non-null and access name</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="標記的聯合類型-Tagged-union-types"><a class="header-anchor" href="#標記的聯合類型-Tagged-union-types"></a>標記的聯合類型(Tagged union types)</h2>
+<ul>
+<li>傳統的聯合類型  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a : <span class="built_in">number</span> | <span class="built_in">string</span> | undefinded;</span><br></pre></td></tr></table></figure>
+</li>
+<li>字串實字聯合類型 (Sstring Literal Types)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> test = <span class="string">"Sun"</span> | <span class="string">"Moon"</span> | <span class="string">"Day"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"> X: test </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可與 <code>switch</code> 搭配使用。</p>
+</blockquote>
+</li>
+<li>數值實字聯合類型 (Numeric Literal Types)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rollDie</span>(<span class="params"></span>) : 1 | 2 | 3 | 4 | 5 | 6 </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>列舉成員聯合類型 (Enum Member Types)  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> kind: Shapekind.Square | Shapekind.Circle;</span><br></pre></td></tr></table></figure>
+</li>
+<li>標記的聯合類型</li>
+</ul>
+<h2 id="never-原始型別"><a class="header-anchor" href="#never-原始型別"></a>never 原始型別</h2>
+<ul>
+<li>never 原始型別 是 TypeScript 2.0 推出的</li>
+<li>never 用來宣告某個函式或變數永遠不可能有值  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a: never = <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;<span class="keyword">while</span> (<span class="literal">true</span>) &#123; &#125; &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li>void 型別的特性
+<ul>
+<li>宣告 void 型別的變數只能是 undefind or null (代表沒有值)。</li>
+<li>undefined 和 null 是所有型別的子型別(subtype)。</li>
+</ul>
+</li>
+<li>never 型別的特性
+<ul>
+<li>never是所有型別的子型別(subtype)，不須特別宣告。</li>
+<li>沒有任何型別是 never 的子型別(除了本身 never 以外)。</li>
+<li>若函式表達式或箭頭函式要能自動推導出 never 型別，有以下條件。
+<ul>
+<li>函式中沒有任何 return 敘述或回傳的只會有 never 型別。</li>
+<li>函式一定不能跑到函式最後一行(end point of the function is not reachable)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="this-的嚴格用法"><a class="header-anchor" href="#this-的嚴格用法"></a>this 的嚴格用法</h2>
+<ul>
+<li>預設函式內使用的 this 預設型別為 any</li>
+<li>TypeScript 2.0 新增 <code>-noImplicitThis</code>
+<ul>
+<li>在函式中預設無法使用 any 型別的 this 變數。</li>
+<li>如果要使用 this 必須在函式的第一個參數加入型別宣告。(編譯後會自動移除)</li>
+</ul>
+  <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span> (<span class="params"><span class="keyword">this</span>: <span class="built_in">any</span>, b: <span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="noImplicitAny"><a class="header-anchor" href="#noImplicitAny"></a>-noImplicitAny</h2>
+<img src="/blog/2020/03/25/typescript/noImplicitAny.png" class="">
+<h2 id="alwayStrict"><a class="header-anchor" href="#alwayStrict"></a>-alwayStrict</h2>
+<ul>
+<li>所有 TypeScript 程式碼都會以 strict mode 進行解析。</li>
+<li>所有輸出的 JavaScript 程式碼都會加上 “use strict” 在每個 Scope。</li>
+<li>所有相關模組都會進入嚴格編譯模式。</li>
+<li>建議使用在 non-module 的程式碼。</li>
+</ul>
+<h1 id="第三方庫應用"><a class="header-anchor" href="#第三方庫應用"></a>第三方庫應用</h1>
+<p>以 <code>node-request</code> 為例。</p>
+<ol>
+<li>
+<p>安裝 <code>node-request</code></p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install --save request</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>TypeScript 使用方式</p>
+<ol>
+<li>尋找 tsd 文件 - <a href="https://microsoft.github.io/TypeSearch/" target="_blank" rel="noopener">TypeSearch</a></li>
+<li>導入 tsd <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save @types/request</span><br></pre></td></tr></table></figure>
+</li>
+<li>編寫代碼</li>
+<li>運行代碼</li>
+</ol>
+</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th width="50%">JavaScript</th>
+            <th width="50%">TypeScript</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">const</span> TestUrl = <span class="string">'http://www.google.com'</span>;</span><br><span class="line">request(TestUrl, <span class="function"><span class="keyword">function</span> (<span class="params">error, response, body</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="string">'error:'</span>, error);</span><br><span class="line">  <span class="comment">// Print the error if one occurred</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'statusCode:'</span>, response &amp;&amp; response.statusCode);</span><br><span class="line">  <span class="comment">// Print the response status code if a response was received</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'body:'</span>, body);</span><br><span class="line">  <span class="comment">// Print the HTML for the Google homepage.</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            </td>
+            <td>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">const</span> TestUrl: <span class="built_in">string</span> = <span class="string">'http://www.google.com'</span>;</span><br><span class="line">request(TestUrl, <span class="function"><span class="keyword">function</span> (<span class="params">error, response, body</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="string">'error:'</span>, error);</span><br><span class="line">  <span class="comment">// Print the error if one occurred</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'statusCode:'</span>, response &amp;&amp; response.statusCode);</span><br><span class="line">  <span class="comment">// Print the response status code if a response was received</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'body:'</span>, body);</span><br><span class="line">  <span class="comment">// Print the HTML for the Google homepage.</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/03/08/AJAX/" rel="prev" title="AJAX">
+      <i class="fa fa-chevron-left"></i> AJAX
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TypeScript-編譯器"><span class="nav-number">1.</span> <span class="nav-text">TypeScript 編譯器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#環境建立"><span class="nav-number">1.1.</span> <span class="nav-text">環境建立</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定技巧"><span class="nav-number">1.2.</span> <span class="nav-text">設定技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#型別應用"><span class="nav-number">2.</span> <span class="nav-text">型別應用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自動型別推導-Type-Inference"><span class="nav-number">2.1.</span> <span class="nav-text">自動型別推導 (Type Inference)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#靜態型別標示"><span class="nav-number">2.2.</span> <span class="nav-text">靜態型別標示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#數值"><span class="nav-number">2.2.1.</span> <span class="nav-text">數值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字串"><span class="nav-number">2.2.2.</span> <span class="nav-text">字串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布林"><span class="nav-number">2.2.3.</span> <span class="nav-text">布林</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陣列"><span class="nav-number">2.2.4.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多維陣列"><span class="nav-number">2.2.5.</span> <span class="nav-text">多維陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列舉型別-Enum"><span class="nav-number">2.2.6.</span> <span class="nav-text">列舉型別 (Enum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聯合型別"><span class="nav-number">2.2.7.</span> <span class="nav-text">聯合型別</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function"><span class="nav-number">2.3.</span> <span class="nav-text">Function</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#箭頭函式"><span class="nav-number">2.3.1.</span> <span class="nav-text">箭頭函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可省略參數與默認參數"><span class="nav-number">2.3.2.</span> <span class="nav-text">可省略參數與默認參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其餘參數"><span class="nav-number">2.3.3.</span> <span class="nav-text">其餘參數</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class-類別"><span class="nav-number">2.4.</span> <span class="nav-text">class(類別)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#訪問限制"><span class="nav-number">2.4.1.</span> <span class="nav-text">訪問限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#靜態成員-static"><span class="nav-number">2.4.2.</span> <span class="nav-text">靜態成員(static)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名空間-namespace"><span class="nav-number">2.4.3.</span> <span class="nav-text">命名空間(namespace)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#繼承"><span class="nav-number">2.4.4.</span> <span class="nav-text">繼承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#interface-介面"><span class="nav-number">2.5.</span> <span class="nav-text">interface(介面)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#型別轉換-Type-assertions"><span class="nav-number">2.6.</span> <span class="nav-text">型別轉換 (Type assertions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排除過度屬性檢查的性別宣告技巧"><span class="nav-number">2.6.1.</span> <span class="nav-text">排除過度屬性檢查的性別宣告技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嚴格空值檢查模式"><span class="nav-number">2.7.</span> <span class="nav-text">嚴格空值檢查模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#標記的聯合類型-Tagged-union-types"><span class="nav-number">2.8.</span> <span class="nav-text">標記的聯合類型(Tagged union types)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#never-原始型別"><span class="nav-number">2.9.</span> <span class="nav-text">never 原始型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-的嚴格用法"><span class="nav-number">2.10.</span> <span class="nav-text">this 的嚴格用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#noImplicitAny"><span class="nav-number">2.11.</span> <span class="nav-text">-noImplicitAny</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alwayStrict"><span class="nav-number">2.12.</span> <span class="nav-text">-alwayStrict</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方庫應用"><span class="nav-number">3.</span> <span class="nav-text">第三方庫應用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MADAO"
+      src="/blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
+</body>
+</html>
