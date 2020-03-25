@@ -552,7 +552,7 @@ console.log(add(1, 3, 5, 7 ,9));    // 25
 
 ### 訪問限制
 - `public` : 修飾的屬性或方法是{%label primary@公有的%}，可以在任何地方被訪問到，預設所有的屬性和方法都是 public 的。
-- `protected` : 飾的屬性或方法是{%label primary@受保護的%}，它和 private 類似，區別是它在子類別中也是允許被訪問的。
+- `protected` : 修飾的屬性或方法是{%label primary@受保護的%}，它和 private 類似，區別是它在子類別中也是允許被訪問的。
 - `private` : 修飾的屬性或方法是{%label primary@私有的%}，不能在宣告它的類別的外部訪問。
 
 1. `public`
@@ -690,6 +690,7 @@ console.log(Animal.num); // 42
     ```
 
 ## interface(介面)
+> 介面指的是的一個「統一的」、「標準的」規格，對於產品，或是物品進行使用上的規範等。
 
 - 定義
     ```ts
