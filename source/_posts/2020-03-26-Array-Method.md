@@ -54,7 +54,7 @@ Array.splice(start[, deleteCount[, item1[, item2[, *...]]]]*)
 # indexOf()
 
 {% note info %}
-`indexOf()` 方法會回傳給定元素於陣列中第一個被找到之索引，若不存在於陣列中則回傳 -1。
+`indexOf()` 方法會回傳給定元素於陣列中**第一個被找到之索引**，若不存在於陣列中則回傳 **-1**。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -93,7 +93,7 @@ Array.filter(function(element, index, array), thisArg)
 # find()
 
 {% note info %}
-`find()` 方法會回傳第一個滿足所提供之測試函式的元素值。否則回傳 [`undefined`](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/undefined)。
+`find()` 方法會回傳第一個滿足所提供之測試函式的元素值。否則回傳 **undefined**。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -106,7 +106,7 @@ Array.find(function(element, index, array), thisArg)
 # forEach()
 
 {% note info %}
-`forEach()` 方法會將陣列內的每個元素，皆傳入 callback function 執行一次，但不會額外回傳值。
+`forEach()` 方法會將陣列內的每個元素，皆傳入 callback function 執行一次，但**不會**額外回傳值。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -119,7 +119,7 @@ Array.forEach(function(element, index, array), thisArg)
 # map()
 
 {% note info %}
-`map()` 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由 callback function 運算後所回傳的結果之集合。
+`map()` 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由 callback function 運算後所**回傳的結果之集合**。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -132,10 +132,24 @@ Array.map(function(element, index, array), thisArg)
 * 如果不回傳則是 `undefined`
 * 回傳數量等於原始陣列的長度
 
+# findIndex()
+
+{% note info %}
+`findIndex()` 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 **index（索引）**。
+如果沒有符合的對象，將返回 **-1** 。
+{% endnote%}
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+```js
+Array.findIndex(function(element, index, array), thisArg)
+```
+</div>
+
 # every()
 
 {% note info %}
-`every()` 方法會測試陣列中的所有元素是否都通過了由給定之函式所實作的測試。回傳的是布林值。
+`every()` 方法會測試陣列中的所有元素是否都通過了由給定之函式所實作的測試。
+回傳的是**布林值**。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -154,7 +168,8 @@ Array.every(function(element, index, array), thisArg)
 
 {% note info %}
 `some()` 方法會透過callback function，對陣列中所有的元素進行測試，若是有任何一個元素測試通過，
-則立即返回true，不再對其他元素進行測試。回傳的是布林值。
+則立即返回true，不再對其他元素進行測試。
+回傳的是**布林值**。
 {% endnote%}
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
