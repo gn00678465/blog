@@ -1,9 +1,14 @@
 ---
 title: Array_Method
+categories:
+  - JavaScript
 tags:
+  - JavaScript
+  - Array
+date: 2020-03-26 06:11:31
 ---
 
-Array_Method
+{% asset_img array.png array%}
 
 <!--more-->
 
