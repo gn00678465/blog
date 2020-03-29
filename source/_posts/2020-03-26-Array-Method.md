@@ -1,5 +1,5 @@
 ---
-title: Array_Method
+title: Array Method
 categories:
   - JavaScript
 tags:
@@ -8,7 +8,7 @@ tags:
 date: 2020-03-26 06:11:31
 ---
 
-Array_Method
+{% asset_img array.png Array Method %}
 
 <!--more-->
 
@@ -102,6 +102,23 @@ Array.find(function(element, index, array), thisArg)
 ```
 </div>
 
+# findIndex()
+
+{% note info %}
+`findIndex()` 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 **index（索引）**。
+如果沒有符合的對象，將返回 **-1** 。
+{% endnote%}
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+```js
+Array.findIndex(function(element, index, array), thisArg)
+```
+</div>
+
+* element：必要；目前正要被處理的陣列元素。
+* index：可選的；目前正要被處理的陣列元素之索引值。
+* array：可選的；呼叫 `findIndex()` 的陣列。
+* thisArg：可選的；執行 `callback` 回呼函式的 `this` 值。
 
 # forEach()
 
@@ -131,19 +148,6 @@ Array.map(function(element, index, array), thisArg)
 
 * 如果不回傳則是 `undefined`
 * 回傳數量等於原始陣列的長度
-
-# findIndex()
-
-{% note info %}
-`findIndex()` 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 **index（索引）**。
-如果沒有符合的對象，將返回 **-1** 。
-{% endnote%}
-<div class="codeBox">
-  <div class="ribbon">Syntax</div>
-```js
-Array.findIndex(function(element, index, array), thisArg)
-```
-</div>
 
 # every()
 
