@@ -46,16 +46,16 @@
   };
 </script>
 
-  <meta name="description" content="Array_Method">
-<meta name="keywords" content="JavaScript,Array">
+  <meta name="keywords" content="JavaScript,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Array_Method">
+<meta property="og:title" content="Array Method">
 <meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;2020&#x2F;03&#x2F;26&#x2F;Array-Method&#x2F;index.html">
 <meta property="og:site_name" content="マダオの前端學習筆記">
-<meta property="og:description" content="Array_Method">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-03-29T15:00:51.828Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;26&#x2F;Array-Method&#x2F;array.png">
+<meta property="og:updated_time" content="2020-03-29T15:09:29.284Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;03&#x2F;26&#x2F;Array-Method&#x2F;array.png">
 
 <link rel="canonical" href="https://gn00678465.github.io/2020/03/26/Array-Method/">
 
@@ -69,7 +69,7 @@
   };
 </script>
 
-  <title>Array_Method | マダオの前端學習筆記</title>
+  <title>Array Method | マダオの前端學習筆記</title>
   
 
 
@@ -191,7 +191,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Array_Method
+          Array Method
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-29 23:00:51" itemprop="dateModified" datetime="2020-03-29T23:00:51+08:00">2020-03-29</time>
+                <time title="修改時間：2020-03-29 23:09:29" itemprop="dateModified" datetime="2020-03-29T23:09:29+08:00">2020-03-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +233,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Array_Method</p>
+        <img src="/blog/2020/03/26/Array-Method/array.png" class="" title="Array Method">
 <a id="more"></a>
 <h1 id="push"><a class="header-anchor" href="#push"></a>push()</h1>
 <div class="note info">
@@ -317,6 +317,20 @@
   <div class="ribbon">Syntax</div>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.find(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, array</span>), <span class="title">thisArg</span>)</span></span><br></pre></td></tr></table></figure>
 </div>
+<h1 id="findIndex"><a class="header-anchor" href="#findIndex"></a>findIndex()</h1>
+<div class="note info">
+            <p><code>findIndex()</code> 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 <strong>index（索引）</strong>。<br>如果沒有符合的對象，將返回 <strong>-1</strong> 。</p>
+          </div>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, array</span>), <span class="title">thisArg</span>)</span></span><br></pre></td></tr></table></figure>
+</div>
+<ul>
+<li>element：必要；目前正要被處理的陣列元素。</li>
+<li>index：可選的；目前正要被處理的陣列元素之索引值。</li>
+<li>array：可選的；呼叫 <code>findIndex()</code> 的陣列。</li>
+<li>thisArg：可選的；執行 <code>callback</code> 回呼函式的 <code>this</code> 值。</li>
+</ul>
 <h1 id="forEach"><a class="header-anchor" href="#forEach"></a>forEach()</h1>
 <div class="note info">
             <p><code>forEach()</code> 方法會將陣列內的每個元素，皆傳入 callback function 執行一次，但<strong>不會</strong>額外回傳值。</p>
@@ -337,14 +351,6 @@
 <li>如果不回傳則是 <code>undefined</code></li>
 <li>回傳數量等於原始陣列的長度</li>
 </ul>
-<h1 id="findIndex"><a class="header-anchor" href="#findIndex"></a>findIndex()</h1>
-<div class="note info">
-            <p><code>findIndex()</code> 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 <strong>index（索引）</strong>。<br>如果沒有符合的對象，將返回 <strong>-1</strong> 。</p>
-          </div>
-<div class="codeBox">
-  <div class="ribbon">Syntax</div>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, array</span>), <span class="title">thisArg</span>)</span></span><br></pre></td></tr></table></figure>
-</div>
 <h1 id="every"><a class="header-anchor" href="#every"></a>every()</h1>
 <div class="note info">
             <p><code>every()</code> 方法會測試陣列中的所有元素是否都通過了由給定之函式所實作的測試。<br>回傳的是<strong>布林值</strong>。</p>
@@ -471,7 +477,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#push"><span class="nav-number">1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#splice"><span class="nav-number">2.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#indexOf"><span class="nav-number">3.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filter"><span class="nav-number">4.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#find"><span class="nav-number">5.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#forEach"><span class="nav-number">6.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">7.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#findIndex"><span class="nav-number">8.</span> <span class="nav-text">findIndex()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#every"><span class="nav-number">9.</span> <span class="nav-text">every()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some"><span class="nav-number">10.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce"><span class="nav-number">11.</span> <span class="nav-text">reduce()</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#push"><span class="nav-number">1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#splice"><span class="nav-number">2.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#indexOf"><span class="nav-number">3.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filter"><span class="nav-number">4.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#find"><span class="nav-number">5.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#findIndex"><span class="nav-number">6.</span> <span class="nav-text">findIndex()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#forEach"><span class="nav-number">7.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">8.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#every"><span class="nav-number">9.</span> <span class="nav-text">every()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some"><span class="nav-number">10.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce"><span class="nav-number">11.</span> <span class="nav-text">reduce()</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
