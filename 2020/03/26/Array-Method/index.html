@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="マダオの前端學習筆記">
 <meta property="og:description" content="Array_Method">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-03-25T22:12:13.543Z">
+<meta property="og:updated_time" content="2020-03-29T15:00:51.828Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://gn00678465.github.io/2020/03/26/Array-Method/">
@@ -200,10 +200,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-03-26 06:11:31 / 修改時間：06:12:13" itemprop="dateCreated datePublished" datetime="2020-03-26T06:11:31+08:00">2020-03-26</time>
+              <time title="創建時間：2020-03-26 06:11:31" itemprop="dateCreated datePublished" datetime="2020-03-26T06:11:31+08:00">2020-03-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-03-29 23:00:51" itemprop="dateModified" datetime="2020-03-29T23:00:51+08:00">2020-03-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -272,7 +278,7 @@
 </ul>
 <h1 id="indexOf"><a class="header-anchor" href="#indexOf"></a>indexOf()</h1>
 <div class="note info">
-            <p><code>indexOf()</code> 方法會回傳給定元素於陣列中第一個被找到之索引，若不存在於陣列中則回傳 -1。</p>
+            <p><code>indexOf()</code> 方法會回傳給定元素於陣列中<strong>第一個被找到之索引</strong>，若不存在於陣列中則回傳 <strong>-1</strong>。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -305,7 +311,7 @@
 </ol>
 <h1 id="find"><a class="header-anchor" href="#find"></a>find()</h1>
 <div class="note info">
-            <p><code>find()</code> 方法會回傳第一個滿足所提供之測試函式的元素值。否則回傳 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/undefined" target="_blank" rel="noopener"><code>undefined</code></a>。</p>
+            <p><code>find()</code> 方法會回傳第一個滿足所提供之測試函式的元素值。否則回傳 <strong>undefined</strong>。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -313,7 +319,7 @@
 </div>
 <h1 id="forEach"><a class="header-anchor" href="#forEach"></a>forEach()</h1>
 <div class="note info">
-            <p><code>forEach()</code> 方法會將陣列內的每個元素，皆傳入 callback function 執行一次，但不會額外回傳值。</p>
+            <p><code>forEach()</code> 方法會將陣列內的每個元素，皆傳入 callback function 執行一次，但<strong>不會</strong>額外回傳值。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -321,7 +327,7 @@
 </div>
 <h1 id="map"><a class="header-anchor" href="#map"></a>map()</h1>
 <div class="note info">
-            <p><code>map()</code> 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由 callback function 運算後所回傳的結果之集合。</p>
+            <p><code>map()</code> 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由 callback function 運算後所<strong>回傳的結果之集合</strong>。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -331,9 +337,17 @@
 <li>如果不回傳則是 <code>undefined</code></li>
 <li>回傳數量等於原始陣列的長度</li>
 </ul>
+<h1 id="findIndex"><a class="header-anchor" href="#findIndex"></a>findIndex()</h1>
+<div class="note info">
+            <p><code>findIndex()</code> 方法將依據提供的測試函式，尋找陣列中符合的元素，並返回其 <strong>index（索引）</strong>。<br>如果沒有符合的對象，將返回 <strong>-1</strong> 。</p>
+          </div>
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.findIndex(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, array</span>), <span class="title">thisArg</span>)</span></span><br></pre></td></tr></table></figure>
+</div>
 <h1 id="every"><a class="header-anchor" href="#every"></a>every()</h1>
 <div class="note info">
-            <p><code>every()</code> 方法會測試陣列中的所有元素是否都通過了由給定之函式所實作的測試。回傳的是布林值。</p>
+            <p><code>every()</code> 方法會測試陣列中的所有元素是否都通過了由給定之函式所實作的測試。<br>回傳的是<strong>布林值</strong>。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -348,7 +362,7 @@
 </ul>
 <h1 id="some"><a class="header-anchor" href="#some"></a>some()</h1>
 <div class="note info">
-            <p><code>some()</code> 方法會透過callback function，對陣列中所有的元素進行測試，若是有任何一個元素測試通過，<br>則立即返回true，不再對其他元素進行測試。回傳的是布林值。</p>
+            <p><code>some()</code> 方法會透過callback function，對陣列中所有的元素進行測試，若是有任何一個元素測試通過，<br>則立即返回true，不再對其他元素進行測試。<br>回傳的是<strong>布林值</strong>。</p>
           </div>
 <div class="codeBox">
   <div class="ribbon">Syntax</div>
@@ -457,7 +471,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#push"><span class="nav-number">1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#splice"><span class="nav-number">2.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#indexOf"><span class="nav-number">3.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filter"><span class="nav-number">4.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#find"><span class="nav-number">5.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#forEach"><span class="nav-number">6.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">7.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#every"><span class="nav-number">8.</span> <span class="nav-text">every()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some"><span class="nav-number">9.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce"><span class="nav-number">10.</span> <span class="nav-text">reduce()</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#push"><span class="nav-number">1.</span> <span class="nav-text">push()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#splice"><span class="nav-number">2.</span> <span class="nav-text">splice()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#indexOf"><span class="nav-number">3.</span> <span class="nav-text">indexOf()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filter"><span class="nav-number">4.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#find"><span class="nav-number">5.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#forEach"><span class="nav-number">6.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map"><span class="nav-number">7.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#findIndex"><span class="nav-number">8.</span> <span class="nav-text">findIndex()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#every"><span class="nav-number">9.</span> <span class="nav-text">every()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#some"><span class="nav-number">10.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#reduce"><span class="nav-number">11.</span> <span class="nav-text">reduce()</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
