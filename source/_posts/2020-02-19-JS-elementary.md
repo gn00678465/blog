@@ -508,6 +508,32 @@ target.addEventListener(type, listener[, options]);
   - `e.target.classList.contains('搜尋的子節點')`，如果有回傳 true沒有則回傳 false。 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Node/contains)
   - `e.target.nodeName === '要匹配的子節點'`。 [MDN](https://developer.mozilla.org/zh-TW/docs/Web/API/Node/nodeName)
 
+```html
+<div class="outer"><a href="#" class="add">Add</a></div>
+<script>
+const add = document.querySelector('.add');
+const outer = document.querySelector('.outer');
+let num = 1
+
+add.addEventListener('click',function(e){
+  e.preventDefault();
+  const btn = document.createElement('a');
+  btn.setAttribute('class', 'eventBtn');
+  btn.setAttribute('data-btn', num);
+  btn.textContent = num;
+  num +=1 ;
+  outer.appendChild(btn);
+},false)
+
+outer.addEventListener('click',function(e){
+  if (e.target.classList.contains('eventBtn')) {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    e.target.setAttribute('style', `background: #${randomColor}`);
+  }
+})
+</script>
+```
+
 {% raw %}
 <div class="result result--light">
   <div class="ribbon ribbon--success">event delegation</div>
