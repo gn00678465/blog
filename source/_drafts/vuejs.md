@@ -411,16 +411,21 @@ watch: {
 
 ## <font color='red'>生命週期</font>
 
-- <b>beforeCreate</b>
-- <b>created</b>
-- <b>beforeMount</b>
-- <b>mounted</b>
-- <b>beforeUpdate</b>
-- <b>updated</b>
-- <b>beforeDestroy</b>
-- <b>destroyed</b>
-
 ```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue生命週期學習</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{message}}</h1>
+  </div>
+</body>
 <script>
   var vm = new Vue({
     el: '#app',
@@ -483,4 +488,15 @@ watch: {
     }
   })
 </script>
+</html>
 ```
+{% asset_img vue_lifecircle.png %}
+
+- <b>beforeCreate</b>
+- <b>created</b>
+- <b>beforeMount</b>
+- <b>mounted</b>
+- <b>beforeUpdate</b>
+- <b>updated</b>
+- <b>beforeDestroy</b>
+- <b>destroyed</b>
