@@ -196,8 +196,6 @@ Array.some(function(element, index, array), thisArg)
 ```
 </div>
 
-可傳入三個參數：
-
 <hr>
 
 # 其他
@@ -219,3 +217,5 @@ Array.reduce(function(accumulator, currentValue, currentIndex, array){
 * currentValue: 當前變數
 * currentIndex: 當前索引
 * array: 全部陣列
+
+- 可搭配 `Math.max(accumulator, currentValue)` 來比較值的大小。
