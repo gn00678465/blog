@@ -782,3 +782,143 @@ props: {
 
 - 已註冊組件的名字
 - 一個組件的選項物件
+
+# Vue 常用 API
+## Extend
+> extend 是基礎建構的概念
+```js
+// 創建構造器
+var newExtend = Vue.extend({
+  template: '<p>{{data}}</p>',
+  data: function () {
+    return {
+      data: '這是 extent 的資料'
+    }
+  }
+})
+```
+- 可以從元件內引用 - 使用 `extends` 屬性，但只能指定1個。
+    ```js
+    Vue.component('myComponent',{
+      props: ['props'],
+      extends: newExtend
+    })
+    ```
+- 可以新增資料，不會取代從 extend 的繼承的資料。
+  但是有相同的資料下會取代舊有的資料。
+    ```js
+    Vue.component('myComponent',{
+      props: ['props'],
+      data: function() {
+        return {
+          newData: '這是新增的資料'   // 新增的資料，可以並存
+          data: '這是元件取代的資料'  // 會取代從 extent 取得的資料
+        }
+      },
+      extends: newExtend
+    })
+    ```
+## Filter
+{% note info %}
+自定義過濾器，可被用於一些常見的字串格式化。
+過濾器可以用在兩個地方：
+1. 雙大括號插值 
+1. v-bind 表達式 (後者從 2.1.0+ 開始支持)。
+過濾器應該被添加在 JavaScript 表達式的尾部，由“{% label warning@管道 %}”符號指示
+```html
+<!-- 在雙大括號中 -->
+{{ message | filterName }}
+
+<!-- 在 `v-bind` 中 -->
+<div v-bind:id="rawId | filterName"></div>
+```
+{% endnote %}
+```js
+// 全域註冊
+Vue.filter( filterName, function (value) {
+  // 返回处理后的值
+})
+// 區域註冊
+var myFilter = Vue.filter('my-filter')
+```
+Example:
+```js
+// 數值前方加入 $ 符號
+Vue.filter('dollarSign', function(n) {
+  return `$ ${n}`
+});
+// 將數值格式化成貨幣寫法
+Vue.filter('currency', function(n) {
+  return n.toFixed(2).replace(/./g, function(c, i, a) {
+    return i && c !== "." && ((a.length - i) % 3 === 0) ? ',' + c : c;
+  });
+});
+```
+## set
+> 在有些情況下，Vue 的資料無法預先定義，此時將資料寫入的話，無法觸發視圖更新。
+於此情形下，可以使用 `vue.$set()` 方法添加資料，並確保這個新屬性同樣是響應式的，且可觸發視圖更新。
+
+```js
+// 全域註冊
+Vue.set( target, propertyName/index, value )
+// 全局 Vue.set 的別名。
+vm.$set( target, propertyName/index, value )
+```
+- 參數
+  - `target {Object | Array}` - 目標。如 `this.data`。
+  - `propertyName {string | number}` - 屬性名稱。
+  - `value {any}` - 要添加的值。
+## Mixin
+> mixin 是多個混合的概念，可用來分發 Vue 組件中的可重複功能。
+```js
+var myMixin = {
+  created: function () {
+    this.hello()
+  },
+  methods: {
+    hello: function () {
+      console.log('hello from mixin!')
+    }
+  }
+}
+
+// 定義一個使用混入對象的組件，使用陣列帶入，可帶入多項 mixin
+var Component = Vue.extend({
+  mixins: [myMixin]
+})
+```
+
+## Directive
+> Vue 允許註冊自定義指令。(Directive - 自定義指令)
+
+```js
+// 註冊一個全局自定義指令
+Vue.directive('DirectiveName', {
+  bind: function(el, binding, vnode) {
+    // 只調用一次，指令第一次綁定到元素時調用。
+  },
+  inserted: function (el, binding, vnode) {
+    // 當被綁定的元素插入到 DOM 中時……
+  },
+  update() {
+    // 所在組件的 VNode 更新時調用，但是可能發生在其子 VNode 更新之前。
+  }
+})
+```
+- `el`：指令所綁定的元素，可以用來直接操作 DOM。
+- `binding`：一個對象，包含以下屬性：
+    - `name`：指令名，不包括 `v-` 前綴。
+    - `value`：指令的綁定值
+    - `oldValue`：指令綁定的前一個值，僅在 `update` 和 `componentUpdated` 鉤子中可用。
+    - `expression`：字符串形式的指令表達式。
+    - `arg`：傳給指令的參數，可選。
+    - `modifiers`：一個包含修飾符的對象。
+- `vnode`：Vue 編譯生成的虛擬節點。
+
+```html
+<!-- 使用 -->
+<input type="email" v-DirectiveName>
+```
+<a href="https://cn.vuejs.org/v2/guide/custom-directive.html" class="Btn Btn__secondary Btn--v">
+<span>官方文件</span>
+</a> 
