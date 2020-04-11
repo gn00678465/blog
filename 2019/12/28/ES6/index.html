@@ -55,7 +55,7 @@
 <meta property="og:description" content="關於ES6新增的語法  讓原有的 JS 語法撰寫更為精簡 (語法糖) 讓 JS 撰寫觀念更為直覺、簡便 (新方法)">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2019&#x2F;12&#x2F;28&#x2F;ES6&#x2F;ES6.jpg">
-<meta property="og:updated_time" content="2020-03-29T15:05:16.374Z">
+<meta property="og:updated_time" content="2020-04-11T15:43:44.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2019&#x2F;12&#x2F;28&#x2F;ES6&#x2F;ES6.jpg">
 
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-29 23:05:16" itemprop="dateModified" datetime="2020-03-29T23:05:16+08:00">2020-03-29</time>
+                <time title="修改時間：2020-04-11 23:43:44" itemprop="dateModified" datetime="2020-04-11T23:43:44+08:00">2020-04-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,37 +243,44 @@
 </ol>
 <a id="more"></a>
 <h1 id="變數"><a class="header-anchor" href="#變數"></a>變數</h1>
-<dl>
-  <dt><code>var</code></dt>
-  <dd><code>var</code> 宣告變數是定義了一個全域變數，或是在整個 function 而不管該區塊範圍。函式作用域(function scope)。</dd>
-  <dd><code>var</code> 可以重複宣告，後宣告的值會取代前宣告的。</dd>
-  <dd>有提升(Hoisting)的特性。</dd>
-</dl>
+<ul>
+<li><code>var</code> 宣告變數是定義了一個全域變數，或是在整個 function 而不管該區塊範圍。<div class="note warning">
+            <p>函式作用域(function scope)。</p>
+          </div>
+</li>
+<li><code>var</code> 可以重複宣告，後宣告的值會取代前宣告的。</li>
+<li>有提升(Hoisting)的特性。</li>
+</ul>
 <span class="label danger"> 為了解決 var 可能造成程式碼的錯誤，ES6 中新增了2種變數宣告方式。</span>
 <h2 id="let"><a class="header-anchor" href="#let"></a>let</h2>
 <p><code>let</code>: 可以宣告只能在目前區塊、階段或表達式中作用的變數。</p>
 <ul>
-<li>作用範圍是它們被定義的區塊，以及該區塊包含的子區塊。 區塊作用域(block scope)<code>{}</code></li>
+<li>作用範圍是它們被定義的區塊，以及該區塊包含的子區塊。  <div class="note warning">
+            <p>區塊作用域(block scope)<code>{}</code>。</p>
+          </div>
+</li>
 <li>無法重複宣告</li>
-<li>有暫時性死區(TDZ)
+<li>有暫時性死區(TDZ) (TDZ 與 Hoisting 不同)
 <ol>
-<li>依樣會有創造階段</li>
+<li>一樣會有創造階段。</li>
 <li>但從創造階段到實際宣告會出現 TDZ ，這個區域無法呼叫變數。</li>
-<li>有創造到執行的概念，但不會預先出現 undefined ，而是會出現錯誤提示。<br>
-(TDZ 與 Hoisting 不同)</li>
+<li>有創造到執行的概念，但不會預先出現 undefined ，而是會出現錯誤提示。</li>
 </ol>
 </li>
 </ul>
 <h2 id="const"><a class="header-anchor" href="#const"></a>const</h2>
 <p><code>const</code>: Constants (常數) ，具有區塊可視範圍。常數不能重複指定值，也不能重複宣告。</p>
 <ul>
-<li>作用範圍是它們被定義的區塊，以及該區塊包含的子區塊。 區塊作用域(block scope)<code>{}</code></li>
-<li>不可再指定(can’t re-assignment)。無法使用賦值運算子再次賦予值給此變數。
+<li>作用範圍是它們被定義的區塊，以及該區塊包含的子區塊。  <div class="note warning">
+            <p>區塊作用域(block scope)<code>{}</code>。</p>
+          </div>
+</li>
+<li>不可再指定(can’t re-assignment)。<span class="label danger">無法使用賦值運算子再次賦予值給此變數</span>。
 <blockquote>
 <p>但如果宣告的常數是一個物件或陣列類型，像這種參照類型的值，裡面的值是可以作改變的。</p>
 </blockquote>
 </li>
-<li>有暫時性死區(同 <code>let</code> )</li>
+<li>有暫時性死區(同 <code>let</code> )。</li>
 </ul>
 <h1 id="字串"><a class="header-anchor" href="#字串"></a>字串</h1>
 <p>舊有組字串的方式是使用引號 <code>'</code> <code>&quot;</code> &amp; 運算子 <code>+</code> 來組合，可讀性不佳。</p>
@@ -283,6 +290,7 @@
 <li>將所有字串以反引號 <code>`</code> 包覆。</li>
 <li>變數則使用 <code>${}</code> 來進行插入。</li>
 <li>因換行符號是 Template literals 的一部份，以反引號 <code>`</code> 包覆多行字串，可達到多行字串的效果。</li>
+<li><code>${}</code> 內也可以使用 javascript 方法。</li>
 </ol>
 <p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noopener">MDN</a></p>
 <h1 id="函式"><a class="header-anchor" href="#函式"></a>函式</h1>
@@ -299,54 +307,52 @@
 <ul>
 <li>如果程式碼為表達式可以縮寫
 <ul>
-<li>當箭頭函式裡的內容只有 <code>return</code> 的時候，我們可以拿掉 <code>return</code> 和外面的大括號 <code>{}</code></li>
+<li>當箭頭函式裡的內容只有單行的時候，我們可以拿掉 <code>return</code> 和外面的大括號 <code>{}</code>，會自動 return 。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> callName = <span class="function">(<span class="params">someOne</span>) =&gt;</span> <span class="string">'我是 '</span> + someOne;</span><br><span class="line"><span class="built_in">console</span>.log(callName(某某))</span><br></pre></td></tr></table></figure>
+</li>
+<li>如果輸入的參數只有一個，我們可以移除掉外面的括號<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">  <span class="keyword">const</span> callName = <span class="function"><span class="params">someOne</span> =&gt;</span> <span class="string">'我是 '</span> + someOn;</span><br><span class="line"><span class="built_in">console</span>.log(callName(某某))       <span class="comment">//我是 某某</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>沒有傳入參數的情況下， <code>()</code> 不可省略。<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> callName = <span class="function"><span class="params">()</span> =&gt;</span> <span class="string">'我是 '</span> + <span class="string">'某某'</span></span><br><span class="line"><span class="built_in">console</span>.log(callName())       <span class="comment">//我是 某某</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> callName = <span class="function">(<span class="params">someOne</span>) =&gt;</span> <span class="string">'我是 '</span> + someOne</span><br><span class="line"><span class="built_in">console</span>.log(callName(某某))</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果輸入的參數只有一個，我們可以移除掉外面的括號</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> callName = <span class="function"><span class="params">someOne</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'我是 '</span> + someOne;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(callName(某某))       <span class="comment">//我是 某某</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="與傳統函式不同之處"><a class="header-anchor" href="#與傳統函式不同之處"></a>與傳統函式不同之處</h2>
 <h3 id="沒有-arguments-參數"><a class="header-anchor" href="#沒有-arguments-參數"></a>沒有 arguments 參數</h3>
 <ul>
-<li>原始寫法</li>
+<li>原始寫法  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))</span><br><span class="line"><span class="comment">//Arguments(9) [1, 2, 3, 4, 50, 60, 70, 90, 100, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>箭頭函式，使用 <code>arguments</code> 會出現錯誤  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))   <span class="comment">//arguments is not defined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>可以使用 <span class="label info">其餘參數</span> 解決此問題  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function">(<span class="params">...arg</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))   <span class="comment">//[1, 2, 3, 4, 50, 60, 70, 90, 100]</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))</span><br><span class="line"><span class="comment">//Arguments(9) [1, 2, 3, 4, 50, 60, 70, 90, 100, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>箭頭函式，使用 <code>arguments</code> 會出現錯誤</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))   <span class="comment">//arguments is not defined</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>可以使用 <span class="label info">其餘參數</span> 解決此問題</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> num = <span class="function">(<span class="params">...arg</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(arg)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">50</span>,<span class="number">60</span>,<span class="number">70</span>,<span class="number">90</span>,<span class="number">100</span>))   <span class="comment">//[1, 2, 3, 4, 50, 60, 70, 90, 100]</span></span><br></pre></td></tr></table></figure>
 <h3 id="this-綁定的差異"><a class="header-anchor" href="#this-綁定的差異"></a>this 綁定的差異</h3>
 <ul>
-<li>原始寫法</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
-<div class="note warning no-icon">
+<li>原始寫法  <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
+  <div class="note warning no-icon">
             <ol><li>區域</li><li>全域</li><li>Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}<br><code>setTimeout</code> 屬於 簡易呼叫，所以 <code>this</code> 指向全域 <code>window</code></li></ol>
           </div>
-<ul>
-<li>箭頭函式，沒有自己的 <code>this</code></li>
-</ul>
+</li>
+<li>箭頭函式，沒有自己的 <code>this</code>
 <ol>
-<li><code>setTimeout</code> 改成箭頭函式</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
-<div class="note warning no-icon">
+<li><code>setTimeout</code> 改成箭頭函式 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
+ <div class="note warning no-icon">
             <ol><li>區域</li><li>區域</li><li>{name: “區域”, callName: ƒ}<br>因 箭頭函式，沒有自己的 <code>this</code> ，故指向上一層的物件(此時為 local 此物件)</li></ol>
           </div>
-<ol start="2">
-<li>物件內的 <code>function</code> 改成箭頭函式</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
-<div class="note warning no-icon">
+</li>
+<li>物件內的 <code>function</code> 改成箭頭函式 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName : <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, <span class="keyword">this</span>.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, <span class="keyword">this</span>.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, <span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
+ <div class="note warning no-icon">
             <ol><li>全域</li><li>全域</li><li>Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, parent: Window, …}<br>因 箭頭函式，沒有自己的 <code>this</code> ，故指向上一層的物件(此時為 <code>window</code> 此物件)</li></ol>
           </div>
+</li>
+<li><code>const vm = this</code> <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"全域"</span></span><br><span class="line"><span class="keyword">const</span> local = &#123;</span><br><span class="line">  name: <span class="string">"區域"</span>,</span><br><span class="line">  callName () &#123;</span><br><span class="line">    <span class="keyword">const</span> vm = <span class="keyword">this</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1.'</span>, vm.name);</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'2.'</span>, vm.name)</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'3.'</span>, vm)</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">local.callName()</span><br></pre></td></tr></table></figure>
+ <div class="note warning no-icon">
+            <ol><li>區域</li><li>區域</li><li>{name: “區域”, callName: ƒ}<br>使用變數 <code>vm</code> 將 <code>this</code> 鎖定指向此物件，而後宣告此 <code>vm</code> 變數的接指向此物件。</li></ol>
+          </div>
+</li>
+</ol>
+</li>
+</ul>
 <h3 id="DOM-指向的-this-也不同"><a class="header-anchor" href="#DOM-指向的-this-也不同"></a>DOM 指向的 this 也不同</h3>
 <p>因 箭頭函式，沒有自己的 <code>this</code>，所以 <code>this</code> 指向全域 <code>window</code></p>
 <h3 id="無法透過-call、apply、bind-重新給予-this"><a class="header-anchor" href="#無法透過-call、apply、bind-重新給予-this"></a>無法透過 call、apply、bind 重新給予 this</h3>
@@ -364,7 +370,16 @@
 <li>陣列合併<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array1 = [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>];</span><br><span class="line"><span class="keyword">const</span> array2 = [<span class="string">'pug'</span>, <span class="string">'sass'</span>, <span class="string">'Vuejs'</span>];</span><br><span class="line"><span class="keyword">const</span> allArray = [...array1, ...array2];</span><br><span class="line"><span class="built_in">console</span>.log(allArray)   <span class="comment">// ["HTML", "CSS", "JavaScript", "pug", "sass", "Vuejs"]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>return 概念</li>
-<li>類陣列轉換成純陣列<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);   <span class="comment">// Arguments [1, 2, 3, 4, 5, 6]</span></span><br><span class="line">  <span class="keyword">const</span> arg = [...arguments];</span><br><span class="line">  <span class="built_in">console</span>.log(arg)         <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line">  arg.forEach(<span class="function">(<span class="params">i</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+<li>淺複製 (shallow copy)<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列與物件為傳參考特性</span></span><br><span class="line"><span class="keyword">const</span> array1 = [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>];</span><br><span class="line"><span class="keyword">const</span> array2 = array1</span><br><span class="line">array2.push(<span class="string">'php'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(array1) <span class="comment">// (4) ["HTML", "CSS", "JavaScript", "php"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 淺拷貝</span></span><br><span class="line"><span class="keyword">const</span> array1 = [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>];</span><br><span class="line"><span class="keyword">const</span> array2 = [...array1]</span><br><span class="line">array2.push(<span class="string">'php'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(array1) <span class="comment">// (3) ["HTML", "CSS", "JavaScript"]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>類陣列轉換成純陣列
+<ul>
+<li>類陣列有如以下</li>
+<li>arguments(function 傳入多餘的參數)</li>
+<li>NodeList (document.querySelectorAll 的 DOM元素)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);   <span class="comment">// Arguments [1, 2, 3, 4, 5, 6]</span></span><br><span class="line">  <span class="keyword">const</span> arg = [...arguments];</span><br><span class="line">  <span class="built_in">console</span>.log(arg)         <span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line">  arg.forEach(<span class="function">(<span class="params">i</span>)=&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="參數其餘-…Rest"><a class="header-anchor" href="#參數其餘-…Rest"></a>參數其餘 (…Rest)</h2>
@@ -411,6 +426,8 @@
 </li>
 <li>賦予新的變數名稱<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: x, <span class="attr">prop2</span>: y &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">// x=5, y=10</span></span><br></pre></td></tr></table></figure>
 </li>
+<li>預設值<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: a = <span class="number">5</span> &#125; = &#123;&#125; <span class="comment">//  a = 5</span></span><br></pre></td></tr></table></figure>
+</li>
 <li>屬性賦值語法<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">prop</span>: prop, <span class="attr">prop2</span>: prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>相當於上一項的簡短語法(Short-hand syntax)<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; prop, prop2 &#125; = &#123; <span class="attr">prop</span>: <span class="number">5</span>, <span class="attr">prop2</span>: <span class="number">10</span> &#125; <span class="comment">//prop = 5, prop2=10</span></span><br></pre></td></tr></table></figure>
@@ -418,7 +435,7 @@
 <li>ES7+的物件屬性其餘運算符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;a, b, ...rest&#125; = &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>, <span class="attr">c</span>:<span class="number">3</span>, <span class="attr">d</span>:<span class="number">4</span>&#125; <span class="comment">//a=1, b=2, rest=&#123;c:3, d:4&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="class-類別"><a class="header-anchor" href="#class-類別"></a>class 類別</h1>
+<h1 id="類別-class"><a class="header-anchor" href="#類別-class"></a>類別 (class)</h1>
 <blockquote>
 <p>class 是 ES6 推出的語法糖(JS 本質仍是原型繼承(prototype-based))</p>
 </blockquote>
@@ -426,6 +443,29 @@
 <li>定義<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">className</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (para1, para2, ...) &#123;</span><br><span class="line">    <span class="keyword">this</span>.para1 = para1;</span><br><span class="line">    <span class="keyword">this</span>.para2 = para2;</span><br><span class="line">  &#125;</span><br><span class="line">  method1() &#123;</span><br><span class="line">    <span class="comment">// function 內容</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// method2, method3, ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> A = <span class="keyword">new</span> className(para1, para2, ...)</span><br></pre></td></tr></table></figure>
 </li>
 <li>使用<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BMI_calc</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span> (height, weight) &#123;</span><br><span class="line">    <span class="keyword">this</span>.weight = weight;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">  &#125;</span><br><span class="line">  calc() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="keyword">this</span>.weight / (<span class="built_in">Math</span>.pow((<span class="keyword">this</span>.height / <span class="number">100</span>), <span class="number">2</span>)))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> BMI = <span class="keyword">new</span> BMI_calc(<span class="number">172</span>, <span class="number">70</span>);</span><br><span class="line"><span class="built_in">console</span>.log(BMI.calc());          <span class="comment">// 24</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="縮寫-shorthand"><a class="header-anchor" href="#縮寫-shorthand"></a>縮寫 (shorthand)</h1>
+<ul>
+<li>物件縮寫<br>
+將兩個物件合併至一個物件上。
+<ul>
+<li>原方式  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Frieza = <span class="string">'弗利沙'</span></span><br><span class="line"><span class="keyword">const</span> GinyuTeam = &#123;</span><br><span class="line">  Ginyu: <span class="string">'基紐'</span>,</span><br><span class="line">  Jeice: <span class="string">'吉斯'</span>,</span><br><span class="line">  burter: <span class="string">'巴特'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> newTeam = &#123;</span><br><span class="line">  Frieza: Frieza,</span><br><span class="line">  GinyuTeam, GinyuTeam</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(newTeam)  <span class="comment">// &#123;Frieza: "弗利沙", GinyuTeam: &#123;…&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>縮寫  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Frieza = <span class="string">'弗利沙'</span></span><br><span class="line"><span class="keyword">const</span> GinyuTeam = &#123;</span><br><span class="line">  Ginyu: <span class="string">'基紐'</span>,</span><br><span class="line">  Jeice: <span class="string">'吉斯'</span>,</span><br><span class="line">  burter: <span class="string">'巴特'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 物件內的屬性名稱與來源變數一致時，可不需重複寫</span></span><br><span class="line"><span class="keyword">const</span> newTeam = &#123;</span><br><span class="line">  Frieza,</span><br><span class="line">  GinyuTeam</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(newTeam)  <span class="comment">// &#123;Frieza: "弗利沙", GinyuTeam: &#123;…&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>物件內函式縮寫
+<ul>
+<li>原方式  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> newObject = &#123;</span><br><span class="line">  foo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do soming</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>縮寫  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 將 function 移除</span></span><br><span class="line"><span class="keyword">const</span> newObject = &#123;</span><br><span class="line">  foo () &#123;</span><br><span class="line">    <span class="comment">// do soming</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 但使用箭頭函式結果會不一致</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>搭配解構使用<br>
+將以下物件指向賦予到另一個物件上，並且避免參考  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> GinyuTeam = &#123;</span><br><span class="line">  Ginyu: &#123;</span><br><span class="line">    name: <span class="string">'基紐'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  Jeice: &#123;</span><br><span class="line">    name: <span class="string">'吉斯'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  Baata: &#123; </span><br><span class="line">    name: <span class="string">'巴特'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> newTeam = &#123; ...GinyuTeam &#125;;</span><br><span class="line"><span class="comment">// 可保持原物件的架構，並且不會因為傳參考特性影響</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h1 id="for…of"><a class="header-anchor" href="#for…of"></a>for…of</h1>
@@ -565,7 +605,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#變數"><span class="nav-number">1.</span> <span class="nav-text">變數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">1.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">1.2.</span> <span class="nav-text">const</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字串"><span class="nav-number">2.</span> <span class="nav-text">字串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Template-literals"><span class="nav-number">2.1.</span> <span class="nav-text">Template literals</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函式"><span class="nav-number">3.</span> <span class="nav-text">函式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#箭頭函式簡介"><span class="nav-number">3.1.</span> <span class="nav-text">箭頭函式簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#與傳統函式不同之處"><span class="nav-number">3.2.</span> <span class="nav-text">與傳統函式不同之處</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#沒有-arguments-參數"><span class="nav-number">3.2.1.</span> <span class="nav-text">沒有 arguments 參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-綁定的差異"><span class="nav-number">3.2.2.</span> <span class="nav-text">this 綁定的差異</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-指向的-this-也不同"><span class="nav-number">3.2.3.</span> <span class="nav-text">DOM 指向的 this 也不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#無法透過-call、apply、bind-重新給予-this"><span class="nav-number">3.2.4.</span> <span class="nav-text">無法透過 call、apply、bind 重新給予 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#無法作為建構式使用"><span class="nav-number">3.2.5.</span> <span class="nav-text">無法作為建構式使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise"><span class="nav-number">4.</span> <span class="nav-text">promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#展開與其餘"><span class="nav-number">5.</span> <span class="nav-text">展開與其餘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列展開-…Spread"><span class="nav-number">5.1.</span> <span class="nav-text">陣列展開 (…Spread)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參數其餘-…Rest"><span class="nav-number">5.2.</span> <span class="nav-text">參數其餘 (…Rest)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解構賦值-Destructuring"><span class="nav-number">6.</span> <span class="nav-text">解構賦值(Destructuring)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">6.1.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物件"><span class="nav-number">6.2.</span> <span class="nav-text">物件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#class-類別"><span class="nav-number">7.</span> <span class="nav-text">class 類別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for…of"><span class="nav-number">8.</span> <span class="nav-text">for…of</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-export"><span class="nav-number">9.</span> <span class="nav-text">import &amp; export</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">9.1.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export-default"><span class="nav-number">9.2.</span> <span class="nav-text">export default</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#變數"><span class="nav-number">1.</span> <span class="nav-text">變數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#let"><span class="nav-number">1.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const"><span class="nav-number">1.2.</span> <span class="nav-text">const</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字串"><span class="nav-number">2.</span> <span class="nav-text">字串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Template-literals"><span class="nav-number">2.1.</span> <span class="nav-text">Template literals</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函式"><span class="nav-number">3.</span> <span class="nav-text">函式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#箭頭函式簡介"><span class="nav-number">3.1.</span> <span class="nav-text">箭頭函式簡介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#與傳統函式不同之處"><span class="nav-number">3.2.</span> <span class="nav-text">與傳統函式不同之處</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#沒有-arguments-參數"><span class="nav-number">3.2.1.</span> <span class="nav-text">沒有 arguments 參數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this-綁定的差異"><span class="nav-number">3.2.2.</span> <span class="nav-text">this 綁定的差異</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-指向的-this-也不同"><span class="nav-number">3.2.3.</span> <span class="nav-text">DOM 指向的 this 也不同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#無法透過-call、apply、bind-重新給予-this"><span class="nav-number">3.2.4.</span> <span class="nav-text">無法透過 call、apply、bind 重新給予 this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#無法作為建構式使用"><span class="nav-number">3.2.5.</span> <span class="nav-text">無法作為建構式使用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#promise"><span class="nav-number">4.</span> <span class="nav-text">promise</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#展開與其餘"><span class="nav-number">5.</span> <span class="nav-text">展開與其餘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列展開-…Spread"><span class="nav-number">5.1.</span> <span class="nav-text">陣列展開 (…Spread)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參數其餘-…Rest"><span class="nav-number">5.2.</span> <span class="nav-text">參數其餘 (…Rest)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解構賦值-Destructuring"><span class="nav-number">6.</span> <span class="nav-text">解構賦值(Destructuring)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#陣列"><span class="nav-number">6.1.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物件"><span class="nav-number">6.2.</span> <span class="nav-text">物件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#類別-class"><span class="nav-number">7.</span> <span class="nav-text">類別 (class)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#縮寫-shorthand"><span class="nav-number">8.</span> <span class="nav-text">縮寫 (shorthand)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#for…of"><span class="nav-number">9.</span> <span class="nav-text">for…of</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#import-export"><span class="nav-number">10.</span> <span class="nav-text">import &amp; export</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#export"><span class="nav-number">10.1.</span> <span class="nav-text">export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#export-default"><span class="nav-number">10.2.</span> <span class="nav-text">export default</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -581,20 +621,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
