@@ -409,7 +409,9 @@ watch: {
   </script>
   ```
 
-## <font color='red'>生命週期</font>
+# <font color='red'>生命週期</font>
+
+{% asset_img lifecycle.png%}
 
 ```html
 <!DOCTYPE html>
@@ -500,3 +502,280 @@ watch: {
 - <b>updated</b>
 - <b>beforeDestroy</b>
 - <b>destroyed</b>
+
+# <font color="blue">Component 元件</font>
+> 在一個頁面中，可能會有頁頭、側邊欄、內容區等等內容。
+{% asset_img components.png%}
+
+## regist
+元件註冊的方式有兩種，分別為 {% label success@global component(全局註冊) %} 與 {% label success@local component(局部註冊) %}。
+1. {% label primary @global%} - 使用 <code>Vue.component</code> 註冊的 component ，任何 Vue 實例都可以使用。
+    ```html
+    <my-component></my-component>
+    <script>
+    //component註冊要在Vue實例宣告之前
+    Vue.compoenet('my-component',{
+      props:[],
+      tamplate:"<div>My Component</div>"
+    });
+    </script>
+    ```
+    第一個參數為 {%label primary@組件名稱 %}。
+    `props` 為外層傳遞至元件內的資料。
+    `tamplate` 為要渲染出的HTML內容，可以直接寫在內部，或者建立一個 `text/x-template` 的區塊，再指向此區塊。
+    ```html
+    <script type="text/x-template" id="Xcomponent">
+      <div>My Component</div>
+    </script>
+    <script>
+    //component註冊要在Vue實例宣告之前
+    Vue.compoenet('my-component',{
+      props:[],
+      tamplate:"#Xcomponent"
+    });
+    </script>
+    ```
+1. {% label primary @lacal %} - 使用變數註冊的 component ，只有註冊此 component 的 Vue 實例才可以使用。
+    ```html
+    <script>
+    var child = {
+      props:{},
+      tamplate:"<div>My Component</div>"
+    }
+    new Vue({
+      el:"#app1",
+      components: {"my-component": child}
+    });
+    </script>
+    ```
+
+## data
+> 一個元件的 `data` 選項必須是一個函數，如此每個元件內的資料才能獨立，不互相干擾。
+```html
+<script>
+//component註冊要在Vue實例宣告之前
+Vue.compoenet('my-component',{
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  tamplate:""
+});
+</script>
+```
+## props
+> Prop 是你可以在元件上註冊的一些自定義 attribute。當一個值傳遞給一個 prop attribute 的時候，它就變成了那個元件實例的一個屬性。
+用一個 `props` 選項，為一個陣列，內為自定義的 attribute。作為傳遞至元件內的 attribute 。
+```html
+props:[],
+```
+### 靜態與動態傳遞參數
+```html
+Vue.component('blog-post', {
+  props: ['title'],
+  template: '<h3>{{ title }}</h3>'
+})
+<!-- 靜態傳遞方式 -->
+<blog-post title="My journey with Vue"></blog-post>
+<!-- 動態傳遞方式 -->
+<blog-post :title="posts.title"></blog-post>
+<script>
+new Vue({
+  el: '#demo',
+  data: {
+    posts: [
+      { id: 1, title: 'My journey with Vue' },
+    ]
+  }
+})
+</script>
+```
+
+### 單向數據流
+數據從父級元件傳遞給子元件，子元件內部不能直接修改從父級傳遞過來的數據，console 會出現錯誤。
+但這個子元件接下來希望將其作為一個本地的 prop 數據來使用。在這種情況下，
+1. 定義一個本地的 data 屬性並將這個 prop 用作其初始值。
+    ```js
+    props: ['propData'],
+    data: function () {
+      return {
+        newData: this.propData
+      }
+    }
+    ```
+1. 這個 prop 以一種原始的值傳入且需要進行轉換。使用 computed 屬性。
+    ```js
+    props: ['size'],
+      computed: {
+        normalizedSize: function () {
+          return this.size.trim().toLowerCase()
+        }
+      }
+    ```
+### 尚未宣告的變數
+在使用非同步方式拉取資料時，因資料尚未完全抓取完畢，但畫面已開始渲染，可以使用 `v-if` 判斷資料是否已經抓取完畢後再渲染此元件。
+### 維持狀態與生命週期
+當我們需要保留狀態的時候用 `keep-alive` 這個標籤，包裹動態組件時，會緩存不活動的組件實例，而不是銷毀它們。
+```html
+<keep-alive>
+  <component-demo v-if=""/>
+<keep-alive>
+```
+### 型別
+有時，希望每個 prop 都有指定的值類型。這時，你可以以物件形式列出 prop，這些屬性的名稱和值分別是 prop 各自的名稱和類型。
+```js
+props: {
+  title: String,
+  likes: Number,
+  isPublished: Boolean,
+  commentIds: Array,
+  author: Object,
+  callback: Function,
+  contactsPromise: Promise // or any other constructor
+}
+```
+{% note warning %}
+- 使用靜態傳入參數方式，傳入的值型別皆為 `string`。
+- 使用動態傳入方式，來告訴 Vue ，這是一個 JavaScript 表達式而不是一個字符串。
+依資料型態來決定型別。
+{% endnote %}
+
+### 預設值
+在未傳入 prop 時，希望此 prop 預先帶有一個值，可以使用物件方式新增一個 `default` 屬性，賦予此 prop 一個預設值。
+```js
+props: {
+  cash: {
+    type: number,
+    default: 100
+  }
+}
+```
+## emit
+> 透過「事件」來觸發父元件的函式。
+
+`vm.$emit( eventName, […args] )`
+- 參數
+  - `{string} eventName` : 事件的命名不能為大寫，所以能夠採用 kebab-case 命名。
+  - `[...args]`
+
+- 只配合一個事件名使用 `$emit`
+    子元件內
+    ```js
+    methods: {
+      demoDun() {
+        this.$emit('自定義的emit事件名稱')
+      }
+    }
+    ```
+    父元件中
+    ```html
+    <button @自定義的emit事件名稱 = "要呼叫的 function"></button>
+    ```
+- 配合額外的參數使用 `$emit`
+    子元件內
+    ```js
+    methods: {
+      demoDun() {
+        this.$emit('自定義的emit事件名稱', 帶入的參數)
+      }
+    }
+    ```
+    父元件中
+    ```html
+    <button @自定義的emit事件名稱 = "要呼叫的 function"></button>
+    <script>
+    methods: {
+      要呼叫的function(newData) {
+        console.log(newData)
+      }
+    }
+    </script>
+    ```
+## slot
+> 可以在父元件新增內容，插入至子元件中。
+1. 基本使用
+    - 有一個 `mybtn` 的子元件。
+        ```html
+        <button>
+          <slot>submit</slot>
+        </button>
+        ```
+    - 父元件未傳入內容時，此元件會顯示預設的文字，當傳入內容時則會替代原本的內容。
+    - 父元件使用 `mybtn` 元件，並傳入文字 “送出”。
+        ```html
+        <template>
+          <mybtn>送出</mybtn>
+        </template>
+        ```
+1. 具名插槽
+    > 當要傳入的內容有多個的情況下，可以為每一個插槽命名並個別插入內容。
+    對於這樣的情況，`<slot>` 元素有一個特殊的 attribute：`name`。這個 attribute 可以用來定義額外的插槽。
+    - 有一個 `base-layer` 的元件
+        ```html
+          <div class="container">
+            <header name="header">
+            </header>
+            <main>
+            </main>
+            <footer name="footer">
+            </footer>
+          </div>
+          ```
+    - 向具名插槽提供內容的時候，我們可以在一個 `<template>` 元素上使用 `v-slot` 指令，並以 `v-slot` 的參數的形式提供其名稱
+        ```html
+        <base-layout>
+          <template v-slot:header>
+            <h1>希望把頁頭放這裡</h1>
+          </template>
+
+          <p>A paragraph for the main content.</p>
+          <p>And another one.</p>
+
+          <template v-slot:default>
+          <!-- 任何沒有被包裹在帶有 v-slot 的 <template> 中的內容都會被視為默認插槽的內容。 -->
+          </template>
+
+          <template v-slot:footer>
+            <p>希望把頁腳放這裡</p>
+          </template>
+        </base-layout>
+        ```
+    {% note warning %}
+    注意：`v-slot` 只能添加在 `<template>` 上
+    {% endnote %}
+    - 具名插槽的縮寫
+    `v-slot` 也有縮寫，即把參數之前的所有內容 (`v-slot:`) 替換為字符 `#`。
+        ```html
+        <base-layout>
+          <template #header>
+            <h1>希望把頁頭放這裡</h1>
+          </template>
+
+          <p>A paragraph for the main content.</p>
+          <p>And another one.</p>
+
+          <template #footer>
+            <p>希望把頁腳放這裡</p>
+          </template>
+        </base-layout>
+        ```
+## is
+> 解析 DOM 模板時，有些 HTML 元素，諸如 `<ul>`、`<ol>`、`<table>` 和 `<select>`，對於哪些元素可以出現在其內部是有嚴格限制的。
+而有些元素，諸如 `<li>`、`<tr>` 和 `<option>`，只能出現在其它某些特定的元素內部。
+此時可以將原本元件的寫法改用 `is` 。
+```html
+<table>
+  <tr is="component"></tr>
+</table>
+```
+### 動態組件
+> 有的時候，在不同組件之間進行動態切換是非常有用的。
+```html
+<!-- 組件會在 `currentComponent` 改變時改變 -->
+<component v-bind:is="currentComponent"></component>
+```
+`currentTabComponent` 可以包括
+
+- 已註冊組件的名字
+- 一個組件的選項物件
