@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD:source/_posts/2020-03-26-Array-Method.md
 title: Array Method
+=======
+title: Array_Method
+>>>>>>> draft:source/_drafts/Array-Method.md
 categories:
   - JavaScript
 tags:
@@ -8,7 +12,11 @@ tags:
 date: 2020-03-26 06:11:31
 ---
 
+<<<<<<< HEAD:source/_posts/2020-03-26-Array-Method.md
 {% asset_img array.png Array Method %}
+=======
+{% asset_img array.png array%}
+>>>>>>> draft:source/_drafts/Array-Method.md
 
 <!--more-->
 
