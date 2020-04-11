@@ -714,11 +714,14 @@ props: {
     - 有一個 `base-layer` 的元件
         ```html
           <div class="container">
-            <header name="header">
+            <header>
+              <slot name="header"></slot>
             </header>
             <main>
+              <slot></slot>
             </main>
-            <footer name="footer">
+            <footer>
+              <slot name="footer"></slot>
             </footer>
           </div>
           ```
