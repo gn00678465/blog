@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-code.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-code.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-code.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://gn00678465.github.io').hostname,
+    root: '/blog/',
+    scheme: 'Pisces',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":"flat"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="VueCLI">
+<meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;2020&#x2F;04&#x2F;15&#x2F;VueCLI&#x2F;index.html">
+<meta property="og:site_name" content="マダオの前端學習筆記">
+<meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;04&#x2F;15&#x2F;VueCLI&#x2F;VueCLI.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;04&#x2F;15&#x2F;VueCLI&#x2F;webpack.png">
+<meta property="og:updated_time" content="2020-04-15T12:43:10.868Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;04&#x2F;15&#x2F;VueCLI&#x2F;VueCLI.png">
+
+<link rel="canonical" href="https://gn00678465.github.io/2020/04/15/VueCLI/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>VueCLI | マダオの前端學習筆記</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">マダオの前端學習筆記</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>歸檔</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://gn00678465.github.io/2020/04/15/VueCLI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+      <meta itemprop="name" content="MADAO">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="マダオの前端學習筆記">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VueCLI
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-04-15 20:43:10" itemprop="dateCreated datePublished" datetime="2020-04-15T20:43:10+08:00">2020-04-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/blog/2020/04/15/VueCLI/VueCLI.png" class="" width="800" title="VueCLI">
+<a id="more"></a>
+<h1 id="Vue-CLI-是什麼"><a class="header-anchor" href="#Vue-CLI-是什麼"></a>Vue CLI 是什麼</h1>
+<ol>
+<li>基於 Webpack 所建置的開發工具</li>
+<li>便於使用各種<strong>第三方套件</strong>(BS4、Vue Router、Axios、…)</li>
+<li>可運行 <strong>Sass</strong>、<strong>Bebel</strong>、<strong>TypeScript</strong> 等編譯工具</li>
+<li>便於開發 <strong>SPA</strong> 的網頁工具</li>
+</ol>
+<ul>
+<li>不便開發非 <strong>SPA</strong> 的網頁</li>
+</ul>
+<img src="/blog/2020/04/15/VueCLI/webpack.png" class="" width="800" title="webpack">
+<blockquote>
+<p>webpack 它是一個「打包工具」。將眾多模組與資源載入並編譯我們需要預先處理的內容，變成瀏覽器看得懂的東西，讓我們可以上傳到伺服器。</p>
+</blockquote>
+<h2 id="SPA-singal-page-application"><a class="header-anchor" href="#SPA-singal-page-application"></a>SPA (singal-page application)</h2>
+<blockquote>
+<p>是一種網路應用程式或網站的模型，通過動態重寫目前頁面來與用戶互動，而非傳統的從伺服器重新載入整個新頁面。這種方法避免了頁面之間切換打斷用戶體驗，使應用程式更像一個桌面應用程式。</p>
+</blockquote>
+<h2 id="使用-Vue-CLI"><a class="header-anchor" href="#使用-Vue-CLI"></a>使用 Vue CLI</h2>
+<ol>
+<li>先安裝 <code>Node.js</code></li>
+</ol>
+<div class="tabs" id="vuecli"><ul class="nav-tabs"><li class="tab active"><a href="#vuecli-1">VueCLI 2.x</a></li><li class="tab"><a href="#vuecli-2">VueCLI 3.x</a></li></ul><div class="tab-content"><div class="tab-pane active" id="vuecli-1"><p><a href="https://github.com/vuejs/vue-cli/tree/v2#vue-cli--" target="_blank" rel="noopener">Vue CLI 2.x GITHUB</a></p>
+<p>使用前須先確認：Node.js (&gt;=6.x, 8.x preferred), npm version 3+ and Git.</p>
+<ol>
+<li>
+<p>全域安裝 Vue Cli 2.x</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g vue-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>檢視 Vue Cli 可用版型</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue list</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>Vue 建立模板</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue init &lt;模板名稱&gt; &lt;專案名稱&gt;</span><br></pre></td></tr></table></figure>
+ 此處使用webpack
+<p>安裝前設定</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">?Project name                                       <span class="comment"># 確認專案名稱</span></span><br><span class="line">?Project description (A Vue.js project)             <span class="comment"># A Vue.js project</span></span><br><span class="line">?Author                                             <span class="comment"># 作者(可空白)</span></span><br><span class="line">?Install vue-router? (Y/n)                          <span class="comment"># (N)安裝vue-router(後續可手動安裝)</span></span><br><span class="line">?Use ESLint to lint your code? (Y/n)                <span class="comment"># (N)JSLint是一個靜態代碼分析工具，用於軟件開發，用於檢查JavaScript源代碼是否符合編碼規則</span></span><br><span class="line">?Set up unit tests (Y/n)                            <span class="comment"># (N)測試</span></span><br><span class="line">?Setup e2e tests with Nightwatch? (Y/n)             <span class="comment"># (N)測試</span></span><br><span class="line">?Should we run `npm install` <span class="keyword">for</span> you after the project has been created? (recommended) (Use arrow keys)</span><br><span class="line">    Yes, use NPM                                     <span class="comment"># 使用NPM工具安裝</span></span><br><span class="line">    Yes, use Yarn                                    <span class="comment"># 使用Yarn工具安裝</span></span><br><span class="line">  &gt;No, I will handle that myself                    <span class="comment"># 手動安裝</span></span><br></pre></td></tr></table></figure>
+ 開始安裝 (進入目標資料夾下，每個專案只有第一次需要執行)
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;專案名稱&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>運行 Vue + Webpack  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+</li>
+<li>編譯 Production 版本  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+</li>
+</ul></div><div class="tab-pane" id="vuecli-2"><p><a href="https://cli.vuejs.org/zh/" target="_blank" rel="noopener">Vue CLI 3.x</a></p>
+<p>Vue CLI 需要 Node.js v8.9 以上的版本</p>
+<ol>
+<li>全域安裝 Vue Cli 3.x <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli</span><br><span class="line"><span class="comment"># OR</span></span><br><span class="line">yarn global add @vue/cli</span><br></pre></td></tr></table></figure>
+</li>
+<li>Vue 建立模板 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vue create my-project</span><br><span class="line"><span class="comment"># OR</span></span><br><span class="line">vue ui     <span class="comment"># GUI 介面</span></span><br></pre></td></tr></table></figure>
+ 安裝前設定
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Vue CLI v3.4.0</span><br><span class="line"><span class="comment"># 選取要 preset (預先裝置) 的特性，defaule 包含了基本的 Babel + ESLint preset，這裡選 Manually 來手動選取需要的特性</span></span><br><span class="line">? Please pick a preset:</span><br><span class="line">  default (babel, eslint)</span><br><span class="line">❯ Manually select features</span><br><span class="line"></span><br><span class="line"><span class="comment"># 選取要安裝的特性</span></span><br><span class="line">? Check the features needed <span class="keyword">for</span> your project:</span><br><span class="line">◉ Babel</span><br><span class="line">◯ TypeScript</span><br><span class="line">◯ Progressive Web App (PWA) Support</span><br><span class="line">◉ Router</span><br><span class="line">◉ Vuex</span><br><span class="line">❯◉ CSS Pre-processors</span><br><span class="line">◉ Linter / Formatter</span><br><span class="line">◯ Unit Testing</span><br><span class="line">◯ E2E Testing</span><br><span class="line"></span><br><span class="line"><span class="comment"># Vue Router 的 mode (模式) 使用 'history' (另一種 mode 為 'hash'，會在 URL 加上 '#' 符號)</span></span><br><span class="line">? Use <span class="built_in">history</span> mode <span class="keyword">for</span> router? (Requires proper server setup <span class="keyword">for</span> index fallback <span class="keyword">in</span> production) (Y/n) Y</span><br><span class="line"></span><br><span class="line"><span class="comment"># CSS 預處理器</span></span><br><span class="line">? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):</span><br><span class="line">❯ Sass/SCSS (with dart-sass)</span><br><span class="line">  Sass/SCSS (with node-sass)</span><br><span class="line">  Less</span><br><span class="line">  Stylus</span><br><span class="line"></span><br><span class="line"><span class="comment"># ESLint 協助讓你寫的程式符合規範的輔助工具，區分嚴謹程度 (npm run serve 常錯誤很困擾，建議選用 ESLint + Prettier 即可)</span></span><br><span class="line">? Pick a linter / formatter config:</span><br><span class="line">  ESLint with error prevention only</span><br><span class="line">  ESLint + Airbnb config</span><br><span class="line">❯ ESLint + Standard config</span><br><span class="line">  ESLint + Prettier</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代碼檢查時機</span></span><br><span class="line">? Pick additional lint features: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">❯◉ Lint on save  <span class="comment"># 存檔時</span></span><br><span class="line">◯ Lint and fix on commit (requires Git)  <span class="comment"># 提交更新時</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在哪為特性進行配置</span></span><br><span class="line">? Where <span class="keyword">do</span> you prefer placing config <span class="keyword">for</span> Babel, PostCSS, ESLint, etc.? (Use arrow keys)</span><br><span class="line">❯ In dedicated config files</span><br><span class="line">  In package.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否將上述配置儲存到 preset 的 default (就是一開始那)</span></span><br><span class="line">? Save this as a preset <span class="keyword">for</span> future projects? (y/N) N</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>運行 Vue + Webpack  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run serve</span><br></pre></td></tr></table></figure>
+</li>
+<li>編譯 Production 版本  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm run buid</span><br></pre></td></tr></table></figure>
+</li>
+</ul></div></div></div>
+<h2 id="資料結構說明"><a class="header-anchor" href="#資料結構說明"></a>資料結構說明</h2>
+<div class="tabs" id="vuecli-2"><ul class="nav-tabs"><li class="tab active"><a href="#vuecli-2-1">VueCLI 2.x</a></li><li class="tab"><a href="#vuecli-2-2">VueCLI 3.x</a></li></ul><div class="tab-content"><div class="tab-pane active" id="vuecli-2-1"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── build/             # webpack 配置檔案</span><br><span class="line">├── config/            # webpack 參數設定檔</span><br><span class="line">├── dist/              # 打包後可上線的檔案</span><br><span class="line">├── node_modules/      # 存放套件的資料夾</span><br><span class="line">├── src/               # 開發階段原始碼</span><br><span class="line">├── static/            # 存放靜態檔案，是不會被編譯的檔案</span><br><span class="line">├── .babelrc           # babel 配置檔案</span><br><span class="line">├── .editorconfig</span><br><span class="line">├── .eslintignore</span><br><span class="line">├── .eslintrc.js       # ESLint 配置檔案</span><br><span class="line">├── .gitignore</span><br><span class="line">├── .postcssec.js</span><br><span class="line">├── index.html         # 首頁</span><br><span class="line">├── package.json       # node 配置檔案</span><br><span class="line">└── README.md</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>package.json</code> 內的 script ，分別記錄 <code>npm run dev</code>(開發環境), <code>npm run build</code>(正式環境) 的 dev 跟 build 的程式碼。</li>
+<li><code>src</code> 開發階段原始碼：
+<ul>
+<li>目錄下 <code>main.js</code> 檔案是 webpack entry 是整個專案的入口點，也就是起始的檔案。</li>
+<li><code>.vue</code> 檔案裡分別包含 <code>x-template</code>、<code>javascript</code>、<code>style</code>。</li>
+<li>執行 <code>npm run build</code> 會將網頁編譯出並放置於 <code>dist</code> 資料夾中，網頁需執行在 server 端中。</li>
+</ul>
+</li>
+<li><code>~</code> 代表 <code>node_modules</code> 路徑</li>
+<li><code>@</code> 代表 <code>src</code> 路徑</li>
+</ul></div><div class="tab-pane" id="vuecli-2-2"><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hello-world/        <span class="comment"># 專案目錄</span></span><br><span class="line">│</span><br><span class="line">├── dist/           <span class="comment"># 使用 npm run build 構建完成的檔案</span></span><br><span class="line">│</span><br><span class="line">├── node_modules/   <span class="comment"># 依賴的模組</span></span><br><span class="line">│</span><br><span class="line">├── public/         <span class="comment"># 公共資源檔案，不做任何編譯壓縮處理，使用絕對路徑指定的檔案</span></span><br><span class="line">│   │</span><br><span class="line">│   ├── favicon.ico <span class="comment"># icon 圖片</span></span><br><span class="line">│   └── index.html  <span class="comment"># 網站入口</span></span><br><span class="line">│</span><br><span class="line">├── src/            <span class="comment"># Vue 與前端的原始檔案</span></span><br><span class="line">│   │</span><br><span class="line">│   ├── assets/     <span class="comment"># 公共資源檔案，與 public 不同的是，assets 會經由 webpacd 構建處理，使用相對路徑指定的檔案，如 LOGO 圖片</span></span><br><span class="line">│   ├── components/ <span class="comment"># Vue 公共組件</span></span><br><span class="line">│   ├── views/      <span class="comment"># Vue Router 頁面組件</span></span><br><span class="line">│   ├── App.vue     <span class="comment"># 項目入口</span></span><br><span class="line">│   ├── main.js     <span class="comment"># 項目的 entry</span></span><br><span class="line">│   ├── router.js   <span class="comment"># 路由設定</span></span><br><span class="line">│   └── store.js    <span class="comment"># Vuex 狀態管理</span></span><br><span class="line">│</span><br><span class="line">└── package.json    <span class="comment"># 相當於對整個項目的解釋說明文件</span></span><br></pre></td></tr></table></figure></div></div></div>
+<h2 id="自定義環境變數"><a class="header-anchor" href="#自定義環境變數"></a>自定義環境變數</h2>
+<div class="tabs" id="vuecli-var"><ul class="nav-tabs"><li class="tab active"><a href="#vuecli-var-1">VueCLI 2.x</a></li><li class="tab"><a href="#vuecli-var-2">VueCLI 3.x</a></li></ul><div class="tab-content"><div class="tab-pane active" id="vuecli-var-1"><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">config/</span><br><span class="line">├── dev.env.js    # 開發環境的環境變數</span><br><span class="line">├── index.js      # 針對運行環境的設定</span><br><span class="line">├── prod.env.js   # 生產環境的環境變數</span><br></pre></td></tr></table></figure>
+編寫環境變數
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">HTTP_PATH: <span class="string">'"變數的值"'</span> <span class="comment"># 需以單引號包覆雙引號，否則載入後會出錯</span></span><br></pre></td></tr></table></figure>
+載入環境變數
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">process.env.<span class="string">"變數名稱"</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="vuecli-var-2"><ol>
+<li>建立一個 <code>.env.xxx</code> 檔案 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">src/</span><br><span class="line">├─ .env.development <span class="comment">#模式用於 vue-cli-service serve</span></span><br><span class="line">├─ .env.production  <span class="comment">#模式用於 vue-cli-service build 和 vue-cli-service test:e2e</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">.env                <span class="comment"># 在所有的環境中被載入</span></span><br><span class="line">.env.local          <span class="comment"># 在所有的環境中被載入，但會被 git 忽略</span></span><br><span class="line">.env.[mode]         <span class="comment"># 只在指定的模式中被載入</span></span><br><span class="line">.env.[mode].<span class="built_in">local</span>   <span class="comment"># 只在指定的模式中被載入，但會被 git 忽略</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>一個環境文件只包含環境變量的“鍵=值” <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 只有以 VUE_APP_ 開頭的變量會被 webpack.DefinePlugin 靜態嵌入到客戶端側的包中。</span></span><br><span class="line">VUE_APP_SECRET=secret</span><br></pre></td></tr></table></figure>
+</li>
+<li>載入環境變數 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">process.env.VUE_APP_SECRET</span><br></pre></td></tr></table></figure>
+</li>
+</ol></div></div></div>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2020/04/11/vuejs/" rel="prev" title="VueJS">
+      <i class="fa fa-chevron-left"></i> VueJS
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-CLI-是什麼"><span class="nav-number">1.</span> <span class="nav-text">Vue CLI 是什麼</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SPA-singal-page-application"><span class="nav-number">1.1.</span> <span class="nav-text">SPA (singal-page application)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Vue-CLI"><span class="nav-number">1.2.</span> <span class="nav-text">使用 Vue CLI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#資料結構說明"><span class="nav-number">1.3.</span> <span class="nav-text">資料結構說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定義環境變數"><span class="nav-number">1.4.</span> <span class="nav-text">自定義環境變數</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="MADAO"
+      src="/blog/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">MADAO</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MADAO</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 強力驅動 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主題 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.6.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+<script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script>
+<script src="/blog/js/schemes/pisces.js"></script>
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'neutral',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class="fa fa-chevron-down"></i>
+    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class="fa fa-chevron-up"></i>
+    </div>
+    
+  </div>
+  <div class="moon-menu-button" onclick="moonMenuClick()">
+    <svg class="moon-menu-svg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+      <g class="moon-menu-points">
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy="-.8rem"></circle>
+        <circle class="moon-menu-point" r=".2rem"></circle>
+        <circle class="moon-menu-point" r=".2rem" cx="0" cy=".8rem"></circle>
+      </g>
+    </svg>
+    <div class="moon-menu-icon">
+    </div>
+    <div class="moon-menu-text">
+    </div>
+  </div>
+</div>
+
+<script>
+
+  const moonMenuListener = function () {
+
+    //Get scroll percent
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+    let percent = Math.round(scrollTop / (scrollHeight - offsetHeight) * 100);
+    if (percent > 100) percent = 100;
+
+    let menuText = document.querySelector('.moon-menu-text');
+    let menuPoints = document.querySelector('.moon-menu-points');
+    if (!percent) {
+      percent = 0;
+      menuText.style.display = 'none';
+      menuPoints.style.display = 'block';
+    } else {
+      menuText.style.display = 'block';
+      menuPoints.style.display = 'none';
+      menuText.innerHTML = percent + '%';
+    }
+
+    //Update strokeDasharray
+    let length = 196;
+    document.querySelector('.moon-menu-border').style.strokeDasharray = percent * length / 100 + ' ' + length;
+
+  }
+
+  window.addEventListener('load', () => {
+    moonMenuListener();
+  });
+  window.addEventListener('scroll', moonMenuListener);
+
+  const moonMenuClick = function () {
+    let items = document.querySelector('.moon-menu-items')
+    items.classList.toggle('active');
+    let points = document.querySelectorAll('.moon-menu-point');
+    let childItems = document.querySelectorAll('.moon-menu-item');
+    if (items.classList.contains('active')) {
+      points[0].setAttribute("cx", "-.8rem");
+      points[0].setAttribute("cy", "0");
+      points[2].setAttribute("cx", ".8rem");
+      points[2].setAttribute("cy", "0");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = -3 - 3 * i + 'rem';
+        childItems[i].style.opacity = .9;
+      }
+    } else {
+      points[0].setAttribute("cx", "0");
+      points[0].setAttribute("cy", "-.8rem");
+      points[2].setAttribute("cx", "0");
+      points[2].setAttribute("cy", ".8rem");
+      for (let i = 0; i < childItems.length; i++) {
+        childItems[i].style.top = '1rem';
+        childItems[i].style.opacity = 0;
+      }
+    }
+  };
+
+  const back2top = () => {
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+
+  const back2bottom = () => {
+    let offsetHeight = document.documentElement.offsetHeight;
+    let scrollHeight = document.documentElement.scrollHeight;
+    window.scroll({ top: (scrollHeight - offsetHeight), behavior: 'smooth' });
+  }
+
+</script>
+</body>
+</html>

@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。 Promise 是在 ES6 出現的語法，是用來改善 JavaScript 非同步的語法結構，而 ES7 Async、Await 可以基於 Promise 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。 標準的 Pro">
+  <meta name="description" content="Promise JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。 Promise 是在 ES6 出現的語法，是用來改善 JavaScript 非同步的語法結構，而 ES7 Async、Await 可以基於 Promise 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="promise">
 <meta property="og:url" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;promise&#x2F;index.html">
 <meta property="og:site_name" content="マダオの前端學習筆記">
-<meta property="og:description" content="JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。 Promise 是在 ES6 出現的語法，是用來改善 JavaScript 非同步的語法結構，而 ES7 Async、Await 可以基於 Promise 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。 標準的 Pro">
+<meta property="og:description" content="Promise JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。 Promise 是在 ES6 出現的語法，是用來改善 JavaScript 非同步的語法結構，而 ES7 Async、Await 可以基於 Promise 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。">
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;promise&#x2F;index&#x2F;promise_async.PNG">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;promise&#x2F;index&#x2F;promise_test_1.PNG">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;promise&#x2F;index&#x2F;promise_test_2.PNG">
-<meta property="og:updated_time" content="2020-03-15T13:45:29.878Z">
+<meta property="og:updated_time" content="2020-04-15T12:42:42.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;promise&#x2F;index&#x2F;promise_async.PNG">
 
@@ -200,7 +200,8 @@
       
       
       <div class="post-body">
-          <p>JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。</p>
+          <h1 id="Promise"><a class="header-anchor" href="#Promise"></a>Promise</h1>
+<p>JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。</p>
 <p><code>Promise</code> 是在 <code>ES6</code> 出現的語法，是用來改善 <code>JavaScript</code> 非同步的語法結構，而 <code>ES7</code> <code>Async</code>、<code>Await</code> 可以基於 <code>Promise</code> 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。</p>
 <p>標準的 Promise 共有三種狀態 (<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">MDN</a>):</p>
 <div class="note primary">
@@ -276,6 +277,7 @@
 <p><a href="https://github.com/dwqs/blog/issues/61" target="_blank" rel="noopener">從一道題淺說 JavaScript 的事件循環</a><br>
 <a href="https://github.com/whinc/blog/issues/2" target="_blank" rel="noopener">自己動手實現 ES6 Promise</a><br>
 <a href="https://medium.com/@xyz030206/promise-%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8-66605ef56e34" target="_blank" rel="noopener">promise-介紹與使用</a></p>
+<h1 id="Async、Await"><a class="header-anchor" href="#Async、Await"></a>Async、Await</h1>
 
       </div>
       
@@ -338,7 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命週期"><span class="nav-number">1.</span> <span class="nav-text">生命週期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行順序"><span class="nav-number">2.</span> <span class="nav-text">執行順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#return-Promise"><span class="nav-number">3.</span> <span class="nav-text">return Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#觀念"><span class="nav-number">4.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-API"><span class="nav-number">5.</span> <span class="nav-text">Promise API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">6.</span> <span class="nav-text">參考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise"><span class="nav-number">1.</span> <span class="nav-text">Promise</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生命週期"><span class="nav-number">1.1.</span> <span class="nav-text">生命週期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#執行順序"><span class="nav-number">1.2.</span> <span class="nav-text">執行順序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#return-Promise"><span class="nav-number">1.3.</span> <span class="nav-text">return Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#觀念"><span class="nav-number">1.4.</span> <span class="nav-text">觀念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-API"><span class="nav-number">1.5.</span> <span class="nav-text">Promise API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">1.6.</span> <span class="nav-text">參考</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Async、Await"><span class="nav-number">2.</span> <span class="nav-text">Async、Await</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,7 +356,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
