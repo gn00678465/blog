@@ -1,0 +1,255 @@
+---
+title: VueCLI
+tags: Vue.js
+---
+
+{% asset_img VueCLI.png 800 VueCLI%}
+
+<!--more-->
+
+# Vue CLI 是什麼
+1. 基於 Webpack 所建置的開發工具
+1. 便於使用各種**第三方套件**(BS4、Vue Router、Axios、...)
+1. 可運行 **Sass**、**Bebel**、**TypeScript** 等編譯工具
+1. 便於開發 **SPA** 的網頁工具
+
+- 不便開發非 **SPA** 的網頁
+
+{% asset_img webpack.png 800 webpack%}
+> webpack 它是一個「打包工具」。將眾多模組與資源載入並編譯我們需要預先處理的內容，變成瀏覽器看得懂的東西，讓我們可以上傳到伺服器。
+
+## SPA (singal-page application)
+> 是一種網路應用程式或網站的模型，通過動態重寫目前頁面來與用戶互動，而非傳統的從伺服器重新載入整個新頁面。這種方法避免了頁面之間切換打斷用戶體驗，使應用程式更像一個桌面應用程式。
+
+## 使用 Vue CLI
+
+1. 先安裝 `Node.js`
+
+{% tabs VueCLI %}
+<!-- tab VueCLI 2.x -->
+  [Vue CLI 2.x GITHUB](https://github.com/vuejs/vue-cli/tree/v2#vue-cli--)
+
+  使用前須先確認：Node.js (>=6.x, 8.x preferred), npm version 3+ and Git.
+
+  1. 全域安裝 Vue Cli 2.x
+      ```bash
+      npm install -g vue-cli
+      ```
+  1. 檢視 Vue Cli 可用版型
+      ```bash
+      vue list
+      ```
+  1. Vue 建立模板
+      ```bash
+      vue init <模板名稱> <專案名稱>
+      ```
+      此處使用webpack
+
+      安裝前設定
+      ```bash
+      ?Project name                                       # 確認專案名稱
+      ?Project description (A Vue.js project)             # A Vue.js project
+      ?Author                                             # 作者(可空白)
+      ?Install vue-router? (Y/n)                          # (N)安裝vue-router(後續可手動安裝)
+      ?Use ESLint to lint your code? (Y/n)                # (N)JSLint是一個靜態代碼分析工具，用於軟件開發，用於檢查JavaScript源代碼是否符合編碼規則
+      ?Set up unit tests (Y/n)                            # (N)測試
+      ?Setup e2e tests with Nightwatch? (Y/n)             # (N)測試
+      ?Should we run `npm install` for you after the project has been created? (recommended) (Use arrow keys)
+          Yes, use NPM                                     # 使用NPM工具安裝
+          Yes, use Yarn                                    # 使用Yarn工具安裝
+        >No, I will handle that myself                    # 手動安裝
+      ```
+      開始安裝 (進入目標資料夾下，每個專案只有第一次需要執行)
+      ```bash
+      cd <專案名稱>
+      npm install
+      ```
+  + 運行 Vue + Webpack
+      ```bash
+      npm run dev
+      ```
+  + 編譯 Production 版本
+      ```bash
+      npm run build
+  ```
+<!-- endtab -->
+
+<!-- tab VueCLI 3.x -->
+[Vue CLI 3.x](https://cli.vuejs.org/zh/)
+
+Vue CLI 需要 Node.js v8.9 以上的版本
+
+  1. 全域安裝 Vue Cli 3.x
+      ```bash
+      npm install -g @vue/cli
+      # OR
+      yarn global add @vue/cli
+      ```
+  1. Vue 建立模板
+      ```bash
+      vue create my-project
+      # OR
+      vue ui     # GUI 介面
+      ```
+      安裝前設定
+      ```bash
+      Vue CLI v3.4.0
+      # 選取要 preset (預先裝置) 的特性，defaule 包含了基本的 Babel + ESLint preset，這裡選 Manually 來手動選取需要的特性
+      ? Please pick a preset:
+        default (babel, eslint)
+      ❯ Manually select features
+
+      # 選取要安裝的特性
+      ? Check the features needed for your project:
+      ◉ Babel
+      ◯ TypeScript
+      ◯ Progressive Web App (PWA) Support
+      ◉ Router
+      ◉ Vuex
+      ❯◉ CSS Pre-processors
+      ◉ Linter / Formatter
+      ◯ Unit Testing
+      ◯ E2E Testing
+
+      # Vue Router 的 mode (模式) 使用 'history' (另一種 mode 為 'hash'，會在 URL 加上 '#' 符號)
+      ? Use history mode for router? (Requires proper server setup for index fallback in production) (Y/n) Y
+
+      # CSS 預處理器
+      ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default):
+      ❯ Sass/SCSS (with dart-sass)
+        Sass/SCSS (with node-sass)
+        Less
+        Stylus
+
+      # ESLint 協助讓你寫的程式符合規範的輔助工具，區分嚴謹程度 (npm run serve 常錯誤很困擾，建議選用 ESLint + Prettier 即可)
+      ? Pick a linter / formatter config:
+        ESLint with error prevention only
+        ESLint + Airbnb config
+      ❯ ESLint + Standard config
+        ESLint + Prettier
+
+      # 代碼檢查時機
+      ? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+      ❯◉ Lint on save  # 存檔時
+      ◯ Lint and fix on commit (requires Git)  # 提交更新時
+
+      # 在哪為特性進行配置
+      ? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? (Use arrow keys)
+      ❯ In dedicated config files
+        In package.json
+
+      # 是否將上述配置儲存到 preset 的 default (就是一開始那)
+      ? Save this as a preset for future projects? (y/N) N
+      ```
+  - 運行 Vue + Webpack
+      ```bash
+      npm run serve
+      ```
+  - 編譯 Production 版本
+      ```bash
+      npm run buid
+      ```
+<!-- endtab -->
+{% endtabs %}
+
+## 資料結構說明
+
+{% tabs VueCLI-2 %}
+<!-- tab VueCLI 2.x -->
+```
+├── build/             # webpack 配置檔案
+├── config/            # webpack 參數設定檔
+├── dist/              # 打包後可上線的檔案
+├── node_modules/      # 存放套件的資料夾
+├── src/               # 開發階段原始碼
+├── static/            # 存放靜態檔案，是不會被編譯的檔案
+├── .babelrc           # babel 配置檔案
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc.js       # ESLint 配置檔案
+├── .gitignore
+├── .postcssec.js
+├── index.html         # 首頁
+├── package.json       # node 配置檔案
+└── README.md
+```
+
+- `package.json` 內的 script ，分別記錄 `npm run dev`(開發環境), `npm run build`(正式環境) 的 dev 跟 build 的程式碼。
+- `src` 開發階段原始碼：
+    - 目錄下 `main.js` 檔案是 webpack entry 是整個專案的入口點，也就是起始的檔案。
+    - `.vue` 檔案裡分別包含 `x-template`、`javascript`、`style`。
+    - 執行 `npm run build` 會將網頁編譯出並放置於 `dist` 資料夾中，網頁需執行在 server 端中。
+- `~` 代表 `node_modules` 路徑
+- `@` 代表 `src` 路徑
+<!-- endtab -->
+<!-- tab VueCLI 3.x -->
+```bash
+hello-world/        # 專案目錄
+│
+├── dist/           # 使用 npm run build 構建完成的檔案
+│
+├── node_modules/   # 依賴的模組
+│
+├── public/         # 公共資源檔案，不做任何編譯壓縮處理，使用絕對路徑指定的檔案
+│   │
+│   ├── favicon.ico # icon 圖片
+│   └── index.html  # 網站入口
+│
+├── src/            # Vue 與前端的原始檔案
+│   │
+│   ├── assets/     # 公共資源檔案，與 public 不同的是，assets 會經由 webpacd 構建處理，使用相對路徑指定的檔案，如 LOGO 圖片
+│   ├── components/ # Vue 公共組件
+│   ├── views/      # Vue Router 頁面組件
+│   ├── App.vue     # 項目入口
+│   ├── main.js     # 項目的 entry
+│   ├── router.js   # 路由設定
+│   └── store.js    # Vuex 狀態管理
+│
+└── package.json    # 相當於對整個項目的解釋說明文件
+```
+<!-- endtab -->
+{% endtabs %}
+
+## 自定義環境變數
+
+{% tabs VueCLI-var %}
+<!-- tab VueCLI 2.x -->
+```
+config/
+├── dev.env.js    # 開發環境的環境變數
+├── index.js      # 針對運行環境的設定
+├── prod.env.js   # 生產環境的環境變數
+```
+編寫環境變數
+```sh
+HTTP_PATH: '"變數的值"' # 需以單引號包覆雙引號，否則載入後會出錯
+```
+載入環境變數
+```sh
+process.env."變數名稱"
+```
+<!-- endtab -->
+<!-- tab VueCLI 3.x -->
+1. 建立一個 `.env.xxx` 檔案
+    ```sh
+    src/
+    ├─ .env.development #模式用於 vue-cli-service serve
+    ├─ .env.production  #模式用於 vue-cli-service build 和 vue-cli-service test:e2e
+    ```
+    ```sh
+    .env                # 在所有的環境中被載入
+    .env.local          # 在所有的環境中被載入，但會被 git 忽略
+    .env.[mode]         # 只在指定的模式中被載入
+    .env.[mode].local   # 只在指定的模式中被載入，但會被 git 忽略
+    ```
+1. 一個環境文件只包含環境變量的“鍵=值”
+    ```sh
+    # 只有以 VUE_APP_ 開頭的變量會被 webpack.DefinePlugin 靜態嵌入到客戶端側的包中。
+    VUE_APP_SECRET=secret
+    ```
+1. 載入環境變數
+    ```sh
+    process.env.VUE_APP_SECRET
+    ```
+<!-- endtab -->
+{% endtabs %}

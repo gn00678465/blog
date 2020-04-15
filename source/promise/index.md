@@ -3,6 +3,8 @@ title: promise
 date: 2020-03-13 20:43:27
 ---
 
+# Promise
+
 JavaScript 是屬於同步的程式語言，一次僅能做一件事情，但遇到非同步的事件時，就會將非同步的事件移動到事件儲列，等到所有的原始碼運行完以後才會執行非同步的事件。
 
 `Promise` 是在 `ES6` 出現的語法，是用來改善 `JavaScript` 非同步的語法結構，而 `ES7` `Async`、`Await` 可以基於 `Promise` 讓非同步的語法的結構類似於 “同步語言”，更易讀且好管理。
@@ -217,3 +219,5 @@ console.log(4);
 [從一道題淺說 JavaScript 的事件循環](https://github.com/dwqs/blog/issues/61)
 [自己動手實現 ES6 Promise](https://github.com/whinc/blog/issues/2)
 [promise-介紹與使用](https://medium.com/@xyz030206/promise-介紹與使用-66605ef56e34)
+
+# Async、Await
