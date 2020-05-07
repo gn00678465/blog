@@ -311,7 +311,44 @@ DOM標準分成了3個部分。
     <dd class="timeline--entry__detail">它是一種沒有父層節點的「最小化文件物件」。 可以把它看作是一個輕量化的 Document，用如同標準文件一般的方式來保存「片段的文件結構」。</dd>
     <dd class="timeline--entry__detail">因為 <code>createDocumentFragment()</code> 是存在記憶體中，增加子元素並不會導致網頁 reflow (重新計算元素的位置和幾何)。因此採用 <code>createDocumentFragment()</code> 通常會有比較好的效能表現 (better performance)。</dd>
   </dl>
+   <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>Element.insertAdjacentHTML()</code></dt>
+    <dd class="timeline--entry__detail">把傳入的字串解析成 HTML 或 XML，並把該節點插入到 DOM 樹指定的位置。它不會重新解析被使用的元素，因此他不會破壞該元素裡面原有的元素。這避免了序列化的複雜步驟，使得它比直接操作 <code>innerHTML</code> 快上許多。</dd>
+  </dl>
 </div>
+
+{% tabs Dom_node %}
+<!-- tab insertAdjacentHTML() -->
+<div class="codeBox">
+  <div class="ribbon">Syntax</div>
+element.insertAdjacentHTML(position, text)
+</div>
+<br>
+<b>position</b>
+<p>相對於元素的位置，並且必須是以下字符串之一：</p>
+
+- `'beforebegin'`: 在 element 之前。
+- `'afterbegin'`: 在 element 裡面，第一個子元素之前。
+- `'beforeend'`: 在 element 裡面，最後一個子元素之後。
+- `'afterend'`: 在 element 之後。
+
+<b>text</b>
+
+- `text` 是即將被解析並插入到 DOM 樹裡的字串。
+```html
+<!-- beforebegin -->
+<p>
+  <!-- afterbegin -->
+  foo
+  <!-- beforeend -->
+</p>
+<!-- afterend -->
+```
+{% note info %}
+Note:  `beforebegin` 和 `afterend` 只在該節點位於 DOM 樹內、並且有母元素時有效。
+{% endnote %}
+<!-- endtab -->
+{% endtabs %}
 
 ## 節點的修改與刪除
 
