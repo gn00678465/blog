@@ -58,7 +58,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;NodeList.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;eventflow.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;BOM.svg">
-<meta property="og:updated_time" content="2020-05-06T13:43:10.524Z">
+<meta property="og:updated_time" content="2020-05-07T13:57:19.023Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;gn00678465.github.io&#x2F;blog&#x2F;2020&#x2F;02&#x2F;19&#x2F;JS-elementary&#x2F;javascript.png">
 
@@ -213,7 +213,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-06 21:43:10" itemprop="dateModified" datetime="2020-05-06T21:43:10+08:00">2020-05-06</time>
+                <time title="修改時間：2020-05-07 21:57:19" itemprop="dateModified" datetime="2020-05-07T21:57:19+08:00">2020-05-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -422,7 +422,32 @@ DOM標準分成了3個部分。</p>
     <dd class="timeline--entry__detail">它是一種沒有父層節點的「最小化文件物件」。 可以把它看作是一個輕量化的 Document，用如同標準文件一般的方式來保存「片段的文件結構」。</dd>
     <dd class="timeline--entry__detail">因為 <code>createDocumentFragment()</code> 是存在記憶體中，增加子元素並不會導致網頁 reflow (重新計算元素的位置和幾何)。因此採用 <code>createDocumentFragment()</code> 通常會有比較好的效能表現 (better performance)。</dd>
   </dl>
+   <dl class="timeline--entry">
+    <dt class="timeline--entry__title"><code>Element.insertAdjacentHTML()</code></dt>
+    <dd class="timeline--entry__detail">把傳入的字串解析成 HTML 或 XML，並把該節點插入到 DOM 樹指定的位置。它不會重新解析被使用的元素，因此他不會破壞該元素裡面原有的元素。這避免了序列化的複雜步驟，使得它比直接操作 <code>innerHTML</code> 快上許多。</dd>
+  </dl>
 </div>
+<div class="tabs" id="dom_node"><ul class="nav-tabs"><li class="tab active"><a href="#dom_node-1">insertAdjacentHTML()</a></li></ul><div class="tab-content"><div class="tab-pane active" id="dom_node-1"><div class="codeBox">
+  <div class="ribbon">Syntax</div>
+element.insertAdjacentHTML(position, text)
+</div>
+<br>
+<b>position</b>
+<p>相對於元素的位置，並且必須是以下字符串之一：</p>
+<ul>
+<li><code>'beforebegin'</code>: 在 element 之前。</li>
+<li><code>'afterbegin'</code>: 在 element 裡面，第一個子元素之前。</li>
+<li><code>'beforeend'</code>: 在 element 裡面，最後一個子元素之後。</li>
+<li><code>'afterend'</code>: 在 element 之後。</li>
+</ul>
+<p><b>text</b></p>
+<ul>
+<li><code>text</code> 是即將被解析並插入到 DOM 樹裡的字串。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- beforebegin --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- afterbegin --&gt;</span></span><br><span class="line">  foo</span><br><span class="line">  <span class="comment">&lt;!-- beforeend --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- afterend --&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>Note:  <code>beforebegin</code> 和 <code>afterend</code> 只在該節點位於 DOM 樹內、並且有母元素時有效。</p>
+          </div></div></div></div>
 <h2 id="節點的修改與刪除"><a class="header-anchor" href="#節點的修改與刪除"></a>節點的修改與刪除</h2>
 <div class="timeline">
   <dl class="timeline--entry">
